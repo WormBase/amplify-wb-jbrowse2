@@ -1,0 +1,133 @@
+{
+   "assemblies" : [
+      {
+         "displayName" : "c_quiockensis_PRJEB11354",
+         "name" : "c_quiockensis_PRJEB11354",
+         "sequence" : {
+            "adapter" : {
+               "faiLocation" : {
+                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/c_quiockensis.PRJEB11354.WS284.genomic.fa.gz.fai",
+                  "locationType" : "UriLocation"
+               },
+               "type" : "BgzipFastaAdapter",
+               "gziLocation" : {
+                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/c_quiockensis.PRJEB11354.WS284.genomic.fa.gz.gzi",
+                  "locationType" : "UriLocation"
+               },
+               "fastaLocation" : {
+                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/c_quiockensis.PRJEB11354.WS284.genomic.fa.gz",
+                  "locationType" : "UriLocation"
+               }
+            },
+            "displays" : [
+               {
+                  "type" : "LinearReferenceSequenceDisplay",
+                  "displayId" : "c_quiockensis_PRJEB11354-LinearReferenceSequenceDisplay"
+               }
+            ],
+            "type" : "ReferenceSequenceTrack",
+            "trackId" : "c_quiockensis_PRJEB11354-1646426635733"
+         }
+      }
+   ],
+   "tracks" : [
+      {
+         "trackId" : "c_quiockensis_PRJEB11354_curated_genes",
+         "type" : "FeatureTrack",
+         "assemblyNames" : [
+            "c_quiockensis_PRJEB11354"
+         ],
+         "displays" : [
+            {
+               "displayId" : "curated_genes-c_quiockensis_PRJEB11354-LinearBasicDisplay",
+               "renderer" : {
+                  "color1" : "jexl:get(feature,'type')!='CDS'?'gray':get(feature,'strand')>0?'violet':'turquoise'",
+                  "color3" : "#965567",
+                  "type" : "SvgFeatureRenderer",
+                  "labels" : {
+                     "name" : "jexl:get(feature,'locus') || get(feature,'sequence_name')"
+                  }
+               },
+               "type" : "LinearBasicDisplay"
+            }
+         ],
+         "name" : "Curated Genes",
+         "category" : [
+            "Genes",
+            "Curated Genes"
+         ],
+         "description" : "Protein-coding gene structures result from the integration of a variety of prediction methods and data sources followed by manual review and revison by WormBase curators. tRNAs are predicted by tRNAscan, and other non-coding RNA transcripts are taken from a variety of literature sources. The purple and blue colors indicate transcripts on the forward and reverse strands respectively. Dark purple areas represent 5' and 3' UTRs of protein-coding transcripts, assigned automatically using the extents of overlapping ESTs and full-length cDNAs. The UTR predictions have not been reviewed by WormBase curators, and some are known to contain artifacts. Grey transcripts represent either non-coding transcripts of protein coding genes or transcripts of non-coding genes.",
+         "adapter" : {
+            "type" : "NCListAdapter",
+            "rootUrlTemplate" : {
+               "locationType" : "UriLocation",
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS286/c_quiockensis_PRJEB11354/tracks/Curated_Genes/{refseq}/trackData.jsonz"
+            }
+         }
+      },
+      {
+         "assemblyNames" : [
+            "c_quiockensis_PRJEB11354"
+         ],
+         "displays" : [
+            {
+               "displayId" : "curated_genes_(protein_coding)-c_quiockensis_PRJEB11354-LinearBasicDisplay",
+               "type" : "LinearBasicDisplay",
+               "renderer" : {
+                  "color1" : "jexl:get(feature,'strand')>0?'violet':'turquoise'",
+                  "color3" : "#965567",
+                  "type" : "SvgFeatureRenderer"
+               }
+            }
+         ],
+         "name" : "Curated Genes (protein coding)",
+         "trackId" : "c_quiockensis_PRJEB11354_curated_genes_protein_coding",
+         "type" : "FeatureTrack",
+         "description" : "A subset of the full Curated Genes set limited to protein-coding genes only. Only the CDS is represented. Full models (with UTRs) can be seen on the 'Curated Genes' track.",
+         "adapter" : {
+            "rootUrlTemplate" : {
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS286/c_quiockensis_PRJEB11354/tracks/Curated Genes (protein coding)/{refseq}/trackData.jsonz",
+               "locationType" : "UriLocation"
+            },
+            "type" : "NCListAdapter"
+         },
+         "category" : [
+            "Genes",
+            "Curated Genes"
+         ]
+      },
+      {
+         "trackId" : "c_quiockensis_PRJEB11354_low_complextity_region_(dust)",
+         "type" : "FeatureTrack",
+         "displays" : [
+            {
+               "displayId" : "low_complextity_region_(dust)-c_quiockensis_PRJEB11354-LinearBasicDisplay",
+               "renderer" : {
+                  "height" : 4,
+                  "type" : "SvgFeatureRenderer",
+                  "showDescriptions" : false,
+                  "color1" : "bisque",
+                  "showLabels" : false
+               },
+               "type" : "LinearBasicDisplay"
+            }
+         ],
+         "name" : "Low complextity region (Dust)",
+         "assemblyNames" : [
+            "c_quiockensis_PRJEB11354"
+         ],
+         "category" : [
+            "Genome Structure",
+            "Repeats"
+         ],
+         "description" : "Low-complexity regions identified by Dust.",
+         "adapter" : {
+            "type" : "NCListAdapter",
+            "rootUrlTemplate" : {
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS286/c_quiockensis_PRJEB11354/tracks/Low complextity region (Dust)/{refseq}/trackData.jsonz",
+               "locationType" : "UriLocation"
+            }
+         }
+      }
+   ]
+}
