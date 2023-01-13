@@ -1,6 +1,52 @@
 {
+   "assemblies" : [
+      {
+         "name" : "o_tipulae_PRJEB15512",
+         "sequence" : {
+            "trackId" : "o_tipulae_PRJEB15512-1646426635733",
+            "adapter" : {
+               "faiLocation" : {
+                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/o_tipulae.PRJEB15512.WS284.genomic.fa.gz.fai",
+                  "locationType" : "UriLocation"
+               },
+               "type" : "BgzipFastaAdapter",
+               "gziLocation" : {
+                  "locationType" : "UriLocation",
+                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/o_tipulae.PRJEB15512.WS284.genomic.fa.gz.gzi"
+               },
+               "fastaLocation" : {
+                  "locationType" : "UriLocation",
+                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/o_tipulae.PRJEB15512.WS284.genomic.fa.gz"
+               }
+            },
+            "type" : "ReferenceSequenceTrack",
+            "displays" : [
+               {
+                  "type" : "LinearReferenceSequenceDisplay",
+                  "displayId" : "o_tipulae_PRJEB15512-LinearReferenceSequenceDisplay"
+               }
+            ]
+         },
+         "displayName" : "o_tipulae_PRJEB15512"
+      }
+   ],
    "tracks" : [
       {
+         "displays" : [
+            {
+               "renderer" : {
+                  "type" : "SvgFeatureRenderer",
+                  "color3" : "#965567",
+                  "color1" : "jexl:get(feature,'strand')>0?'violet':'turquoise'"
+               },
+               "type" : "LinearBasicDisplay",
+               "displayId" : "curated_genes_(protein_coding)-o_tipulae_PRJEB15512-LinearBasicDisplay"
+            }
+         ],
+         "category" : [
+            "Genes",
+            "Curated Genes"
+         ],
          "adapter" : {
             "type" : "NCListAdapter",
             "rootUrlTemplate" : {
@@ -8,86 +54,66 @@
                "locationType" : "UriLocation"
             }
          },
-         "displays" : [
-            {
-               "displayId" : "curated_genes_(protein_coding)-o_tipulae_PRJEB15512-LinearBasicDisplay",
-               "type" : "LinearBasicDisplay",
-               "renderer" : {
-                  "type" : "SvgFeatureRenderer",
-                  "color3" : "#965567",
-                  "color1" : "jexl:get(feature,'strand')>0?'violet':'turquoise'"
-               }
-            }
-         ],
-         "name" : "Curated Genes (protein coding)",
          "trackId" : "o_tipulae_PRJEB15512_curated_genes_protein_coding",
          "description" : "A subset of the full Curated Genes set limited to protein-coding genes only. Only the CDS is represented. Full models (with UTRs) can be seen on the 'Curated Genes' track.",
-         "category" : [
-            "Genes",
-            "Curated Genes"
-         ],
+         "name" : "Curated Genes (protein coding)",
+         "type" : "FeatureTrack",
          "assemblyNames" : [
             "o_tipulae_PRJEB15512"
-         ],
-         "type" : "FeatureTrack"
+         ]
       },
       {
+         "type" : "FeatureTrack",
          "assemblyNames" : [
             "o_tipulae_PRJEB15512"
-         ],
-         "type" : "FeatureTrack",
-         "category" : [
-            "Genes",
-            "Curated Genes"
          ],
          "description" : "Protein-coding gene structures result from the integration of a variety of prediction methods and data sources followed by manual review and revison by WormBase curators. tRNAs are predicted by tRNAscan, and other non-coding RNA transcripts are taken from a variety of literature sources. The purple and blue colors indicate transcripts on the forward and reverse strands respectively. Dark purple areas represent 5' and 3' UTRs of protein-coding transcripts, assigned automatically using the extents of overlapping ESTs and full-length cDNAs. The UTR predictions have not been reviewed by WormBase curators, and some are known to contain artifacts. Grey transcripts represent either non-coding transcripts of protein coding genes or transcripts of non-coding genes.",
          "name" : "Curated Genes",
+         "category" : [
+            "Genes",
+            "Curated Genes"
+         ],
+         "adapter" : {
+            "rootUrlTemplate" : {
+               "locationType" : "UriLocation",
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS287/o_tipulae_PRJEB15512/tracks/Curated_Genes/{refseq}/trackData.jsonz"
+            },
+            "type" : "NCListAdapter"
+         },
          "trackId" : "o_tipulae_PRJEB15512_curated_genes",
          "displays" : [
             {
                "displayId" : "curated_genes-o_tipulae_PRJEB15512-LinearBasicDisplay",
+               "type" : "LinearBasicDisplay",
                "renderer" : {
                   "color1" : "jexl:get(feature,'type')!='CDS'?'gray':get(feature,'strand')>0?'violet':'turquoise'",
-                  "type" : "SvgFeatureRenderer",
                   "labels" : {
                      "name" : "jexl:get(feature,'locus') || get(feature,'sequence_name')"
                   },
+                  "type" : "SvgFeatureRenderer",
                   "color3" : "#965567"
+               }
+            }
+         ]
+      },
+      {
+         "displays" : [
+            {
+               "displayId" : "low_complextity_region_(dust)-o_tipulae_PRJEB15512-LinearBasicDisplay",
+               "renderer" : {
+                  "color1" : "bisque",
+                  "showDescriptions" : false,
+                  "height" : 4,
+                  "showLabels" : false,
+                  "type" : "SvgFeatureRenderer"
                },
                "type" : "LinearBasicDisplay"
             }
          ],
-         "adapter" : {
-            "type" : "NCListAdapter",
-            "rootUrlTemplate" : {
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS287/o_tipulae_PRJEB15512/tracks/Curated_Genes/{refseq}/trackData.jsonz",
-               "locationType" : "UriLocation"
-            }
-         }
-      },
-      {
+         "trackId" : "o_tipulae_PRJEB15512_low_complextity_region_(dust)",
          "category" : [
             "Genome Structure",
             "Repeats"
-         ],
-         "assemblyNames" : [
-            "o_tipulae_PRJEB15512"
-         ],
-         "type" : "FeatureTrack",
-         "name" : "Low complextity region (Dust)",
-         "trackId" : "o_tipulae_PRJEB15512_low_complextity_region_(dust)",
-         "displays" : [
-            {
-               "type" : "LinearBasicDisplay",
-               "renderer" : {
-                  "color1" : "bisque",
-                  "height" : 4,
-                  "type" : "SvgFeatureRenderer",
-                  "showDescriptions" : false,
-                  "showLabels" : false
-               },
-               "displayId" : "low_complextity_region_(dust)-o_tipulae_PRJEB15512-LinearBasicDisplay"
-            }
          ],
          "adapter" : {
             "rootUrlTemplate" : {
@@ -96,38 +122,12 @@
             },
             "type" : "NCListAdapter"
          },
-         "description" : "Low-complexity regions identified by Dust."
-      }
-   ],
-   "assemblies" : [
-      {
-         "displayName" : "o_tipulae_PRJEB15512",
-         "sequence" : {
-            "type" : "ReferenceSequenceTrack",
-            "adapter" : {
-               "type" : "BgzipFastaAdapter",
-               "faiLocation" : {
-                  "locationType" : "UriLocation",
-                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/o_tipulae.PRJEB15512.WS284.genomic.fa.gz.fai"
-               },
-               "fastaLocation" : {
-                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/o_tipulae.PRJEB15512.WS284.genomic.fa.gz",
-                  "locationType" : "UriLocation"
-               },
-               "gziLocation" : {
-                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/o_tipulae.PRJEB15512.WS284.genomic.fa.gz.gzi",
-                  "locationType" : "UriLocation"
-               }
-            },
-            "displays" : [
-               {
-                  "displayId" : "o_tipulae_PRJEB15512-LinearReferenceSequenceDisplay",
-                  "type" : "LinearReferenceSequenceDisplay"
-               }
-            ],
-            "trackId" : "o_tipulae_PRJEB15512-1646426635733"
-         },
-         "name" : "o_tipulae_PRJEB15512"
+         "description" : "Low-complexity regions identified by Dust.",
+         "name" : "Low complextity region (Dust)",
+         "assemblyNames" : [
+            "o_tipulae_PRJEB15512"
+         ],
+         "type" : "FeatureTrack"
       }
    ]
 }
