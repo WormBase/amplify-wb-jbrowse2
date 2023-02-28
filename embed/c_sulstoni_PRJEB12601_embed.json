@@ -1,35 +1,4 @@
 {
-   "assemblies" : [
-      {
-         "displayName" : "c_sulstoni_PRJEB12601",
-         "sequence" : {
-            "type" : "ReferenceSequenceTrack",
-            "adapter" : {
-               "type" : "BgzipFastaAdapter",
-               "faiLocation" : {
-                  "locationType" : "UriLocation",
-                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/c_sulstoni.PRJEB12601.WS284.genomic.fa.gz.fai"
-               },
-               "gziLocation" : {
-                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/c_sulstoni.PRJEB12601.WS284.genomic.fa.gz.gzi",
-                  "locationType" : "UriLocation"
-               },
-               "fastaLocation" : {
-                  "locationType" : "UriLocation",
-                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/c_sulstoni.PRJEB12601.WS284.genomic.fa.gz"
-               }
-            },
-            "trackId" : "c_sulstoni_PRJEB12601-1646426635733",
-            "displays" : [
-               {
-                  "type" : "LinearReferenceSequenceDisplay",
-                  "displayId" : "c_sulstoni_PRJEB12601-LinearReferenceSequenceDisplay"
-               }
-            ]
-         },
-         "name" : "c_sulstoni_PRJEB12601"
-      }
-   ],
    "tracks" : [
       {
          "adapter" : {
@@ -39,101 +8,132 @@
             },
             "type" : "NCListAdapter"
          },
-         "trackId" : "c_sulstoni_PRJEB12601_curated_genes_protein_coding",
+         "displays" : [
+            {
+               "renderer" : {
+                  "type" : "SvgFeatureRenderer",
+                  "color1" : "jexl:get(feature,'strand')>0?'violet':'turquoise'",
+                  "color3" : "#965567"
+               },
+               "displayId" : "curated_genes_(protein_coding)-c_sulstoni_PRJEB12601-LinearBasicDisplay",
+               "type" : "LinearBasicDisplay"
+            }
+         ],
+         "type" : "FeatureTrack",
          "assemblyNames" : [
             "c_sulstoni_PRJEB12601"
          ],
+         "formatDetails" : {
+            "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/c_sulstoni_PRJEB12601' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.name+'</a>'}"
+         },
+         "trackId" : "c_sulstoni_PRJEB12601_curated_genes_protein_coding",
          "description" : "A subset of the full Curated Genes set limited to protein-coding genes only. Only the CDS is represented. Full models (with UTRs) can be seen on the 'Curated Genes' track.",
-         "type" : "FeatureTrack",
+         "name" : "Curated Genes (protein coding)",
+         "category" : [
+            "Genes",
+            "Curated Genes"
+         ]
+      },
+      {
+         "name" : "Curated Genes",
+         "description" : "Protein-coding gene structures result from the integration of a variety of prediction methods and data sources followed by manual review and revison by WormBase curators. tRNAs are predicted by tRNAscan, and other non-coding RNA transcripts are taken from a variety of literature sources. The purple and blue colors indicate transcripts on the forward and reverse strands respectively. Dark purple areas represent 5' and 3' UTRs of protein-coding transcripts, assigned automatically using the extents of overlapping ESTs and full-length cDNAs. The UTR predictions have not been reviewed by WormBase curators, and some are known to contain artifacts. Grey transcripts represent either non-coding transcripts of protein coding genes or transcripts of non-coding genes.",
          "category" : [
             "Genes",
             "Curated Genes"
          ],
-         "name" : "Curated Genes (protein coding)",
+         "trackId" : "c_sulstoni_PRJEB12601_curated_genes",
+         "assemblyNames" : [
+            "c_sulstoni_PRJEB12601"
+         ],
          "formatDetails" : {
             "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/c_sulstoni_PRJEB12601' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.name+'</a>'}"
          },
+         "type" : "FeatureTrack",
          "displays" : [
             {
-               "type" : "LinearBasicDisplay",
-               "displayId" : "curated_genes_(protein_coding)-c_sulstoni_PRJEB12601-LinearBasicDisplay",
                "renderer" : {
                   "type" : "SvgFeatureRenderer",
+                  "color1" : "jexl:get(feature,'type')!='CDS'?'gray':get(feature,'strand')>0?'violet':'turquoise'",
                   "color3" : "#965567",
-                  "color1" : "jexl:get(feature,'strand')>0?'violet':'turquoise'"
-               }
+                  "labels" : {
+                     "name" : "jexl:get(feature,'locus') || get(feature,'sequence_name')"
+                  }
+               },
+               "displayId" : "curated_genes-c_sulstoni_PRJEB12601-LinearBasicDisplay",
+               "type" : "LinearBasicDisplay"
             }
-         ]
+         ],
+         "adapter" : {
+            "rootUrlTemplate" : {
+               "locationType" : "UriLocation",
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS287/c_sulstoni_PRJEB12601/tracks/Curated_Genes/{refseq}/trackData.jsonz"
+            },
+            "type" : "NCListAdapter"
+         }
       },
       {
          "adapter" : {
             "type" : "NCListAdapter",
             "rootUrlTemplate" : {
-               "locationType" : "UriLocation",
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS287/c_sulstoni_PRJEB12601/tracks/Curated_Genes/{refseq}/trackData.jsonz"
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS287/c_sulstoni_PRJEB12601/tracks/Low complextity region (Dust)/{refseq}/trackData.jsonz",
+               "locationType" : "UriLocation"
             }
          },
-         "trackId" : "c_sulstoni_PRJEB12601_curated_genes",
+         "displays" : [
+            {
+               "renderer" : {
+                  "showLabels" : false,
+                  "showDescriptions" : false,
+                  "color1" : "bisque",
+                  "height" : 4,
+                  "type" : "SvgFeatureRenderer"
+               },
+               "type" : "LinearBasicDisplay",
+               "displayId" : "low_complextity_region_(dust)-c_sulstoni_PRJEB12601-LinearBasicDisplay"
+            }
+         ],
          "type" : "FeatureTrack",
-         "description" : "Protein-coding gene structures result from the integration of a variety of prediction methods and data sources followed by manual review and revison by WormBase curators. tRNAs are predicted by tRNAscan, and other non-coding RNA transcripts are taken from a variety of literature sources. The purple and blue colors indicate transcripts on the forward and reverse strands respectively. Dark purple areas represent 5' and 3' UTRs of protein-coding transcripts, assigned automatically using the extents of overlapping ESTs and full-length cDNAs. The UTR predictions have not been reviewed by WormBase curators, and some are known to contain artifacts. Grey transcripts represent either non-coding transcripts of protein coding genes or transcripts of non-coding genes.",
+         "trackId" : "c_sulstoni_PRJEB12601_low_complextity_region_(dust)",
          "assemblyNames" : [
             "c_sulstoni_PRJEB12601"
          ],
-         "displays" : [
-            {
-               "displayId" : "curated_genes-c_sulstoni_PRJEB12601-LinearBasicDisplay",
-               "type" : "LinearBasicDisplay",
-               "renderer" : {
-                  "color3" : "#965567",
-                  "type" : "SvgFeatureRenderer",
-                  "color1" : "jexl:get(feature,'type')!='CDS'?'gray':get(feature,'strand')>0?'violet':'turquoise'",
-                  "labels" : {
-                     "name" : "jexl:get(feature,'locus') || get(feature,'sequence_name')"
-                  }
-               }
-            }
-         ],
-         "formatDetails" : {
-            "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/c_sulstoni_PRJEB12601' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.name+'</a>'}"
-         },
-         "name" : "Curated Genes",
-         "category" : [
-            "Genes",
-            "Curated Genes"
-         ]
-      },
-      {
          "category" : [
             "Genome Structure",
             "Repeats"
          ],
          "name" : "Low complextity region (Dust)",
-         "displays" : [
-            {
-               "type" : "LinearBasicDisplay",
-               "displayId" : "low_complextity_region_(dust)-c_sulstoni_PRJEB12601-LinearBasicDisplay",
-               "renderer" : {
-                  "type" : "SvgFeatureRenderer",
-                  "color1" : "bisque",
-                  "showDescriptions" : false,
-                  "height" : 4,
-                  "showLabels" : false
+         "description" : "Low-complexity regions identified by Dust."
+      }
+   ],
+   "assemblies" : [
+      {
+         "name" : "c_sulstoni_PRJEB12601",
+         "sequence" : {
+            "type" : "ReferenceSequenceTrack",
+            "displays" : [
+               {
+                  "type" : "LinearReferenceSequenceDisplay",
+                  "displayId" : "c_sulstoni_PRJEB12601-LinearReferenceSequenceDisplay"
                }
-            }
-         ],
-         "assemblyNames" : [
-            "c_sulstoni_PRJEB12601"
-         ],
-         "description" : "Low-complexity regions identified by Dust.",
-         "type" : "FeatureTrack",
-         "trackId" : "c_sulstoni_PRJEB12601_low_complextity_region_(dust)",
-         "adapter" : {
-            "type" : "NCListAdapter",
-            "rootUrlTemplate" : {
-               "locationType" : "UriLocation",
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS287/c_sulstoni_PRJEB12601/tracks/Low complextity region (Dust)/{refseq}/trackData.jsonz"
-            }
-         }
+            ],
+            "adapter" : {
+               "fastaLocation" : {
+                  "locationType" : "UriLocation",
+                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/c_sulstoni.PRJEB12601.WS284.genomic.fa.gz"
+               },
+               "gziLocation" : {
+                  "locationType" : "UriLocation",
+                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/c_sulstoni.PRJEB12601.WS284.genomic.fa.gz.gzi"
+               },
+               "type" : "BgzipFastaAdapter",
+               "faiLocation" : {
+                  "locationType" : "UriLocation",
+                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/c_sulstoni.PRJEB12601.WS284.genomic.fa.gz.fai"
+               }
+            },
+            "trackId" : "c_sulstoni_PRJEB12601-1646426635733"
+         },
+         "displayName" : "c_sulstoni_PRJEB12601"
       }
    ]
 }
