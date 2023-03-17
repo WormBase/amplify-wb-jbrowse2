@@ -1,119 +1,84 @@
 {
    "tracks" : [
       {
+         "name" : "Curated Genes (protein coding)",
+         "displays" : [
+            {
+               "type" : "LinearBasicDisplay",
+               "renderer" : {
+                  "type" : "SvgFeatureRenderer",
+                  "color3" : "#965567",
+                  "color1" : "jexl:get(feature,'strand')>0?'violet':'turquoise'"
+               },
+               "displayId" : "curated_genes_(protein_coding)-p_pacificus_PRJNA12644-LinearBasicDisplay"
+            }
+         ],
+         "assemblyNames" : [
+            "p_pacificus_PRJNA12644"
+         ],
          "formatDetails" : {
             "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/p_pacificus_PRJNA12644' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.name+'</a>'}"
          },
+         "category" : [
+            "Genes",
+            "Curated Genes"
+         ],
          "adapter" : {
             "rootUrlTemplate" : {
                "locationType" : "UriLocation",
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_pacificus_PRJNA12644/tracks/Gene Models (historical)/{refseq}/trackData.jsonz"
-            },
-            "type" : "NCListAdapter"
-         },
-         "trackId" : "p_pacificus_PRJNA12644_gene_models_(historical)",
-         "description" : "Historical gene predictions.",
-         "type" : "FeatureTrack",
-         "assemblyNames" : [
-            "p_pacificus_PRJNA12644"
-         ],
-         "category" : [
-            "Genes",
-            "Curated Genes"
-         ],
-         "displays" : [
-            {
-               "displayId" : "gene_models_(historical)-p_pacificus_PRJNA12644-LinearBasicDisplay",
-               "type" : "LinearBasicDisplay",
-               "renderer" : {
-                  "labels" : {
-                     "description" : "jexl:get(feature,'type')"
-                  },
-                  "color1" : "jexl:get(feature,'strand')>0?'violet':'turquoise'",
-                  "type" : "SvgFeatureRenderer"
-               }
-            }
-         ],
-         "name" : "Gene Models (historical)"
-      },
-      {
-         "category" : [
-            "Genes",
-            "Curated Genes"
-         ],
-         "name" : "Curated Genes",
-         "displays" : [
-            {
-               "displayId" : "curated_genes-p_pacificus_PRJNA12644-LinearBasicDisplay",
-               "type" : "LinearBasicDisplay",
-               "renderer" : {
-                  "color3" : "#965567",
-                  "labels" : {
-                     "name" : "jexl:get(feature,'locus') || get(feature,'sequence_name')"
-                  },
-                  "color1" : "jexl:get(feature,'type')!='CDS'?'gray':get(feature,'strand')>0?'violet':'turquoise'",
-                  "type" : "SvgFeatureRenderer"
-               }
-            }
-         ],
-         "formatDetails" : {
-            "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/p_pacificus_PRJNA12644' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.name+'</a>', WormBase: feature.source=='WormBase'?'<a href=\"/get?name='+feature.name+';class=Gene\">Gene Page</a>':''}"
-         },
-         "adapter" : {
-            "type" : "NCListAdapter",
-            "rootUrlTemplate" : {
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_pacificus_PRJNA12644/tracks/Curated_Genes/{refseq}/trackData.jsonz",
-               "locationType" : "UriLocation"
-            }
-         },
-         "trackId" : "p_pacificus_PRJNA12644_curated_genes",
-         "type" : "FeatureTrack",
-         "description" : "Protein-coding gene structures result from the integration of a variety of prediction methods and data sources followed by manual review and revison by WormBase curators. tRNAs are predicted by tRNAscan, and other non-coding RNA transcripts are taken from a variety of literature sources. The purple and blue colors indicate transcripts on the forward and reverse strands respectively. Dark purple areas represent 5' and 3' UTRs of protein-coding transcripts, assigned automatically using the extents of overlapping ESTs and full-length cDNAs. The UTR predictions have not been reviewed by WormBase curators, and some are known to contain artifacts. Grey transcripts represent either non-coding transcripts of protein coding genes or transcripts of non-coding genes.",
-         "assemblyNames" : [
-            "p_pacificus_PRJNA12644"
-         ]
-      },
-      {
-         "category" : [
-            "Genes",
-            "Curated Genes"
-         ],
-         "displays" : [
-            {
-               "displayId" : "curated_genes_(protein_coding)-p_pacificus_PRJNA12644-LinearBasicDisplay",
-               "renderer" : {
-                  "color3" : "#965567",
-                  "color1" : "jexl:get(feature,'strand')>0?'violet':'turquoise'",
-                  "type" : "SvgFeatureRenderer"
-               },
-               "type" : "LinearBasicDisplay"
-            }
-         ],
-         "name" : "Curated Genes (protein coding)",
-         "formatDetails" : {
-            "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/p_pacificus_PRJNA12644' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.name+'</a>'}"
-         },
-         "adapter" : {
-            "rootUrlTemplate" : {
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_pacificus_PRJNA12644/tracks/Curated Genes (protein coding)/{refseq}/trackData.jsonz",
-               "locationType" : "UriLocation"
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_pacificus_PRJNA12644/tracks/Curated Genes (protein coding)/{refseq}/trackData.jsonz"
             },
             "type" : "NCListAdapter"
          },
          "trackId" : "p_pacificus_PRJNA12644_curated_genes_protein_coding",
          "description" : "A subset of the full Curated Genes set limited to protein-coding genes only. Only the CDS is represented. Full models (with UTRs) can be seen on the 'Curated Genes' track.",
+         "type" : "FeatureTrack"
+      },
+      {
+         "description" : "This track shows the extent of predicted protein motifs. Note these spans correspond to amino acid coordinates interpolated onto the physical map.  Included are signal peptide (signalp), coiled coil (ncoils) and transmembrane (tmhmm) domains, regions of low complexity (seg), and Pfam annotated motif homologies.",
          "type" : "FeatureTrack",
+         "trackId" : "p_pacificus_PRJNA12644_protein_motifs",
          "assemblyNames" : [
             "p_pacificus_PRJNA12644"
+         ],
+         "category" : [
+            "Sequence Features",
+            "Translated Features"
+         ],
+         "formatDetails" : {
+            "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/p_pacificus_PRJNA12644' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.refName+':'+feature.start+'..'+feature.end+'</a>'}"
+         },
+         "adapter" : {
+            "rootUrlTemplate" : {
+               "locationType" : "UriLocation",
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_pacificus_PRJNA12644/tracks/Protein motifs/{refseq}/trackData.jsonz"
+            },
+            "type" : "NCListAdapter"
+         },
+         "name" : "Protein motifs",
+         "displays" : [
+            {
+               "renderer" : {
+                  "color1" : "jexl:parent(feature)=='undefined'?'purple':get(parent(feature),'predictiontype')=='tmhmm'?'magenta':get(parent(feature),'predictiontype')=='seg'?'lightseagreen':get(parent(feature),'predictiontype')=='signalp'?'aquamarine':get(parent(feature),'predictiontype')=='ncoils'?'chartreuse':\nget(parent(feature),'predictiontype')=='pfam'?'lightsalmon':'purple'",
+                  "height" : 7,
+                  "type" : "SvgFeatureRenderer"
+               },
+               "type" : "LinearBasicDisplay",
+               "displayId" : "protein_motifs-p_pacificus_PRJNA12644-LinearBasicDisplay"
+            }
          ]
       },
       {
          "assemblyNames" : [
             "p_pacificus_PRJNA12644"
          ],
-         "description" : "Native (same species) full length cDNAs and ncRNAs aligned to the genome using BLAT. This track shows the best unique location for each cDNA.",
-         "type" : "FeatureTrack",
-         "trackId" : "p_pacificus_PRJNA12644_mrnas/ncrnas_(best)",
+         "formatDetails" : {
+            "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/p_pacificus_PRJNA12644' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.name+'</a>'}"
+         },
+         "category" : [
+            "Genes",
+            "Supporting Evidence"
+         ],
          "adapter" : {
             "rootUrlTemplate" : {
                "locationType" : "UriLocation",
@@ -121,35 +86,67 @@
             },
             "type" : "NCListAdapter"
          },
+         "name" : "mRNAs/ncRNAs (best)",
+         "displays" : [
+            {
+               "displayId" : "mrnas/ncrnas_(best)-p_pacificus_PRJNA12644-LinearBasicDisplay",
+               "type" : "LinearBasicDisplay",
+               "renderer" : {
+                  "height" : 6,
+                  "color1" : "jexl:startsWith(get(feature,'source'),'BLAT_mRNA_')==true?'yellow':'gray'",
+                  "type" : "SvgFeatureRenderer",
+                  "outline" : "black"
+               }
+            }
+         ],
+         "description" : "Native (same species) full length cDNAs and ncRNAs aligned to the genome using BLAT. This track shows the best unique location for each cDNA.",
+         "type" : "FeatureTrack",
+         "trackId" : "p_pacificus_PRJNA12644_mrnas/ncrnas_(best)"
+      },
+      {
+         "description" : "This track shows the locations of the cosmids, fosmids, and YACs used for the physical mapping and sequencing of the C. elegans genome.  The clone termini do not necessarily correspond to the termini of submitted GenBank/EMBL entries. In some cases the exact termini of the clones is not known.  For example, YACs were sequenced using PCR amplification across gaps in the cosmid maps.  When a clone end is not known, it is shown as an arrow extending to the end of the display.  Such data is to be treated with caution.  The Vancouver fosmids can be ordered directly from <a href='http://www.geneservice.co.uk/products/clones/Celegans_Fos.jsp'>GeneService</a>.",
+         "type" : "FeatureTrack",
+         "trackId" : "p_pacificus_PRJNA12644_yacs_fosmids_cosmids",
          "formatDetails" : {
-            "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/p_pacificus_PRJNA12644' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.name+'</a>'}"
+            "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/p_pacificus_PRJNA12644' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.refName+':'+feature.start+'..'+feature.end+'</a>'}"
          },
+         "category" : [
+            "Reagents"
+         ],
+         "assemblyNames" : [
+            "p_pacificus_PRJNA12644"
+         ],
+         "adapter" : {
+            "rootUrlTemplate" : {
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_pacificus_PRJNA12644/tracks/YACs, Fosmids, & Cosmids/{refseq}/trackData.jsonz",
+               "locationType" : "UriLocation"
+            },
+            "type" : "NCListAdapter"
+         },
+         "name" : "YACs, Fosmids, & Cosmids",
          "displays" : [
             {
                "renderer" : {
-                  "height" : 6,
                   "type" : "SvgFeatureRenderer",
-                  "color1" : "jexl:startsWith(get(feature,'source'),'BLAT_mRNA_')==true?'yellow':'gray'",
-                  "outline" : "black"
+                  "color1" : "black",
+                  "height" : 3
                },
                "type" : "LinearBasicDisplay",
-               "displayId" : "mrnas/ncrnas_(best)-p_pacificus_PRJNA12644-LinearBasicDisplay"
+               "displayId" : "yacs,_fosmids,_&_cosmids-p_pacificus_PRJNA12644-LinearBasicDisplay"
             }
-         ],
-         "name" : "mRNAs/ncRNAs (best)",
-         "category" : [
-            "Genes",
-            "Supporting Evidence"
          ]
       },
       {
+         "trackId" : "p_pacificus_PRJNA12644_curated_genes_pseudogenes",
+         "description" : "A subset of the full Curated Genes set limited to pseudogenes only. Pseudogenes of tRNA are lighter gray and pseudogenes of rRNA are darker gray than pseudogenes of protein coding genes.",
+         "type" : "FeatureTrack",
          "name" : "Curated Genes (pseudogenes)",
          "displays" : [
             {
                "displayId" : "curated_genes_(pseudogenes)-p_pacificus_PRJNA12644-LinearBasicDisplay",
                "renderer" : {
-                  "height" : 6,
                   "type" : "SvgFeatureRenderer",
+                  "height" : 6,
                   "color1" : "gray"
                },
                "type" : "LinearBasicDisplay"
@@ -159,130 +156,127 @@
             "Genes",
             "Curated Genes"
          ],
+         "formatDetails" : {
+            "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/p_pacificus_PRJNA12644' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.name+'</a>'}"
+         },
          "assemblyNames" : [
             "p_pacificus_PRJNA12644"
          ],
-         "type" : "FeatureTrack",
-         "description" : "A subset of the full Curated Genes set limited to pseudogenes only. Pseudogenes of tRNA are lighter gray and pseudogenes of rRNA are darker gray than pseudogenes of protein coding genes.",
-         "trackId" : "p_pacificus_PRJNA12644_curated_genes_pseudogenes",
          "adapter" : {
-            "type" : "NCListAdapter",
             "rootUrlTemplate" : {
-               "locationType" : "UriLocation",
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_pacificus_PRJNA12644/tracks/Curated Genes (pseudogenes)/{refseq}/trackData.jsonz"
-            }
-         },
-         "formatDetails" : {
-            "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/p_pacificus_PRJNA12644' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.name+'</a>'}"
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_pacificus_PRJNA12644/tracks/Curated Genes (pseudogenes)/{refseq}/trackData.jsonz",
+               "locationType" : "UriLocation"
+            },
+            "type" : "NCListAdapter"
          }
       },
       {
-         "category" : [
-            "Reagents"
-         ],
          "displays" : [
             {
-               "displayId" : "yacs,_fosmids,_&_cosmids-p_pacificus_PRJNA12644-LinearBasicDisplay",
+               "displayId" : "gene_models_(historical)-p_pacificus_PRJNA12644-LinearBasicDisplay",
                "renderer" : {
-                  "height" : 3,
+                  "labels" : {
+                     "description" : "jexl:get(feature,'type')"
+                  },
                   "type" : "SvgFeatureRenderer",
-                  "color1" : "black"
+                  "color1" : "jexl:get(feature,'strand')>0?'violet':'turquoise'"
                },
                "type" : "LinearBasicDisplay"
             }
          ],
-         "name" : "YACs, Fosmids, & Cosmids",
-         "adapter" : {
-            "type" : "NCListAdapter",
-            "rootUrlTemplate" : {
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_pacificus_PRJNA12644/tracks/YACs, Fosmids, & Cosmids/{refseq}/trackData.jsonz",
-               "locationType" : "UriLocation"
-            }
-         },
-         "trackId" : "p_pacificus_PRJNA12644_yacs_fosmids_cosmids",
-         "formatDetails" : {
-            "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/p_pacificus_PRJNA12644' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.refName+':'+feature.start+'..'+feature.end+'</a>'}"
-         },
-         "assemblyNames" : [
-            "p_pacificus_PRJNA12644"
-         ],
-         "description" : "This track shows the locations of the cosmids, fosmids, and YACs used for the physical mapping and sequencing of the C. elegans genome.  The clone termini do not necessarily correspond to the termini of submitted GenBank/EMBL entries. In some cases the exact termini of the clones is not known.  For example, YACs were sequenced using PCR amplification across gaps in the cosmid maps.  When a clone end is not known, it is shown as an arrow extending to the end of the display.  Such data is to be treated with caution.  The Vancouver fosmids can be ordered directly from <a href='http://www.geneservice.co.uk/products/clones/Celegans_Fos.jsp'>GeneService</a>.",
-         "type" : "FeatureTrack"
-      },
-      {
-         "formatDetails" : {
-            "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/p_pacificus_PRJNA12644' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.refName+':'+feature.start+'..'+feature.end+'</a>'}"
-         },
+         "name" : "Gene Models (historical)",
          "adapter" : {
             "rootUrlTemplate" : {
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_pacificus_PRJNA12644/tracks/Protein motifs/{refseq}/trackData.jsonz",
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_pacificus_PRJNA12644/tracks/Gene Models (historical)/{refseq}/trackData.jsonz",
                "locationType" : "UriLocation"
             },
             "type" : "NCListAdapter"
          },
-         "trackId" : "p_pacificus_PRJNA12644_protein_motifs",
-         "type" : "FeatureTrack",
-         "description" : "This track shows the extent of predicted protein motifs. Note these spans correspond to amino acid coordinates interpolated onto the physical map.  Included are signal peptide (signalp), coiled coil (ncoils) and transmembrane (tmhmm) domains, regions of low complexity (seg), and Pfam annotated motif homologies.",
          "assemblyNames" : [
             "p_pacificus_PRJNA12644"
          ],
+         "formatDetails" : {
+            "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/p_pacificus_PRJNA12644' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.name+'</a>'}"
+         },
          "category" : [
-            "Sequence Features",
-            "Translated Features"
+            "Genes",
+            "Curated Genes"
          ],
-         "name" : "Protein motifs",
-         "displays" : [
-            {
-               "displayId" : "protein_motifs-p_pacificus_PRJNA12644-LinearBasicDisplay",
-               "renderer" : {
-                  "color1" : "jexl:parent(feature)=='undefined'?'purple':get(parent(feature),'predictiontype')=='tmhmm'?'magenta':get(parent(feature),'predictiontype')=='seg'?'lightseagreen':get(parent(feature),'predictiontype')=='signalp'?'aquamarine':get(parent(feature),'predictiontype')=='ncoils'?'chartreuse':\nget(parent(feature),'predictiontype')=='pfam'?'lightsalmon':'purple'",
-                  "type" : "SvgFeatureRenderer",
-                  "height" : 7
-               },
-               "type" : "LinearBasicDisplay"
-            }
-         ]
+         "trackId" : "p_pacificus_PRJNA12644_gene_models_(historical)",
+         "type" : "FeatureTrack",
+         "description" : "Historical gene predictions."
       },
       {
-         "adapter" : {
-            "rootUrlTemplate" : {
-               "locationType" : "UriLocation",
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_pacificus_PRJNA12644/tracks/O. volvulus proteins/{refseq}/trackData.jsonz"
-            },
-            "type" : "NCListAdapter"
-         },
-         "trackId" : "p_pacificus_PRJNA12644_O_volvulus_proteins",
-         "assemblyNames" : [
-            "p_pacificus_PRJNA12644"
-         ],
+         "trackId" : "p_pacificus_PRJNA12644_curated_genes",
+         "description" : "Protein-coding gene structures result from the integration of a variety of prediction methods and data sources followed by manual review and revison by WormBase curators. tRNAs are predicted by tRNAscan, and other non-coding RNA transcripts are taken from a variety of literature sources. The purple and blue colors indicate transcripts on the forward and reverse strands respectively. Dark purple areas represent 5' and 3' UTRs of protein-coding transcripts, assigned automatically using the extents of overlapping ESTs and full-length cDNAs. The UTR predictions have not been reviewed by WormBase curators, and some are known to contain artifacts. Grey transcripts represent either non-coding transcripts of protein coding genes or transcripts of non-coding genes.",
          "type" : "FeatureTrack",
-         "description" : "Matches to WormBase O. volvulus proteins, aligned with BLASTX (nucleotide to protein, via six-frame translation).",
-         "category" : [
-            "Sequence Similarity",
-            "Proteins"
-         ],
-         "name" : "O. volvulus proteins",
+         "name" : "Curated Genes",
          "displays" : [
             {
                "type" : "LinearBasicDisplay",
                "renderer" : {
-                  "height" : 4,
-                  "showLabels" : false,
-                  "color1" : "orange",
-                  "type" : "SvgFeatureRenderer"
+                  "color1" : "jexl:get(feature,'type')!='CDS'?'gray':get(feature,'strand')>0?'violet':'turquoise'",
+                  "type" : "SvgFeatureRenderer",
+                  "labels" : {
+                     "name" : "jexl:get(feature,'locus') || get(feature,'sequence_name')"
+                  },
+                  "color3" : "#965567"
                },
-               "displayId" : "O_volvulus_proteins-p_pacificus_PRJNA12644-LinearBasicDisplay",
-               "mouseover" : "jexl:get(feature,'clone')"
+               "displayId" : "curated_genes-p_pacificus_PRJNA12644-LinearBasicDisplay"
             }
-         ]
-      },
-      {
+         ],
          "assemblyNames" : [
             "p_pacificus_PRJNA12644"
          ],
-         "description" : "Exact tandem and inverted repetitive elements.",
+         "category" : [
+            "Genes",
+            "Curated Genes"
+         ],
+         "formatDetails" : {
+            "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/p_pacificus_PRJNA12644' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.name+'</a>', WormBase: feature.source=='WormBase'?'<a href=\"/get?name='+feature.name+';class=Gene\">Gene Page</a>':''}"
+         },
+         "adapter" : {
+            "rootUrlTemplate" : {
+               "locationType" : "UriLocation",
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_pacificus_PRJNA12644/tracks/Curated_Genes/{refseq}/trackData.jsonz"
+            },
+            "type" : "NCListAdapter"
+         }
+      },
+      {
+         "displays" : [
+            {
+               "mouseover" : "jexl:get(feature,'clone')",
+               "displayId" : "P_pacificus_proteins-p_pacificus_PRJNA12644-LinearBasicDisplay",
+               "type" : "LinearBasicDisplay",
+               "renderer" : {
+                  "showLabels" : false,
+                  "color1" : "orange",
+                  "height" : 4,
+                  "type" : "SvgFeatureRenderer"
+               }
+            }
+         ],
+         "name" : "P. pacificus proteins",
+         "adapter" : {
+            "rootUrlTemplate" : {
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_pacificus_PRJNA12644/tracks/P. pacificus proteins/{refseq}/trackData.jsonz",
+               "locationType" : "UriLocation"
+            },
+            "type" : "NCListAdapter"
+         },
+         "assemblyNames" : [
+            "p_pacificus_PRJNA12644"
+         ],
+         "category" : [
+            "Sequence Similarity",
+            "Proteins"
+         ],
+         "trackId" : "p_pacificus_PRJNA12644_P_pacificus_proteins",
          "type" : "FeatureTrack",
-         "trackId" : "p_pacificus_PRJNA12644_tandem_and_inverted_repeats",
+         "description" : "Matches to WormBase P. pacificus proteins, aligned with BLASTX (nucleotide to protein, via six-frame translation)."
+      },
+      {
          "adapter" : {
             "rootUrlTemplate" : {
                "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_pacificus_PRJNA12644/tracks/Tandem and Inverted Repeats/{refseq}/trackData.jsonz",
@@ -290,166 +284,112 @@
             },
             "type" : "NCListAdapter"
          },
+         "assemblyNames" : [
+            "p_pacificus_PRJNA12644"
+         ],
+         "category" : [
+            "Genome Structure",
+            "Repeats"
+         ],
          "displays" : [
             {
                "displayId" : "tandem_and_inverted_repeats-p_pacificus_PRJNA12644-LinearBasicDisplay",
                "renderer" : {
-                  "showLabels" : false,
+                  "type" : "SvgFeatureRenderer",
                   "showDescriptions" : false,
                   "color1" : "bisque",
-                  "type" : "SvgFeatureRenderer"
+                  "showLabels" : false
                },
                "type" : "LinearBasicDisplay"
             }
          ],
          "name" : "Tandem and Inverted Repeats",
-         "category" : [
-            "Genome Structure",
-            "Repeats"
-         ]
+         "type" : "FeatureTrack",
+         "description" : "Exact tandem and inverted repetitive elements.",
+         "trackId" : "p_pacificus_PRJNA12644_tandem_and_inverted_repeats"
       },
       {
-         "name" : "RNASeq introns",
+         "trackId" : "p_pacificus_PRJNA12644_C_elegans_proteins",
+         "description" : "Matches to WormBase C. elegans proteins, aligned with BLASTX (nucleotide to protein, via six-frame translation).",
+         "type" : "FeatureTrack",
+         "name" : "C. elegans proteins",
          "displays" : [
             {
-               "mouseover" : "jexl:get(feature,'score')+' reads'",
-               "displayId" : "rnaseq_introns-p_pacificus_PRJNA12644-LinearBasicDisplay",
-               "renderer" : {
-                  "showDescriptions" : false,
-                  "color1" : "green",
-                  "type" : "SvgFeatureRenderer",
-                  "height" : "jexl:get(feature,'score')>100?50:get(feature,'score')<8?4:floor(get(feature,'score')/2)",
-                  "showLabels" : false
-               },
-               "type" : "LinearBasicDisplay"
-            }
-         ],
-         "category" : [
-            "Expression"
-         ],
-         "assemblyNames" : [
-            "p_pacificus_PRJNA12644"
-         ],
-         "type" : "FeatureTrack",
-         "description" : "These are introns formed by aligned RNASeq reads spanning a region of the genome. Alignments of short read sequences from all available RNASeq projects were used. The number of reads spanning the introns is indicated by the thickness of the display.",
-         "trackId" : "p_pacificus_PRJNA12644_rnaseq_introns",
-         "adapter" : {
-            "type" : "NCListAdapter",
-            "rootUrlTemplate" : {
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_pacificus_PRJNA12644/tracks/RNASeq introns/{refseq}/trackData.jsonz",
-               "locationType" : "UriLocation"
-            }
-         }
-      },
-      {
-         "name" : "RNASeq Splice Junctions (common)",
-         "displays" : [
-            {
-               "renderer" : {
-                  "showLabels" : false,
-                  "color1" : "jexl:get(feature,'score')>20000?(get(feature,'strand')>0?'#730073':'#007373'):get(feature,'strand')>0?'#'+hex(round(255-(140*(get(feature,'score')/20000))))+'00'+hex(round(255-(140*(get(feature,'score')/20000)))):'#00'+hex(round(255-(140*(get(feature,'score')/20000))))+hex(round(255-(140*(get(feature,'score')/20000))))",
-                  "type" : "SvgFeatureRenderer"
-               },
-               "type" : "LinearBasicDisplay",
-               "displayId" : "rnaseq_splice_junctions_(common)-p_pacificus_PRJNA12644-LinearBasicDisplay",
-               "mouseover" : "jexl:get(feature,'score')+' reads'"
-            }
-         ],
-         "category" : [
-            "Expression"
-         ],
-         "type" : "FeatureTrack",
-         "description" : "These are introns formed by aligned RNASeq reads spanning a region of the genome. Alignments of short read sequences from all available RNASeq projects were used. These junctions are considered 'common' in that there are more than 500 reads confirming their existence. The number of reads spanning the introns is indicated by the darkness of the color (shades of cyan for reverse, shades of violet for forward).  Darker is more reads.",
-         "assemblyNames" : [
-            "p_pacificus_PRJNA12644"
-         ],
-         "trackId" : "p_pacificus_PRJNA12644_rnaseq_splice_junctions_(common)",
-         "adapter" : {
-            "type" : "NCListAdapter",
-            "rootUrlTemplate" : {
-               "locationType" : "UriLocation",
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_pacificus_PRJNA12644/tracks/RNASeq Splice Junctions (common)/{refseq}/trackData.jsonz"
-            }
-         }
-      },
-      {
-         "trackId" : "p_pacificus_PRJNA12644_rnaseq_splice_junctions_(rare)",
-         "adapter" : {
-            "type" : "NCListAdapter",
-            "rootUrlTemplate" : {
-               "locationType" : "UriLocation",
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_pacificus_PRJNA12644/tracks/RNASeq Splice Junctions (rare)/{refseq}/trackData.jsonz"
-            }
-         },
-         "assemblyNames" : [
-            "p_pacificus_PRJNA12644"
-         ],
-         "description" : "These are introns formed by aligned RNASeq reads spanning a region of the genome. Alignments of short read sequences from all available RNASeq projects were used. These junctions are considered 'rare' in that there are fewer than 500 reads confirming their existence. The number of reads spanning the introns is indicated by the darkness of the color (shades of cyan for reverse, shades of violet for forward).  Darker is more reads.",
-         "type" : "FeatureTrack",
-         "category" : [
-            "Expression"
-         ],
-         "displays" : [
-            {
-               "mouseover" : "jexl:get(feature,'score')+' reads'",
-               "displayId" : "rnaseq_splice_junctions_(rare)-p_pacificus_PRJNA12644-LinearBasicDisplay",
                "type" : "LinearBasicDisplay",
                "renderer" : {
                   "type" : "SvgFeatureRenderer",
-                  "color1" : "jexl:get(feature,'score')>20000?(get(feature,'strand')>0?'#730073':'#007373'):get(feature,'strand')>0?'#'+hex(round(255-(140*(get(feature,'score')/20000))))+'00'+hex(round(255-(140*(get(feature,'score')/20000)))):'#00'+hex(round(255-(140*(get(feature,'score')/20000))))+hex(round(255-(140*(get(feature,'score')/20000))))",
-                  "height" : "jexl:4",
-                  "showLabels" : false
-               }
-            }
-         ],
-         "name" : "RNASeq Splice Junctions (rare)"
-      },
-      {
-         "assemblyNames" : [
-            "p_pacificus_PRJNA12644"
-         ],
-         "type" : "FeatureTrack",
-         "description" : "Matches to WormBase C. japonica proteins, aligned with BLASTX (nucleotide to protein, via six-frame translation).",
-         "adapter" : {
-            "type" : "NCListAdapter",
-            "rootUrlTemplate" : {
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_pacificus_PRJNA12644/tracks/C. japonica proteins/{refseq}/trackData.jsonz",
-               "locationType" : "UriLocation"
-            }
-         },
-         "trackId" : "p_pacificus_PRJNA12644_C_japonica_proteins",
-         "name" : "C. japonica proteins",
-         "displays" : [
-            {
-               "renderer" : {
-                  "showLabels" : false,
                   "height" : 4,
                   "color1" : "orange",
-                  "type" : "SvgFeatureRenderer"
+                  "showLabels" : false
                },
-               "type" : "LinearBasicDisplay",
-               "displayId" : "C_japonica_proteins-p_pacificus_PRJNA12644-LinearBasicDisplay",
+               "displayId" : "C_elegans_proteins-p_pacificus_PRJNA12644-LinearBasicDisplay",
                "mouseover" : "jexl:get(feature,'clone')"
             }
          ],
          "category" : [
             "Sequence Similarity",
             "Proteins"
-         ]
+         ],
+         "assemblyNames" : [
+            "p_pacificus_PRJNA12644"
+         ],
+         "adapter" : {
+            "rootUrlTemplate" : {
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_pacificus_PRJNA12644/tracks/C. elegans proteins/{refseq}/trackData.jsonz",
+               "locationType" : "UriLocation"
+            },
+            "type" : "NCListAdapter"
+         }
+      },
+      {
+         "name" : "C. briggsae proteins",
+         "displays" : [
+            {
+               "type" : "LinearBasicDisplay",
+               "renderer" : {
+                  "showLabels" : false,
+                  "color1" : "orange",
+                  "height" : 4,
+                  "type" : "SvgFeatureRenderer"
+               },
+               "displayId" : "C_briggsae_proteins-p_pacificus_PRJNA12644-LinearBasicDisplay",
+               "mouseover" : "jexl:get(feature,'clone')"
+            }
+         ],
+         "category" : [
+            "Sequence Similarity",
+            "Proteins"
+         ],
+         "assemblyNames" : [
+            "p_pacificus_PRJNA12644"
+         ],
+         "adapter" : {
+            "type" : "NCListAdapter",
+            "rootUrlTemplate" : {
+               "locationType" : "UriLocation",
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_pacificus_PRJNA12644/tracks/C. briggsae proteins/{refseq}/trackData.jsonz"
+            }
+         },
+         "trackId" : "p_pacificus_PRJNA12644_C_briggsae_proteins",
+         "description" : "Matches to WormBase C. briggsae proteins, aligned with BLASTX (nucleotide to protein, via six-frame translation).",
+         "type" : "FeatureTrack"
       },
       {
          "name" : "Contig submissions",
          "displays" : [
             {
+               "type" : "LinearBasicDisplay",
                "renderer" : {
                   "height" : 7,
-                  "type" : "SvgFeatureRenderer",
-                  "color1" : "sienna"
+                  "color1" : "sienna",
+                  "type" : "SvgFeatureRenderer"
                },
-               "type" : "LinearBasicDisplay",
                "displayId" : "contig_submissions-p_pacificus_PRJNA12644-LinearBasicDisplay"
             }
          ],
+         "formatDetails" : {
+            "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/p_pacificus_PRJNA12644' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.refName+':'+feature.start+'..'+feature.end+'</a>'}"
+         },
          "category" : [
             "Genome Structure",
             "Assembly & Curation"
@@ -457,74 +397,159 @@
          "assemblyNames" : [
             "p_pacificus_PRJNA12644"
          ],
-         "type" : "FeatureTrack",
-         "description" : "This track shows the location and coordinates of contigs (mostly cosmids) submitted to GenBank/EMBL.",
          "adapter" : {
+            "type" : "NCListAdapter",
             "rootUrlTemplate" : {
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_pacificus_PRJNA12644/tracks/Contig submissions/{refseq}/trackData.jsonz",
-               "locationType" : "UriLocation"
-            },
-            "type" : "NCListAdapter"
+               "locationType" : "UriLocation",
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_pacificus_PRJNA12644/tracks/Contig submissions/{refseq}/trackData.jsonz"
+            }
          },
          "trackId" : "p_pacificus_PRJNA12644_contig_submissions",
-         "formatDetails" : {
-            "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/p_pacificus_PRJNA12644' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.refName+':'+feature.start+'..'+feature.end+'</a>'}"
-         }
+         "description" : "This track shows the location and coordinates of contigs (mostly cosmids) submitted to GenBank/EMBL.",
+         "type" : "FeatureTrack"
       },
       {
+         "displays" : [
+            {
+               "displayId" : "S_cerevisiae_proteins-p_pacificus_PRJNA12644-LinearBasicDisplay",
+               "renderer" : {
+                  "height" : 4,
+                  "showLabels" : false,
+                  "color1" : "orange",
+                  "type" : "SvgFeatureRenderer"
+               },
+               "type" : "LinearBasicDisplay",
+               "mouseover" : "jexl:get(feature,'clone')"
+            }
+         ],
+         "name" : "S. cerevisiae proteins",
+         "adapter" : {
+            "type" : "NCListAdapter",
+            "rootUrlTemplate" : {
+               "locationType" : "UriLocation",
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_pacificus_PRJNA12644/tracks/S. cerevisiae proteins/{refseq}/trackData.jsonz"
+            }
+         },
          "category" : [
             "Sequence Similarity",
             "Proteins"
          ],
-         "name" : "C. briggsae proteins",
-         "displays" : [
-            {
-               "displayId" : "C_briggsae_proteins-p_pacificus_PRJNA12644-LinearBasicDisplay",
-               "type" : "LinearBasicDisplay",
-               "renderer" : {
-                  "color1" : "orange",
-                  "type" : "SvgFeatureRenderer",
-                  "showLabels" : false,
-                  "height" : 4
-               },
-               "mouseover" : "jexl:get(feature,'clone')"
-            }
+         "assemblyNames" : [
+            "p_pacificus_PRJNA12644"
+         ],
+         "trackId" : "p_pacificus_PRJNA12644_S_cerevisiae_proteins",
+         "type" : "FeatureTrack",
+         "description" : "Matches to WormBase S. cerevisiae proteins, aligned with BLASTX (nucleotide to protein, via six-frame translation)."
+      },
+      {
+         "description" : "Low-complexity regions identified by Dust.",
+         "type" : "FeatureTrack",
+         "trackId" : "p_pacificus_PRJNA12644_low_complextity_region_(dust)",
+         "category" : [
+            "Genome Structure",
+            "Repeats"
+         ],
+         "assemblyNames" : [
+            "p_pacificus_PRJNA12644"
          ],
          "adapter" : {
             "rootUrlTemplate" : {
                "locationType" : "UriLocation",
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_pacificus_PRJNA12644/tracks/C. briggsae proteins/{refseq}/trackData.jsonz"
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_pacificus_PRJNA12644/tracks/Low complextity region (Dust)/{refseq}/trackData.jsonz"
             },
             "type" : "NCListAdapter"
          },
-         "trackId" : "p_pacificus_PRJNA12644_C_briggsae_proteins",
-         "type" : "FeatureTrack",
-         "description" : "Matches to WormBase C. briggsae proteins, aligned with BLASTX (nucleotide to protein, via six-frame translation).",
-         "assemblyNames" : [
-            "p_pacificus_PRJNA12644"
+         "name" : "Low complextity region (Dust)",
+         "displays" : [
+            {
+               "displayId" : "low_complextity_region_(dust)-p_pacificus_PRJNA12644-LinearBasicDisplay",
+               "type" : "LinearBasicDisplay",
+               "renderer" : {
+                  "type" : "SvgFeatureRenderer",
+                  "showDescriptions" : false,
+                  "height" : 4,
+                  "color1" : "bisque",
+                  "showLabels" : false
+               }
+            }
          ]
       },
       {
-         "name" : "Links and Superlinks",
          "displays" : [
             {
                "type" : "LinearBasicDisplay",
                "renderer" : {
-                  "type" : "SvgFeatureRenderer",
-                  "color1" : "black",
-                  "height" : 4
+                  "color1" : "orange",
+                  "showLabels" : false,
+                  "height" : 4,
+                  "type" : "SvgFeatureRenderer"
                },
-               "displayId" : "links_and_superlinks-p_pacificus_PRJNA12644-LinearBasicDisplay"
+               "displayId" : "C_japonica_proteins-p_pacificus_PRJNA12644-LinearBasicDisplay",
+               "mouseover" : "jexl:get(feature,'clone')"
             }
+         ],
+         "name" : "C. japonica proteins",
+         "adapter" : {
+            "rootUrlTemplate" : {
+               "locationType" : "UriLocation",
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_pacificus_PRJNA12644/tracks/C. japonica proteins/{refseq}/trackData.jsonz"
+            },
+            "type" : "NCListAdapter"
+         },
+         "assemblyNames" : [
+            "p_pacificus_PRJNA12644"
+         ],
+         "category" : [
+            "Sequence Similarity",
+            "Proteins"
+         ],
+         "trackId" : "p_pacificus_PRJNA12644_C_japonica_proteins",
+         "type" : "FeatureTrack",
+         "description" : "Matches to WormBase C. japonica proteins, aligned with BLASTX (nucleotide to protein, via six-frame translation)."
+      },
+      {
+         "trackId" : "p_pacificus_PRJNA12644_T_muris_proteins",
+         "description" : "Matches to WormBase T. muris proteins, aligned with BLASTX (nucleotide to protein, via six-frame translation).",
+         "type" : "FeatureTrack",
+         "name" : "T. muris proteins",
+         "displays" : [
+            {
+               "displayId" : "T_muris_proteins-p_pacificus_PRJNA12644-LinearBasicDisplay",
+               "renderer" : {
+                  "height" : 4,
+                  "color1" : "orange",
+                  "showLabels" : false,
+                  "type" : "SvgFeatureRenderer"
+               },
+               "type" : "LinearBasicDisplay",
+               "mouseover" : "jexl:get(feature,'clone')"
+            }
+         ],
+         "category" : [
+            "Sequence Similarity",
+            "Proteins"
+         ],
+         "assemblyNames" : [
+            "p_pacificus_PRJNA12644"
+         ],
+         "adapter" : {
+            "rootUrlTemplate" : {
+               "locationType" : "UriLocation",
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_pacificus_PRJNA12644/tracks/T. muris proteins/{refseq}/trackData.jsonz"
+            },
+            "type" : "NCListAdapter"
+         }
+      },
+      {
+         "description" : "This track shows the location and coordinates of contigs created during the assembly of the C. elegans genome.",
+         "type" : "FeatureTrack",
+         "trackId" : "p_pacificus_PRJNA12644_links_and_superlinks",
+         "assemblyNames" : [
+            "p_pacificus_PRJNA12644"
          ],
          "category" : [
             "Genome Structure",
             "Assembly & Curation"
-         ],
-         "type" : "FeatureTrack",
-         "description" : "This track shows the location and coordinates of contigs created during the assembly of the C. elegans genome.",
-         "assemblyNames" : [
-            "p_pacificus_PRJNA12644"
          ],
          "formatDetails" : {
             "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/p_pacificus_PRJNA12644' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.refName+':'+feature.start+'..'+feature.end+'</a>'}"
@@ -536,371 +561,206 @@
                "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_pacificus_PRJNA12644/tracks/Links and Superlinks/{refseq}/trackData.jsonz"
             }
          },
-         "trackId" : "p_pacificus_PRJNA12644_links_and_superlinks"
-      },
-      {
-         "trackId" : "p_pacificus_PRJNA12644_rnaseq_asymmetries",
-         "adapter" : {
-            "type" : "NCListAdapter",
-            "rootUrlTemplate" : {
-               "locationType" : "UriLocation",
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_pacificus_PRJNA12644/tracks/RNASeq Asymmetries/{refseq}/trackData.jsonz"
-            }
-         },
-         "assemblyNames" : [
-            "p_pacificus_PRJNA12644"
-         ],
-         "type" : "FeatureTrack",
-         "description" : "Red boxes indicate regions where there are more than 2 times as many forward sense RNASeq reads aligned to the genome as reverse sense reads. This asymmetrical signal has been found empirically to be a sensitive marker for the ends of transcripts. Green boxes indicate regions where there are more than 2 times as many reverse sense RNASeq reads aligned to the genome as forward sense reads. This asymmetrical signal has been found empirically to be sensitive marker for the ends of transcripts. The height of all boxes indicates the relative score of the feature.",
-         "category" : [
-            "Expression"
-         ],
-         "name" : "RNASeq Asymmetries",
+         "name" : "Links and Superlinks",
          "displays" : [
             {
-               "displayId" : "rnaseq_asymmetries-p_pacificus_PRJNA12644-LinearBasicDisplay",
-               "type" : "LinearBasicDisplay",
                "renderer" : {
-                  "displayMode" : "collapse",
-                  "height" : 24,
-                  "showLabels" : false,
                   "type" : "SvgFeatureRenderer",
-                  "color1" : "jexl:get(feature,'source')=='RNASeq_R_asymmetry'?'red': get(feature,'source')=='RNASeq_F_asymmetry'?'green':'black'"
-               },
-               "mouseover" : "jexl:'Score: '+get(feature,'score')"
-            }
-         ]
-      },
-      {
-         "trackId" : "p_pacificus_PRJNA12644_rnaseq",
-         "adapter" : {
-            "type" : "NCListAdapter",
-            "rootUrlTemplate" : {
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_pacificus_PRJNA12644/tracks/RNASeq/{refseq}/trackData.jsonz",
-               "locationType" : "UriLocation"
-            }
-         },
-         "assemblyNames" : [
-            "p_pacificus_PRJNA12644"
-         ],
-         "type" : "FeatureTrack",
-         "description" : "These boxes indicate alignments of short read sequences from all available RNASeq projects. The number of reads has been normalised by averaging over the number of libraries. The height of all boxes indicates the relative score of the feature.",
-         "category" : [
-            "Expression"
-         ],
-         "name" : "RNASeq",
-         "displays" : [
-            {
-               "displayId" : "rnaseq-p_pacificus_PRJNA12644-LinearBasicDisplay",
-               "renderer" : {
                   "color1" : "black",
-                  "type" : "SvgFeatureRenderer",
-                  "displayMode" : "collapse",
-                  "height" : "jexl:get(feature,'score')>100?50:floor(get(feature,'score')/2)>4?floor(get(feature,'score')/2):4",
-                  "showLabels" : false
+                  "height" : 4
                },
                "type" : "LinearBasicDisplay",
-               "mouseover" : "jexl:'Score: '+get(feature,'score')"
+               "displayId" : "links_and_superlinks-p_pacificus_PRJNA12644-LinearBasicDisplay"
             }
          ]
       },
       {
-         "trackId" : "p_pacificus_PRJNA12644_P_pacificus_proteins",
+         "type" : "FeatureTrack",
+         "description" : "Repetitive regions identified by RepeatMasker.",
+         "trackId" : "p_pacificus_PRJNA12644_repeat_region_(repeatmasker)",
          "adapter" : {
             "rootUrlTemplate" : {
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_pacificus_PRJNA12644/tracks/P. pacificus proteins/{refseq}/trackData.jsonz",
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_pacificus_PRJNA12644/tracks/Repeat Region (RepeatMasker)/{refseq}/trackData.jsonz",
                "locationType" : "UriLocation"
             },
             "type" : "NCListAdapter"
          },
+         "category" : [
+            "Genome Structure",
+            "Repeats"
+         ],
          "assemblyNames" : [
             "p_pacificus_PRJNA12644"
          ],
-         "type" : "FeatureTrack",
-         "description" : "Matches to WormBase P. pacificus proteins, aligned with BLASTX (nucleotide to protein, via six-frame translation).",
+         "displays" : [
+            {
+               "displayId" : "repeat_region_(repeatmasker)-p_pacificus_PRJNA12644-LinearBasicDisplay",
+               "renderer" : {
+                  "color1" : "bisque",
+                  "showLabels" : false,
+                  "height" : 4,
+                  "showDescriptions" : false,
+                  "type" : "SvgFeatureRenderer"
+               },
+               "type" : "LinearBasicDisplay"
+            }
+         ],
+         "name" : "Repeat Region (RepeatMasker)"
+      },
+      {
+         "name" : "S. ratti proteins",
+         "displays" : [
+            {
+               "mouseover" : "jexl:get(feature,'clone')",
+               "type" : "LinearBasicDisplay",
+               "renderer" : {
+                  "showLabels" : false,
+                  "color1" : "orange",
+                  "height" : 4,
+                  "type" : "SvgFeatureRenderer"
+               },
+               "displayId" : "S_ratti_proteins-p_pacificus_PRJNA12644-LinearBasicDisplay"
+            }
+         ],
+         "assemblyNames" : [
+            "p_pacificus_PRJNA12644"
+         ],
          "category" : [
             "Sequence Similarity",
             "Proteins"
          ],
-         "name" : "P. pacificus proteins",
-         "displays" : [
-            {
-               "mouseover" : "jexl:get(feature,'clone')",
-               "displayId" : "P_pacificus_proteins-p_pacificus_PRJNA12644-LinearBasicDisplay",
-               "type" : "LinearBasicDisplay",
-               "renderer" : {
-                  "height" : 4,
-                  "showLabels" : false,
-                  "type" : "SvgFeatureRenderer",
-                  "color1" : "orange"
-               }
+         "adapter" : {
+            "type" : "NCListAdapter",
+            "rootUrlTemplate" : {
+               "locationType" : "UriLocation",
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_pacificus_PRJNA12644/tracks/S. ratti proteins/{refseq}/trackData.jsonz"
             }
-         ]
+         },
+         "trackId" : "p_pacificus_PRJNA12644_S_ratti_proteins",
+         "description" : "Matches to WormBase S. ratti proteins, aligned with BLASTX (nucleotide to protein, via six-frame translation).",
+         "type" : "FeatureTrack"
       },
       {
-         "name" : "C. brenneri proteins",
+         "description" : "Matches to WormBase C. remanei proteins, aligned with BLASTX (nucleotide to protein, via six-frame translation).",
+         "type" : "FeatureTrack",
+         "trackId" : "p_pacificus_PRJNA12644_C_remanei_proteins",
+         "assemblyNames" : [
+            "p_pacificus_PRJNA12644"
+         ],
+         "category" : [
+            "Sequence Similarity",
+            "Proteins"
+         ],
+         "adapter" : {
+            "type" : "NCListAdapter",
+            "rootUrlTemplate" : {
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_pacificus_PRJNA12644/tracks/C. remanei proteins/{refseq}/trackData.jsonz",
+               "locationType" : "UriLocation"
+            }
+         },
+         "name" : "C. remanei proteins",
          "displays" : [
             {
                "mouseover" : "jexl:get(feature,'clone')",
-               "displayId" : "C_brenneri_proteins-p_pacificus_PRJNA12644-LinearBasicDisplay",
+               "displayId" : "C_remanei_proteins-p_pacificus_PRJNA12644-LinearBasicDisplay",
                "renderer" : {
-                  "color1" : "orange",
                   "type" : "SvgFeatureRenderer",
                   "showLabels" : false,
+                  "color1" : "orange",
                   "height" : 4
                },
                "type" : "LinearBasicDisplay"
             }
-         ],
-         "category" : [
-            "Sequence Similarity",
-            "Proteins"
-         ],
-         "type" : "FeatureTrack",
-         "description" : "Matches to WormBase C. brenneri proteins, aligned with BLASTX (nucleotide to protein, via six-frame translation).",
-         "assemblyNames" : [
-            "p_pacificus_PRJNA12644"
-         ],
-         "trackId" : "p_pacificus_PRJNA12644_C_brenneri_proteins",
-         "adapter" : {
-            "rootUrlTemplate" : {
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_pacificus_PRJNA12644/tracks/C. brenneri proteins/{refseq}/trackData.jsonz",
-               "locationType" : "UriLocation"
-            },
-            "type" : "NCListAdapter"
-         }
-      },
-      {
-         "displays" : [
-            {
-               "mouseover" : "jexl:get(feature,'clone')",
-               "type" : "LinearBasicDisplay",
-               "renderer" : {
-                  "color1" : "orange",
-                  "type" : "SvgFeatureRenderer",
-                  "height" : 4,
-                  "showLabels" : false
-               },
-               "displayId" : "T_muris_proteins-p_pacificus_PRJNA12644-LinearBasicDisplay"
-            }
-         ],
-         "name" : "T. muris proteins",
-         "category" : [
-            "Sequence Similarity",
-            "Proteins"
-         ],
-         "description" : "Matches to WormBase T. muris proteins, aligned with BLASTX (nucleotide to protein, via six-frame translation).",
-         "type" : "FeatureTrack",
-         "assemblyNames" : [
-            "p_pacificus_PRJNA12644"
-         ],
-         "trackId" : "p_pacificus_PRJNA12644_T_muris_proteins",
-         "adapter" : {
-            "type" : "NCListAdapter",
-            "rootUrlTemplate" : {
-               "locationType" : "UriLocation",
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_pacificus_PRJNA12644/tracks/T. muris proteins/{refseq}/trackData.jsonz"
-            }
-         }
-      },
-      {
-         "category" : [
-            "Sequence Similarity",
-            "Proteins"
-         ],
-         "displays" : [
-            {
-               "displayId" : "other_uniprot_proteins-p_pacificus_PRJNA12644-LinearBasicDisplay",
-               "renderer" : {
-                  "height" : 4,
-                  "showLabels" : false,
-                  "type" : "SvgFeatureRenderer",
-                  "color1" : "orange",
-                  "showDescriptions" : false
-               },
-               "type" : "LinearBasicDisplay"
-            }
-         ],
-         "name" : "Other UniProt proteins",
-         "adapter" : {
-            "type" : "NCListAdapter",
-            "rootUrlTemplate" : {
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_pacificus_PRJNA12644/tracks/Other UniProt proteins/{refseq}/trackData.jsonz",
-               "locationType" : "UriLocation"
-            }
-         },
-         "trackId" : "p_pacificus_PRJNA12644_other_uniprot_proteins",
-         "description" : "Matches to proteins from a slimmed-down version of UniProt (with proteins from WormBase core nematodes, human, fly and yeast removed), aligned with BLASTX (nucleotide to protein, via six-frame translation).",
-         "type" : "FeatureTrack",
-         "assemblyNames" : [
-            "p_pacificus_PRJNA12644"
          ]
       },
       {
-         "assemblyNames" : [
-            "p_pacificus_PRJNA12644"
-         ],
+         "description" : "Native (same-species) Expressed Sequence Tags (ESTs), aligned to the genome using <a href='http://genome.cse.ucsc.edu/cgi-bin/hgBlat'>BLAT</a>. This track shows the best unique location for each EST. The paired 5' and 3' ESTs from the same cDNA clone are connected by a dashed line and a colored light green. ESTs with no mate are yellow, and ESTs with a mate that is 'far away' are dark green.",
          "type" : "FeatureTrack",
-         "description" : "This Nanopore transcript data is from the paper 'The full-length transcriptome of C. elegans using direct RNA sequencing' Roach et al. https://doi.org/10.1101/598763. Where several transcripts are nearly identical, they are represented by a single transcript and the number of transcripts is recorded in the read coverage. Sequencing is from 3' to 5' and randomly terminates, so the 5' end of transcripts is often incomplete.",
-         "adapter" : {
-            "type" : "NCListAdapter",
-            "rootUrlTemplate" : {
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_pacificus_PRJNA12644/tracks/Nanopore matches/{refseq}/trackData.jsonz",
-               "locationType" : "UriLocation"
-            }
-         },
-         "trackId" : "p_pacificus_PRJNA12644_nanopore_matches",
-         "name" : "Nanopore matches",
-         "displays" : [
-            {
-               "displayId" : "nanopore_matches-p_pacificus_PRJNA12644-LinearBasicDisplay",
-               "renderer" : {
-                  "type" : "SvgFeatureRenderer",
-                  "color1" : "jexl:get(feature,'source')=='BLAT_Caen_mRNA'?'lightblue':'green'",
-                  "height" : 4,
-                  "showLabels" : false
-               },
-               "type" : "LinearBasicDisplay"
-            }
-         ],
-         "category" : [
-            "Genes",
-            "Supporting Evidence"
-         ]
-      },
-      {
          "trackId" : "p_pacificus_PRJNA12644_ests",
-         "adapter" : {
-            "type" : "NCListAdapter",
-            "rootUrlTemplate" : {
-               "locationType" : "UriLocation",
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_pacificus_PRJNA12644/tracks/ESTs (best)/{refseq}/trackData.jsonz"
-            }
-         },
          "formatDetails" : {
             "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/p_pacificus_PRJNA12644' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.refName+':'+feature.start+'..'+feature.end+'</a>'}"
          },
-         "assemblyNames" : [
-            "p_pacificus_PRJNA12644"
-         ],
-         "type" : "FeatureTrack",
-         "description" : "Native (same-species) Expressed Sequence Tags (ESTs), aligned to the genome using <a href='http://genome.cse.ucsc.edu/cgi-bin/hgBlat'>BLAT</a>. This track shows the best unique location for each EST. The paired 5' and 3' ESTs from the same cDNA clone are connected by a dashed line and a colored light green. ESTs with no mate are yellow, and ESTs with a mate that is 'far away' are dark green.",
          "category" : [
             "Genes",
             "Supporting Evidence"
          ],
+         "assemblyNames" : [
+            "p_pacificus_PRJNA12644"
+         ],
+         "adapter" : {
+            "type" : "NCListAdapter",
+            "rootUrlTemplate" : {
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_pacificus_PRJNA12644/tracks/ESTs (best)/{refseq}/trackData.jsonz",
+               "locationType" : "UriLocation"
+            }
+         },
          "name" : "ESTs",
          "displays" : [
             {
-               "type" : "LinearBasicDisplay",
                "renderer" : {
                   "type" : "SvgFeatureRenderer",
                   "color1" : "jexl:parent(feature)=='undefined'?'red':get(parent(feature),'has_mate')==1?'limegreen':get(parent(feature),'has_mate')==2?'green':get(parent(feature),'has_mate')==0?'gold':'black'"
                },
+               "type" : "LinearBasicDisplay",
                "displayId" : "ests-p_pacificus_PRJNA12644-LinearBasicDisplay"
             }
          ]
       },
       {
-         "trackId" : "p_pacificus_PRJNA12644_C_elegans_proteins",
-         "adapter" : {
-            "rootUrlTemplate" : {
-               "locationType" : "UriLocation",
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_pacificus_PRJNA12644/tracks/C. elegans proteins/{refseq}/trackData.jsonz"
-            },
-            "type" : "NCListAdapter"
+         "formatDetails" : {
+            "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/p_pacificus_PRJNA12644' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.refName+':'+feature.start+'..'+feature.end+'</a>'}"
          },
-         "description" : "Matches to WormBase C. elegans proteins, aligned with BLASTX (nucleotide to protein, via six-frame translation).",
-         "type" : "FeatureTrack",
+         "category" : [
+            "Reagents"
+         ],
          "assemblyNames" : [
             "p_pacificus_PRJNA12644"
          ],
-         "category" : [
-            "Sequence Similarity",
-            "Proteins"
-         ],
+         "adapter" : {
+            "rootUrlTemplate" : {
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_pacificus_PRJNA12644/tracks/Microarray oligo probes/{refseq}/trackData.jsonz",
+               "locationType" : "UriLocation"
+            },
+            "type" : "NCListAdapter"
+         },
+         "name" : "Microarray oligo probes",
          "displays" : [
             {
-               "mouseover" : "jexl:get(feature,'clone')",
+               "displayId" : "microarray_oligo_probes-p_pacificus_PRJNA12644-LinearBasicDisplay",
                "type" : "LinearBasicDisplay",
                "renderer" : {
-                  "height" : 4,
-                  "showLabels" : false,
                   "type" : "SvgFeatureRenderer",
-                  "color1" : "orange"
-               },
-               "displayId" : "C_elegans_proteins-p_pacificus_PRJNA12644-LinearBasicDisplay"
+                  "height" : 4,
+                  "color1" : "black"
+               }
             }
          ],
-         "name" : "C. elegans proteins"
+         "description" : "This track contains Affymetrix GeneChip and Washington University GSC microarray probe sets.",
+         "type" : "FeatureTrack",
+         "trackId" : "p_pacificus_PRJNA12644_microarray_oligo_probes"
       },
       {
-         "description" : "Matches to WormBase D. melanogaster proteins, aligned with BLASTX (nucleotide to protein, via six-frame translation).",
-         "type" : "FeatureTrack",
-         "assemblyNames" : [
-            "p_pacificus_PRJNA12644"
-         ],
-         "trackId" : "p_pacificus_PRJNA12644_D_melanogaster_proteins",
-         "adapter" : {
-            "rootUrlTemplate" : {
-               "locationType" : "UriLocation",
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_pacificus_PRJNA12644/tracks/D. melanogaster proteins/{refseq}/trackData.jsonz"
-            },
-            "type" : "NCListAdapter"
-         },
+         "name" : "B. malayi proteins",
          "displays" : [
             {
-               "mouseover" : "jexl:get(feature,'clone')",
-               "type" : "LinearBasicDisplay",
-               "renderer" : {
-                  "showLabels" : false,
-                  "height" : 4,
-                  "color1" : "orange",
-                  "type" : "SvgFeatureRenderer"
-               },
-               "displayId" : "D_melanogaster_proteins-p_pacificus_PRJNA12644-LinearBasicDisplay"
-            }
-         ],
-         "name" : "D. melanogaster proteins",
-         "category" : [
-            "Sequence Similarity",
-            "Proteins"
-         ]
-      },
-      {
-         "description" : "Matches to WormBase H. sapiens proteins, aligned with BLASTX (nucleotide to protein, via six-frame translation).",
-         "type" : "FeatureTrack",
-         "assemblyNames" : [
-            "p_pacificus_PRJNA12644"
-         ],
-         "trackId" : "p_pacificus_PRJNA12644_H_sapiens_proteins",
-         "adapter" : {
-            "rootUrlTemplate" : {
-               "locationType" : "UriLocation",
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_pacificus_PRJNA12644/tracks/H. sapiens proteins/{refseq}/trackData.jsonz"
-            },
-            "type" : "NCListAdapter"
-         },
-         "displays" : [
-            {
-               "mouseover" : "jexl:get(feature,'clone')",
                "renderer" : {
                   "height" : 4,
-                  "showLabels" : false,
                   "color1" : "orange",
+                  "showLabels" : false,
                   "type" : "SvgFeatureRenderer"
                },
                "type" : "LinearBasicDisplay",
-               "displayId" : "H_sapiens_proteins-p_pacificus_PRJNA12644-LinearBasicDisplay"
+               "displayId" : "B_malayi_proteins-p_pacificus_PRJNA12644-LinearBasicDisplay",
+               "mouseover" : "jexl:get(feature,'clone')"
             }
          ],
-         "name" : "H. sapiens proteins",
          "category" : [
             "Sequence Similarity",
             "Proteins"
-         ]
-      },
-      {
+         ],
+         "assemblyNames" : [
+            "p_pacificus_PRJNA12644"
+         ],
          "adapter" : {
             "rootUrlTemplate" : {
                "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_pacificus_PRJNA12644/tracks/B. malayi proteins/{refseq}/trackData.jsonz",
@@ -909,246 +769,389 @@
             "type" : "NCListAdapter"
          },
          "trackId" : "p_pacificus_PRJNA12644_B_malayi_proteins",
-         "assemblyNames" : [
-            "p_pacificus_PRJNA12644"
-         ],
          "description" : "Matches to WormBase B. malayi proteins, aligned with BLASTX (nucleotide to protein, via six-frame translation).",
-         "type" : "FeatureTrack",
-         "category" : [
-            "Sequence Similarity",
-            "Proteins"
-         ],
-         "displays" : [
-            {
-               "mouseover" : "jexl:get(feature,'clone')",
-               "type" : "LinearBasicDisplay",
-               "renderer" : {
-                  "showLabels" : false,
-                  "height" : 4,
-                  "type" : "SvgFeatureRenderer",
-                  "color1" : "orange"
-               },
-               "displayId" : "B_malayi_proteins-p_pacificus_PRJNA12644-LinearBasicDisplay"
-            }
-         ],
-         "name" : "B. malayi proteins"
+         "type" : "FeatureTrack"
       },
       {
-         "name" : "C. remanei proteins",
-         "displays" : [
-            {
-               "displayId" : "C_remanei_proteins-p_pacificus_PRJNA12644-LinearBasicDisplay",
-               "renderer" : {
-                  "showLabels" : false,
-                  "height" : 4,
-                  "color1" : "orange",
-                  "type" : "SvgFeatureRenderer"
-               },
-               "type" : "LinearBasicDisplay",
-               "mouseover" : "jexl:get(feature,'clone')"
-            }
-         ],
-         "category" : [
-            "Sequence Similarity",
-            "Proteins"
-         ],
          "type" : "FeatureTrack",
-         "description" : "Matches to WormBase C. remanei proteins, aligned with BLASTX (nucleotide to protein, via six-frame translation).",
-         "assemblyNames" : [
-            "p_pacificus_PRJNA12644"
-         ],
+         "description" : "Matches to WormBase O. volvulus proteins, aligned with BLASTX (nucleotide to protein, via six-frame translation).",
+         "trackId" : "p_pacificus_PRJNA12644_O_volvulus_proteins",
          "adapter" : {
             "rootUrlTemplate" : {
                "locationType" : "UriLocation",
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_pacificus_PRJNA12644/tracks/C. remanei proteins/{refseq}/trackData.jsonz"
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_pacificus_PRJNA12644/tracks/O. volvulus proteins/{refseq}/trackData.jsonz"
             },
             "type" : "NCListAdapter"
          },
-         "trackId" : "p_pacificus_PRJNA12644_C_remanei_proteins"
-      },
-      {
+         "assemblyNames" : [
+            "p_pacificus_PRJNA12644"
+         ],
+         "category" : [
+            "Sequence Similarity",
+            "Proteins"
+         ],
          "displays" : [
             {
                "mouseover" : "jexl:get(feature,'clone')",
                "type" : "LinearBasicDisplay",
                "renderer" : {
-                  "showLabels" : false,
-                  "height" : 4,
                   "type" : "SvgFeatureRenderer",
-                  "color1" : "orange"
+                  "color1" : "orange",
+                  "showLabels" : false,
+                  "height" : 4
                },
-               "displayId" : "S_ratti_proteins-p_pacificus_PRJNA12644-LinearBasicDisplay"
+               "displayId" : "O_volvulus_proteins-p_pacificus_PRJNA12644-LinearBasicDisplay"
             }
          ],
-         "name" : "S. ratti proteins",
-         "category" : [
-            "Sequence Similarity",
-            "Proteins"
-         ],
-         "description" : "Matches to WormBase S. ratti proteins, aligned with BLASTX (nucleotide to protein, via six-frame translation).",
+         "name" : "O. volvulus proteins"
+      },
+      {
          "type" : "FeatureTrack",
+         "description" : "Matches to proteins from a slimmed-down version of UniProt (with proteins from WormBase core nematodes, human, fly and yeast removed), aligned with BLASTX (nucleotide to protein, via six-frame translation).",
+         "trackId" : "p_pacificus_PRJNA12644_other_uniprot_proteins",
+         "adapter" : {
+            "rootUrlTemplate" : {
+               "locationType" : "UriLocation",
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_pacificus_PRJNA12644/tracks/Other UniProt proteins/{refseq}/trackData.jsonz"
+            },
+            "type" : "NCListAdapter"
+         },
          "assemblyNames" : [
             "p_pacificus_PRJNA12644"
          ],
-         "adapter" : {
-            "type" : "NCListAdapter",
-            "rootUrlTemplate" : {
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_pacificus_PRJNA12644/tracks/S. ratti proteins/{refseq}/trackData.jsonz",
-               "locationType" : "UriLocation"
-            }
-         },
-         "trackId" : "p_pacificus_PRJNA12644_S_ratti_proteins"
-      },
-      {
          "category" : [
             "Sequence Similarity",
             "Proteins"
          ],
          "displays" : [
             {
-               "mouseover" : "jexl:get(feature,'clone')",
-               "displayId" : "S_cerevisiae_proteins-p_pacificus_PRJNA12644-LinearBasicDisplay",
+               "displayId" : "other_uniprot_proteins-p_pacificus_PRJNA12644-LinearBasicDisplay",
+               "type" : "LinearBasicDisplay",
                "renderer" : {
-                  "color1" : "orange",
                   "type" : "SvgFeatureRenderer",
+                  "showDescriptions" : false,
                   "height" : 4,
+                  "color1" : "orange",
                   "showLabels" : false
-               },
-               "type" : "LinearBasicDisplay"
+               }
             }
          ],
-         "name" : "S. cerevisiae proteins",
-         "adapter" : {
-            "type" : "NCListAdapter",
-            "rootUrlTemplate" : {
-               "locationType" : "UriLocation",
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_pacificus_PRJNA12644/tracks/S. cerevisiae proteins/{refseq}/trackData.jsonz"
+         "name" : "Other UniProt proteins"
+      },
+      {
+         "name" : "RNASeq Asymmetries",
+         "displays" : [
+            {
+               "mouseover" : "jexl:'Score: '+get(feature,'score')",
+               "renderer" : {
+                  "displayMode" : "collapse",
+                  "height" : 24,
+                  "color1" : "jexl:get(feature,'source')=='RNASeq_R_asymmetry'?'red': get(feature,'source')=='RNASeq_F_asymmetry'?'green':'black'",
+                  "showLabels" : false,
+                  "type" : "SvgFeatureRenderer"
+               },
+               "type" : "LinearBasicDisplay",
+               "displayId" : "rnaseq_asymmetries-p_pacificus_PRJNA12644-LinearBasicDisplay"
             }
-         },
-         "trackId" : "p_pacificus_PRJNA12644_S_cerevisiae_proteins",
+         ],
+         "category" : [
+            "Expression"
+         ],
          "assemblyNames" : [
             "p_pacificus_PRJNA12644"
          ],
-         "description" : "Matches to WormBase S. cerevisiae proteins, aligned with BLASTX (nucleotide to protein, via six-frame translation).",
+         "adapter" : {
+            "rootUrlTemplate" : {
+               "locationType" : "UriLocation",
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_pacificus_PRJNA12644/tracks/RNASeq Asymmetries/{refseq}/trackData.jsonz"
+            },
+            "type" : "NCListAdapter"
+         },
+         "trackId" : "p_pacificus_PRJNA12644_rnaseq_asymmetries",
+         "description" : "Red boxes indicate regions where there are more than 2 times as many forward sense RNASeq reads aligned to the genome as reverse sense reads. This asymmetrical signal has been found empirically to be a sensitive marker for the ends of transcripts. Green boxes indicate regions where there are more than 2 times as many reverse sense RNASeq reads aligned to the genome as forward sense reads. This asymmetrical signal has been found empirically to be sensitive marker for the ends of transcripts. The height of all boxes indicates the relative score of the feature.",
+         "type" : "FeatureTrack"
+      },
+      {
+         "name" : "RNASeq",
+         "displays" : [
+            {
+               "displayId" : "rnaseq-p_pacificus_PRJNA12644-LinearBasicDisplay",
+               "type" : "LinearBasicDisplay",
+               "renderer" : {
+                  "displayMode" : "collapse",
+                  "showLabels" : false,
+                  "color1" : "black",
+                  "height" : "jexl:get(feature,'score')>100?50:floor(get(feature,'score')/2)>4?floor(get(feature,'score')/2):4",
+                  "showDescriptions" : false,
+                  "type" : "SvgFeatureRenderer"
+               },
+               "mouseover" : "jexl:'Score: '+get(feature,'score')"
+            }
+         ],
+         "category" : [
+            "Expression"
+         ],
+         "assemblyNames" : [
+            "p_pacificus_PRJNA12644"
+         ],
+         "adapter" : {
+            "rootUrlTemplate" : {
+               "locationType" : "UriLocation",
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_pacificus_PRJNA12644/tracks/RNASeq/{refseq}/trackData.jsonz"
+            },
+            "type" : "NCListAdapter"
+         },
+         "trackId" : "p_pacificus_PRJNA12644_rnaseq",
+         "description" : "These boxes indicate alignments of short read sequences from all available RNASeq projects. The number of reads has been normalised by averaging over the number of libraries. The height of all boxes indicates the relative score of the feature.",
          "type" : "FeatureTrack"
       },
       {
          "adapter" : {
-            "type" : "NCListAdapter",
             "rootUrlTemplate" : {
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_pacificus_PRJNA12644/tracks/Low complextity region (Dust)/{refseq}/trackData.jsonz",
-               "locationType" : "UriLocation"
-            }
+               "locationType" : "UriLocation",
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_pacificus_PRJNA12644/tracks/RNASeq introns/{refseq}/trackData.jsonz"
+            },
+            "type" : "NCListAdapter"
          },
-         "trackId" : "p_pacificus_PRJNA12644_low_complextity_region_(dust)",
-         "description" : "Low-complexity regions identified by Dust.",
-         "type" : "FeatureTrack",
          "assemblyNames" : [
             "p_pacificus_PRJNA12644"
          ],
          "category" : [
-            "Genome Structure",
-            "Repeats"
+            "Expression"
          ],
          "displays" : [
             {
+               "displayId" : "rnaseq_introns-p_pacificus_PRJNA12644-LinearBasicDisplay",
                "renderer" : {
-                  "color1" : "bisque",
-                  "showDescriptions" : false,
+                  "height" : "jexl:get(feature,'score')>100?50:get(feature,'score')<8?4:floor(get(feature,'score')/2)",
+                  "showLabels" : false,
+                  "color1" : "green",
                   "type" : "SvgFeatureRenderer",
-                  "height" : 4,
-                  "showLabels" : false
+                  "showDescriptions" : false
                },
                "type" : "LinearBasicDisplay",
-               "displayId" : "low_complextity_region_(dust)-p_pacificus_PRJNA12644-LinearBasicDisplay"
+               "mouseover" : "jexl:get(feature,'score')+' reads'"
             }
          ],
-         "name" : "Low complextity region (Dust)"
+         "name" : "RNASeq introns",
+         "type" : "FeatureTrack",
+         "description" : "These are introns formed by aligned RNASeq reads spanning a region of the genome. Alignments of short read sequences from all available RNASeq projects were used. The number of reads spanning the introns is indicated by the thickness of the display.",
+         "trackId" : "p_pacificus_PRJNA12644_rnaseq_introns"
       },
       {
-         "trackId" : "p_pacificus_PRJNA12644_microarray_oligo_probes",
+         "type" : "FeatureTrack",
+         "description" : "These are introns formed by aligned RNASeq reads spanning a region of the genome. Alignments of short read sequences from all available RNASeq projects were used. These junctions are considered 'common' in that there are more than 500 reads confirming their existence. The number of reads spanning the introns is indicated by the darkness of the color (shades of cyan for reverse, shades of violet for forward).  Darker is more reads.",
+         "trackId" : "p_pacificus_PRJNA12644_rnaseq_splice_junctions_(common)",
          "adapter" : {
             "rootUrlTemplate" : {
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_pacificus_PRJNA12644/tracks/Microarray oligo probes/{refseq}/trackData.jsonz",
+               "locationType" : "UriLocation",
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_pacificus_PRJNA12644/tracks/RNASeq Splice Junctions (common)/{refseq}/trackData.jsonz"
+            },
+            "type" : "NCListAdapter"
+         },
+         "assemblyNames" : [
+            "p_pacificus_PRJNA12644"
+         ],
+         "category" : [
+            "Expression"
+         ],
+         "displays" : [
+            {
+               "mouseover" : "jexl:get(feature,'score')+' reads'",
+               "type" : "LinearBasicDisplay",
+               "renderer" : {
+                  "showDescriptions" : false,
+                  "type" : "SvgFeatureRenderer",
+                  "showLabels" : false,
+                  "color1" : "jexl:get(feature,'score')>20000?(get(feature,'strand')>0?'#730073':'#007373'):get(feature,'strand')>0?'#'+hex(round(255-(140*(get(feature,'score')/20000))))+'00'+hex(round(255-(140*(get(feature,'score')/20000)))):'#00'+hex(round(255-(140*(get(feature,'score')/20000))))+hex(round(255-(140*(get(feature,'score')/20000))))"
+               },
+               "displayId" : "rnaseq_splice_junctions_(common)-p_pacificus_PRJNA12644-LinearBasicDisplay"
+            }
+         ],
+         "name" : "RNASeq Splice Junctions (common)"
+      },
+      {
+         "description" : "These are introns formed by aligned RNASeq reads spanning a region of the genome. Alignments of short read sequences from all available RNASeq projects were used. These junctions are considered 'rare' in that there are fewer than 500 reads confirming their existence. The number of reads spanning the introns is indicated by the darkness of the color (shades of cyan for reverse, shades of violet for forward).  Darker is more reads.",
+         "type" : "FeatureTrack",
+         "trackId" : "p_pacificus_PRJNA12644_rnaseq_splice_junctions_(rare)",
+         "category" : [
+            "Expression"
+         ],
+         "assemblyNames" : [
+            "p_pacificus_PRJNA12644"
+         ],
+         "adapter" : {
+            "type" : "NCListAdapter",
+            "rootUrlTemplate" : {
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_pacificus_PRJNA12644/tracks/RNASeq Splice Junctions (rare)/{refseq}/trackData.jsonz",
+               "locationType" : "UriLocation"
+            }
+         },
+         "name" : "RNASeq Splice Junctions (rare)",
+         "displays" : [
+            {
+               "mouseover" : "jexl:get(feature,'score')+' reads'",
+               "displayId" : "rnaseq_splice_junctions_(rare)-p_pacificus_PRJNA12644-LinearBasicDisplay",
+               "type" : "LinearBasicDisplay",
+               "renderer" : {
+                  "showLabels" : false,
+                  "color1" : "jexl:get(feature,'score')>20000?(get(feature,'strand')>0?'#730073':'#007373'):get(feature,'strand')>0?'#'+hex(round(255-(140*(get(feature,'score')/20000))))+'00'+hex(round(255-(140*(get(feature,'score')/20000)))):'#00'+hex(round(255-(140*(get(feature,'score')/20000))))+hex(round(255-(140*(get(feature,'score')/20000))))",
+                  "height" : "jexl:4",
+                  "showDescriptions" : false,
+                  "type" : "SvgFeatureRenderer"
+               }
+            }
+         ]
+      },
+      {
+         "trackId" : "p_pacificus_PRJNA12644_D_melanogaster_proteins",
+         "type" : "FeatureTrack",
+         "description" : "Matches to WormBase D. melanogaster proteins, aligned with BLASTX (nucleotide to protein, via six-frame translation).",
+         "displays" : [
+            {
+               "mouseover" : "jexl:get(feature,'clone')",
+               "displayId" : "D_melanogaster_proteins-p_pacificus_PRJNA12644-LinearBasicDisplay",
+               "type" : "LinearBasicDisplay",
+               "renderer" : {
+                  "type" : "SvgFeatureRenderer",
+                  "height" : 4,
+                  "showLabels" : false,
+                  "color1" : "orange"
+               }
+            }
+         ],
+         "name" : "D. melanogaster proteins",
+         "adapter" : {
+            "rootUrlTemplate" : {
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_pacificus_PRJNA12644/tracks/D. melanogaster proteins/{refseq}/trackData.jsonz",
                "locationType" : "UriLocation"
             },
             "type" : "NCListAdapter"
          },
-         "formatDetails" : {
-            "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/p_pacificus_PRJNA12644' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.refName+':'+feature.start+'..'+feature.end+'</a>'}"
+         "category" : [
+            "Sequence Similarity",
+            "Proteins"
+         ],
+         "assemblyNames" : [
+            "p_pacificus_PRJNA12644"
+         ]
+      },
+      {
+         "adapter" : {
+            "rootUrlTemplate" : {
+               "locationType" : "UriLocation",
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_pacificus_PRJNA12644/tracks/C. brenneri proteins/{refseq}/trackData.jsonz"
+            },
+            "type" : "NCListAdapter"
          },
          "assemblyNames" : [
             "p_pacificus_PRJNA12644"
          ],
-         "description" : "This track contains Affymetrix GeneChip and Washington University GSC microarray probe sets.",
-         "type" : "FeatureTrack",
          "category" : [
-            "Reagents"
+            "Sequence Similarity",
+            "Proteins"
          ],
          "displays" : [
             {
-               "renderer" : {
-                  "type" : "SvgFeatureRenderer",
-                  "color1" : "black",
-                  "height" : 4
-               },
+               "displayId" : "C_brenneri_proteins-p_pacificus_PRJNA12644-LinearBasicDisplay",
                "type" : "LinearBasicDisplay",
-               "displayId" : "microarray_oligo_probes-p_pacificus_PRJNA12644-LinearBasicDisplay"
+               "renderer" : {
+                  "height" : 4,
+                  "color1" : "orange",
+                  "showLabels" : false,
+                  "type" : "SvgFeatureRenderer"
+               },
+               "mouseover" : "jexl:get(feature,'clone')"
             }
          ],
-         "name" : "Microarray oligo probes"
+         "name" : "C. brenneri proteins",
+         "type" : "FeatureTrack",
+         "description" : "Matches to WormBase C. brenneri proteins, aligned with BLASTX (nucleotide to protein, via six-frame translation).",
+         "trackId" : "p_pacificus_PRJNA12644_C_brenneri_proteins"
       },
       {
-         "trackId" : "p_pacificus_PRJNA12644_repeat_region_(repeatmasker)",
+         "description" : "This Nanopore transcript data is from the paper 'The full-length transcriptome of C. elegans using direct RNA sequencing' Roach et al. https://doi.org/10.1101/598763. Where several transcripts are nearly identical, they are represented by a single transcript and the number of transcripts is recorded in the read coverage. Sequencing is from 3' to 5' and randomly terminates, so the 5' end of transcripts is often incomplete.",
+         "type" : "FeatureTrack",
+         "trackId" : "p_pacificus_PRJNA12644_nanopore_matches",
+         "category" : [
+            "Genes",
+            "Supporting Evidence"
+         ],
+         "assemblyNames" : [
+            "p_pacificus_PRJNA12644"
+         ],
          "adapter" : {
             "type" : "NCListAdapter",
             "rootUrlTemplate" : {
-               "locationType" : "UriLocation",
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_pacificus_PRJNA12644/tracks/Repeat Region (RepeatMasker)/{refseq}/trackData.jsonz"
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_pacificus_PRJNA12644/tracks/Nanopore matches/{refseq}/trackData.jsonz",
+               "locationType" : "UriLocation"
             }
          },
-         "type" : "FeatureTrack",
-         "description" : "Repetitive regions identified by RepeatMasker.",
-         "assemblyNames" : [
-            "p_pacificus_PRJNA12644"
-         ],
-         "category" : [
-            "Genome Structure",
-            "Repeats"
-         ],
-         "name" : "Repeat Region (RepeatMasker)",
+         "name" : "Nanopore matches",
          "displays" : [
             {
-               "displayId" : "repeat_region_(repeatmasker)-p_pacificus_PRJNA12644-LinearBasicDisplay",
+               "displayId" : "nanopore_matches-p_pacificus_PRJNA12644-LinearBasicDisplay",
                "renderer" : {
-                  "color1" : "bisque",
-                  "showDescriptions" : false,
-                  "type" : "SvgFeatureRenderer",
+                  "color1" : "jexl:get(feature,'source')=='BLAT_Caen_mRNA'?'lightblue':'green'",
                   "showLabels" : false,
-                  "height" : 4
+                  "height" : 4,
+                  "type" : "SvgFeatureRenderer"
                },
                "type" : "LinearBasicDisplay"
             }
          ]
+      },
+      {
+         "displays" : [
+            {
+               "mouseover" : "jexl:get(feature,'clone')",
+               "displayId" : "H_sapiens_proteins-p_pacificus_PRJNA12644-LinearBasicDisplay",
+               "type" : "LinearBasicDisplay",
+               "renderer" : {
+                  "height" : 4,
+                  "showLabels" : false,
+                  "color1" : "orange",
+                  "type" : "SvgFeatureRenderer"
+               }
+            }
+         ],
+         "name" : "H. sapiens proteins",
+         "adapter" : {
+            "rootUrlTemplate" : {
+               "locationType" : "UriLocation",
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_pacificus_PRJNA12644/tracks/H. sapiens proteins/{refseq}/trackData.jsonz"
+            },
+            "type" : "NCListAdapter"
+         },
+         "category" : [
+            "Sequence Similarity",
+            "Proteins"
+         ],
+         "assemblyNames" : [
+            "p_pacificus_PRJNA12644"
+         ],
+         "trackId" : "p_pacificus_PRJNA12644_H_sapiens_proteins",
+         "type" : "FeatureTrack",
+         "description" : "Matches to WormBase H. sapiens proteins, aligned with BLASTX (nucleotide to protein, via six-frame translation)."
       }
    ],
    "assemblies" : [
       {
+         "name" : "p_pacificus_PRJNA12644",
          "displayName" : "p_pacificus_PRJNA12644",
          "sequence" : {
-            "trackId" : "p_pacificus_PRJNA12644-1646426635733",
             "adapter" : {
-               "type" : "BgzipFastaAdapter",
-               "faiLocation" : {
-                  "locationType" : "UriLocation",
-                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/p_pacificus.PRJNA12644.WS284.genomic.fa.gz.fai"
+               "fastaLocation" : {
+                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/p_pacificus.PRJNA12644.WS284.genomic.fa.gz",
+                  "locationType" : "UriLocation"
                },
+               "type" : "BgzipFastaAdapter",
                "gziLocation" : {
                   "locationType" : "UriLocation",
                   "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/p_pacificus.PRJNA12644.WS284.genomic.fa.gz.gzi"
                },
-               "fastaLocation" : {
-                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/p_pacificus.PRJNA12644.WS284.genomic.fa.gz",
+               "faiLocation" : {
+                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/p_pacificus.PRJNA12644.WS284.genomic.fa.gz.fai",
                   "locationType" : "UriLocation"
                }
             },
@@ -1158,9 +1161,9 @@
                   "displayId" : "p_pacificus_PRJNA12644-LinearReferenceSequenceDisplay",
                   "type" : "LinearReferenceSequenceDisplay"
                }
-            ]
-         },
-         "name" : "p_pacificus_PRJNA12644"
+            ],
+            "trackId" : "p_pacificus_PRJNA12644-1646426635733"
+         }
       }
    ]
 }
