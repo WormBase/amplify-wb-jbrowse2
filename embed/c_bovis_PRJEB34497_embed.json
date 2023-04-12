@@ -5,60 +5,60 @@
          "name" : "c_bovis_PRJEB34497",
          "sequence" : {
             "adapter" : {
+               "fastaLocation" : {
+                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/c_bovis.PRJEB34497.WS284.genomic.fa.gz",
+                  "locationType" : "UriLocation"
+               },
+               "type" : "BgzipFastaAdapter",
                "gziLocation" : {
-                  "locationType" : "UriLocation",
-                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/c_bovis.PRJEB34497.WS284.genomic.fa.gz.gzi"
+                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/c_bovis.PRJEB34497.WS284.genomic.fa.gz.gzi",
+                  "locationType" : "UriLocation"
                },
                "faiLocation" : {
-                  "locationType" : "UriLocation",
-                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/c_bovis.PRJEB34497.WS284.genomic.fa.gz.fai"
-               },
-               "fastaLocation" : {
-                  "locationType" : "UriLocation",
-                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/c_bovis.PRJEB34497.WS284.genomic.fa.gz"
-               },
-               "type" : "BgzipFastaAdapter"
+                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/c_bovis.PRJEB34497.WS284.genomic.fa.gz.fai",
+                  "locationType" : "UriLocation"
+               }
             },
-            "type" : "ReferenceSequenceTrack",
-            "trackId" : "c_bovis_PRJEB34497-1646426635733",
             "displays" : [
                {
                   "type" : "LinearReferenceSequenceDisplay",
                   "displayId" : "c_bovis_PRJEB34497-LinearReferenceSequenceDisplay"
                }
-            ]
+            ],
+            "type" : "ReferenceSequenceTrack",
+            "trackId" : "c_bovis_PRJEB34497-1646426635733"
          }
       }
    ],
    "tracks" : [
       {
+         "description" : "A subset of the full Curated Genes set limited to protein-coding genes only. Only the CDS is represented. Full models (with UTRs) can be seen on the 'Curated Genes' track.",
          "trackId" : "c_bovis_PRJEB34497_curated_genes_protein_coding",
          "type" : "FeatureTrack",
-         "description" : "A subset of the full Curated Genes set limited to protein-coding genes only. Only the CDS is represented. Full models (with UTRs) can be seen on the 'Curated Genes' track.",
-         "displays" : [
-            {
-               "displayId" : "curated_genes_(protein_coding)-c_bovis_PRJEB34497-LinearBasicDisplay",
-               "type" : "LinearBasicDisplay",
-               "renderer" : {
-                  "color3" : "#965567",
-                  "type" : "SvgFeatureRenderer",
-                  "color1" : "jexl:get(feature,'strand')>0?'violet':'turquoise'"
-               }
-            }
-         ],
          "name" : "Curated Genes (protein coding)",
-         "adapter" : {
-            "rootUrlTemplate" : {
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_bovis_PRJEB34497/tracks/Curated Genes (protein coding)/{refseq}/trackData.jsonz",
-               "locationType" : "UriLocation"
-            },
-            "type" : "NCListAdapter"
-         },
          "assemblyNames" : [
             "c_bovis_PRJEB34497"
          ],
          "formatDetails" : {
             "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/c_bovis_PRJEB34497' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.name+'</a>'}"
+         },
+         "displays" : [
+            {
+               "displayId" : "curated_genes_(protein_coding)-c_bovis_PRJEB34497-LinearBasicDisplay",
+               "type" : "LinearBasicDisplay",
+               "renderer" : {
+                  "type" : "SvgFeatureRenderer",
+                  "color1" : "jexl:get(feature,'strand')>0?'violet':'turquoise'",
+                  "color3" : "#965567"
+               }
+            }
+         ],
+         "adapter" : {
+            "type" : "NCListAdapter",
+            "rootUrlTemplate" : {
+               "locationType" : "UriLocation",
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_bovis_PRJEB34497/tracks/Curated Genes (protein coding)/{refseq}/trackData.jsonz"
+            }
          },
          "category" : [
             "Genes",
@@ -70,46 +70,43 @@
          "description" : "Protein-coding gene structures result from the integration of a variety of prediction methods and data sources followed by manual review and revison by WormBase curators. tRNAs are predicted by tRNAscan, and other non-coding RNA transcripts are taken from a variety of literature sources. The purple and blue colors indicate transcripts on the forward and reverse strands respectively. Dark purple areas represent 5' and 3' UTRs of protein-coding transcripts, assigned automatically using the extents of overlapping ESTs and full-length cDNAs. The UTR predictions have not been reviewed by WormBase curators, and some are known to contain artifacts. Grey transcripts represent either non-coding transcripts of protein coding genes or transcripts of non-coding genes.",
          "type" : "FeatureTrack",
          "name" : "Curated Genes",
-         "displays" : [
-            {
-               "displayId" : "curated_genes-c_bovis_PRJEB34497-LinearBasicDisplay",
-               "type" : "LinearBasicDisplay",
-               "renderer" : {
-                  "color1" : "jexl:get(feature,'type')!='CDS'?'gray':get(feature,'strand')>0?'violet':'turquoise'",
-                  "labels" : {
-                     "name" : "jexl:get(feature,'locus') || get(feature,'sequence_name')"
-                  },
-                  "color3" : "#965567",
-                  "type" : "SvgFeatureRenderer"
-               }
-            }
+         "assemblyNames" : [
+            "c_bovis_PRJEB34497"
          ],
          "formatDetails" : {
             "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/c_bovis_PRJEB34497' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.name+'</a>', WormBase: feature.source=='WormBase'?'<a href=\"/get?name='+feature.name+';class=Gene\">Gene Page</a>':''}"
          },
-         "category" : [
-            "Genes",
-            "Curated Genes"
-         ],
-         "assemblyNames" : [
-            "c_bovis_PRJEB34497"
-         ],
          "adapter" : {
-            "type" : "NCListAdapter",
             "rootUrlTemplate" : {
                "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_bovis_PRJEB34497/tracks/Curated_Genes/{refseq}/trackData.jsonz",
                "locationType" : "UriLocation"
+            },
+            "type" : "NCListAdapter"
+         },
+         "displays" : [
+            {
+               "renderer" : {
+                  "color3" : "#965567",
+                  "type" : "SvgFeatureRenderer",
+                  "color1" : "jexl:get(feature,'type')!='CDS'?'gray':get(feature,'strand')>0?'violet':'turquoise'",
+                  "labels" : {
+                     "name" : "jexl:get(feature,'locus') || get(feature,'sequence_name')"
+                  }
+               },
+               "type" : "LinearBasicDisplay",
+               "displayId" : "curated_genes-c_bovis_PRJEB34497-LinearBasicDisplay"
             }
-         }
+         ],
+         "category" : [
+            "Genes",
+            "Curated Genes"
+         ]
       },
       {
-         "adapter" : {
-            "type" : "NCListAdapter",
-            "rootUrlTemplate" : {
-               "locationType" : "UriLocation",
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_bovis_PRJEB34497/tracks/Low complextity region (Dust)/{refseq}/trackData.jsonz"
-            }
-         },
+         "type" : "FeatureTrack",
+         "description" : "Low-complexity regions identified by Dust.",
+         "trackId" : "c_bovis_PRJEB34497_low_complextity_region_(dust)",
+         "name" : "Low complextity region (Dust)",
          "assemblyNames" : [
             "c_bovis_PRJEB34497"
          ],
@@ -117,23 +114,26 @@
             "Genome Structure",
             "Repeats"
          ],
+         "adapter" : {
+            "rootUrlTemplate" : {
+               "locationType" : "UriLocation",
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_bovis_PRJEB34497/tracks/Low complextity region (Dust)/{refseq}/trackData.jsonz"
+            },
+            "type" : "NCListAdapter"
+         },
          "displays" : [
             {
-               "renderer" : {
-                  "type" : "SvgFeatureRenderer",
-                  "showDescriptions" : false,
-                  "height" : 4,
-                  "color1" : "bisque",
-                  "showLabels" : false
-               },
+               "displayId" : "low_complextity_region_(dust)-c_bovis_PRJEB34497-LinearBasicDisplay",
                "type" : "LinearBasicDisplay",
-               "displayId" : "low_complextity_region_(dust)-c_bovis_PRJEB34497-LinearBasicDisplay"
+               "renderer" : {
+                  "showLabels" : false,
+                  "height" : 4,
+                  "showDescriptions" : false,
+                  "color1" : "bisque",
+                  "type" : "SvgFeatureRenderer"
+               }
             }
-         ],
-         "name" : "Low complextity region (Dust)",
-         "type" : "FeatureTrack",
-         "description" : "Low-complexity regions identified by Dust.",
-         "trackId" : "c_bovis_PRJEB34497_low_complextity_region_(dust)"
+         ]
       }
    ]
 }
