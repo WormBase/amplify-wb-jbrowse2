@@ -1,41 +1,78 @@
 {
+   "assemblies" : [
+      {
+         "sequence" : {
+            "type" : "ReferenceSequenceTrack",
+            "adapter" : {
+               "fastaLocation" : {
+                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/c_latens.PRJNA248912.WS284.genomic.fa.gz",
+                  "locationType" : "UriLocation"
+               },
+               "faiLocation" : {
+                  "locationType" : "UriLocation",
+                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/c_latens.PRJNA248912.WS284.genomic.fa.gz.fai"
+               },
+               "type" : "BgzipFastaAdapter",
+               "gziLocation" : {
+                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/c_latens.PRJNA248912.WS284.genomic.fa.gz.gzi",
+                  "locationType" : "UriLocation"
+               }
+            },
+            "trackId" : "c_latens_PRJNA248912-1646426635733",
+            "displays" : [
+               {
+                  "displayId" : "c_latens_PRJNA248912-LinearReferenceSequenceDisplay",
+                  "type" : "LinearReferenceSequenceDisplay"
+               }
+            ]
+         },
+         "displayName" : "c_latens_PRJNA248912",
+         "name" : "c_latens_PRJNA248912"
+      }
+   ],
    "tracks" : [
       {
          "assemblyNames" : [
             "c_latens_PRJNA248912"
          ],
-         "displays" : [
-            {
-               "displayId" : "curated_genes_(protein_coding)-c_latens_PRJNA248912-LinearBasicDisplay",
-               "type" : "LinearBasicDisplay",
-               "renderer" : {
-                  "type" : "SvgFeatureRenderer",
-                  "color3" : "#965567",
-                  "color1" : "jexl:get(feature,'strand')>0?'violet':'turquoise'"
-               }
-            }
-         ],
-         "name" : "Curated Genes (protein coding)",
+         "description" : "A subset of the full Curated Genes set limited to protein-coding genes only. Only the CDS is represented. Full models (with UTRs) can be seen on the 'Curated Genes' track.",
          "formatDetails" : {
             "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/c_latens_PRJNA248912' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.name+'</a>'}"
+         },
+         "adapter" : {
+            "rootUrlTemplate" : {
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_latens_PRJNA248912/tracks/Curated Genes (protein coding)/{refseq}/trackData.jsonz",
+               "locationType" : "UriLocation"
+            },
+            "type" : "NCListAdapter"
          },
          "category" : [
             "Genes",
             "Curated Genes"
          ],
          "type" : "FeatureTrack",
+         "name" : "Curated Genes (protein coding)",
          "trackId" : "c_latens_PRJNA248912_curated_genes_protein_coding",
+         "displays" : [
+            {
+               "renderer" : {
+                  "color3" : "#965567",
+                  "type" : "SvgFeatureRenderer",
+                  "color1" : "jexl:get(feature,'strand')>0?'violet':'turquoise'"
+               },
+               "type" : "LinearBasicDisplay",
+               "displayId" : "curated_genes_(protein_coding)-c_latens_PRJNA248912-LinearBasicDisplay"
+            }
+         ]
+      },
+      {
          "adapter" : {
             "rootUrlTemplate" : {
-               "locationType" : "UriLocation",
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_latens_PRJNA248912/tracks/Curated Genes (protein coding)/{refseq}/trackData.jsonz"
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_latens_PRJNA248912/tracks/Curated_Genes/{refseq}/trackData.jsonz",
+               "locationType" : "UriLocation"
             },
             "type" : "NCListAdapter"
          },
-         "description" : "A subset of the full Curated Genes set limited to protein-coding genes only. Only the CDS is represented. Full models (with UTRs) can be seen on the 'Curated Genes' track."
-      },
-      {
-         "type" : "FeatureTrack",
          "category" : [
             "Genes",
             "Curated Genes"
@@ -43,42 +80,48 @@
          "formatDetails" : {
             "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/c_latens_PRJNA248912' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.name+'</a>', WormBase: feature.source=='WormBase'?'<a href=\"/get?name='+feature.name+';class=Gene\">Gene Page</a>':''}"
          },
+         "type" : "FeatureTrack",
+         "name" : "Curated Genes",
+         "displays" : [
+            {
+               "displayId" : "curated_genes-c_latens_PRJNA248912-LinearBasicDisplay",
+               "renderer" : {
+                  "color1" : "jexl:get(feature,'type')!='CDS'?'gray':get(feature,'strand')>0?'violet':'turquoise'",
+                  "labels" : {
+                     "name" : "jexl:get(feature,'locus') || get(feature,'sequence_name')"
+                  },
+                  "type" : "SvgFeatureRenderer",
+                  "color3" : "#965567"
+               },
+               "type" : "LinearBasicDisplay"
+            }
+         ],
          "trackId" : "c_latens_PRJNA248912_curated_genes",
-         "description" : "Protein-coding gene structures result from the integration of a variety of prediction methods and data sources followed by manual review and revison by WormBase curators. tRNAs are predicted by tRNAscan, and other non-coding RNA transcripts are taken from a variety of literature sources. The purple and blue colors indicate transcripts on the forward and reverse strands respectively. Dark purple areas represent 5' and 3' UTRs of protein-coding transcripts, assigned automatically using the extents of overlapping ESTs and full-length cDNAs. The UTR predictions have not been reviewed by WormBase curators, and some are known to contain artifacts. Grey transcripts represent either non-coding transcripts of protein coding genes or transcripts of non-coding genes.",
-         "adapter" : {
-            "rootUrlTemplate" : {
-               "locationType" : "UriLocation",
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_latens_PRJNA248912/tracks/Curated_Genes/{refseq}/trackData.jsonz"
-            },
-            "type" : "NCListAdapter"
-         },
          "assemblyNames" : [
             "c_latens_PRJNA248912"
          ],
-         "name" : "Curated Genes",
+         "description" : "Protein-coding gene structures result from the integration of a variety of prediction methods and data sources followed by manual review and revison by WormBase curators. tRNAs are predicted by tRNAscan, and other non-coding RNA transcripts are taken from a variety of literature sources. The purple and blue colors indicate transcripts on the forward and reverse strands respectively. Dark purple areas represent 5' and 3' UTRs of protein-coding transcripts, assigned automatically using the extents of overlapping ESTs and full-length cDNAs. The UTR predictions have not been reviewed by WormBase curators, and some are known to contain artifacts. Grey transcripts represent either non-coding transcripts of protein coding genes or transcripts of non-coding genes."
+      },
+      {
+         "name" : "Low complextity region (Dust)",
          "displays" : [
             {
                "type" : "LinearBasicDisplay",
                "renderer" : {
-                  "labels" : {
-                     "name" : "jexl:get(feature,'locus') || get(feature,'sequence_name')"
-                  },
-                  "color1" : "jexl:get(feature,'type')!='CDS'?'gray':get(feature,'strand')>0?'violet':'turquoise'",
-                  "color3" : "#965567",
+                  "color1" : "bisque",
+                  "height" : 4,
+                  "showDescriptions" : false,
+                  "showLabels" : false,
                   "type" : "SvgFeatureRenderer"
                },
-               "displayId" : "curated_genes-c_latens_PRJNA248912-LinearBasicDisplay"
+               "displayId" : "low_complextity_region_(dust)-c_latens_PRJNA248912-LinearBasicDisplay"
             }
-         ]
-      },
-      {
+         ],
+         "trackId" : "c_latens_PRJNA248912_low_complextity_region_(dust)",
          "category" : [
             "Genome Structure",
             "Repeats"
          ],
-         "type" : "FeatureTrack",
-         "trackId" : "c_latens_PRJNA248912_low_complextity_region_(dust)",
-         "description" : "Low-complexity regions identified by Dust.",
          "adapter" : {
             "rootUrlTemplate" : {
                "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_latens_PRJNA248912/tracks/Low complextity region (Dust)/{refseq}/trackData.jsonz",
@@ -86,54 +129,11 @@
             },
             "type" : "NCListAdapter"
          },
-         "displays" : [
-            {
-               "type" : "LinearBasicDisplay",
-               "renderer" : {
-                  "type" : "SvgFeatureRenderer",
-                  "showLabels" : false,
-                  "showDescriptions" : false,
-                  "color1" : "bisque",
-                  "height" : 4
-               },
-               "displayId" : "low_complextity_region_(dust)-c_latens_PRJNA248912-LinearBasicDisplay"
-            }
-         ],
-         "name" : "Low complextity region (Dust)",
+         "type" : "FeatureTrack",
          "assemblyNames" : [
             "c_latens_PRJNA248912"
-         ]
-      }
-   ],
-   "assemblies" : [
-      {
-         "name" : "c_latens_PRJNA248912",
-         "sequence" : {
-            "type" : "ReferenceSequenceTrack",
-            "trackId" : "c_latens_PRJNA248912-1646426635733",
-            "displays" : [
-               {
-                  "type" : "LinearReferenceSequenceDisplay",
-                  "displayId" : "c_latens_PRJNA248912-LinearReferenceSequenceDisplay"
-               }
-            ],
-            "adapter" : {
-               "fastaLocation" : {
-                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/c_latens.PRJNA248912.WS284.genomic.fa.gz",
-                  "locationType" : "UriLocation"
-               },
-               "gziLocation" : {
-                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/c_latens.PRJNA248912.WS284.genomic.fa.gz.gzi",
-                  "locationType" : "UriLocation"
-               },
-               "type" : "BgzipFastaAdapter",
-               "faiLocation" : {
-                  "locationType" : "UriLocation",
-                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/c_latens.PRJNA248912.WS284.genomic.fa.gz.fai"
-               }
-            }
-         },
-         "displayName" : "c_latens_PRJNA248912"
+         ],
+         "description" : "Low-complexity regions identified by Dust."
       }
    ]
 }

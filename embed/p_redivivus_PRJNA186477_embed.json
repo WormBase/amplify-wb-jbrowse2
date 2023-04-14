@@ -2,22 +2,9 @@
    "tracks" : [
       {
          "description" : "A subset of the full Curated Genes set limited to protein-coding genes only. Only the CDS is represented. Full models (with UTRs) can be seen on the 'Curated Genes' track.",
-         "adapter" : {
-            "type" : "NCListAdapter",
-            "rootUrlTemplate" : {
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_redivivus_PRJNA186477/tracks/Curated Genes (protein coding)/{refseq}/trackData.jsonz",
-               "locationType" : "UriLocation"
-            }
-         },
-         "type" : "FeatureTrack",
-         "category" : [
-            "Genes",
-            "Curated Genes"
+         "assemblyNames" : [
+            "p_redivivus_PRJNA186477"
          ],
-         "formatDetails" : {
-            "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/p_redivivus_PRJNA186477' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.name+'</a>'}"
-         },
-         "trackId" : "p_redivivus_PRJNA186477_curated_genes_protein_coding",
          "displays" : [
             {
                "displayId" : "curated_genes_(protein_coding)-p_redivivus_PRJNA186477-LinearBasicDisplay",
@@ -29,34 +16,45 @@
                "type" : "LinearBasicDisplay"
             }
          ],
+         "trackId" : "p_redivivus_PRJNA186477_curated_genes_protein_coding",
          "name" : "Curated Genes (protein coding)",
-         "assemblyNames" : [
-            "p_redivivus_PRJNA186477"
+         "type" : "FeatureTrack",
+         "adapter" : {
+            "rootUrlTemplate" : {
+               "locationType" : "UriLocation",
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_redivivus_PRJNA186477/tracks/Curated Genes (protein coding)/{refseq}/trackData.jsonz"
+            },
+            "type" : "NCListAdapter"
+         },
+         "formatDetails" : {
+            "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/p_redivivus_PRJNA186477' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.name+'</a>'}"
+         },
+         "category" : [
+            "Genes",
+            "Curated Genes"
          ]
       },
       {
-         "name" : "Curated Genes",
-         "displays" : [
-            {
-               "displayId" : "curated_genes-p_redivivus_PRJNA186477-LinearBasicDisplay",
-               "renderer" : {
-                  "labels" : {
-                     "name" : "jexl:get(feature,'locus') || get(feature,'sequence_name')"
-                  },
-                  "color1" : "jexl:get(feature,'type')!='CDS'?'gray':get(feature,'strand')>0?'violet':'turquoise'",
-                  "type" : "SvgFeatureRenderer",
-                  "color3" : "#965567"
-               },
-               "type" : "LinearBasicDisplay"
-            }
-         ],
+         "description" : "Protein-coding gene structures result from the integration of a variety of prediction methods and data sources followed by manual review and revison by WormBase curators. tRNAs are predicted by tRNAscan, and other non-coding RNA transcripts are taken from a variety of literature sources. The purple and blue colors indicate transcripts on the forward and reverse strands respectively. Dark purple areas represent 5' and 3' UTRs of protein-coding transcripts, assigned automatically using the extents of overlapping ESTs and full-length cDNAs. The UTR predictions have not been reviewed by WormBase curators, and some are known to contain artifacts. Grey transcripts represent either non-coding transcripts of protein coding genes or transcripts of non-coding genes.",
          "assemblyNames" : [
             "p_redivivus_PRJNA186477"
          ],
+         "displays" : [
+            {
+               "type" : "LinearBasicDisplay",
+               "renderer" : {
+                  "type" : "SvgFeatureRenderer",
+                  "color3" : "#965567",
+                  "color1" : "jexl:get(feature,'type')!='CDS'?'gray':get(feature,'strand')>0?'violet':'turquoise'",
+                  "labels" : {
+                     "name" : "jexl:get(feature,'locus') || get(feature,'sequence_name')"
+                  }
+               },
+               "displayId" : "curated_genes-p_redivivus_PRJNA186477-LinearBasicDisplay"
+            }
+         ],
          "trackId" : "p_redivivus_PRJNA186477_curated_genes",
-         "formatDetails" : {
-            "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/p_redivivus_PRJNA186477' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.name+'</a>', WormBase: feature.source=='WormBase'?'<a href=\"/get?name='+feature.name+';class=Gene\">Gene Page</a>':''}"
-         },
+         "name" : "Curated Genes",
          "type" : "FeatureTrack",
          "category" : [
             "Genes",
@@ -65,20 +63,20 @@
          "adapter" : {
             "type" : "NCListAdapter",
             "rootUrlTemplate" : {
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_redivivus_PRJNA186477/tracks/Curated_Genes/{refseq}/trackData.jsonz",
-               "locationType" : "UriLocation"
+               "locationType" : "UriLocation",
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_redivivus_PRJNA186477/tracks/Curated_Genes/{refseq}/trackData.jsonz"
             }
          },
-         "description" : "Protein-coding gene structures result from the integration of a variety of prediction methods and data sources followed by manual review and revison by WormBase curators. tRNAs are predicted by tRNAscan, and other non-coding RNA transcripts are taken from a variety of literature sources. The purple and blue colors indicate transcripts on the forward and reverse strands respectively. Dark purple areas represent 5' and 3' UTRs of protein-coding transcripts, assigned automatically using the extents of overlapping ESTs and full-length cDNAs. The UTR predictions have not been reviewed by WormBase curators, and some are known to contain artifacts. Grey transcripts represent either non-coding transcripts of protein coding genes or transcripts of non-coding genes."
+         "formatDetails" : {
+            "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/p_redivivus_PRJNA186477' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.name+'</a>', WormBase: feature.source=='WormBase'?'<a href=\"/get?name='+feature.name+';class=Gene\">Gene Page</a>':''}"
+         }
       },
       {
-         "type" : "FeatureTrack",
-         "category" : [
-            "Genome Structure",
-            "Repeats"
-         ],
-         "trackId" : "p_redivivus_PRJNA186477_repeat_region_(repeatmasker)",
          "description" : "Repetitive regions identified by RepeatMasker.",
+         "assemblyNames" : [
+            "p_redivivus_PRJNA186477"
+         ],
+         "type" : "FeatureTrack",
          "adapter" : {
             "type" : "NCListAdapter",
             "rootUrlTemplate" : {
@@ -86,58 +84,83 @@
                "locationType" : "UriLocation"
             }
          },
-         "assemblyNames" : [
-            "p_redivivus_PRJNA186477"
+         "category" : [
+            "Genome Structure",
+            "Repeats"
          ],
+         "trackId" : "p_redivivus_PRJNA186477_repeat_region_(repeatmasker)",
          "displays" : [
             {
-               "type" : "LinearBasicDisplay",
                "renderer" : {
-                  "showDescriptions" : false,
                   "type" : "SvgFeatureRenderer",
                   "showLabels" : false,
                   "height" : 4,
+                  "showDescriptions" : false,
                   "color1" : "bisque"
                },
+               "type" : "LinearBasicDisplay",
                "displayId" : "repeat_region_(repeatmasker)-p_redivivus_PRJNA186477-LinearBasicDisplay"
             }
          ],
          "name" : "Repeat Region (RepeatMasker)"
       },
       {
+         "assemblyNames" : [
+            "p_redivivus_PRJNA186477"
+         ],
+         "description" : "Matches to WormBase C. elegans proteins, aligned with BLASTX (nucleotide to protein, via six-frame translation).",
          "name" : "C. elegans proteins",
          "displays" : [
             {
-               "displayId" : "C_elegans_proteins-p_redivivus_PRJNA186477-LinearBasicDisplay",
-               "mouseover" : "jexl:get(feature,'clone')",
+               "type" : "LinearBasicDisplay",
                "renderer" : {
                   "showLabels" : false,
                   "type" : "SvgFeatureRenderer",
                   "color1" : "orange",
                   "height" : 4
                },
-               "type" : "LinearBasicDisplay"
+               "displayId" : "C_elegans_proteins-p_redivivus_PRJNA186477-LinearBasicDisplay",
+               "mouseover" : "jexl:get(feature,'clone')"
             }
          ],
-         "assemblyNames" : [
-            "p_redivivus_PRJNA186477"
-         ],
          "trackId" : "p_redivivus_PRJNA186477_C_elegans_proteins",
+         "adapter" : {
+            "type" : "NCListAdapter",
+            "rootUrlTemplate" : {
+               "locationType" : "UriLocation",
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_redivivus_PRJNA186477/tracks/C. elegans proteins/{refseq}/trackData.jsonz"
+            }
+         },
          "category" : [
             "Sequence Similarity",
             "Proteins"
          ],
-         "type" : "FeatureTrack",
-         "description" : "Matches to WormBase C. elegans proteins, aligned with BLASTX (nucleotide to protein, via six-frame translation).",
-         "adapter" : {
-            "type" : "NCListAdapter",
-            "rootUrlTemplate" : {
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_redivivus_PRJNA186477/tracks/C. elegans proteins/{refseq}/trackData.jsonz",
-               "locationType" : "UriLocation"
-            }
-         }
+         "type" : "FeatureTrack"
       },
       {
+         "assemblyNames" : [
+            "p_redivivus_PRJNA186477"
+         ],
+         "description" : "Matches to WormBase B. malayi proteins, aligned with BLASTX (nucleotide to protein, via six-frame translation).",
+         "name" : "B. malayi proteins",
+         "trackId" : "p_redivivus_PRJNA186477_B_malayi_proteins",
+         "displays" : [
+            {
+               "displayId" : "B_malayi_proteins-p_redivivus_PRJNA186477-LinearBasicDisplay",
+               "mouseover" : "jexl:get(feature,'clone')",
+               "renderer" : {
+                  "type" : "SvgFeatureRenderer",
+                  "showLabels" : false,
+                  "color1" : "orange",
+                  "height" : 4
+               },
+               "type" : "LinearBasicDisplay"
+            }
+         ],
+         "category" : [
+            "Sequence Similarity",
+            "Proteins"
+         ],
          "adapter" : {
             "rootUrlTemplate" : {
                "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_redivivus_PRJNA186477/tracks/B. malayi proteins/{refseq}/trackData.jsonz",
@@ -145,82 +168,47 @@
             },
             "type" : "NCListAdapter"
          },
-         "description" : "Matches to WormBase B. malayi proteins, aligned with BLASTX (nucleotide to protein, via six-frame translation).",
-         "category" : [
-            "Sequence Similarity",
-            "Proteins"
-         ],
-         "type" : "FeatureTrack",
-         "trackId" : "p_redivivus_PRJNA186477_B_malayi_proteins",
-         "assemblyNames" : [
-            "p_redivivus_PRJNA186477"
-         ],
-         "displays" : [
-            {
-               "type" : "LinearBasicDisplay",
-               "renderer" : {
-                  "height" : 4,
-                  "color1" : "orange",
-                  "showLabels" : false,
-                  "type" : "SvgFeatureRenderer"
-               },
-               "displayId" : "B_malayi_proteins-p_redivivus_PRJNA186477-LinearBasicDisplay",
-               "mouseover" : "jexl:get(feature,'clone')"
-            }
-         ],
-         "name" : "B. malayi proteins"
+         "type" : "FeatureTrack"
       },
       {
-         "description" : "cDNAs from this species from INSDC that have been aligned to the genome using STAR.",
-         "adapter" : {
-            "rootUrlTemplate" : {
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/$ASEMBLY/tracks/INSDC nematode cDNAs/{refseq}/trackData.jsonz",
-               "locationType" : "UriLocation"
-            },
-            "type" : "NCListAdapter"
-         },
-         "type" : "FeatureTrack",
          "category" : [
             "Sequence Similarity",
             "Nucleotide"
          ],
+         "adapter" : {
+            "type" : "NCListAdapter",
+            "rootUrlTemplate" : {
+               "locationType" : "UriLocation",
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/$ASEMBLY/tracks/INSDC nematode cDNAs/{refseq}/trackData.jsonz"
+            }
+         },
+         "type" : "FeatureTrack",
+         "name" : "INSDC nematode cDNAs",
          "trackId" : "$ASEMBLY_insdc_nematode_cdnas",
+         "displays" : [
+            {
+               "renderer" : {
+                  "type" : "SvgFeatureRenderer",
+                  "showLabels" : false,
+                  "color1" : "grey",
+                  "height" : 4,
+                  "showDescriptions" : false
+               },
+               "type" : "LinearBasicDisplay",
+               "displayId" : "$ASEMBLY_insdc_nematode_cdnas-LinearBasicDisplay"
+            }
+         ],
          "assemblyNames" : [
             "$ASEMBLY"
          ],
-         "name" : "INSDC nematode cDNAs",
-         "displays" : [
-            {
-               "displayId" : "$ASEMBLY_insdc_nematode_cdnas-LinearBasicDisplay",
-               "type" : "LinearBasicDisplay",
-               "renderer" : {
-                  "showDescriptions" : false,
-                  "showLabels" : false,
-                  "type" : "SvgFeatureRenderer",
-                  "color1" : "grey",
-                  "height" : 4
-               }
-            }
-         ]
+         "description" : "cDNAs from this species from INSDC that have been aligned to the genome using STAR."
       },
       {
-         "assemblyNames" : [
-            "p_redivivus_PRJNA186477"
+         "type" : "FeatureTrack",
+         "category" : [
+            "Sequence Similarity",
+            "Proteins"
          ],
-         "displays" : [
-            {
-               "type" : "LinearBasicDisplay",
-               "renderer" : {
-                  "height" : 4,
-                  "color1" : "orange",
-                  "type" : "SvgFeatureRenderer",
-                  "showLabels" : false
-               },
-               "displayId" : "S_cerevisiae_proteins-p_redivivus_PRJNA186477-LinearBasicDisplay",
-               "mouseover" : "jexl:get(feature,'clone')"
-            }
-         ],
-         "name" : "S. cerevisiae proteins",
          "adapter" : {
             "type" : "NCListAdapter",
             "rootUrlTemplate" : {
@@ -228,65 +216,80 @@
                "locationType" : "UriLocation"
             }
          },
-         "description" : "Matches to WormBase S. cerevisiae proteins, aligned with BLASTX (nucleotide to protein, via six-frame translation).",
          "trackId" : "p_redivivus_PRJNA186477_S_cerevisiae_proteins",
-         "type" : "FeatureTrack",
-         "category" : [
-            "Sequence Similarity",
-            "Proteins"
+         "displays" : [
+            {
+               "displayId" : "S_cerevisiae_proteins-p_redivivus_PRJNA186477-LinearBasicDisplay",
+               "mouseover" : "jexl:get(feature,'clone')",
+               "renderer" : {
+                  "height" : 4,
+                  "color1" : "orange",
+                  "type" : "SvgFeatureRenderer",
+                  "showLabels" : false
+               },
+               "type" : "LinearBasicDisplay"
+            }
+         ],
+         "name" : "S. cerevisiae proteins",
+         "description" : "Matches to WormBase S. cerevisiae proteins, aligned with BLASTX (nucleotide to protein, via six-frame translation).",
+         "assemblyNames" : [
+            "p_redivivus_PRJNA186477"
          ]
       },
       {
          "assemblyNames" : [
             "p_redivivus_PRJNA186477"
          ],
-         "displays" : [
-            {
-               "mouseover" : "jexl:get(feature,'clone')",
-               "displayId" : "P_pacificus_proteins-p_redivivus_PRJNA186477-LinearBasicDisplay",
-               "type" : "LinearBasicDisplay",
-               "renderer" : {
-                  "type" : "SvgFeatureRenderer",
-                  "showLabels" : false,
-                  "color1" : "orange",
-                  "height" : 4
-               }
-            }
-         ],
-         "name" : "P. pacificus proteins",
-         "type" : "FeatureTrack",
+         "description" : "Matches to WormBase P. pacificus proteins, aligned with BLASTX (nucleotide to protein, via six-frame translation).",
          "category" : [
             "Sequence Similarity",
             "Proteins"
          ],
-         "trackId" : "p_redivivus_PRJNA186477_P_pacificus_proteins",
-         "description" : "Matches to WormBase P. pacificus proteins, aligned with BLASTX (nucleotide to protein, via six-frame translation).",
          "adapter" : {
             "rootUrlTemplate" : {
                "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_redivivus_PRJNA186477/tracks/P. pacificus proteins/{refseq}/trackData.jsonz",
                "locationType" : "UriLocation"
             },
             "type" : "NCListAdapter"
-         }
+         },
+         "type" : "FeatureTrack",
+         "name" : "P. pacificus proteins",
+         "displays" : [
+            {
+               "displayId" : "P_pacificus_proteins-p_redivivus_PRJNA186477-LinearBasicDisplay",
+               "mouseover" : "jexl:get(feature,'clone')",
+               "type" : "LinearBasicDisplay",
+               "renderer" : {
+                  "showLabels" : false,
+                  "type" : "SvgFeatureRenderer",
+                  "height" : 4,
+                  "color1" : "orange"
+               }
+            }
+         ],
+         "trackId" : "p_redivivus_PRJNA186477_P_pacificus_proteins"
       },
       {
-         "name" : "H. sapiens proteins",
+         "description" : "Matches to WormBase H. sapiens proteins, aligned with BLASTX (nucleotide to protein, via six-frame translation).",
+         "assemblyNames" : [
+            "p_redivivus_PRJNA186477"
+         ],
          "displays" : [
             {
                "type" : "LinearBasicDisplay",
                "renderer" : {
-                  "color1" : "orange",
                   "height" : 4,
+                  "color1" : "orange",
                   "type" : "SvgFeatureRenderer",
                   "showLabels" : false
                },
-               "displayId" : "H_sapiens_proteins-p_redivivus_PRJNA186477-LinearBasicDisplay",
-               "mouseover" : "jexl:get(feature,'clone')"
+               "mouseover" : "jexl:get(feature,'clone')",
+               "displayId" : "H_sapiens_proteins-p_redivivus_PRJNA186477-LinearBasicDisplay"
             }
          ],
-         "assemblyNames" : [
-            "p_redivivus_PRJNA186477"
-         ],
+         "trackId" : "p_redivivus_PRJNA186477_H_sapiens_proteins",
+         "name" : "H. sapiens proteins",
+         "type" : "FeatureTrack",
          "adapter" : {
             "type" : "NCListAdapter",
             "rootUrlTemplate" : {
@@ -294,41 +297,202 @@
                "locationType" : "UriLocation"
             }
          },
-         "description" : "Matches to WormBase H. sapiens proteins, aligned with BLASTX (nucleotide to protein, via six-frame translation).",
-         "trackId" : "p_redivivus_PRJNA186477_H_sapiens_proteins",
+         "category" : [
+            "Sequence Similarity",
+            "Proteins"
+         ]
+      },
+      {
+         "type" : "FeatureTrack",
          "category" : [
             "Sequence Similarity",
             "Proteins"
          ],
-         "type" : "FeatureTrack"
-      },
-      {
-         "assemblyNames" : [
-            "p_redivivus_PRJNA186477"
-         ],
-         "name" : "C. briggsae proteins",
+         "adapter" : {
+            "rootUrlTemplate" : {
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_redivivus_PRJNA186477/tracks/C. briggsae proteins/{refseq}/trackData.jsonz",
+               "locationType" : "UriLocation"
+            },
+            "type" : "NCListAdapter"
+         },
+         "trackId" : "p_redivivus_PRJNA186477_C_briggsae_proteins",
          "displays" : [
             {
                "displayId" : "C_briggsae_proteins-p_redivivus_PRJNA186477-LinearBasicDisplay",
                "mouseover" : "jexl:get(feature,'clone')",
                "type" : "LinearBasicDisplay",
                "renderer" : {
-                  "height" : 4,
+                  "type" : "SvgFeatureRenderer",
+                  "showLabels" : false,
                   "color1" : "orange",
+                  "height" : 4
+               }
+            }
+         ],
+         "name" : "C. briggsae proteins",
+         "description" : "Matches to WormBase C. briggsae proteins, aligned with BLASTX (nucleotide to protein, via six-frame translation).",
+         "assemblyNames" : [
+            "p_redivivus_PRJNA186477"
+         ]
+      },
+      {
+         "displays" : [
+            {
+               "renderer" : {
+                  "showLabels" : false,
+                  "type" : "SvgFeatureRenderer",
+                  "height" : 4,
+                  "color1" : "orange"
+               },
+               "type" : "LinearBasicDisplay",
+               "mouseover" : "jexl:get(feature,'clone')",
+               "displayId" : "C_japonica_proteins-p_redivivus_PRJNA186477-LinearBasicDisplay"
+            }
+         ],
+         "trackId" : "p_redivivus_PRJNA186477_C_japonica_proteins",
+         "name" : "C. japonica proteins",
+         "type" : "FeatureTrack",
+         "category" : [
+            "Sequence Similarity",
+            "Proteins"
+         ],
+         "adapter" : {
+            "rootUrlTemplate" : {
+               "locationType" : "UriLocation",
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_redivivus_PRJNA186477/tracks/C. japonica proteins/{refseq}/trackData.jsonz"
+            },
+            "type" : "NCListAdapter"
+         },
+         "description" : "Matches to WormBase C. japonica proteins, aligned with BLASTX (nucleotide to protein, via six-frame translation).",
+         "assemblyNames" : [
+            "p_redivivus_PRJNA186477"
+         ]
+      },
+      {
+         "description" : "Low-complexity regions identified by Dust.",
+         "assemblyNames" : [
+            "p_redivivus_PRJNA186477"
+         ],
+         "type" : "FeatureTrack",
+         "adapter" : {
+            "rootUrlTemplate" : {
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_redivivus_PRJNA186477/tracks/Low complextity region (Dust)/{refseq}/trackData.jsonz",
+               "locationType" : "UriLocation"
+            },
+            "type" : "NCListAdapter"
+         },
+         "category" : [
+            "Genome Structure",
+            "Repeats"
+         ],
+         "trackId" : "p_redivivus_PRJNA186477_low_complextity_region_(dust)",
+         "displays" : [
+            {
+               "type" : "LinearBasicDisplay",
+               "renderer" : {
+                  "height" : 4,
+                  "showDescriptions" : false,
+                  "color1" : "bisque",
+                  "type" : "SvgFeatureRenderer",
+                  "showLabels" : false
+               },
+               "displayId" : "low_complextity_region_(dust)-p_redivivus_PRJNA186477-LinearBasicDisplay"
+            }
+         ],
+         "name" : "Low complextity region (Dust)"
+      },
+      {
+         "type" : "FeatureTrack",
+         "category" : [
+            "Sequence Similarity",
+            "Proteins"
+         ],
+         "adapter" : {
+            "type" : "NCListAdapter",
+            "rootUrlTemplate" : {
+               "locationType" : "UriLocation",
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_redivivus_PRJNA186477/tracks/D. melanogaster proteins/{refseq}/trackData.jsonz"
+            }
+         },
+         "displays" : [
+            {
+               "displayId" : "D_melanogaster_proteins-p_redivivus_PRJNA186477-LinearBasicDisplay",
+               "mouseover" : "jexl:get(feature,'clone')",
+               "renderer" : {
+                  "color1" : "orange",
+                  "height" : 4,
+                  "type" : "SvgFeatureRenderer",
+                  "showLabels" : false
+               },
+               "type" : "LinearBasicDisplay"
+            }
+         ],
+         "trackId" : "p_redivivus_PRJNA186477_D_melanogaster_proteins",
+         "name" : "D. melanogaster proteins",
+         "description" : "Matches to WormBase D. melanogaster proteins, aligned with BLASTX (nucleotide to protein, via six-frame translation).",
+         "assemblyNames" : [
+            "p_redivivus_PRJNA186477"
+         ]
+      },
+      {
+         "name" : "Tandem and Inverted Repeats",
+         "trackId" : "p_redivivus_PRJNA186477_tandem_and_inverted_repeats",
+         "displays" : [
+            {
+               "displayId" : "tandem_and_inverted_repeats-p_redivivus_PRJNA186477-LinearBasicDisplay",
+               "renderer" : {
+                  "showLabels" : false,
+                  "type" : "SvgFeatureRenderer",
+                  "showDescriptions" : false,
+                  "color1" : "bisque"
+               },
+               "type" : "LinearBasicDisplay"
+            }
+         ],
+         "category" : [
+            "Genome Structure",
+            "Repeats"
+         ],
+         "adapter" : {
+            "type" : "NCListAdapter",
+            "rootUrlTemplate" : {
+               "locationType" : "UriLocation",
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_redivivus_PRJNA186477/tracks/Tandem and Inverted Repeats/{refseq}/trackData.jsonz"
+            }
+         },
+         "type" : "FeatureTrack",
+         "assemblyNames" : [
+            "p_redivivus_PRJNA186477"
+         ],
+         "description" : "Exact tandem and inverted repetitive elements."
+      },
+      {
+         "assemblyNames" : [
+            "p_redivivus_PRJNA186477"
+         ],
+         "description" : "Matches to proteins from a slimmed-down version of UniProt (with proteins from WormBase core nematodes, human, fly and yeast removed), aligned with BLASTX (nucleotide to protein, via six-frame translation).",
+         "name" : "Other UniProt proteins",
+         "trackId" : "p_redivivus_PRJNA186477_other_uniprot_proteins",
+         "displays" : [
+            {
+               "displayId" : "other_uniprot_proteins-p_redivivus_PRJNA186477-LinearBasicDisplay",
+               "type" : "LinearBasicDisplay",
+               "renderer" : {
+                  "color1" : "orange",
+                  "height" : 4,
+                  "showDescriptions" : false,
                   "showLabels" : false,
                   "type" : "SvgFeatureRenderer"
                }
             }
          ],
-         "description" : "Matches to WormBase C. briggsae proteins, aligned with BLASTX (nucleotide to protein, via six-frame translation).",
          "adapter" : {
-            "type" : "NCListAdapter",
             "rootUrlTemplate" : {
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_redivivus_PRJNA186477/tracks/C. briggsae proteins/{refseq}/trackData.jsonz",
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_redivivus_PRJNA186477/tracks/Other UniProt proteins/{refseq}/trackData.jsonz",
                "locationType" : "UriLocation"
-            }
+            },
+            "type" : "NCListAdapter"
          },
-         "trackId" : "p_redivivus_PRJNA186477_C_briggsae_proteins",
          "category" : [
             "Sequence Similarity",
             "Proteins"
@@ -336,10 +500,45 @@
          "type" : "FeatureTrack"
       },
       {
+         "description" : "Matches to WormBase C. remanei proteins, aligned with BLASTX (nucleotide to protein, via six-frame translation).",
          "assemblyNames" : [
             "p_redivivus_PRJNA186477"
          ],
-         "name" : "C. japonica proteins",
+         "trackId" : "p_redivivus_PRJNA186477_C_remanei_proteins",
+         "displays" : [
+            {
+               "renderer" : {
+                  "color1" : "orange",
+                  "height" : 4,
+                  "showLabels" : false,
+                  "type" : "SvgFeatureRenderer"
+               },
+               "type" : "LinearBasicDisplay",
+               "displayId" : "C_remanei_proteins-p_redivivus_PRJNA186477-LinearBasicDisplay",
+               "mouseover" : "jexl:get(feature,'clone')"
+            }
+         ],
+         "name" : "C. remanei proteins",
+         "type" : "FeatureTrack",
+         "adapter" : {
+            "type" : "NCListAdapter",
+            "rootUrlTemplate" : {
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_redivivus_PRJNA186477/tracks/C. remanei proteins/{refseq}/trackData.jsonz",
+               "locationType" : "UriLocation"
+            }
+         },
+         "category" : [
+            "Sequence Similarity",
+            "Proteins"
+         ]
+      },
+      {
+         "assemblyNames" : [
+            "p_redivivus_PRJNA186477"
+         ],
+         "description" : "Matches to WormBase C. brenneri proteins, aligned with BLASTX (nucleotide to protein, via six-frame translation).",
+         "name" : "C. brenneri proteins",
+         "trackId" : "p_redivivus_PRJNA186477_C_brenneri_proteins",
          "displays" : [
             {
                "type" : "LinearBasicDisplay",
@@ -349,252 +548,53 @@
                   "type" : "SvgFeatureRenderer",
                   "showLabels" : false
                },
-               "mouseover" : "jexl:get(feature,'clone')",
-               "displayId" : "C_japonica_proteins-p_redivivus_PRJNA186477-LinearBasicDisplay"
-            }
-         ],
-         "type" : "FeatureTrack",
-         "category" : [
-            "Sequence Similarity",
-            "Proteins"
-         ],
-         "trackId" : "p_redivivus_PRJNA186477_C_japonica_proteins",
-         "description" : "Matches to WormBase C. japonica proteins, aligned with BLASTX (nucleotide to protein, via six-frame translation).",
-         "adapter" : {
-            "rootUrlTemplate" : {
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_redivivus_PRJNA186477/tracks/C. japonica proteins/{refseq}/trackData.jsonz",
-               "locationType" : "UriLocation"
-            },
-            "type" : "NCListAdapter"
-         }
-      },
-      {
-         "description" : "Low-complexity regions identified by Dust.",
-         "adapter" : {
-            "rootUrlTemplate" : {
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_redivivus_PRJNA186477/tracks/Low complextity region (Dust)/{refseq}/trackData.jsonz",
-               "locationType" : "UriLocation"
-            },
-            "type" : "NCListAdapter"
-         },
-         "trackId" : "p_redivivus_PRJNA186477_low_complextity_region_(dust)",
-         "type" : "FeatureTrack",
-         "category" : [
-            "Genome Structure",
-            "Repeats"
-         ],
-         "displays" : [
-            {
-               "displayId" : "low_complextity_region_(dust)-p_redivivus_PRJNA186477-LinearBasicDisplay",
-               "type" : "LinearBasicDisplay",
-               "renderer" : {
-                  "showDescriptions" : false,
-                  "showLabels" : false,
-                  "type" : "SvgFeatureRenderer",
-                  "height" : 4,
-                  "color1" : "bisque"
-               }
-            }
-         ],
-         "name" : "Low complextity region (Dust)",
-         "assemblyNames" : [
-            "p_redivivus_PRJNA186477"
-         ]
-      },
-      {
-         "assemblyNames" : [
-            "p_redivivus_PRJNA186477"
-         ],
-         "displays" : [
-            {
-               "type" : "LinearBasicDisplay",
-               "renderer" : {
-                  "color1" : "orange",
-                  "height" : 4,
-                  "showLabels" : false,
-                  "type" : "SvgFeatureRenderer"
-               },
-               "displayId" : "D_melanogaster_proteins-p_redivivus_PRJNA186477-LinearBasicDisplay",
+               "displayId" : "C_brenneri_proteins-p_redivivus_PRJNA186477-LinearBasicDisplay",
                "mouseover" : "jexl:get(feature,'clone')"
             }
          ],
-         "name" : "D. melanogaster proteins",
-         "description" : "Matches to WormBase D. melanogaster proteins, aligned with BLASTX (nucleotide to protein, via six-frame translation).",
-         "adapter" : {
-            "type" : "NCListAdapter",
-            "rootUrlTemplate" : {
-               "locationType" : "UriLocation",
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_redivivus_PRJNA186477/tracks/D. melanogaster proteins/{refseq}/trackData.jsonz"
-            }
-         },
-         "type" : "FeatureTrack",
          "category" : [
             "Sequence Similarity",
             "Proteins"
          ],
-         "trackId" : "p_redivivus_PRJNA186477_D_melanogaster_proteins"
-      },
-      {
-         "assemblyNames" : [
-            "p_redivivus_PRJNA186477"
-         ],
-         "displays" : [
-            {
-               "renderer" : {
-                  "type" : "SvgFeatureRenderer",
-                  "showLabels" : false,
-                  "showDescriptions" : false,
-                  "color1" : "bisque"
-               },
-               "type" : "LinearBasicDisplay",
-               "displayId" : "tandem_and_inverted_repeats-p_redivivus_PRJNA186477-LinearBasicDisplay"
-            }
-         ],
-         "name" : "Tandem and Inverted Repeats",
-         "trackId" : "p_redivivus_PRJNA186477_tandem_and_inverted_repeats",
-         "category" : [
-            "Genome Structure",
-            "Repeats"
-         ],
-         "type" : "FeatureTrack",
          "adapter" : {
             "rootUrlTemplate" : {
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_redivivus_PRJNA186477/tracks/Tandem and Inverted Repeats/{refseq}/trackData.jsonz",
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_redivivus_PRJNA186477/tracks/C. brenneri proteins/{refseq}/trackData.jsonz",
                "locationType" : "UriLocation"
             },
             "type" : "NCListAdapter"
          },
-         "description" : "Exact tandem and inverted repetitive elements."
-      },
-      {
-         "name" : "Other UniProt proteins",
-         "displays" : [
-            {
-               "renderer" : {
-                  "showDescriptions" : false,
-                  "showLabels" : false,
-                  "type" : "SvgFeatureRenderer",
-                  "height" : 4,
-                  "color1" : "orange"
-               },
-               "type" : "LinearBasicDisplay",
-               "displayId" : "other_uniprot_proteins-p_redivivus_PRJNA186477-LinearBasicDisplay"
-            }
-         ],
-         "assemblyNames" : [
-            "p_redivivus_PRJNA186477"
-         ],
-         "category" : [
-            "Sequence Similarity",
-            "Proteins"
-         ],
-         "type" : "FeatureTrack",
-         "trackId" : "p_redivivus_PRJNA186477_other_uniprot_proteins",
-         "description" : "Matches to proteins from a slimmed-down version of UniProt (with proteins from WormBase core nematodes, human, fly and yeast removed), aligned with BLASTX (nucleotide to protein, via six-frame translation).",
-         "adapter" : {
-            "type" : "NCListAdapter",
-            "rootUrlTemplate" : {
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_redivivus_PRJNA186477/tracks/Other UniProt proteins/{refseq}/trackData.jsonz",
-               "locationType" : "UriLocation"
-            }
-         }
-      },
-      {
-         "assemblyNames" : [
-            "p_redivivus_PRJNA186477"
-         ],
-         "name" : "C. remanei proteins",
-         "displays" : [
-            {
-               "renderer" : {
-                  "type" : "SvgFeatureRenderer",
-                  "showLabels" : false,
-                  "color1" : "orange",
-                  "height" : 4
-               },
-               "type" : "LinearBasicDisplay",
-               "mouseover" : "jexl:get(feature,'clone')",
-               "displayId" : "C_remanei_proteins-p_redivivus_PRJNA186477-LinearBasicDisplay"
-            }
-         ],
-         "adapter" : {
-            "type" : "NCListAdapter",
-            "rootUrlTemplate" : {
-               "locationType" : "UriLocation",
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_redivivus_PRJNA186477/tracks/C. remanei proteins/{refseq}/trackData.jsonz"
-            }
-         },
-         "description" : "Matches to WormBase C. remanei proteins, aligned with BLASTX (nucleotide to protein, via six-frame translation).",
-         "type" : "FeatureTrack",
-         "category" : [
-            "Sequence Similarity",
-            "Proteins"
-         ],
-         "trackId" : "p_redivivus_PRJNA186477_C_remanei_proteins"
-      },
-      {
-         "assemblyNames" : [
-            "p_redivivus_PRJNA186477"
-         ],
-         "name" : "C. brenneri proteins",
-         "displays" : [
-            {
-               "displayId" : "C_brenneri_proteins-p_redivivus_PRJNA186477-LinearBasicDisplay",
-               "mouseover" : "jexl:get(feature,'clone')",
-               "type" : "LinearBasicDisplay",
-               "renderer" : {
-                  "height" : 4,
-                  "color1" : "orange",
-                  "showLabels" : false,
-                  "type" : "SvgFeatureRenderer"
-               }
-            }
-         ],
-         "description" : "Matches to WormBase C. brenneri proteins, aligned with BLASTX (nucleotide to protein, via six-frame translation).",
-         "adapter" : {
-            "rootUrlTemplate" : {
-               "locationType" : "UriLocation",
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/p_redivivus_PRJNA186477/tracks/C. brenneri proteins/{refseq}/trackData.jsonz"
-            },
-            "type" : "NCListAdapter"
-         },
-         "trackId" : "p_redivivus_PRJNA186477_C_brenneri_proteins",
-         "category" : [
-            "Sequence Similarity",
-            "Proteins"
-         ],
          "type" : "FeatureTrack"
       }
    ],
    "assemblies" : [
       {
-         "name" : "p_redivivus_PRJNA186477",
-         "displayName" : "p_redivivus_PRJNA186477",
          "sequence" : {
-            "trackId" : "p_redivivus_PRJNA186477-1646426635733",
-            "type" : "ReferenceSequenceTrack",
             "adapter" : {
-               "fastaLocation" : {
-                  "locationType" : "UriLocation",
-                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/p_redivivus.PRJNA186477.WS284.genomic.fa.gz"
-               },
                "gziLocation" : {
                   "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/p_redivivus.PRJNA186477.WS284.genomic.fa.gz.gzi",
                   "locationType" : "UriLocation"
                },
-               "type" : "BgzipFastaAdapter",
+               "fastaLocation" : {
+                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/p_redivivus.PRJNA186477.WS284.genomic.fa.gz",
+                  "locationType" : "UriLocation"
+               },
                "faiLocation" : {
-                  "locationType" : "UriLocation",
-                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/p_redivivus.PRJNA186477.WS284.genomic.fa.gz.fai"
-               }
+                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/p_redivivus.PRJNA186477.WS284.genomic.fa.gz.fai",
+                  "locationType" : "UriLocation"
+               },
+               "type" : "BgzipFastaAdapter"
             },
+            "type" : "ReferenceSequenceTrack",
             "displays" : [
                {
-                  "displayId" : "p_redivivus_PRJNA186477-LinearReferenceSequenceDisplay",
-                  "type" : "LinearReferenceSequenceDisplay"
+                  "type" : "LinearReferenceSequenceDisplay",
+                  "displayId" : "p_redivivus_PRJNA186477-LinearReferenceSequenceDisplay"
                }
-            ]
-         }
+            ],
+            "trackId" : "p_redivivus_PRJNA186477-1646426635733"
+         },
+         "name" : "p_redivivus_PRJNA186477",
+         "displayName" : "p_redivivus_PRJNA186477"
       }
    ]
 }

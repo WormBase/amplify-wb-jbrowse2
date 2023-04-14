@@ -1,139 +1,139 @@
 {
    "assemblies" : [
       {
+         "name" : "c_uteleia_PRJEB12600",
+         "displayName" : "c_uteleia_PRJEB12600",
          "sequence" : {
+            "displays" : [
+               {
+                  "type" : "LinearReferenceSequenceDisplay",
+                  "displayId" : "c_uteleia_PRJEB12600-LinearReferenceSequenceDisplay"
+               }
+            ],
+            "trackId" : "c_uteleia_PRJEB12600-1646426635733",
             "adapter" : {
-               "type" : "BgzipFastaAdapter",
+               "gziLocation" : {
+                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/c_uteleia.PRJEB12600.WS284.genomic.fa.gz.gzi",
+                  "locationType" : "UriLocation"
+               },
+               "fastaLocation" : {
+                  "locationType" : "UriLocation",
+                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/c_uteleia.PRJEB12600.WS284.genomic.fa.gz"
+               },
                "faiLocation" : {
                   "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/c_uteleia.PRJEB12600.WS284.genomic.fa.gz.fai",
                   "locationType" : "UriLocation"
                },
-               "fastaLocation" : {
-                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/c_uteleia.PRJEB12600.WS284.genomic.fa.gz",
-                  "locationType" : "UriLocation"
-               },
-               "gziLocation" : {
-                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/c_uteleia.PRJEB12600.WS284.genomic.fa.gz.gzi",
-                  "locationType" : "UriLocation"
-               }
+               "type" : "BgzipFastaAdapter"
             },
-            "displays" : [
-               {
-                  "displayId" : "c_uteleia_PRJEB12600-LinearReferenceSequenceDisplay",
-                  "type" : "LinearReferenceSequenceDisplay"
-               }
-            ],
-            "trackId" : "c_uteleia_PRJEB12600-1646426635733",
             "type" : "ReferenceSequenceTrack"
-         },
-         "displayName" : "c_uteleia_PRJEB12600",
-         "name" : "c_uteleia_PRJEB12600"
+         }
       }
    ],
    "tracks" : [
       {
-         "displays" : [
-            {
-               "renderer" : {
-                  "color1" : "jexl:get(feature,'type')!='CDS'?'gray':get(feature,'strand')>0?'violet':'turquoise'",
-                  "type" : "SvgFeatureRenderer",
-                  "color3" : "#965567",
-                  "labels" : {
-                     "name" : "jexl:get(feature,'locus') || get(feature,'sequence_name')"
-                  }
-               },
-               "type" : "LinearBasicDisplay",
-               "displayId" : "curated_genes-c_uteleia_PRJEB12600-LinearBasicDisplay"
-            }
-         ],
-         "name" : "Curated Genes",
          "assemblyNames" : [
             "c_uteleia_PRJEB12600"
          ],
-         "adapter" : {
-            "rootUrlTemplate" : {
-               "locationType" : "UriLocation",
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_uteleia_PRJEB12600/tracks/Curated_Genes/{refseq}/trackData.jsonz"
-            },
-            "type" : "NCListAdapter"
-         },
          "description" : "Protein-coding gene structures result from the integration of a variety of prediction methods and data sources followed by manual review and revison by WormBase curators. tRNAs are predicted by tRNAscan, and other non-coding RNA transcripts are taken from a variety of literature sources. The purple and blue colors indicate transcripts on the forward and reverse strands respectively. Dark purple areas represent 5' and 3' UTRs of protein-coding transcripts, assigned automatically using the extents of overlapping ESTs and full-length cDNAs. The UTR predictions have not been reviewed by WormBase curators, and some are known to contain artifacts. Grey transcripts represent either non-coding transcripts of protein coding genes or transcripts of non-coding genes.",
+         "adapter" : {
+            "type" : "NCListAdapter",
+            "rootUrlTemplate" : {
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_uteleia_PRJEB12600/tracks/Curated_Genes/{refseq}/trackData.jsonz",
+               "locationType" : "UriLocation"
+            }
+         },
+         "category" : [
+            "Genes",
+            "Curated Genes"
+         ],
          "formatDetails" : {
             "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/c_uteleia_PRJEB12600' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.name+'</a>', WormBase: feature.source=='WormBase'?'<a href=\"/get?name='+feature.name+';class=Gene\">Gene Page</a>':''}"
          },
          "type" : "FeatureTrack",
-         "category" : [
-            "Genes",
-            "Curated Genes"
-         ],
-         "trackId" : "c_uteleia_PRJEB12600_curated_genes"
+         "name" : "Curated Genes",
+         "trackId" : "c_uteleia_PRJEB12600_curated_genes",
+         "displays" : [
+            {
+               "displayId" : "curated_genes-c_uteleia_PRJEB12600-LinearBasicDisplay",
+               "type" : "LinearBasicDisplay",
+               "renderer" : {
+                  "type" : "SvgFeatureRenderer",
+                  "color3" : "#965567",
+                  "color1" : "jexl:get(feature,'type')!='CDS'?'gray':get(feature,'strand')>0?'violet':'turquoise'",
+                  "labels" : {
+                     "name" : "jexl:get(feature,'locus') || get(feature,'sequence_name')"
+                  }
+               }
+            }
+         ]
       },
       {
          "assemblyNames" : [
             "c_uteleia_PRJEB12600"
          ],
-         "displays" : [
-            {
-               "renderer" : {
-                  "color1" : "jexl:get(feature,'strand')>0?'violet':'turquoise'",
-                  "type" : "SvgFeatureRenderer",
-                  "color3" : "#965567"
-               },
-               "type" : "LinearBasicDisplay",
-               "displayId" : "curated_genes_(protein_coding)-c_uteleia_PRJEB12600-LinearBasicDisplay"
-            }
+         "description" : "A subset of the full Curated Genes set limited to protein-coding genes only. Only the CDS is represented. Full models (with UTRs) can be seen on the 'Curated Genes' track.",
+         "category" : [
+            "Genes",
+            "Curated Genes"
          ],
-         "name" : "Curated Genes (protein coding)",
+         "adapter" : {
+            "rootUrlTemplate" : {
+               "locationType" : "UriLocation",
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_uteleia_PRJEB12600/tracks/Curated Genes (protein coding)/{refseq}/trackData.jsonz"
+            },
+            "type" : "NCListAdapter"
+         },
          "formatDetails" : {
             "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/c_uteleia_PRJEB12600' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.name+'</a>'}"
          },
          "type" : "FeatureTrack",
-         "category" : [
-            "Genes",
-            "Curated Genes"
-         ],
-         "trackId" : "c_uteleia_PRJEB12600_curated_genes_protein_coding",
-         "adapter" : {
-            "type" : "NCListAdapter",
-            "rootUrlTemplate" : {
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_uteleia_PRJEB12600/tracks/Curated Genes (protein coding)/{refseq}/trackData.jsonz",
-               "locationType" : "UriLocation"
-            }
-         },
-         "description" : "A subset of the full Curated Genes set limited to protein-coding genes only. Only the CDS is represented. Full models (with UTRs) can be seen on the 'Curated Genes' track."
-      },
-      {
+         "name" : "Curated Genes (protein coding)",
          "displays" : [
             {
                "type" : "LinearBasicDisplay",
                "renderer" : {
-                  "showDescriptions" : false,
+                  "type" : "SvgFeatureRenderer",
+                  "color3" : "#965567",
+                  "color1" : "jexl:get(feature,'strand')>0?'violet':'turquoise'"
+               },
+               "displayId" : "curated_genes_(protein_coding)-c_uteleia_PRJEB12600-LinearBasicDisplay"
+            }
+         ],
+         "trackId" : "c_uteleia_PRJEB12600_curated_genes_protein_coding"
+      },
+      {
+         "trackId" : "c_uteleia_PRJEB12600_low_complextity_region_(dust)",
+         "displays" : [
+            {
+               "renderer" : {
                   "showLabels" : false,
                   "type" : "SvgFeatureRenderer",
-                  "height" : 4,
-                  "color1" : "bisque"
+                  "color1" : "bisque",
+                  "showDescriptions" : false,
+                  "height" : 4
                },
+               "type" : "LinearBasicDisplay",
                "displayId" : "low_complextity_region_(dust)-c_uteleia_PRJEB12600-LinearBasicDisplay"
             }
          ],
          "name" : "Low complextity region (Dust)",
-         "assemblyNames" : [
-            "c_uteleia_PRJEB12600"
-         ],
+         "type" : "FeatureTrack",
          "adapter" : {
-            "type" : "NCListAdapter",
             "rootUrlTemplate" : {
                "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_uteleia_PRJEB12600/tracks/Low complextity region (Dust)/{refseq}/trackData.jsonz",
                "locationType" : "UriLocation"
-            }
+            },
+            "type" : "NCListAdapter"
          },
-         "description" : "Low-complexity regions identified by Dust.",
-         "trackId" : "c_uteleia_PRJEB12600_low_complextity_region_(dust)",
          "category" : [
             "Genome Structure",
             "Repeats"
          ],
-         "type" : "FeatureTrack"
+         "description" : "Low-complexity regions identified by Dust.",
+         "assemblyNames" : [
+            "c_uteleia_PRJEB12600"
+         ]
       }
    ]
 }
