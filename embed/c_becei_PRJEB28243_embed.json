@@ -1,140 +1,140 @@
 {
-   "assemblies" : [
-      {
-         "sequence" : {
-            "type" : "ReferenceSequenceTrack",
-            "displays" : [
-               {
-                  "type" : "LinearReferenceSequenceDisplay",
-                  "displayId" : "c_becei_PRJEB28243-LinearReferenceSequenceDisplay"
-               }
-            ],
-            "trackId" : "c_becei_PRJEB28243-1646426635733",
-            "adapter" : {
-               "faiLocation" : {
-                  "locationType" : "UriLocation",
-                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/c_becei.PRJEB28243.WS284.genomic.fa.gz.fai"
-               },
-               "type" : "BgzipFastaAdapter",
-               "gziLocation" : {
-                  "locationType" : "UriLocation",
-                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/c_becei.PRJEB28243.WS284.genomic.fa.gz.gzi"
-               },
-               "fastaLocation" : {
-                  "locationType" : "UriLocation",
-                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/c_becei.PRJEB28243.WS284.genomic.fa.gz"
-               }
-            }
-         },
-         "name" : "c_becei_PRJEB28243",
-         "displayName" : "c_becei_PRJEB28243"
-      }
-   ],
    "tracks" : [
       {
+         "type" : "FeatureTrack",
+         "trackId" : "c_becei_PRJEB28243_curated_genes",
+         "category" : [
+            "Genes",
+            "Curated Genes"
+         ],
          "formatDetails" : {
             "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/c_becei_PRJEB28243' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.name+'</a>', WormBase: feature.source=='WormBase'?'<a href=\"/get?name='+feature.name+';class=Gene\">Gene Page</a>':''}"
          },
          "adapter" : {
+            "type" : "NCListAdapter",
             "rootUrlTemplate" : {
                "locationType" : "UriLocation",
                "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_becei_PRJEB28243/tracks/Curated_Genes/{refseq}/trackData.jsonz"
-            },
-            "type" : "NCListAdapter"
+            }
          },
-         "category" : [
-            "Genes",
-            "Curated Genes"
-         ],
-         "assemblyNames" : [
-            "c_becei_PRJEB28243"
-         ],
-         "type" : "FeatureTrack",
          "name" : "Curated Genes",
          "description" : "Protein-coding gene structures result from the integration of a variety of prediction methods and data sources followed by manual review and revison by WormBase curators. tRNAs are predicted by tRNAscan, and other non-coding RNA transcripts are taken from a variety of literature sources. The purple and blue colors indicate transcripts on the forward and reverse strands respectively. Dark purple areas represent 5' and 3' UTRs of protein-coding transcripts, assigned automatically using the extents of overlapping ESTs and full-length cDNAs. The UTR predictions have not been reviewed by WormBase curators, and some are known to contain artifacts. Grey transcripts represent either non-coding transcripts of protein coding genes or transcripts of non-coding genes.",
-         "trackId" : "c_becei_PRJEB28243_curated_genes",
-         "displays" : [
-            {
-               "renderer" : {
-                  "color3" : "#965567",
-                  "maxHeight" : 5000,
-                  "type" : "SvgFeatureRenderer",
-                  "labels" : {
-                     "name" : "jexl:get(feature,'locus') || get(feature,'sequence_name')"
-                  },
-                  "color1" : "jexl:get(feature,'type')!='CDS'?'gray':get(feature,'strand')>0?'violet':'turquoise'"
-               },
-               "displayId" : "curated_genes-c_becei_PRJEB28243-LinearBasicDisplay",
-               "type" : "LinearBasicDisplay"
-            }
-         ]
-      },
-      {
-         "name" : "Curated Genes (protein coding)",
-         "description" : "A subset of the full Curated Genes set limited to protein-coding genes only. Only the CDS is represented. Full models (with UTRs) can be seen on the 'Curated Genes' track.",
-         "type" : "FeatureTrack",
-         "displays" : [
-            {
-               "displayId" : "curated_genes_(protein_coding)-c_becei_PRJEB28243-LinearBasicDisplay",
-               "renderer" : {
-                  "maxHeight" : 5000,
-                  "color3" : "#965567",
-                  "type" : "SvgFeatureRenderer",
-                  "color1" : "jexl:get(feature,'strand')>0?'violet':'turquoise'"
-               },
-               "type" : "LinearBasicDisplay"
-            }
-         ],
-         "trackId" : "c_becei_PRJEB28243_curated_genes_protein_coding",
          "assemblyNames" : [
             "c_becei_PRJEB28243"
          ],
-         "adapter" : {
-            "rootUrlTemplate" : {
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_becei_PRJEB28243/tracks/Curated Genes (protein coding)/{refseq}/trackData.jsonz",
-               "locationType" : "UriLocation"
-            },
-            "type" : "NCListAdapter"
-         },
-         "formatDetails" : {
-            "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/c_becei_PRJEB28243' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.name+'</a>'}"
-         },
-         "category" : [
-            "Genes",
-            "Curated Genes"
-         ]
-      },
-      {
          "displays" : [
             {
                "type" : "LinearBasicDisplay",
                "renderer" : {
-                  "height" : 4,
-                  "color1" : "bisque",
+                  "color3" : "#965567",
+                  "labels" : {
+                     "name" : "jexl:get(feature,'locus') || get(feature,'sequence_name')"
+                  },
+                  "maxHeight" : 5000,
                   "type" : "SvgFeatureRenderer",
-                  "showLabels" : false,
-                  "showDescriptions" : false
+                  "color1" : "jexl:get(feature,'type')!='CDS'?'gray':get(feature,'strand')>0?'violet':'turquoise'"
                },
-               "displayId" : "low_complextity_region_(dust)-c_becei_PRJEB28243-LinearBasicDisplay"
+               "displayId" : "curated_genes-c_becei_PRJEB28243-LinearBasicDisplay"
+            }
+         ]
+      },
+      {
+         "adapter" : {
+            "type" : "NCListAdapter",
+            "rootUrlTemplate" : {
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_becei_PRJEB28243/tracks/Curated Genes (protein coding)/{refseq}/trackData.jsonz",
+               "locationType" : "UriLocation"
+            }
+         },
+         "formatDetails" : {
+            "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/c_becei_PRJEB28243' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.name+'</a>'}"
+         },
+         "type" : "FeatureTrack",
+         "trackId" : "c_becei_PRJEB28243_curated_genes_protein_coding",
+         "category" : [
+            "Genes",
+            "Curated Genes"
+         ],
+         "displays" : [
+            {
+               "renderer" : {
+                  "color3" : "#965567",
+                  "type" : "SvgFeatureRenderer",
+                  "maxHeight" : 5000,
+                  "color1" : "jexl:get(feature,'strand')>0?'violet':'turquoise'"
+               },
+               "type" : "LinearBasicDisplay",
+               "displayId" : "curated_genes_(protein_coding)-c_becei_PRJEB28243-LinearBasicDisplay"
             }
          ],
-         "trackId" : "c_becei_PRJEB28243_low_complextity_region_(dust)",
-         "description" : "Low-complexity regions identified by Dust.",
-         "name" : "Low complextity region (Dust)",
-         "type" : "FeatureTrack",
+         "name" : "Curated Genes (protein coding)",
+         "description" : "A subset of the full Curated Genes set limited to protein-coding genes only. Only the CDS is represented. Full models (with UTRs) can be seen on the 'Curated Genes' track.",
          "assemblyNames" : [
             "c_becei_PRJEB28243"
-         ],
+         ]
+      },
+      {
+         "adapter" : {
+            "rootUrlTemplate" : {
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_becei_PRJEB28243/tracks/Low complextity region (Dust)/{refseq}/trackData.jsonz",
+               "locationType" : "UriLocation"
+            },
+            "type" : "NCListAdapter"
+         },
+         "trackId" : "c_becei_PRJEB28243_low_complextity_region_(dust)",
+         "type" : "FeatureTrack",
          "category" : [
             "Genome Structure",
             "Repeats"
          ],
-         "adapter" : {
-            "rootUrlTemplate" : {
-               "locationType" : "UriLocation",
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_becei_PRJEB28243/tracks/Low complextity region (Dust)/{refseq}/trackData.jsonz"
+         "displays" : [
+            {
+               "displayId" : "low_complextity_region_(dust)-c_becei_PRJEB28243-LinearBasicDisplay",
+               "type" : "LinearBasicDisplay",
+               "renderer" : {
+                  "type" : "SvgFeatureRenderer",
+                  "showLabels" : false,
+                  "color1" : "bisque",
+                  "showDescriptions" : false,
+                  "height" : 4
+               }
+            }
+         ],
+         "name" : "Low complextity region (Dust)",
+         "assemblyNames" : [
+            "c_becei_PRJEB28243"
+         ],
+         "description" : "Low-complexity regions identified by Dust."
+      }
+   ],
+   "assemblies" : [
+      {
+         "name" : "c_becei_PRJEB28243",
+         "displayName" : "c_becei_PRJEB28243",
+         "sequence" : {
+            "displays" : [
+               {
+                  "displayId" : "c_becei_PRJEB28243-LinearReferenceSequenceDisplay",
+                  "type" : "LinearReferenceSequenceDisplay"
+               }
+            ],
+            "adapter" : {
+               "gziLocation" : {
+                  "locationType" : "UriLocation",
+                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/c_becei.PRJEB28243.WS284.genomic.fa.gz.gzi"
+               },
+               "type" : "BgzipFastaAdapter",
+               "faiLocation" : {
+                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/c_becei.PRJEB28243.WS284.genomic.fa.gz.fai",
+                  "locationType" : "UriLocation"
+               },
+               "fastaLocation" : {
+                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/c_becei.PRJEB28243.WS284.genomic.fa.gz",
+                  "locationType" : "UriLocation"
+               }
             },
-            "type" : "NCListAdapter"
+            "trackId" : "c_becei_PRJEB28243-1646426635733",
+            "type" : "ReferenceSequenceTrack"
          }
       }
    ]
