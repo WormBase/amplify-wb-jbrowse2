@@ -1,60 +1,78 @@
 {
+   "assemblies" : [
+      {
+         "name" : "c_briggsae_PRJNA10731",
+         "sequence" : {
+            "displays" : [
+               {
+                  "type" : "LinearReferenceSequenceDisplay",
+                  "displayId" : "c_briggsae_PRJNA10731-1646426635733-LinearReferenceSequenceDisplay"
+               }
+            ],
+            "adapter" : {
+               "gziLocation" : {
+                  "locationType" : "UriLocation",
+                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/c_briggsae.PRJNA10731.WS284.genomic.fa.gz.gzi"
+               },
+               "fastaLocation" : {
+                  "locationType" : "UriLocation",
+                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/c_briggsae.PRJNA10731.WS284.genomic.fa.gz"
+               },
+               "type" : "BgzipFastaAdapter",
+               "faiLocation" : {
+                  "locationType" : "UriLocation",
+                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/c_briggsae.PRJNA10731.WS284.genomic.fa.gz.fai"
+               }
+            },
+            "trackId" : "c_briggsae_PRJNA10731-1646426635733",
+            "type" : "ReferenceSequenceTrack"
+         },
+         "displayName" : "C. briggsae"
+      }
+   ],
    "tracks" : [
       {
-         "type" : "FeatureTrack",
          "trackId" : "c_briggsae_PRJNA10731-change_of_function_polymorphisms",
-         "category" : [
-            "Alleles, Variations, RNAi"
-         ],
-         "adapter" : {
-            "rootUrlTemplate" : {
-               "locationType" : "UriLocation",
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/Change-of-function polymorphisms/{refseq}/trackData.jsonz"
-            },
-            "type" : "NCListAdapter"
-         },
-         "formatDetails" : {
-            "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/c_briggsae_PRJNA10731' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.name+'</a>', WormBase: '<a href=\"/get?name='+feature.variation+';class=variation\">Variation Page</a>'}"
-         },
-         "name" : "Change of function polymorphisms",
-         "description" : "This track shows single nucleotide polymorphisms (SNPs) that may generate a change of function. In this track, the molecular nature of the polymorphism is indicated by its glyph: Boxes are deletions or substitutions; triangles are insertions; point mutations are diamonds. Color signifies the severity of impact predicted by Ensembl's Variant Effect Predictor. 'HIGH' impacts are red, 'MEDIUM' are yellow, 'LOW' are cyan (light blue), and 'MODIFIER' are purple. This is the same color scheme as is used at the Alliance of Genome Resources.",
          "assemblyNames" : [
             "c_briggsae_PRJNA10731"
          ],
-         "displays" : [
-            {
-               "mouseover" : "jexl:get(feature,'name')+', '+get(feature,'consequence')",
-               "displayId" : "change_of_function_polymorphisms-c_briggsae_PRJNA10731-LinearBasicDisplay",
-               "renderer" : {
-                  "type" : "SvgFeatureRenderer",
-                  "maxHeight" : 5000,
-                  "color1" : "jexl:get(feature,'vep_impact')=='HIGH'?'red':get(feature,'vep_impact')=='MODIFIER'?'purple':get(feature,'vep_impact')=='MODERATE'?'gold':get(feature,'vep_impact')=='LOW'?'cyan':'white'",
-                  "outline" : "jexl:get(feature,'vep_impact')=='HIGH'?'red':get(feature,'vep_impact')=='MODIFIER'?'purple':get(feature,'vep_impact')=='MODERATE'?'gold':get(feature,'vep_impact')=='LOW'?'cyan':'black'"
-               },
-               "type" : "LinearBasicDisplay"
-            }
-         ]
-      },
-      {
-         "adapter" : {
-            "type" : "NCListAdapter",
-            "rootUrlTemplate" : {
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/Gene Models (historical)/{refseq}/trackData.jsonz",
-               "locationType" : "UriLocation"
-            }
-         },
-         "formatDetails" : {
-            "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/c_briggsae_PRJNA10731' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.name+'</a>'}"
-         },
+         "name" : "Change of function polymorphisms",
+         "description" : "This track shows single nucleotide polymorphisms (SNPs) that may generate a change of function. In this track, the molecular nature of the polymorphism is indicated by its glyph: Boxes are deletions or substitutions; triangles are insertions; point mutations are diamonds. Color signifies the severity of impact predicted by Ensembl's Variant Effect Predictor. 'HIGH' impacts are red, 'MEDIUM' are yellow, 'LOW' are cyan (light blue), and 'MODIFIER' are purple. This is the same color scheme as is used at the Alliance of Genome Resources.",
          "category" : [
-            "Genes",
-            "Curated Genes"
+            "Alleles, Variations, RNAi"
          ],
-         "trackId" : "c_briggsae_PRJNA10731_gene_models_(historical)",
          "type" : "FeatureTrack",
          "displays" : [
             {
-               "displayId" : "gene_models_(historical)-c_briggsae_PRJNA10731-LinearBasicDisplay",
+               "displayId" : "change_of_function_polymorphisms-c_briggsae_PRJNA10731-LinearBasicDisplay",
+               "renderer" : {
+                  "outline" : "jexl:get(feature,'vep_impact')=='HIGH'?'red':get(feature,'vep_impact')=='MODIFIER'?'purple':get(feature,'vep_impact')=='MODERATE'?'gold':get(feature,'vep_impact')=='LOW'?'cyan':'black'",
+                  "type" : "SvgFeatureRenderer",
+                  "maxHeight" : 5000,
+                  "color1" : "jexl:get(feature,'vep_impact')=='HIGH'?'red':get(feature,'vep_impact')=='MODIFIER'?'purple':get(feature,'vep_impact')=='MODERATE'?'gold':get(feature,'vep_impact')=='LOW'?'cyan':'white'"
+               },
+               "type" : "LinearBasicDisplay",
+               "mouseover" : "jexl:get(feature,'name')+', '+get(feature,'consequence')"
+            }
+         ],
+         "formatDetails" : {
+            "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/c_briggsae_PRJNA10731' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.name+'</a>', WormBase: '<a href=\"/get?name='+feature.variation+';class=variation\">Variation Page</a>'}"
+         },
+         "adapter" : {
+            "rootUrlTemplate" : {
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/Change-of-function polymorphisms/{refseq}/trackData.jsonz",
+               "locationType" : "UriLocation"
+            },
+            "type" : "NCListAdapter"
+         }
+      },
+      {
+         "formatDetails" : {
+            "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/c_briggsae_PRJNA10731' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.name+'</a>'}"
+         },
+         "displays" : [
+            {
+               "type" : "LinearBasicDisplay",
                "renderer" : {
                   "type" : "SvgFeatureRenderer",
                   "color1" : "jexl:get(feature,'strand')>0?'violet':'turquoise'",
@@ -62,57 +80,80 @@
                      "description" : "jexl:get(feature,'type')"
                   }
                },
-               "type" : "LinearBasicDisplay"
+               "displayId" : "gene_models_(historical)-c_briggsae_PRJNA10731-LinearBasicDisplay"
             }
          ],
+         "adapter" : {
+            "rootUrlTemplate" : {
+               "locationType" : "UriLocation",
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/Gene Models (historical)/{refseq}/trackData.jsonz"
+            },
+            "type" : "NCListAdapter"
+         },
+         "category" : [
+            "Genes",
+            "Curated Genes"
+         ],
+         "type" : "FeatureTrack",
+         "name" : "Gene Models (historical)",
+         "description" : "Historical gene predictions.",
+         "trackId" : "c_briggsae_PRJNA10731_gene_models_(historical)",
          "assemblyNames" : [
             "c_briggsae_PRJNA10731"
-         ],
-         "description" : "Historical gene predictions.",
-         "name" : "Gene Models (historical)"
+         ]
       },
       {
-         "name" : "Polymorphisms",
-         "description" : "This track shows single nucleotide polymorphisms (SNPs). In this track, the molecular nature of the polymorphism is indicated by its glyph: Boxes are deletions; triangles are insertions; point mutations and substitutions are diamonds. Color reflects the source strain: polymorphisms found in CB4858 (Pasadena) are shown in blue; those found in CB4856 (Hawaii) in yellow, and all others in white.",
-         "assemblyNames" : [
-            "c_briggsae_PRJNA10731"
-         ],
+         "adapter" : {
+            "rootUrlTemplate" : {
+               "locationType" : "UriLocation",
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/Polymorphisms/{refseq}/trackData.jsonz"
+            },
+            "type" : "NCListAdapter"
+         },
          "displays" : [
             {
-               "mouseover" : "jexl:get(feature,'type')+': '+get(feature,'strain')",
-               "displayId" : "polymorphisms-c_briggsae_PRJNA10731-LinearBasicDisplay",
                "renderer" : {
                   "color1" : "jexl:get(feature,'strain')=='CB4858'||get(feature,'strain')=='AF16'?'blue':get(feature,'strain')=='CB4856'||get(feature,'strain')=='HK104'?'yellow':'white'",
                   "type" : "SvgFeatureRenderer",
-                  "maxHeight" : 5000,
-                  "outline" : "jexl:get(feature,'strain')=='CB4858'||get(feature,'strain')=='AF16'?'blue':get(feature,'strain')=='CB4856'||get(feature,'strain')=='HK104'?'yellow':'black'"
+                  "outline" : "jexl:get(feature,'strain')=='CB4858'||get(feature,'strain')=='AF16'?'blue':get(feature,'strain')=='CB4856'||get(feature,'strain')=='HK104'?'yellow':'black'",
+                  "maxHeight" : 5000
                },
+               "displayId" : "polymorphisms-c_briggsae_PRJNA10731-LinearBasicDisplay",
+               "mouseover" : "jexl:get(feature,'type')+': '+get(feature,'strain')",
                "type" : "LinearBasicDisplay"
             }
-         ],
-         "type" : "FeatureTrack",
-         "trackId" : "c_briggsae_PRJNA10731_polymorphisms",
-         "category" : [
-            "Alleles, Variations, RNAi"
          ],
          "formatDetails" : {
             "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/c_briggsae_PRJNA10731' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.name+'</a>', WormBase: '<a href=\"/get?name='+feature.variation+';class=variation\">Variation Page</a>'}"
          },
-         "adapter" : {
-            "rootUrlTemplate" : {
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/Polymorphisms/{refseq}/trackData.jsonz",
-               "locationType" : "UriLocation"
-            },
-            "type" : "NCListAdapter"
-         }
+         "type" : "FeatureTrack",
+         "category" : [
+            "Alleles, Variations, RNAi"
+         ],
+         "description" : "This track shows single nucleotide polymorphisms (SNPs). In this track, the molecular nature of the polymorphism is indicated by its glyph: Boxes are deletions; triangles are insertions; point mutations and substitutions are diamonds. Color reflects the source strain: polymorphisms found in CB4858 (Pasadena) are shown in blue; those found in CB4856 (Hawaii) in yellow, and all others in white.",
+         "name" : "Polymorphisms",
+         "assemblyNames" : [
+            "c_briggsae_PRJNA10731"
+         ],
+         "trackId" : "c_briggsae_PRJNA10731_polymorphisms"
       },
       {
          "category" : [
             "Sequence Features",
             "Translated Features"
          ],
-         "trackId" : "c_briggsae_PRJNA10731_protein_motifs",
          "type" : "FeatureTrack",
+         "displays" : [
+            {
+               "displayId" : "protein_motifs-c_briggsae_PRJNA10731-LinearBasicDisplay",
+               "renderer" : {
+                  "type" : "SvgFeatureRenderer",
+                  "color1" : "jexl:parent(feature)=='undefined'?'purple':get(parent(feature),'predictiontype')=='tmhmm'?'magenta':get(parent(feature),'predictiontype')=='seg'?'lightseagreen':get(parent(feature),'predictiontype')=='signalp'?'aquamarine':get(parent(feature),'predictiontype')=='ncoils'?'chartreuse':\nget(parent(feature),'predictiontype')=='pfam'?'lightsalmon':'purple'",
+                  "height" : 7
+               },
+               "type" : "LinearBasicDisplay"
+            }
+         ],
          "formatDetails" : {
             "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/c_briggsae_PRJNA10731' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.refName+':'+feature.start+'..'+feature.end+'</a>'}"
          },
@@ -123,31 +164,37 @@
             },
             "type" : "NCListAdapter"
          },
+         "trackId" : "c_briggsae_PRJNA10731_protein_motifs",
          "assemblyNames" : [
             "c_briggsae_PRJNA10731"
          ],
          "description" : "This track shows the extent of predicted protein motifs. Note these spans correspond to amino acid coordinates interpolated onto the physical map.  Included are signal peptide (signalp), coiled coil (ncoils) and transmembrane (tmhmm) domains, regions of low complexity (seg), and Pfam annotated motif homologies.",
-         "name" : "Protein motifs",
-         "displays" : [
-            {
-               "displayId" : "protein_motifs-c_briggsae_PRJNA10731-LinearBasicDisplay",
-               "type" : "LinearBasicDisplay",
-               "renderer" : {
-                  "height" : 7,
-                  "color1" : "jexl:parent(feature)=='undefined'?'purple':get(parent(feature),'predictiontype')=='tmhmm'?'magenta':get(parent(feature),'predictiontype')=='seg'?'lightseagreen':get(parent(feature),'predictiontype')=='signalp'?'aquamarine':get(parent(feature),'predictiontype')=='ncoils'?'chartreuse':\nget(parent(feature),'predictiontype')=='pfam'?'lightsalmon':'purple'",
-                  "type" : "SvgFeatureRenderer"
-               }
-            }
-         ]
+         "name" : "Protein motifs"
       },
       {
+         "description" : "These are transposon spans reviewed by WormBase curators.",
+         "name" : "Transposons",
+         "trackId" : "c_briggsae_PRJNA10731_transposons",
+         "assemblyNames" : [
+            "c_briggsae_PRJNA10731"
+         ],
          "formatDetails" : {
             "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/c_briggsae_PRJNA10731' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.name+'</a>'}"
          },
+         "displays" : [
+            {
+               "type" : "LinearBasicDisplay",
+               "renderer" : {
+                  "color1" : "gray",
+                  "type" : "SvgFeatureRenderer"
+               },
+               "displayId" : "transposons-c_briggsae_PRJNA10731-LinearBasicDisplay"
+            }
+         ],
          "adapter" : {
             "rootUrlTemplate" : {
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/Transposons/{refseq}/trackData.jsonz",
-               "locationType" : "UriLocation"
+               "locationType" : "UriLocation",
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/Transposons/{refseq}/trackData.jsonz"
             },
             "type" : "NCListAdapter"
          },
@@ -155,62 +202,45 @@
             "Genes",
             "Curated Genes"
          ],
-         "type" : "FeatureTrack",
-         "trackId" : "c_briggsae_PRJNA10731_transposons",
-         "displays" : [
-            {
-               "renderer" : {
-                  "type" : "SvgFeatureRenderer",
-                  "color1" : "gray"
-               },
-               "type" : "LinearBasicDisplay",
-               "displayId" : "transposons-c_briggsae_PRJNA10731-LinearBasicDisplay"
-            }
-         ],
-         "description" : "These are transposon spans reviewed by WormBase curators.",
-         "assemblyNames" : [
-            "c_briggsae_PRJNA10731"
-         ],
-         "name" : "Transposons"
+         "type" : "FeatureTrack"
       },
       {
-         "category" : [
-            "Alleles, Variations, RNAi"
-         ],
-         "trackId" : "c_briggsae_PRJNA10731_classical_alleles",
-         "type" : "FeatureTrack",
-         "adapter" : {
-            "type" : "NCListAdapter",
-            "rootUrlTemplate" : {
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/Classical_alleles/{refseq}/trackData.jsonz",
-               "locationType" : "UriLocation"
-            }
-         },
          "formatDetails" : {
             "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/c_briggsae_PRJNA10731' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.name+'</a>', WormBase: '<a href=\"/get?name='+feature.variation+';class=variation\">Variation Page</a>'}"
          },
-         "assemblyNames" : [
-            "c_briggsae_PRJNA10731"
-         ],
-         "description" : "This track shows classical alleles comprised of insertions, deletions, substitutions and complex changes. These alleles were typically generated during forward genetic screens. Boxes represent deletions or substitutions; and white triangles represent insertions. Color signifies the severity of impact predicted by Ensembl's Variant Effect Predictor. 'HIGH' impacts are red, 'MEDIUM' are yellow, 'LOW' are cyan (light blue), and 'MODIFIER' are purple. This is the same color scheme as is used at the Alliance of Genome Resources.",
-         "name" : "Classical Alleles",
          "displays" : [
             {
+               "type" : "LinearBasicDisplay",
                "displayId" : "classical_alleles-c_briggsae_PRJNA10731-LinearBasicDisplay",
                "renderer" : {
-                  "type" : "SvgFeatureRenderer",
-                  "color1" : "jexl:get(feature,'vep_impact')=='HIGH'?'red':get(feature,'vep_impact')=='MODIFIER'?'purple':get(feature,'vep_impact')=='MODERATE'?'gold':get(feature,'vep_impact')=='LOW'?'cyan':'white'",
                   "showLabels" : false,
-                  "outline" : "jexl:get(feature,'vep_impact')=='HIGH'?'red':get(feature,'vep_impact')=='MODIFIER'?'purple':get(feature,'vep_impact')=='MODERATE'?'gold':get(feature,'vep_impact')=='LOW'?'cyan':'black'",
-                  "showDescriptions" : false
-               },
-               "type" : "LinearBasicDisplay"
+                  "color1" : "jexl:get(feature,'vep_impact')=='HIGH'?'red':get(feature,'vep_impact')=='MODIFIER'?'purple':get(feature,'vep_impact')=='MODERATE'?'gold':get(feature,'vep_impact')=='LOW'?'cyan':'white'",
+                  "showDescriptions" : false,
+                  "type" : "SvgFeatureRenderer",
+                  "outline" : "jexl:get(feature,'vep_impact')=='HIGH'?'red':get(feature,'vep_impact')=='MODIFIER'?'purple':get(feature,'vep_impact')=='MODERATE'?'gold':get(feature,'vep_impact')=='LOW'?'cyan':'black'"
+               }
             }
+         ],
+         "adapter" : {
+            "rootUrlTemplate" : {
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/Classical_alleles/{refseq}/trackData.jsonz",
+               "locationType" : "UriLocation"
+            },
+            "type" : "NCListAdapter"
+         },
+         "category" : [
+            "Alleles, Variations, RNAi"
+         ],
+         "type" : "FeatureTrack",
+         "name" : "Classical Alleles",
+         "description" : "This track shows classical alleles comprised of insertions, deletions, substitutions and complex changes. These alleles were typically generated during forward genetic screens. Boxes represent deletions or substitutions; and white triangles represent insertions. Color signifies the severity of impact predicted by Ensembl's Variant Effect Predictor. 'HIGH' impacts are red, 'MEDIUM' are yellow, 'LOW' are cyan (light blue), and 'MODIFIER' are purple. This is the same color scheme as is used at the Alliance of Genome Resources.",
+         "trackId" : "c_briggsae_PRJNA10731_classical_alleles",
+         "assemblyNames" : [
+            "c_briggsae_PRJNA10731"
          ]
       },
       {
          "type" : "FeatureTrack",
-         "trackId" : "c_briggsae_PRJNA10731_genblastg_cds_predictions",
          "category" : [
             "Genes",
             "Ab-initio predictions"
@@ -225,48 +255,29 @@
          "formatDetails" : {
             "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/c_briggsae_PRJNA10731' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.refName+':'+feature.start+'..'+feature.end+'</a>'}"
          },
-         "name" : "genBlastG CDS predictions",
-         "description" : "Data from 'genBlastG: using BLAST searches to build homologous gene models' (WBPaper00040677).",
-         "assemblyNames" : [
-            "c_briggsae_PRJNA10731"
-         ],
          "displays" : [
             {
                "renderer" : {
                   "type" : "SvgFeatureRenderer",
                   "height" : 7
                },
-               "type" : "LinearBasicDisplay",
-               "displayId" : "genblastg_cds_predictions-c_briggsae_PRJNA10731-LinearBasicDisplay"
+               "displayId" : "genblastg_cds_predictions-c_briggsae_PRJNA10731-LinearBasicDisplay",
+               "type" : "LinearBasicDisplay"
             }
-         ]
-      },
-      {
-         "description" : "These are transposon spans reviewed by WormBase curators.",
+         ],
          "assemblyNames" : [
             "c_briggsae_PRJNA10731"
          ],
-         "name" : "Transposon Genes",
-         "displays" : [
-            {
-               "type" : "LinearBasicDisplay",
-               "renderer" : {
-                  "height" : 6,
-                  "labels" : {
-                     "description" : "jexl:get(feature,'type')=='pseudogenic_transcript'?'transposon pseudogene':'transposon mRNA'"
-                  },
-                  "type" : "SvgFeatureRenderer",
-                  "color1" : "gray"
-               },
-               "displayId" : "transposon_genes-c_briggsae_PRJNA10731-LinearBasicDisplay"
-            }
-         ],
+         "trackId" : "c_briggsae_PRJNA10731_genblastg_cds_predictions",
+         "description" : "Data from 'genBlastG: using BLAST searches to build homologous gene models' (WBPaper00040677).",
+         "name" : "genBlastG CDS predictions"
+      },
+      {
+         "type" : "FeatureTrack",
          "category" : [
             "Genes",
             "Curated Genes"
          ],
-         "type" : "FeatureTrack",
-         "trackId" : "c_briggsae_PRJNA10731_transposon_genes",
          "adapter" : {
             "rootUrlTemplate" : {
                "locationType" : "UriLocation",
@@ -276,49 +287,80 @@
          },
          "formatDetails" : {
             "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/c_briggsae_PRJNA10731' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.name+'</a>'}"
-         }
-      },
-      {
+         },
          "displays" : [
             {
+               "type" : "LinearBasicDisplay",
+               "displayId" : "transposon_genes-c_briggsae_PRJNA10731-LinearBasicDisplay",
+               "renderer" : {
+                  "type" : "SvgFeatureRenderer",
+                  "height" : 6,
+                  "color1" : "gray",
+                  "labels" : {
+                     "description" : "jexl:get(feature,'type')=='pseudogenic_transcript'?'transposon pseudogene':'transposon mRNA'"
+                  }
+               }
+            }
+         ],
+         "assemblyNames" : [
+            "c_briggsae_PRJNA10731"
+         ],
+         "trackId" : "c_briggsae_PRJNA10731_transposon_genes",
+         "name" : "Transposon Genes",
+         "description" : "These are transposon spans reviewed by WormBase curators."
+      },
+      {
+         "adapter" : {
+            "rootUrlTemplate" : {
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/Dicistronic mRNAs/{refseq}/trackData.jsonz",
+               "locationType" : "UriLocation"
+            },
+            "type" : "NCListAdapter"
+         },
+         "formatDetails" : {
+            "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/c_briggsae_PRJNA10731' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.refName+':'+feature.start+'..'+feature.end+'</a>'}"
+         },
+         "displays" : [
+            {
+               "displayId" : "dicistronic_mrnas-c_briggsae_PRJNA10731-LinearBasicDisplay",
                "renderer" : {
                   "color1" : "darkgreen",
                   "type" : "SvgFeatureRenderer"
                },
-               "type" : "LinearBasicDisplay",
-               "displayId" : "dicistronic_mrnas-c_briggsae_PRJNA10731-LinearBasicDisplay"
+               "type" : "LinearBasicDisplay"
             }
          ],
-         "name" : "Dicistronic mRNAs",
-         "assemblyNames" : [
-            "c_briggsae_PRJNA10731"
-         ],
-         "description" : "Dicistronic mRNA operons - manually observed by curators",
-         "formatDetails" : {
-            "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/c_briggsae_PRJNA10731' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.refName+':'+feature.start+'..'+feature.end+'</a>'}"
-         },
-         "adapter" : {
-            "rootUrlTemplate" : {
-               "locationType" : "UriLocation",
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/Dicistronic mRNAs/{refseq}/trackData.jsonz"
-            },
-            "type" : "NCListAdapter"
-         },
-         "trackId" : "c_briggsae_PRJNA10731_dicistronic_mrnas",
          "type" : "FeatureTrack",
          "category" : [
             "Genes",
             "Curated Genes"
-         ]
+         ],
+         "description" : "Dicistronic mRNA operons - manually observed by curators",
+         "name" : "Dicistronic mRNAs",
+         "assemblyNames" : [
+            "c_briggsae_PRJNA10731"
+         ],
+         "trackId" : "c_briggsae_PRJNA10731_dicistronic_mrnas"
       },
       {
+         "displays" : [
+            {
+               "type" : "LinearBasicDisplay",
+               "displayId" : "yacs,_fosmids,_&_cosmids-c_briggsae_PRJNA10731-LinearBasicDisplay",
+               "renderer" : {
+                  "height" : 3,
+                  "color1" : "black",
+                  "type" : "SvgFeatureRenderer"
+               }
+            }
+         ],
          "formatDetails" : {
             "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/c_briggsae_PRJNA10731' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.refName+':'+feature.start+'..'+feature.end+'</a>'}"
          },
          "adapter" : {
             "rootUrlTemplate" : {
-               "locationType" : "UriLocation",
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/YACs, Fosmids, & Cosmids/{refseq}/trackData.jsonz"
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/YACs, Fosmids, & Cosmids/{refseq}/trackData.jsonz",
+               "locationType" : "UriLocation"
             },
             "type" : "NCListAdapter"
          },
@@ -326,45 +368,20 @@
             "Reagents"
          ],
          "type" : "FeatureTrack",
-         "trackId" : "c_briggsae_PRJNA10731_yacs_fosmids_cosmids",
-         "displays" : [
-            {
-               "type" : "LinearBasicDisplay",
-               "renderer" : {
-                  "color1" : "black",
-                  "type" : "SvgFeatureRenderer",
-                  "height" : 3
-               },
-               "displayId" : "yacs,_fosmids,_&_cosmids-c_briggsae_PRJNA10731-LinearBasicDisplay"
-            }
-         ],
+         "name" : "YACs, Fosmids, & Cosmids",
          "description" : "This track shows the locations of the cosmids, fosmids, and YACs used for the physical mapping and sequencing of the C. elegans genome.  The clone termini do not necessarily correspond to the termini of submitted GenBank/EMBL entries. In some cases the exact termini of the clones is not known.  For example, YACs were sequenced using PCR amplification across gaps in the cosmid maps.  When a clone end is not known, it is shown as an arrow extending to the end of the display.  Such data is to be treated with caution.  The Vancouver fosmids can be ordered directly from <a href='http://www.geneservice.co.uk/products/clones/Celegans_Fos.jsp'>GeneService</a>.",
+         "trackId" : "c_briggsae_PRJNA10731_yacs_fosmids_cosmids",
          "assemblyNames" : [
             "c_briggsae_PRJNA10731"
-         ],
-         "name" : "YACs, Fosmids, & Cosmids"
+         ]
       },
       {
-         "displays" : [
-            {
-               "type" : "LinearBasicDisplay",
-               "renderer" : {
-                  "color1" : "jexl:get(feature,'type')!='CDS'?'gray':get(feature,'strand')>0?'violet':'turquoise'",
-                  "maxHeight" : 5000,
-                  "type" : "SvgFeatureRenderer",
-                  "labels" : {
-                     "name" : "jexl:get(feature,'locus') || get(feature,'sequence_name')"
-                  },
-                  "color3" : "#965567"
-               },
-               "displayId" : "curated_genes-c_briggsae_PRJNA10731-LinearBasicDisplay"
-            }
-         ],
-         "name" : "Curated Genes",
          "description" : "Protein-coding gene structures result from the integration of a variety of prediction methods and data sources followed by manual review and revison by WormBase curators. tRNAs are predicted by tRNAscan, and other non-coding RNA transcripts are taken from a variety of literature sources. The purple and blue colors indicate transcripts on the forward and reverse strands respectively. Dark purple areas represent 5' and 3' UTRs of protein-coding transcripts, assigned automatically using the extents of overlapping ESTs and full-length cDNAs. The UTR predictions have not been reviewed by WormBase curators, and some are known to contain artifacts. Grey transcripts represent either non-coding transcripts of protein coding genes or transcripts of non-coding genes.",
+         "name" : "Curated Genes",
          "assemblyNames" : [
             "c_briggsae_PRJNA10731"
          ],
+         "trackId" : "c_briggsae_PRJNA10731_curated_genes",
          "adapter" : {
             "type" : "NCListAdapter",
             "rootUrlTemplate" : {
@@ -372,212 +389,45 @@
                "locationType" : "UriLocation"
             }
          },
+         "displays" : [
+            {
+               "displayId" : "curated_genes-c_briggsae_PRJNA10731-LinearBasicDisplay",
+               "renderer" : {
+                  "color1" : "jexl:get(feature,'type')!='CDS'?'gray':get(feature,'strand')>0?'violet':'turquoise'",
+                  "labels" : {
+                     "name" : "jexl:get(feature,'locus') || get(feature,'sequence_name')"
+                  },
+                  "type" : "SvgFeatureRenderer",
+                  "color3" : "#965567",
+                  "maxHeight" : 5000
+               },
+               "type" : "LinearBasicDisplay"
+            }
+         ],
          "formatDetails" : {
             "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/c_briggsae_PRJNA10731' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.name+'</a>', WormBase: feature.source=='WormBase'?'<a href=\"/get?name='+feature.name+';class=Gene\">Gene Page</a>':''}"
          },
          "type" : "FeatureTrack",
-         "trackId" : "c_briggsae_PRJNA10731_curated_genes",
          "category" : [
             "Genes",
             "Curated Genes"
          ]
       },
       {
-         "name" : "Curated Genes (pseudogenes)",
-         "assemblyNames" : [
-            "c_briggsae_PRJNA10731"
-         ],
-         "description" : "A subset of the full Curated Genes set limited to pseudogenes only. Pseudogenes of tRNA are lighter gray and pseudogenes of rRNA are darker gray than pseudogenes of protein coding genes.",
-         "displays" : [
-            {
-               "renderer" : {
-                  "height" : 6,
-                  "color1" : "gray",
-                  "type" : "SvgFeatureRenderer"
-               },
-               "type" : "LinearBasicDisplay",
-               "displayId" : "curated_genes_(pseudogenes)-c_briggsae_PRJNA10731-LinearBasicDisplay"
-            }
-         ],
          "trackId" : "c_briggsae_PRJNA10731_curated_genes_pseudogenes",
-         "type" : "FeatureTrack",
+         "assemblyNames" : [
+            "c_briggsae_PRJNA10731"
+         ],
+         "name" : "Curated Genes (pseudogenes)",
+         "description" : "A subset of the full Curated Genes set limited to pseudogenes only. Pseudogenes of tRNA are lighter gray and pseudogenes of rRNA are darker gray than pseudogenes of protein coding genes.",
          "category" : [
             "Genes",
             "Curated Genes"
          ],
-         "formatDetails" : {
-            "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/c_briggsae_PRJNA10731' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.name+'</a>'}"
-         },
-         "adapter" : {
-            "rootUrlTemplate" : {
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/Curated Genes (pseudogenes)/{refseq}/trackData.jsonz",
-               "locationType" : "UriLocation"
-            },
-            "type" : "NCListAdapter"
-         }
-      },
-      {
-         "formatDetails" : {
-            "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/c_briggsae_PRJNA10731' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.name+'</a>'}"
-         },
-         "adapter" : {
-            "rootUrlTemplate" : {
-               "locationType" : "UriLocation",
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/mRNAs_ncRNAs (best)/{refseq}/trackData.jsonz"
-            },
-            "type" : "NCListAdapter"
-         },
-         "category" : [
-            "Genes",
-            "Supporting Evidence"
-         ],
          "type" : "FeatureTrack",
-         "trackId" : "c_briggsae_PRJNA10731_mrnas/ncrnas_(best)",
          "displays" : [
             {
-               "type" : "LinearBasicDisplay",
-               "renderer" : {
-                  "height" : 6,
-                  "outline" : "black",
-                  "color1" : "jexl:startsWith(get(feature,'source'),'BLAT_mRNA_')==true?'yellow':'gray'",
-                  "type" : "SvgFeatureRenderer"
-               },
-               "displayId" : "mrnas/ncrnas_(best)-c_briggsae_PRJNA10731-LinearBasicDisplay"
-            }
-         ],
-         "description" : "Native (same species) full length cDNAs and ncRNAs aligned to the genome using BLAT. This track shows the best unique location for each cDNA.",
-         "assemblyNames" : [
-            "c_briggsae_PRJNA10731"
-         ],
-         "name" : "mRNAs/ncRNAs (best)"
-      },
-      {
-         "formatDetails" : {
-            "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/c_briggsae_PRJNA10731' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.refName+':'+feature.start+'..'+feature.end+'</a>'}"
-         },
-         "adapter" : {
-            "rootUrlTemplate" : {
-               "locationType" : "UriLocation",
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/PolyA sites and signal sequences/{refseq}/trackData.jsonz"
-            },
-            "type" : "NCListAdapter"
-         },
-         "type" : "FeatureTrack",
-         "trackId" : "c_briggsae_PRJNA10731_polya_sites_and_signal_sequences",
-         "category" : [
-            "Sequence Features",
-            "Signals & Motifs"
-         ],
-         "displays" : [
-            {
-               "displayId" : "polya_sites_and_signal_sequences-c_briggsae_PRJNA10731-LinearBasicDisplay",
-               "type" : "LinearBasicDisplay",
-               "renderer" : {
-                  "labels" : {
-                     "description" : "jexl:get(feature,'type') || get(feature,'description')"
-                  },
-                  "type" : "SvgFeatureRenderer",
-                  "color1" : "purple"
-               }
-            }
-         ],
-         "name" : "PolyA sites and signal sequences",
-         "description" : "High-confidence polyadenylation signal sequences and sites calculated by an algorithm trained with verified sites from full-length mRNAs. Signals are indicated with a diamond; sites with a triangle.",
-         "assemblyNames" : [
-            "c_briggsae_PRJNA10731"
-         ]
-      },
-      {
-         "formatDetails" : {
-            "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/c_briggsae_PRJNA10731' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.refName+':'+feature.start+'..'+feature.end+'</a>'}"
-         },
-         "adapter" : {
-            "rootUrlTemplate" : {
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/Trans-spliced acceptor/{refseq}/trackData.jsonz",
-               "locationType" : "UriLocation"
-            },
-            "type" : "NCListAdapter"
-         },
-         "trackId" : "c_briggsae_PRJNA10731_trans-spliced_acceptor",
-         "type" : "FeatureTrack",
-         "category" : [
-            "Sequence Features",
-            "Signals & Motifs"
-         ],
-         "displays" : [
-            {
-               "renderer" : {
-                  "labels" : {
-                     "description" : "jexl:get(feature,'source') || get(feature,'description')"
-                  },
-                  "color1" : "jexl:get(feature,'source')=='SL1'?'red':get(feature,'source')=='SL2'?'green':'black'",
-                  "type" : "SvgFeatureRenderer"
-               },
-               "type" : "LinearBasicDisplay",
-               "displayId" : "trans-spliced_acceptor-c_briggsae_PRJNA10731-LinearBasicDisplay"
-            }
-         ],
-         "name" : "Trans-spliced acceptor",
-         "assemblyNames" : [
-            "c_briggsae_PRJNA10731"
-         ],
-         "description" : "This track contains SL1 and SL2 trans-spliced acceptors from a variety of sources: SL1 and SL2 trans-spliced acceptors published by Blumenthal et al, Nature (2002), Trans-Spliced Exon Coupled RNA End Determination (TEC-RED) Hwang et al, PNAS (2004), EST/mRNA sequence data, RNASeq read data from ENA. SL1 acceptors are show in red, SL2 in green. Direction of transcription is indicated by arrow direction."
-      },
-      {
-         "assemblyNames" : [
-            "c_briggsae_PRJNA10731"
-         ],
-         "description" : "A subset of the full Curated Genes set limited to protein-coding genes only. Only the CDS is represented. Full models (with UTRs) can be seen on the 'Curated Genes' track.",
-         "name" : "Curated Genes (protein coding)",
-         "displays" : [
-            {
-               "renderer" : {
-                  "color3" : "#965567",
-                  "type" : "SvgFeatureRenderer",
-                  "maxHeight" : 5000,
-                  "color1" : "jexl:get(feature,'strand')>0?'violet':'turquoise'"
-               },
-               "type" : "LinearBasicDisplay",
-               "displayId" : "curated_genes_(protein_coding)-c_briggsae_PRJNA10731-LinearBasicDisplay"
-            }
-         ],
-         "category" : [
-            "Genes",
-            "Curated Genes"
-         ],
-         "trackId" : "c_briggsae_PRJNA10731_curated_genes_protein_coding",
-         "type" : "FeatureTrack",
-         "formatDetails" : {
-            "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/c_briggsae_PRJNA10731' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.name+'</a>'}"
-         },
-         "adapter" : {
-            "rootUrlTemplate" : {
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/Curated Genes (protein coding)/{refseq}/trackData.jsonz",
-               "locationType" : "UriLocation"
-            },
-            "type" : "NCListAdapter"
-         }
-      },
-      {
-         "adapter" : {
-            "rootUrlTemplate" : {
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/Curated Genes (noncoding)/{refseq}/trackData.jsonz",
-               "locationType" : "UriLocation"
-            },
-            "type" : "NCListAdapter"
-         },
-         "formatDetails" : {
-            "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/c_briggsae_PRJNA10731' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.name+'</a>'}"
-         },
-         "type" : "FeatureTrack",
-         "trackId" : "c_briggsae_PRJNA10731_curated_genes_noncoding",
-         "category" : [
-            "Genes",
-            "Curated Genes"
-         ],
-         "displays" : [
-            {
-               "displayId" : "curated_genes_(noncoding)-c_briggsae_PRJNA10731-LinearBasicDisplay",
+               "displayId" : "curated_genes_(pseudogenes)-c_briggsae_PRJNA10731-LinearBasicDisplay",
                "renderer" : {
                   "type" : "SvgFeatureRenderer",
                   "color1" : "gray",
@@ -586,49 +436,235 @@
                "type" : "LinearBasicDisplay"
             }
          ],
-         "name" : "Curated Genes (noncoding)",
-         "description" : "Non-coding curated gene models, including ncRNA, tRNA, miRNA, snRNA, snoRNA, piRNA, lincRNA and antisense RNA.",
-         "assemblyNames" : [
-            "c_briggsae_PRJNA10731"
-         ]
-      },
-      {
-         "assemblyNames" : [
-            "c_briggsae_PRJNA10731"
-         ],
-         "description" : "Positions within the reference genome sequence that have been identified as having a base call error. This error has not yet been corrected.",
-         "name" : "Genome sequence errors",
-         "displays" : [
-            {
-               "renderer" : {
-                  "type" : "SvgFeatureRenderer",
-                  "color1" : "red",
-                  "height" : 6
-               },
-               "type" : "LinearBasicDisplay",
-               "displayId" : "genome_sequence_errors-c_briggsae_PRJNA10731-LinearBasicDisplay"
-            }
-         ],
-         "category" : [
-            "Genome Structure",
-            "Assembly & Curation"
-         ],
-         "trackId" : "c_briggsae_PRJNA10731_genome_sequence_errors",
-         "type" : "FeatureTrack",
+         "formatDetails" : {
+            "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/c_briggsae_PRJNA10731' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.name+'</a>'}"
+         },
          "adapter" : {
             "rootUrlTemplate" : {
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/Genome sequence errors/{refseq}/trackData.jsonz",
-               "locationType" : "UriLocation"
+               "locationType" : "UriLocation",
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/Curated Genes (pseudogenes)/{refseq}/trackData.jsonz"
+            },
+            "type" : "NCListAdapter"
+         }
+      },
+      {
+         "adapter" : {
+            "type" : "NCListAdapter",
+            "rootUrlTemplate" : {
+               "locationType" : "UriLocation",
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/mRNAs_ncRNAs (best)/{refseq}/trackData.jsonz"
+            }
+         },
+         "displays" : [
+            {
+               "type" : "LinearBasicDisplay",
+               "renderer" : {
+                  "height" : 6,
+                  "color1" : "jexl:startsWith(get(feature,'source'),'BLAT_mRNA_')==true?'yellow':'gray'",
+                  "outline" : "black",
+                  "type" : "SvgFeatureRenderer"
+               },
+               "displayId" : "mrnas/ncrnas_(best)-c_briggsae_PRJNA10731-LinearBasicDisplay"
+            }
+         ],
+         "formatDetails" : {
+            "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/c_briggsae_PRJNA10731' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.name+'</a>'}"
+         },
+         "type" : "FeatureTrack",
+         "category" : [
+            "Genes",
+            "Supporting Evidence"
+         ],
+         "description" : "Native (same species) full length cDNAs and ncRNAs aligned to the genome using BLAT. This track shows the best unique location for each cDNA.",
+         "name" : "mRNAs/ncRNAs (best)",
+         "assemblyNames" : [
+            "c_briggsae_PRJNA10731"
+         ],
+         "trackId" : "c_briggsae_PRJNA10731_mrnas/ncrnas_(best)"
+      },
+      {
+         "type" : "FeatureTrack",
+         "category" : [
+            "Sequence Features",
+            "Signals & Motifs"
+         ],
+         "adapter" : {
+            "rootUrlTemplate" : {
+               "locationType" : "UriLocation",
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/PolyA sites and signal sequences/{refseq}/trackData.jsonz"
             },
             "type" : "NCListAdapter"
          },
          "formatDetails" : {
             "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/c_briggsae_PRJNA10731' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.refName+':'+feature.start+'..'+feature.end+'</a>'}"
+         },
+         "displays" : [
+            {
+               "type" : "LinearBasicDisplay",
+               "renderer" : {
+                  "type" : "SvgFeatureRenderer",
+                  "labels" : {
+                     "description" : "jexl:get(feature,'type') || get(feature,'description')"
+                  },
+                  "color1" : "purple"
+               },
+               "displayId" : "polya_sites_and_signal_sequences-c_briggsae_PRJNA10731-LinearBasicDisplay"
+            }
+         ],
+         "assemblyNames" : [
+            "c_briggsae_PRJNA10731"
+         ],
+         "trackId" : "c_briggsae_PRJNA10731_polya_sites_and_signal_sequences",
+         "description" : "High-confidence polyadenylation signal sequences and sites calculated by an algorithm trained with verified sites from full-length mRNAs. Signals are indicated with a diamond; sites with a triangle.",
+         "name" : "PolyA sites and signal sequences"
+      },
+      {
+         "displays" : [
+            {
+               "type" : "LinearBasicDisplay",
+               "renderer" : {
+                  "type" : "SvgFeatureRenderer",
+                  "labels" : {
+                     "description" : "jexl:get(feature,'source') || get(feature,'description')"
+                  },
+                  "color1" : "jexl:get(feature,'source')=='SL1'?'red':get(feature,'source')=='SL2'?'green':'black'"
+               },
+               "displayId" : "trans-spliced_acceptor-c_briggsae_PRJNA10731-LinearBasicDisplay"
+            }
+         ],
+         "formatDetails" : {
+            "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/c_briggsae_PRJNA10731' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.refName+':'+feature.start+'..'+feature.end+'</a>'}"
+         },
+         "adapter" : {
+            "type" : "NCListAdapter",
+            "rootUrlTemplate" : {
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/Trans-spliced acceptor/{refseq}/trackData.jsonz",
+               "locationType" : "UriLocation"
+            }
+         },
+         "category" : [
+            "Sequence Features",
+            "Signals & Motifs"
+         ],
+         "type" : "FeatureTrack",
+         "name" : "Trans-spliced acceptor",
+         "description" : "This track contains SL1 and SL2 trans-spliced acceptors from a variety of sources: SL1 and SL2 trans-spliced acceptors published by Blumenthal et al, Nature (2002), Trans-Spliced Exon Coupled RNA End Determination (TEC-RED) Hwang et al, PNAS (2004), EST/mRNA sequence data, RNASeq read data from ENA. SL1 acceptors are show in red, SL2 in green. Direction of transcription is indicated by arrow direction.",
+         "trackId" : "c_briggsae_PRJNA10731_trans-spliced_acceptor",
+         "assemblyNames" : [
+            "c_briggsae_PRJNA10731"
+         ]
+      },
+      {
+         "category" : [
+            "Genes",
+            "Curated Genes"
+         ],
+         "type" : "FeatureTrack",
+         "formatDetails" : {
+            "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/c_briggsae_PRJNA10731' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.name+'</a>'}"
+         },
+         "displays" : [
+            {
+               "renderer" : {
+                  "color1" : "jexl:get(feature,'strand')>0?'violet':'turquoise'",
+                  "type" : "SvgFeatureRenderer",
+                  "color3" : "#965567",
+                  "maxHeight" : 5000
+               },
+               "displayId" : "curated_genes_(protein_coding)-c_briggsae_PRJNA10731-LinearBasicDisplay",
+               "type" : "LinearBasicDisplay"
+            }
+         ],
+         "adapter" : {
+            "type" : "NCListAdapter",
+            "rootUrlTemplate" : {
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/Curated Genes (protein coding)/{refseq}/trackData.jsonz",
+               "locationType" : "UriLocation"
+            }
+         },
+         "trackId" : "c_briggsae_PRJNA10731_curated_genes_protein_coding",
+         "assemblyNames" : [
+            "c_briggsae_PRJNA10731"
+         ],
+         "description" : "A subset of the full Curated Genes set limited to protein-coding genes only. Only the CDS is represented. Full models (with UTRs) can be seen on the 'Curated Genes' track.",
+         "name" : "Curated Genes (protein coding)"
+      },
+      {
+         "displays" : [
+            {
+               "renderer" : {
+                  "color1" : "gray",
+                  "height" : 6,
+                  "type" : "SvgFeatureRenderer"
+               },
+               "displayId" : "curated_genes_(noncoding)-c_briggsae_PRJNA10731-LinearBasicDisplay",
+               "type" : "LinearBasicDisplay"
+            }
+         ],
+         "formatDetails" : {
+            "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/c_briggsae_PRJNA10731' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.name+'</a>'}"
+         },
+         "adapter" : {
+            "type" : "NCListAdapter",
+            "rootUrlTemplate" : {
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/Curated Genes (noncoding)/{refseq}/trackData.jsonz",
+               "locationType" : "UriLocation"
+            }
+         },
+         "category" : [
+            "Genes",
+            "Curated Genes"
+         ],
+         "type" : "FeatureTrack",
+         "description" : "Non-coding curated gene models, including ncRNA, tRNA, miRNA, snRNA, snoRNA, piRNA, lincRNA and antisense RNA.",
+         "name" : "Curated Genes (noncoding)",
+         "trackId" : "c_briggsae_PRJNA10731_curated_genes_noncoding",
+         "assemblyNames" : [
+            "c_briggsae_PRJNA10731"
+         ]
+      },
+      {
+         "trackId" : "c_briggsae_PRJNA10731_genome_sequence_errors",
+         "assemblyNames" : [
+            "c_briggsae_PRJNA10731"
+         ],
+         "description" : "Positions within the reference genome sequence that have been identified as having a base call error. This error has not yet been corrected.",
+         "name" : "Genome sequence errors",
+         "category" : [
+            "Genome Structure",
+            "Assembly & Curation"
+         ],
+         "type" : "FeatureTrack",
+         "displays" : [
+            {
+               "type" : "LinearBasicDisplay",
+               "renderer" : {
+                  "type" : "SvgFeatureRenderer",
+                  "color1" : "red",
+                  "height" : 6
+               },
+               "displayId" : "genome_sequence_errors-c_briggsae_PRJNA10731-LinearBasicDisplay"
+            }
+         ],
+         "formatDetails" : {
+            "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/c_briggsae_PRJNA10731' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.refName+':'+feature.start+'..'+feature.end+'</a>'}"
+         },
+         "adapter" : {
+            "rootUrlTemplate" : {
+               "locationType" : "UriLocation",
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/Genome sequence errors/{refseq}/trackData.jsonz"
+            },
+            "type" : "NCListAdapter"
          }
       },
       {
-         "type" : "FeatureTrack",
+         "assemblyNames" : [
+            "c_briggsae_PRJNA10731"
+         ],
          "trackId" : "c_briggsae_PRJNA10731_S_cerevisiae_proteins",
+         "description" : "Matches to WormBase S. cerevisiae proteins, aligned with BLASTX (nucleotide to protein, via six-frame translation).",
+         "name" : "S. cerevisiae proteins",
+         "type" : "FeatureTrack",
          "category" : [
             "Sequence Similarity",
             "Proteins"
@@ -640,26 +676,27 @@
                "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/S. cerevisiae proteins/{refseq}/trackData.jsonz"
             }
          },
-         "name" : "S. cerevisiae proteins",
-         "description" : "Matches to WormBase S. cerevisiae proteins, aligned with BLASTX (nucleotide to protein, via six-frame translation).",
-         "assemblyNames" : [
-            "c_briggsae_PRJNA10731"
-         ],
          "displays" : [
             {
+               "mouseover" : "jexl:get(feature,'clone')",
                "type" : "LinearBasicDisplay",
                "renderer" : {
                   "type" : "SvgFeatureRenderer",
-                  "color1" : "orange",
                   "showLabels" : false,
-                  "height" : 4
+                  "height" : 4,
+                  "color1" : "orange"
                },
-               "mouseover" : "jexl:get(feature,'clone')",
                "displayId" : "S_cerevisiae_proteins-c_briggsae_PRJNA10731-LinearBasicDisplay"
             }
          ]
       },
       {
+         "name" : "C. japonica proteins",
+         "description" : "Matches to WormBase C. japonica proteins, aligned with BLASTX (nucleotide to protein, via six-frame translation).",
+         "assemblyNames" : [
+            "c_briggsae_PRJNA10731"
+         ],
+         "trackId" : "c_briggsae_PRJNA10731_C_japonica_proteins",
          "adapter" : {
             "rootUrlTemplate" : {
                "locationType" : "UriLocation",
@@ -667,59 +704,20 @@
             },
             "type" : "NCListAdapter"
          },
-         "category" : [
-            "Sequence Similarity",
-            "Proteins"
-         ],
-         "type" : "FeatureTrack",
-         "trackId" : "c_briggsae_PRJNA10731_C_japonica_proteins",
          "displays" : [
             {
-               "displayId" : "C_japonica_proteins-c_briggsae_PRJNA10731-LinearBasicDisplay",
                "mouseover" : "jexl:get(feature,'clone')",
+               "type" : "LinearBasicDisplay",
                "renderer" : {
                   "height" : 4,
-                  "type" : "SvgFeatureRenderer",
-                  "showLabels" : false,
-                  "color1" : "orange"
-               },
-               "type" : "LinearBasicDisplay"
-            }
-         ],
-         "description" : "Matches to WormBase C. japonica proteins, aligned with BLASTX (nucleotide to protein, via six-frame translation).",
-         "assemblyNames" : [
-            "c_briggsae_PRJNA10731"
-         ],
-         "name" : "C. japonica proteins"
-      },
-      {
-         "displays" : [
-            {
-               "renderer" : {
-                  "type" : "SvgFeatureRenderer",
-                  "showLabels" : false,
                   "color1" : "orange",
-                  "showDescriptions" : false,
-                  "height" : 4
+                  "showLabels" : false,
+                  "type" : "SvgFeatureRenderer"
                },
-               "type" : "LinearBasicDisplay",
-               "displayId" : "other_uniprot_proteins-c_briggsae_PRJNA10731-LinearBasicDisplay"
+               "displayId" : "C_japonica_proteins-c_briggsae_PRJNA10731-LinearBasicDisplay"
             }
          ],
-         "name" : "Other UniProt proteins",
-         "description" : "Matches to proteins from a slimmed-down version of UniProt (with proteins from WormBase core nematodes, human, fly and yeast removed), aligned with BLASTX (nucleotide to protein, via six-frame translation).",
-         "assemblyNames" : [
-            "c_briggsae_PRJNA10731"
-         ],
-         "adapter" : {
-            "type" : "NCListAdapter",
-            "rootUrlTemplate" : {
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/Other UniProt proteins/{refseq}/trackData.jsonz",
-               "locationType" : "UriLocation"
-            }
-         },
          "type" : "FeatureTrack",
-         "trackId" : "c_briggsae_PRJNA10731_other_uniprot_proteins",
          "category" : [
             "Sequence Similarity",
             "Proteins"
@@ -729,37 +727,69 @@
          "adapter" : {
             "type" : "NCListAdapter",
             "rootUrlTemplate" : {
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/C. elegans proteins/{refseq}/trackData.jsonz",
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/Other UniProt proteins/{refseq}/trackData.jsonz",
                "locationType" : "UriLocation"
             }
          },
+         "displays" : [
+            {
+               "renderer" : {
+                  "height" : 4,
+                  "color1" : "orange",
+                  "showLabels" : false,
+                  "type" : "SvgFeatureRenderer",
+                  "showDescriptions" : false
+               },
+               "displayId" : "other_uniprot_proteins-c_briggsae_PRJNA10731-LinearBasicDisplay",
+               "type" : "LinearBasicDisplay"
+            }
+         ],
+         "type" : "FeatureTrack",
+         "category" : [
+            "Sequence Similarity",
+            "Proteins"
+         ],
+         "description" : "Matches to proteins from a slimmed-down version of UniProt (with proteins from WormBase core nematodes, human, fly and yeast removed), aligned with BLASTX (nucleotide to protein, via six-frame translation).",
+         "name" : "Other UniProt proteins",
+         "assemblyNames" : [
+            "c_briggsae_PRJNA10731"
+         ],
+         "trackId" : "c_briggsae_PRJNA10731_other_uniprot_proteins"
+      },
+      {
+         "trackId" : "c_briggsae_PRJNA10731_C_elegans_proteins",
+         "assemblyNames" : [
+            "c_briggsae_PRJNA10731"
+         ],
+         "name" : "C. elegans proteins",
+         "description" : "Matches to WormBase C. elegans proteins, aligned with BLASTX (nucleotide to protein, via six-frame translation).",
          "category" : [
             "Sequence Similarity",
             "Proteins"
          ],
          "type" : "FeatureTrack",
-         "trackId" : "c_briggsae_PRJNA10731_C_elegans_proteins",
          "displays" : [
             {
-               "renderer" : {
-                  "showLabels" : false,
-                  "color1" : "orange",
-                  "type" : "SvgFeatureRenderer",
-                  "height" : 4
-               },
-               "type" : "LinearBasicDisplay",
                "mouseover" : "jexl:get(feature,'clone')",
+               "type" : "LinearBasicDisplay",
+               "renderer" : {
+                  "type" : "SvgFeatureRenderer",
+                  "height" : 4,
+                  "color1" : "orange",
+                  "showLabels" : false
+               },
                "displayId" : "C_elegans_proteins-c_briggsae_PRJNA10731-LinearBasicDisplay"
             }
          ],
-         "description" : "Matches to WormBase C. elegans proteins, aligned with BLASTX (nucleotide to protein, via six-frame translation).",
-         "assemblyNames" : [
-            "c_briggsae_PRJNA10731"
-         ],
-         "name" : "C. elegans proteins"
+         "adapter" : {
+            "rootUrlTemplate" : {
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/C. elegans proteins/{refseq}/trackData.jsonz",
+               "locationType" : "UriLocation"
+            },
+            "type" : "NCListAdapter"
+         }
       },
       {
-         "trackId" : "c_briggsae_PRJNA10731_trinity-assembled_rnaseq",
          "type" : "FeatureTrack",
          "category" : [
             "Genes",
@@ -772,97 +802,98 @@
                "locationType" : "UriLocation"
             }
          },
-         "name" : "Trinity-assembled RNAseq",
-         "assemblyNames" : [
-            "c_briggsae_PRJNA10731"
-         ],
-         "description" : "Native (same species) RNAseq data was assembled with Trinity and then aligned to the genome with BLAT",
          "displays" : [
             {
                "displayId" : "trinity-assembled_rnaseq-c_briggsae_PRJNA10731-LinearBasicDisplay",
                "renderer" : {
-                  "type" : "SvgFeatureRenderer",
-                  "color1" : "mediumpurple",
                   "showLabels" : false,
-                  "height" : 5
+                  "height" : 5,
+                  "color1" : "mediumpurple",
+                  "type" : "SvgFeatureRenderer"
                },
                "type" : "LinearBasicDisplay"
             }
-         ]
+         ],
+         "assemblyNames" : [
+            "c_briggsae_PRJNA10731"
+         ],
+         "trackId" : "c_briggsae_PRJNA10731_trinity-assembled_rnaseq",
+         "name" : "Trinity-assembled RNAseq",
+         "description" : "Native (same species) RNAseq data was assembled with Trinity and then aligned to the genome with BLAT"
       },
       {
          "adapter" : {
             "rootUrlTemplate" : {
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/P. pacificus proteins/{refseq}/trackData.jsonz",
-               "locationType" : "UriLocation"
+               "locationType" : "UriLocation",
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/P. pacificus proteins/{refseq}/trackData.jsonz"
             },
             "type" : "NCListAdapter"
          },
+         "displays" : [
+            {
+               "type" : "LinearBasicDisplay",
+               "mouseover" : "jexl:get(feature,'clone')",
+               "displayId" : "P_pacificus_proteins-c_briggsae_PRJNA10731-LinearBasicDisplay",
+               "renderer" : {
+                  "type" : "SvgFeatureRenderer",
+                  "color1" : "orange",
+                  "height" : 4,
+                  "showLabels" : false
+               }
+            }
+         ],
+         "type" : "FeatureTrack",
          "category" : [
             "Sequence Similarity",
             "Proteins"
          ],
-         "type" : "FeatureTrack",
-         "trackId" : "c_briggsae_PRJNA10731_P_pacificus_proteins",
-         "displays" : [
-            {
-               "mouseover" : "jexl:get(feature,'clone')",
-               "displayId" : "P_pacificus_proteins-c_briggsae_PRJNA10731-LinearBasicDisplay",
-               "type" : "LinearBasicDisplay",
-               "renderer" : {
-                  "color1" : "orange",
-                  "showLabels" : false,
-                  "type" : "SvgFeatureRenderer",
-                  "height" : 4
-               }
-            }
-         ],
          "description" : "Matches to WormBase P. pacificus proteins, aligned with BLASTX (nucleotide to protein, via six-frame translation).",
+         "name" : "P. pacificus proteins",
          "assemblyNames" : [
             "c_briggsae_PRJNA10731"
          ],
-         "name" : "P. pacificus proteins"
+         "trackId" : "c_briggsae_PRJNA10731_P_pacificus_proteins"
       },
       {
+         "adapter" : {
+            "type" : "NCListAdapter",
+            "rootUrlTemplate" : {
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/Low complextity region (Dust)/{refseq}/trackData.jsonz",
+               "locationType" : "UriLocation"
+            }
+         },
+         "displays" : [
+            {
+               "type" : "LinearBasicDisplay",
+               "renderer" : {
+                  "type" : "SvgFeatureRenderer",
+                  "showDescriptions" : false,
+                  "color1" : "bisque",
+                  "height" : 4,
+                  "showLabels" : false
+               },
+               "displayId" : "low_complextity_region_(dust)-c_briggsae_PRJNA10731-LinearBasicDisplay"
+            }
+         ],
+         "type" : "FeatureTrack",
          "category" : [
             "Genome Structure",
             "Repeats"
          ],
-         "type" : "FeatureTrack",
-         "trackId" : "c_briggsae_PRJNA10731_low_complextity_region_(dust)",
-         "adapter" : {
-            "rootUrlTemplate" : {
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/Low complextity region (Dust)/{refseq}/trackData.jsonz",
-               "locationType" : "UriLocation"
-            },
-            "type" : "NCListAdapter"
-         },
          "description" : "Low-complexity regions identified by Dust.",
+         "name" : "Low complextity region (Dust)",
          "assemblyNames" : [
             "c_briggsae_PRJNA10731"
          ],
-         "name" : "Low complextity region (Dust)",
-         "displays" : [
-            {
-               "displayId" : "low_complextity_region_(dust)-c_briggsae_PRJNA10731-LinearBasicDisplay",
-               "renderer" : {
-                  "type" : "SvgFeatureRenderer",
-                  "color1" : "bisque",
-                  "showLabels" : false,
-                  "height" : 4,
-                  "showDescriptions" : false
-               },
-               "type" : "LinearBasicDisplay"
-            }
-         ]
+         "trackId" : "c_briggsae_PRJNA10731_low_complextity_region_(dust)"
       },
       {
-         "trackId" : "c_briggsae_PRJNA10731_ests",
-         "type" : "FeatureTrack",
-         "category" : [
-            "Genes",
-            "Supporting Evidence"
+         "description" : "Native (same-species) Expressed Sequence Tags (ESTs), aligned to the genome using <a href='http://genome.cse.ucsc.edu/cgi-bin/hgBlat'>BLAT</a>. This track shows the best unique location for each EST. The paired 5' and 3' ESTs from the same cDNA clone are connected by a dashed line and a colored light green. ESTs with no mate are yellow, and ESTs with a mate that is 'far away' are dark green.",
+         "name" : "ESTs",
+         "assemblyNames" : [
+            "c_briggsae_PRJNA10731"
          ],
+         "trackId" : "c_briggsae_PRJNA10731_ests",
          "adapter" : {
             "type" : "NCListAdapter",
             "rootUrlTemplate" : {
@@ -873,50 +904,17 @@
          "formatDetails" : {
             "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/c_briggsae_PRJNA10731' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.refName+':'+feature.start+'..'+feature.end+'</a>'}"
          },
-         "name" : "ESTs",
-         "assemblyNames" : [
-            "c_briggsae_PRJNA10731"
-         ],
-         "description" : "Native (same-species) Expressed Sequence Tags (ESTs), aligned to the genome using <a href='http://genome.cse.ucsc.edu/cgi-bin/hgBlat'>BLAT</a>. This track shows the best unique location for each EST. The paired 5' and 3' ESTs from the same cDNA clone are connected by a dashed line and a colored light green. ESTs with no mate are yellow, and ESTs with a mate that is 'far away' are dark green.",
          "displays" : [
             {
                "type" : "LinearBasicDisplay",
+               "displayId" : "ests-c_briggsae_PRJNA10731-LinearBasicDisplay",
                "renderer" : {
-                  "color1" : "jexl:parent(feature)=='undefined'?'red':get(parent(feature),'has_mate')==1?'limegreen':get(parent(feature),'has_mate')==2?'green':get(parent(feature),'has_mate')==0?'gold':'black'",
                   "maxHeight" : 5000,
-                  "type" : "SvgFeatureRenderer"
-               },
-               "displayId" : "ests-c_briggsae_PRJNA10731-LinearBasicDisplay"
-            }
-         ]
-      },
-      {
-         "displays" : [
-            {
-               "renderer" : {
-                  "height" : 4,
-                  "color1" : "jexl:get(feature,'source')=='BLAT_Caen_mRNA'?'lightblue':'green'",
-                  "showLabels" : false,
-                  "maxHeight" : 5000,
-                  "type" : "SvgFeatureRenderer"
-               },
-               "type" : "LinearBasicDisplay",
-               "displayId" : "nanopore_matches-c_briggsae_PRJNA10731-LinearBasicDisplay"
+                  "type" : "SvgFeatureRenderer",
+                  "color1" : "jexl:parent(feature)=='undefined'?'red':get(parent(feature),'has_mate')==1?'limegreen':get(parent(feature),'has_mate')==2?'green':get(parent(feature),'has_mate')==0?'gold':'black'"
+               }
             }
          ],
-         "name" : "Nanopore matches",
-         "assemblyNames" : [
-            "c_briggsae_PRJNA10731"
-         ],
-         "description" : "This Nanopore transcript data is from the paper 'The full-length transcriptome of C. elegans using direct RNA sequencing' Roach et al. https://doi.org/10.1101/598763. Where several transcripts are nearly identical, they are represented by a single transcript and the number of transcripts is recorded in the read coverage. Sequencing is from 3' to 5' and randomly terminates, so the 5' end of transcripts is often incomplete.",
-         "adapter" : {
-            "type" : "NCListAdapter",
-            "rootUrlTemplate" : {
-               "locationType" : "UriLocation",
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/Nanopore matches/{refseq}/trackData.jsonz"
-            }
-         },
-         "trackId" : "c_briggsae_PRJNA10731_nanopore_matches",
          "type" : "FeatureTrack",
          "category" : [
             "Genes",
@@ -924,6 +922,62 @@
          ]
       },
       {
+         "adapter" : {
+            "rootUrlTemplate" : {
+               "locationType" : "UriLocation",
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/Nanopore matches/{refseq}/trackData.jsonz"
+            },
+            "type" : "NCListAdapter"
+         },
+         "displays" : [
+            {
+               "displayId" : "nanopore_matches-c_briggsae_PRJNA10731-LinearBasicDisplay",
+               "renderer" : {
+                  "type" : "SvgFeatureRenderer",
+                  "maxHeight" : 5000,
+                  "color1" : "jexl:get(feature,'source')=='BLAT_Caen_mRNA'?'lightblue':'green'",
+                  "height" : 4,
+                  "showLabels" : false
+               },
+               "type" : "LinearBasicDisplay"
+            }
+         ],
+         "type" : "FeatureTrack",
+         "category" : [
+            "Genes",
+            "Supporting Evidence"
+         ],
+         "description" : "This Nanopore transcript data is from the paper 'The full-length transcriptome of C. elegans using direct RNA sequencing' Roach et al. https://doi.org/10.1101/598763. Where several transcripts are nearly identical, they are represented by a single transcript and the number of transcripts is recorded in the read coverage. Sequencing is from 3' to 5' and randomly terminates, so the 5' end of transcripts is often incomplete.",
+         "name" : "Nanopore matches",
+         "assemblyNames" : [
+            "c_briggsae_PRJNA10731"
+         ],
+         "trackId" : "c_briggsae_PRJNA10731_nanopore_matches"
+      },
+      {
+         "description" : "This track shows alleles that generate a putative change-of-function. In this track, the type of mutation is indicated by its glyph: Boxes are deletions or substitutions. Triangles are insertions. Point mutations are diamonds. Color signifies the severity of impact predicted by Ensembl's Variant Effect Predictor. 'HIGH' impacts are red, 'MEDIUM' are yellow, 'LOW' are cyan (light blue), and 'MODIFIER' are purple. This is the same color scheme as is used at the Alliance of Genome Resources.",
+         "name" : "Change-of-function alleles",
+         "trackId" : "c_briggsae_PRJNA10731_change-of-function_alleles",
+         "assemblyNames" : [
+            "c_briggsae_PRJNA10731"
+         ],
+         "formatDetails" : {
+            "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/c_briggsae_PRJNA10731' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.name+'</a>', WormBase: '<a href=\"/get?name='+feature.variation+';class=variation\">Variation Page</a>'}"
+         },
+         "displays" : [
+            {
+               "renderer" : {
+                  "showDescriptions" : false,
+                  "type" : "SvgFeatureRenderer",
+                  "maxHeight" : 5000,
+                  "color1" : "jexl:get(feature,'vep_impact')=='HIGH'?'red':get(feature,'vep_impact')=='MODIFIER'?'purple':get(feature,'vep_impact')=='MODERATE'?'gold':get(feature,'vep_impact')=='LOW'?'cyan':'white'",
+                  "showLabels" : false
+               },
+               "displayId" : "change-of-function_alleles-c_briggsae_PRJNA10731-LinearBasicDisplay",
+               "mouseover" : "jexl:get(feature,'name')+', '+get(feature,'consequence')",
+               "type" : "LinearBasicDisplay"
+            }
+         ],
          "adapter" : {
             "type" : "NCListAdapter",
             "rootUrlTemplate" : {
@@ -931,186 +985,154 @@
                "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/Change-of-function alleles/{refseq}/trackData.jsonz"
             }
          },
-         "formatDetails" : {
-            "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/c_briggsae_PRJNA10731' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.name+'</a>', WormBase: '<a href=\"/get?name='+feature.variation+';class=variation\">Variation Page</a>'}"
-         },
-         "type" : "FeatureTrack",
-         "trackId" : "c_briggsae_PRJNA10731_change-of-function_alleles",
          "category" : [
             "Alleles, Variations, RNAi"
          ],
-         "displays" : [
-            {
-               "displayId" : "change-of-function_alleles-c_briggsae_PRJNA10731-LinearBasicDisplay",
-               "mouseover" : "jexl:get(feature,'name')+', '+get(feature,'consequence')",
-               "renderer" : {
-                  "showDescriptions" : false,
-                  "color1" : "jexl:get(feature,'vep_impact')=='HIGH'?'red':get(feature,'vep_impact')=='MODIFIER'?'purple':get(feature,'vep_impact')=='MODERATE'?'gold':get(feature,'vep_impact')=='LOW'?'cyan':'white'",
-                  "showLabels" : false,
-                  "maxHeight" : 5000,
-                  "type" : "SvgFeatureRenderer"
-               },
-               "type" : "LinearBasicDisplay"
-            }
-         ],
-         "name" : "Change-of-function alleles",
-         "description" : "This track shows alleles that generate a putative change-of-function. In this track, the type of mutation is indicated by its glyph: Boxes are deletions or substitutions. Triangles are insertions. Point mutations are diamonds. Color signifies the severity of impact predicted by Ensembl's Variant Effect Predictor. 'HIGH' impacts are red, 'MEDIUM' are yellow, 'LOW' are cyan (light blue), and 'MODIFIER' are purple. This is the same color scheme as is used at the Alliance of Genome Resources.",
-         "assemblyNames" : [
-            "c_briggsae_PRJNA10731"
-         ]
+         "type" : "FeatureTrack"
       },
       {
-         "name" : "T. muris proteins",
-         "assemblyNames" : [
-            "c_briggsae_PRJNA10731"
-         ],
-         "description" : "Matches to WormBase T. muris proteins, aligned with BLASTX (nucleotide to protein, via six-frame translation).",
-         "displays" : [
-            {
-               "displayId" : "T_muris_proteins-c_briggsae_PRJNA10731-LinearBasicDisplay",
-               "mouseover" : "jexl:get(feature,'clone')",
-               "renderer" : {
-                  "color1" : "orange",
-                  "showLabels" : false,
-                  "type" : "SvgFeatureRenderer",
-                  "height" : 4
-               },
-               "type" : "LinearBasicDisplay"
-            }
-         ],
-         "trackId" : "c_briggsae_PRJNA10731_T_muris_proteins",
-         "type" : "FeatureTrack",
-         "category" : [
-            "Sequence Similarity",
-            "Proteins"
-         ],
-         "adapter" : {
-            "rootUrlTemplate" : {
-               "locationType" : "UriLocation",
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/T. muris proteins/{refseq}/trackData.jsonz"
-            },
-            "type" : "NCListAdapter"
-         }
-      },
-      {
-         "adapter" : {
-            "rootUrlTemplate" : {
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/C. remanei proteins/{refseq}/trackData.jsonz",
-               "locationType" : "UriLocation"
-            },
-            "type" : "NCListAdapter"
-         },
-         "trackId" : "c_briggsae_PRJNA10731_C_remanei_proteins",
-         "type" : "FeatureTrack",
-         "category" : [
-            "Sequence Similarity",
-            "Proteins"
-         ],
-         "displays" : [
-            {
-               "type" : "LinearBasicDisplay",
-               "renderer" : {
-                  "height" : 4,
-                  "showLabels" : false,
-                  "color1" : "orange",
-                  "type" : "SvgFeatureRenderer"
-               },
-               "mouseover" : "jexl:get(feature,'clone')",
-               "displayId" : "C_remanei_proteins-c_briggsae_PRJNA10731-LinearBasicDisplay"
-            }
-         ],
-         "name" : "C. remanei proteins",
-         "assemblyNames" : [
-            "c_briggsae_PRJNA10731"
-         ],
-         "description" : "Matches to WormBase C. remanei proteins, aligned with BLASTX (nucleotide to protein, via six-frame translation)."
-      },
-      {
-         "trackId" : "c_briggsae_PRJNA10731_tandem_and_inverted_repeats",
-         "type" : "FeatureTrack",
-         "category" : [
-            "Genome Structure",
-            "Repeats"
-         ],
          "adapter" : {
             "type" : "NCListAdapter",
             "rootUrlTemplate" : {
-               "locationType" : "UriLocation",
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/Tandem and Inverted Repeats/{refseq}/trackData.jsonz"
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/T. muris proteins/{refseq}/trackData.jsonz",
+               "locationType" : "UriLocation"
             }
          },
-         "name" : "Tandem and Inverted Repeats",
-         "assemblyNames" : [
-            "c_briggsae_PRJNA10731"
-         ],
-         "description" : "Exact tandem and inverted repetitive elements.",
          "displays" : [
             {
                "type" : "LinearBasicDisplay",
+               "mouseover" : "jexl:get(feature,'clone')",
+               "displayId" : "T_muris_proteins-c_briggsae_PRJNA10731-LinearBasicDisplay",
                "renderer" : {
-                  "type" : "SvgFeatureRenderer",
-                  "showLabels" : false,
-                  "color1" : "bisque",
-                  "showDescriptions" : false
-               },
-               "displayId" : "tandem_and_inverted_repeats-c_briggsae_PRJNA10731-LinearBasicDisplay"
-            }
-         ]
-      },
-      {
-         "displays" : [
-            {
-               "renderer" : {
-                  "type" : "SvgFeatureRenderer",
-                  "color1" : "sienna",
-                  "height" : 7
-               },
-               "type" : "LinearBasicDisplay",
-               "displayId" : "contig_submissions-c_briggsae_PRJNA10731-LinearBasicDisplay"
-            }
-         ],
-         "name" : "Contig submissions",
-         "description" : "This track shows the location and coordinates of contigs (mostly cosmids) submitted to GenBank/EMBL.",
-         "assemblyNames" : [
-            "c_briggsae_PRJNA10731"
-         ],
-         "adapter" : {
-            "rootUrlTemplate" : {
-               "locationType" : "UriLocation",
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/Contig submissions/{refseq}/trackData.jsonz"
-            },
-            "type" : "NCListAdapter"
-         },
-         "formatDetails" : {
-            "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/c_briggsae_PRJNA10731' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.refName+':'+feature.start+'..'+feature.end+'</a>'}"
-         },
-         "type" : "FeatureTrack",
-         "trackId" : "c_briggsae_PRJNA10731_contig_submissions",
-         "category" : [
-            "Genome Structure",
-            "Assembly & Curation"
-         ]
-      },
-      {
-         "displays" : [
-            {
-               "mouseover" : "jexl:get(feature,'score')+' reads'",
-               "displayId" : "rnaseq_introns-c_briggsae_PRJNA10731-LinearBasicDisplay",
-               "type" : "LinearBasicDisplay",
-               "renderer" : {
-                  "height" : "jexl:get(feature,'score')>100?50:get(feature,'score')<8?4:floor(get(feature,'score')/2)",
-                  "showDescriptions" : false,
-                  "color1" : "green",
+                  "color1" : "orange",
+                  "height" : 4,
                   "showLabels" : false,
                   "type" : "SvgFeatureRenderer"
                }
             }
          ],
+         "type" : "FeatureTrack",
+         "category" : [
+            "Sequence Similarity",
+            "Proteins"
+         ],
+         "description" : "Matches to WormBase T. muris proteins, aligned with BLASTX (nucleotide to protein, via six-frame translation).",
+         "name" : "T. muris proteins",
          "assemblyNames" : [
             "c_briggsae_PRJNA10731"
          ],
-         "description" : "These are introns formed by aligned RNASeq reads spanning a region of the genome. Alignments of short read sequences from all available RNASeq projects were used. The number of reads spanning the introns is indicated by the thickness of the display.",
+         "trackId" : "c_briggsae_PRJNA10731_T_muris_proteins"
+      },
+      {
+         "displays" : [
+            {
+               "displayId" : "C_remanei_proteins-c_briggsae_PRJNA10731-LinearBasicDisplay",
+               "renderer" : {
+                  "type" : "SvgFeatureRenderer",
+                  "showLabels" : false,
+                  "height" : 4,
+                  "color1" : "orange"
+               },
+               "type" : "LinearBasicDisplay",
+               "mouseover" : "jexl:get(feature,'clone')"
+            }
+         ],
+         "adapter" : {
+            "rootUrlTemplate" : {
+               "locationType" : "UriLocation",
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/C. remanei proteins/{refseq}/trackData.jsonz"
+            },
+            "type" : "NCListAdapter"
+         },
+         "category" : [
+            "Sequence Similarity",
+            "Proteins"
+         ],
+         "type" : "FeatureTrack",
+         "name" : "C. remanei proteins",
+         "description" : "Matches to WormBase C. remanei proteins, aligned with BLASTX (nucleotide to protein, via six-frame translation).",
+         "trackId" : "c_briggsae_PRJNA10731_C_remanei_proteins",
+         "assemblyNames" : [
+            "c_briggsae_PRJNA10731"
+         ]
+      },
+      {
+         "displays" : [
+            {
+               "type" : "LinearBasicDisplay",
+               "displayId" : "tandem_and_inverted_repeats-c_briggsae_PRJNA10731-LinearBasicDisplay",
+               "renderer" : {
+                  "type" : "SvgFeatureRenderer",
+                  "showDescriptions" : false,
+                  "showLabels" : false,
+                  "color1" : "bisque"
+               }
+            }
+         ],
+         "adapter" : {
+            "rootUrlTemplate" : {
+               "locationType" : "UriLocation",
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/Tandem and Inverted Repeats/{refseq}/trackData.jsonz"
+            },
+            "type" : "NCListAdapter"
+         },
+         "category" : [
+            "Genome Structure",
+            "Repeats"
+         ],
+         "type" : "FeatureTrack",
+         "name" : "Tandem and Inverted Repeats",
+         "description" : "Exact tandem and inverted repetitive elements.",
+         "trackId" : "c_briggsae_PRJNA10731_tandem_and_inverted_repeats",
+         "assemblyNames" : [
+            "c_briggsae_PRJNA10731"
+         ]
+      },
+      {
+         "formatDetails" : {
+            "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/c_briggsae_PRJNA10731' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.refName+':'+feature.start+'..'+feature.end+'</a>'}"
+         },
+         "displays" : [
+            {
+               "displayId" : "contig_submissions-c_briggsae_PRJNA10731-LinearBasicDisplay",
+               "renderer" : {
+                  "type" : "SvgFeatureRenderer",
+                  "height" : 7,
+                  "color1" : "sienna"
+               },
+               "type" : "LinearBasicDisplay"
+            }
+         ],
+         "adapter" : {
+            "type" : "NCListAdapter",
+            "rootUrlTemplate" : {
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/Contig submissions/{refseq}/trackData.jsonz",
+               "locationType" : "UriLocation"
+            }
+         },
+         "category" : [
+            "Genome Structure",
+            "Assembly & Curation"
+         ],
+         "type" : "FeatureTrack",
+         "name" : "Contig submissions",
+         "description" : "This track shows the location and coordinates of contigs (mostly cosmids) submitted to GenBank/EMBL.",
+         "trackId" : "c_briggsae_PRJNA10731_contig_submissions",
+         "assemblyNames" : [
+            "c_briggsae_PRJNA10731"
+         ]
+      },
+      {
+         "assemblyNames" : [
+            "c_briggsae_PRJNA10731"
+         ],
+         "trackId" : "c_briggsae_PRJNA10731_rnaseq_introns",
          "name" : "RNASeq introns",
+         "description" : "These are introns formed by aligned RNASeq reads spanning a region of the genome. Alignments of short read sequences from all available RNASeq projects were used. The number of reads spanning the introns is indicated by the thickness of the display.",
+         "type" : "FeatureTrack",
+         "category" : [
+            "Expression"
+         ],
          "adapter" : {
             "type" : "NCListAdapter",
             "rootUrlTemplate" : {
@@ -1118,329 +1140,343 @@
                "locationType" : "UriLocation"
             }
          },
+         "displays" : [
+            {
+               "mouseover" : "jexl:get(feature,'score')+' reads'",
+               "type" : "LinearBasicDisplay",
+               "renderer" : {
+                  "color1" : "green",
+                  "height" : "jexl:get(feature,'score')>100?50:get(feature,'score')<8?4:floor(get(feature,'score')/2)",
+                  "showLabels" : false,
+                  "showDescriptions" : false,
+                  "type" : "SvgFeatureRenderer"
+               },
+               "displayId" : "rnaseq_introns-c_briggsae_PRJNA10731-LinearBasicDisplay"
+            }
+         ]
+      },
+      {
+         "trackId" : "c_briggsae_PRJNA10731_rnaseq_splice_junctions_(common)",
+         "assemblyNames" : [
+            "c_briggsae_PRJNA10731"
+         ],
+         "description" : "These are introns formed by aligned RNASeq reads spanning a region of the genome. Alignments of short read sequences from all available RNASeq projects were used. These junctions are considered 'common' in that there are more than 500 reads confirming their existence. The number of reads spanning the introns is indicated by the darkness of the color (shades of cyan for reverse, shades of violet for forward).  Darker is more reads.",
+         "name" : "RNASeq Splice Junctions (common)",
          "category" : [
             "Expression"
          ],
-         "trackId" : "c_briggsae_PRJNA10731_rnaseq_introns",
-         "type" : "FeatureTrack"
-      },
-      {
+         "type" : "FeatureTrack",
+         "displays" : [
+            {
+               "mouseover" : "jexl:get(feature,'score')+' reads'",
+               "type" : "LinearBasicDisplay",
+               "renderer" : {
+                  "color1" : "jexl:get(feature,'score')>20000?(get(feature,'strand')>0?'#730073':'#007373'):get(feature,'strand')>0?'#'+hex(round(255-(140*(get(feature,'score')/20000))))+'00'+hex(round(255-(140*(get(feature,'score')/20000)))):'#00'+hex(round(255-(140*(get(feature,'score')/20000))))+hex(round(255-(140*(get(feature,'score')/20000))))",
+                  "showLabels" : false,
+                  "showDescriptions" : false,
+                  "type" : "SvgFeatureRenderer"
+               },
+               "displayId" : "rnaseq_splice_junctions_(common)-c_briggsae_PRJNA10731-LinearBasicDisplay"
+            }
+         ],
          "adapter" : {
             "rootUrlTemplate" : {
                "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/RNASeq Splice Junctions (common)/{refseq}/trackData.jsonz",
                "locationType" : "UriLocation"
             },
             "type" : "NCListAdapter"
-         },
-         "category" : [
-            "Expression"
-         ],
-         "trackId" : "c_briggsae_PRJNA10731_rnaseq_splice_junctions_(common)",
-         "type" : "FeatureTrack",
-         "displays" : [
-            {
-               "renderer" : {
-                  "showDescriptions" : false,
-                  "type" : "SvgFeatureRenderer",
-                  "showLabels" : false,
-                  "color1" : "jexl:get(feature,'score')>20000?(get(feature,'strand')>0?'#730073':'#007373'):get(feature,'strand')>0?'#'+hex(round(255-(140*(get(feature,'score')/20000))))+'00'+hex(round(255-(140*(get(feature,'score')/20000)))):'#00'+hex(round(255-(140*(get(feature,'score')/20000))))+hex(round(255-(140*(get(feature,'score')/20000))))"
-               },
-               "type" : "LinearBasicDisplay",
-               "displayId" : "rnaseq_splice_junctions_(common)-c_briggsae_PRJNA10731-LinearBasicDisplay",
-               "mouseover" : "jexl:get(feature,'score')+' reads'"
-            }
-         ],
-         "assemblyNames" : [
-            "c_briggsae_PRJNA10731"
-         ],
-         "description" : "These are introns formed by aligned RNASeq reads spanning a region of the genome. Alignments of short read sequences from all available RNASeq projects were used. These junctions are considered 'common' in that there are more than 500 reads confirming their existence. The number of reads spanning the introns is indicated by the darkness of the color (shades of cyan for reverse, shades of violet for forward).  Darker is more reads.",
-         "name" : "RNASeq Splice Junctions (common)"
+         }
       },
       {
-         "displays" : [
-            {
-               "mouseover" : "jexl:get(feature,'score')+' reads'",
-               "displayId" : "rnaseq_splice_junctions_(rare)-c_briggsae_PRJNA10731-LinearBasicDisplay",
-               "renderer" : {
-                  "showDescriptions" : false,
-                  "height" : "jexl:4",
-                  "showLabels" : false,
-                  "color1" : "jexl:get(feature,'score')>20000?(get(feature,'strand')>0?'#730073':'#007373'):get(feature,'strand')>0?'#'+hex(round(255-(140*(get(feature,'score')/20000))))+'00'+hex(round(255-(140*(get(feature,'score')/20000)))):'#00'+hex(round(255-(140*(get(feature,'score')/20000))))+hex(round(255-(140*(get(feature,'score')/20000))))",
-                  "type" : "SvgFeatureRenderer",
-                  "maxHeight" : 5000
-               },
-               "type" : "LinearBasicDisplay"
-            }
-         ],
-         "name" : "RNASeq Splice Junctions (rare)",
-         "description" : "These are introns formed by aligned RNASeq reads spanning a region of the genome. Alignments of short read sequences from all available RNASeq projects were used. These junctions are considered 'rare' in that there are fewer than 500 reads confirming their existence. The number of reads spanning the introns is indicated by the darkness of the color (shades of cyan for reverse, shades of violet for forward).  Darker is more reads.",
-         "assemblyNames" : [
-            "c_briggsae_PRJNA10731"
+         "type" : "FeatureTrack",
+         "category" : [
+            "Expression"
          ],
          "adapter" : {
             "type" : "NCListAdapter",
             "rootUrlTemplate" : {
-               "locationType" : "UriLocation",
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/RNASeq Splice Junctions (rare)/{refseq}/trackData.jsonz"
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/RNASeq Splice Junctions (rare)/{refseq}/trackData.jsonz",
+               "locationType" : "UriLocation"
             }
          },
-         "type" : "FeatureTrack",
+         "displays" : [
+            {
+               "type" : "LinearBasicDisplay",
+               "mouseover" : "jexl:get(feature,'score')+' reads'",
+               "displayId" : "rnaseq_splice_junctions_(rare)-c_briggsae_PRJNA10731-LinearBasicDisplay",
+               "renderer" : {
+                  "maxHeight" : 5000,
+                  "type" : "SvgFeatureRenderer",
+                  "showDescriptions" : false,
+                  "showLabels" : false,
+                  "color1" : "jexl:get(feature,'score')>20000?(get(feature,'strand')>0?'#730073':'#007373'):get(feature,'strand')>0?'#'+hex(round(255-(140*(get(feature,'score')/20000))))+'00'+hex(round(255-(140*(get(feature,'score')/20000)))):'#00'+hex(round(255-(140*(get(feature,'score')/20000))))+hex(round(255-(140*(get(feature,'score')/20000))))",
+                  "height" : "jexl:4"
+               }
+            }
+         ],
+         "assemblyNames" : [
+            "c_briggsae_PRJNA10731"
+         ],
          "trackId" : "c_briggsae_PRJNA10731_rnaseq_splice_junctions_(rare)",
-         "category" : [
-            "Expression"
-         ]
+         "description" : "These are introns formed by aligned RNASeq reads spanning a region of the genome. Alignments of short read sequences from all available RNASeq projects were used. These junctions are considered 'rare' in that there are fewer than 500 reads confirming their existence. The number of reads spanning the introns is indicated by the darkness of the color (shades of cyan for reverse, shades of violet for forward).  Darker is more reads.",
+         "name" : "RNASeq Splice Junctions (rare)"
       },
       {
+         "adapter" : {
+            "type" : "NCListAdapter",
+            "rootUrlTemplate" : {
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/Links and Superlinks/{refseq}/trackData.jsonz",
+               "locationType" : "UriLocation"
+            }
+         },
+         "displays" : [
+            {
+               "type" : "LinearBasicDisplay",
+               "renderer" : {
+                  "type" : "SvgFeatureRenderer",
+                  "color1" : "black",
+                  "height" : 4
+               },
+               "displayId" : "links_and_superlinks-c_briggsae_PRJNA10731-LinearBasicDisplay"
+            }
+         ],
+         "formatDetails" : {
+            "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/c_briggsae_PRJNA10731' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.refName+':'+feature.start+'..'+feature.end+'</a>'}"
+         },
+         "type" : "FeatureTrack",
+         "category" : [
+            "Genome Structure",
+            "Assembly & Curation"
+         ],
          "name" : "Links and Superlinks",
          "description" : "This track shows the location and coordinates of contigs created during the assembly of the C. elegans genome.",
          "assemblyNames" : [
             "c_briggsae_PRJNA10731"
          ],
+         "trackId" : "c_briggsae_PRJNA10731_links_and_superlinks"
+      },
+      {
+         "description" : "These boxes indicate alignments of short read sequences from all available RNASeq projects. The number of reads has been normalised by averaging over the number of libraries. The height of all boxes indicates the relative score of the feature.",
+         "name" : "RNASeq",
+         "trackId" : "c_briggsae_PRJNA10731_rnaseq",
+         "assemblyNames" : [
+            "c_briggsae_PRJNA10731"
+         ],
          "displays" : [
             {
-               "displayId" : "links_and_superlinks-c_briggsae_PRJNA10731-LinearBasicDisplay",
                "renderer" : {
-                  "height" : 4,
+                  "type" : "SvgFeatureRenderer",
                   "color1" : "black",
-                  "type" : "SvgFeatureRenderer"
+                  "showDescriptions" : false,
+                  "displayMode" : "collapse",
+                  "showLabels" : false,
+                  "height" : "jexl:get(feature,'score')>100?50:floor(get(feature,'score')/2)>4?floor(get(feature,'score')/2):4"
                },
+               "displayId" : "rnaseq-c_briggsae_PRJNA10731-LinearBasicDisplay",
+               "mouseover" : "jexl:'Score: '+get(feature,'score')",
                "type" : "LinearBasicDisplay"
             }
-         ],
-         "type" : "FeatureTrack",
-         "trackId" : "c_briggsae_PRJNA10731_links_and_superlinks",
-         "category" : [
-            "Genome Structure",
-            "Assembly & Curation"
          ],
          "adapter" : {
             "type" : "NCListAdapter",
             "rootUrlTemplate" : {
-               "locationType" : "UriLocation",
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/Links and Superlinks/{refseq}/trackData.jsonz"
-            }
-         },
-         "formatDetails" : {
-            "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/c_briggsae_PRJNA10731' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.refName+':'+feature.start+'..'+feature.end+'</a>'}"
-         }
-      },
-      {
-         "adapter" : {
-            "rootUrlTemplate" : {
                "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/RNASeq/{refseq}/trackData.jsonz",
                "locationType" : "UriLocation"
-            },
-            "type" : "NCListAdapter"
+            }
          },
          "category" : [
             "Expression"
          ],
-         "trackId" : "c_briggsae_PRJNA10731_rnaseq",
-         "type" : "FeatureTrack",
-         "displays" : [
-            {
-               "type" : "LinearBasicDisplay",
-               "renderer" : {
-                  "color1" : "black",
-                  "showLabels" : false,
-                  "displayMode" : "collapse",
-                  "type" : "SvgFeatureRenderer",
-                  "height" : "jexl:get(feature,'score')>100?50:floor(get(feature,'score')/2)>4?floor(get(feature,'score')/2):4",
-                  "showDescriptions" : false
-               },
-               "displayId" : "rnaseq-c_briggsae_PRJNA10731-LinearBasicDisplay",
-               "mouseover" : "jexl:'Score: '+get(feature,'score')"
-            }
-         ],
-         "assemblyNames" : [
-            "c_briggsae_PRJNA10731"
-         ],
-         "description" : "These boxes indicate alignments of short read sequences from all available RNASeq projects. The number of reads has been normalised by averaging over the number of libraries. The height of all boxes indicates the relative score of the feature.",
-         "name" : "RNASeq"
+         "type" : "FeatureTrack"
       },
       {
-         "assemblyNames" : [
-            "c_briggsae_PRJNA10731"
-         ],
-         "description" : "Trans-spliced Exon Coupled RNA End Determination (TEC-RED) tags. TEC-RED uses a method similar to SAGE to identify expressed genes and characterize the 5' end of transcripts.",
-         "name" : "TEC-RED tags",
-         "displays" : [
-            {
-               "type" : "LinearBasicDisplay",
-               "renderer" : {
-                  "color1" : "red",
-                  "type" : "SvgFeatureRenderer",
-                  "height" : 5
-               },
-               "displayId" : "tec-red_tags-c_briggsae_PRJNA10731-LinearBasicDisplay"
-            }
-         ],
-         "category" : [
-            "Genes",
-            "Supporting Evidence"
-         ],
-         "trackId" : "c_briggsae_PRJNA10731_tec-red_tags",
-         "type" : "FeatureTrack",
-         "formatDetails" : {
-            "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/c_briggsae_PRJNA10731' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.refName+':'+feature.start+'..'+feature.end+'</a>'}"
-         },
          "adapter" : {
             "type" : "NCListAdapter",
             "rootUrlTemplate" : {
                "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/TEC-RED tags/{refseq}/trackData.jsonz",
                "locationType" : "UriLocation"
             }
-         }
+         },
+         "displays" : [
+            {
+               "displayId" : "tec-red_tags-c_briggsae_PRJNA10731-LinearBasicDisplay",
+               "renderer" : {
+                  "height" : 5,
+                  "color1" : "red",
+                  "type" : "SvgFeatureRenderer"
+               },
+               "type" : "LinearBasicDisplay"
+            }
+         ],
+         "formatDetails" : {
+            "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/c_briggsae_PRJNA10731' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.refName+':'+feature.start+'..'+feature.end+'</a>'}"
+         },
+         "type" : "FeatureTrack",
+         "category" : [
+            "Genes",
+            "Supporting Evidence"
+         ],
+         "description" : "Trans-spliced Exon Coupled RNA End Determination (TEC-RED) tags. TEC-RED uses a method similar to SAGE to identify expressed genes and characterize the 5' end of transcripts.",
+         "name" : "TEC-RED tags",
+         "assemblyNames" : [
+            "c_briggsae_PRJNA10731"
+         ],
+         "trackId" : "c_briggsae_PRJNA10731_tec-red_tags"
       },
       {
+         "name" : "C. brenneri proteins",
+         "description" : "Matches to WormBase C. brenneri proteins, aligned with BLASTX (nucleotide to protein, via six-frame translation).",
+         "trackId" : "c_briggsae_PRJNA10731_C_brenneri_proteins",
+         "assemblyNames" : [
+            "c_briggsae_PRJNA10731"
+         ],
+         "displays" : [
+            {
+               "type" : "LinearBasicDisplay",
+               "mouseover" : "jexl:get(feature,'clone')",
+               "displayId" : "C_brenneri_proteins-c_briggsae_PRJNA10731-LinearBasicDisplay",
+               "renderer" : {
+                  "color1" : "orange",
+                  "height" : 4,
+                  "showLabels" : false,
+                  "type" : "SvgFeatureRenderer"
+               }
+            }
+         ],
          "adapter" : {
-            "type" : "NCListAdapter",
             "rootUrlTemplate" : {
                "locationType" : "UriLocation",
                "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/C. brenneri proteins/{refseq}/trackData.jsonz"
-            }
+            },
+            "type" : "NCListAdapter"
          },
-         "trackId" : "c_briggsae_PRJNA10731_C_brenneri_proteins",
-         "type" : "FeatureTrack",
          "category" : [
             "Sequence Similarity",
             "Proteins"
          ],
-         "displays" : [
-            {
-               "renderer" : {
-                  "color1" : "orange",
-                  "showLabels" : false,
-                  "type" : "SvgFeatureRenderer",
-                  "height" : 4
-               },
-               "type" : "LinearBasicDisplay",
-               "mouseover" : "jexl:get(feature,'clone')",
-               "displayId" : "C_brenneri_proteins-c_briggsae_PRJNA10731-LinearBasicDisplay"
-            }
-         ],
-         "name" : "C. brenneri proteins",
-         "assemblyNames" : [
-            "c_briggsae_PRJNA10731"
-         ],
-         "description" : "Matches to WormBase C. brenneri proteins, aligned with BLASTX (nucleotide to protein, via six-frame translation)."
+         "type" : "FeatureTrack"
       },
       {
+         "category" : [
+            "Sequence Similarity",
+            "Proteins"
+         ],
+         "type" : "FeatureTrack",
          "displays" : [
             {
                "type" : "LinearBasicDisplay",
+               "mouseover" : "jexl:get(feature,'clone')",
+               "displayId" : "D_melanogaster_proteins-c_briggsae_PRJNA10731-LinearBasicDisplay",
                "renderer" : {
-                  "height" : 4,
                   "type" : "SvgFeatureRenderer",
+                  "height" : 4,
                   "color1" : "orange",
                   "showLabels" : false
-               },
-               "displayId" : "D_melanogaster_proteins-c_briggsae_PRJNA10731-LinearBasicDisplay",
-               "mouseover" : "jexl:get(feature,'clone')"
+               }
             }
-         ],
-         "name" : "D. melanogaster proteins",
-         "description" : "Matches to WormBase D. melanogaster proteins, aligned with BLASTX (nucleotide to protein, via six-frame translation).",
-         "assemblyNames" : [
-            "c_briggsae_PRJNA10731"
          ],
          "adapter" : {
             "rootUrlTemplate" : {
-               "locationType" : "UriLocation",
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/D. melanogaster proteins/{refseq}/trackData.jsonz"
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/D. melanogaster proteins/{refseq}/trackData.jsonz",
+               "locationType" : "UriLocation"
             },
             "type" : "NCListAdapter"
          },
-         "type" : "FeatureTrack",
          "trackId" : "c_briggsae_PRJNA10731_D_melanogaster_proteins",
+         "assemblyNames" : [
+            "c_briggsae_PRJNA10731"
+         ],
+         "description" : "Matches to WormBase D. melanogaster proteins, aligned with BLASTX (nucleotide to protein, via six-frame translation).",
+         "name" : "D. melanogaster proteins"
+      },
+      {
+         "description" : "Matches to WormBase S. ratti proteins, aligned with BLASTX (nucleotide to protein, via six-frame translation).",
+         "name" : "S. ratti proteins",
+         "assemblyNames" : [
+            "c_briggsae_PRJNA10731"
+         ],
+         "trackId" : "c_briggsae_PRJNA10731_S_ratti_proteins",
+         "adapter" : {
+            "rootUrlTemplate" : {
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/S. ratti proteins/{refseq}/trackData.jsonz",
+               "locationType" : "UriLocation"
+            },
+            "type" : "NCListAdapter"
+         },
+         "displays" : [
+            {
+               "renderer" : {
+                  "type" : "SvgFeatureRenderer",
+                  "showLabels" : false,
+                  "height" : 4,
+                  "color1" : "orange"
+               },
+               "displayId" : "S_ratti_proteins-c_briggsae_PRJNA10731-LinearBasicDisplay",
+               "mouseover" : "jexl:get(feature,'clone')",
+               "type" : "LinearBasicDisplay"
+            }
+         ],
+         "type" : "FeatureTrack",
          "category" : [
             "Sequence Similarity",
             "Proteins"
          ]
       },
       {
-         "name" : "S. ratti proteins",
-         "description" : "Matches to WormBase S. ratti proteins, aligned with BLASTX (nucleotide to protein, via six-frame translation).",
-         "assemblyNames" : [
-            "c_briggsae_PRJNA10731"
-         ],
-         "displays" : [
-            {
-               "renderer" : {
-                  "color1" : "orange",
-                  "showLabels" : false,
-                  "type" : "SvgFeatureRenderer",
-                  "height" : 4
-               },
-               "type" : "LinearBasicDisplay",
-               "mouseover" : "jexl:get(feature,'clone')",
-               "displayId" : "S_ratti_proteins-c_briggsae_PRJNA10731-LinearBasicDisplay"
-            }
-         ],
-         "type" : "FeatureTrack",
-         "trackId" : "c_briggsae_PRJNA10731_S_ratti_proteins",
-         "category" : [
-            "Sequence Similarity",
-            "Proteins"
-         ],
          "adapter" : {
             "type" : "NCListAdapter",
             "rootUrlTemplate" : {
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/S. ratti proteins/{refseq}/trackData.jsonz",
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/C. briggsae proteins/{refseq}/trackData.jsonz",
                "locationType" : "UriLocation"
             }
-         }
-      },
-      {
-         "trackId" : "c_briggsae_PRJNA10731_C_briggsae_proteins",
+         },
+         "displays" : [
+            {
+               "displayId" : "C_briggsae_proteins-c_briggsae_PRJNA10731-LinearBasicDisplay",
+               "renderer" : {
+                  "type" : "SvgFeatureRenderer",
+                  "showLabels" : false,
+                  "height" : 4,
+                  "color1" : "orange"
+               },
+               "type" : "LinearBasicDisplay",
+               "mouseover" : "jexl:get(feature,'clone')"
+            }
+         ],
          "type" : "FeatureTrack",
          "category" : [
             "Sequence Similarity",
             "Proteins"
          ],
-         "adapter" : {
-            "rootUrlTemplate" : {
-               "locationType" : "UriLocation",
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/C. briggsae proteins/{refseq}/trackData.jsonz"
-            },
-            "type" : "NCListAdapter"
-         },
+         "description" : "Matches to WormBase C. briggsae proteins, aligned with BLASTX (nucleotide to protein, via six-frame translation).",
          "name" : "C. briggsae proteins",
          "assemblyNames" : [
             "c_briggsae_PRJNA10731"
          ],
-         "description" : "Matches to WormBase C. briggsae proteins, aligned with BLASTX (nucleotide to protein, via six-frame translation).",
-         "displays" : [
-            {
-               "mouseover" : "jexl:get(feature,'clone')",
-               "displayId" : "C_briggsae_proteins-c_briggsae_PRJNA10731-LinearBasicDisplay",
-               "type" : "LinearBasicDisplay",
-               "renderer" : {
-                  "type" : "SvgFeatureRenderer",
-                  "color1" : "orange",
-                  "showLabels" : false,
-                  "height" : 4
-               }
-            }
-         ]
+         "trackId" : "c_briggsae_PRJNA10731_C_briggsae_proteins"
       },
       {
+         "trackId" : "c_briggsae_PRJNA10731_bac_end_reads",
+         "assemblyNames" : [
+            "c_briggsae_PRJNA10731"
+         ],
+         "description" : "BAC end-reads aligned to Assembly CB25 ultracontigs using BLAT. Best matches indicated in white, those with reduced but still significant nucleotide identity in gray.",
+         "name" : "BAC end reads",
+         "category" : [
+            "Assembly"
+         ],
+         "type" : "FeatureTrack",
          "displays" : [
             {
                "renderer" : {
                   "outline" : "black",
-                  "height" : 6,
                   "type" : "SvgFeatureRenderer",
+                  "height" : 6,
                   "color1" : "white"
                },
-               "type" : "LinearBasicDisplay",
-               "displayId" : "bac_end_reads-c_briggsae_PRJNA10731-LinearBasicDisplay"
+               "displayId" : "bac_end_reads-c_briggsae_PRJNA10731-LinearBasicDisplay",
+               "type" : "LinearBasicDisplay"
             }
-         ],
-         "name" : "BAC end reads",
-         "description" : "BAC end-reads aligned to Assembly CB25 ultracontigs using BLAT. Best matches indicated in white, those with reduced but still significant nucleotide identity in gray.",
-         "assemblyNames" : [
-            "c_briggsae_PRJNA10731"
          ],
          "adapter" : {
             "rootUrlTemplate" : {
@@ -1448,248 +1484,249 @@
                "locationType" : "UriLocation"
             },
             "type" : "NCListAdapter"
-         },
-         "type" : "FeatureTrack",
-         "trackId" : "c_briggsae_PRJNA10731_bac_end_reads",
-         "category" : [
-            "Assembly"
-         ]
+         }
       },
       {
          "adapter" : {
             "type" : "NCListAdapter",
             "rootUrlTemplate" : {
-               "locationType" : "UriLocation",
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/RNASeq Asymmetries/{refseq}/trackData.jsonz"
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/RNASeq Asymmetries/{refseq}/trackData.jsonz",
+               "locationType" : "UriLocation"
             }
          },
-         "category" : [
-            "Expression"
-         ],
-         "trackId" : "c_briggsae_PRJNA10731_rnaseq_asymmetries",
-         "type" : "FeatureTrack",
          "displays" : [
             {
-               "displayId" : "rnaseq_asymmetries-c_briggsae_PRJNA10731-LinearBasicDisplay",
                "mouseover" : "jexl:'Score: '+get(feature,'score')",
+               "type" : "LinearBasicDisplay",
                "renderer" : {
-                  "height" : 24,
                   "displayMode" : "collapse",
                   "type" : "SvgFeatureRenderer",
                   "color1" : "jexl:get(feature,'source')=='RNASeq_R_asymmetry'?'red': get(feature,'source')=='RNASeq_F_asymmetry'?'green':'black'",
+                  "height" : 24,
                   "showLabels" : false
                },
-               "type" : "LinearBasicDisplay"
+               "displayId" : "rnaseq_asymmetries-c_briggsae_PRJNA10731-LinearBasicDisplay"
             }
          ],
+         "type" : "FeatureTrack",
+         "category" : [
+            "Expression"
+         ],
+         "name" : "RNASeq Asymmetries",
+         "description" : "Red boxes indicate regions where there are more than 2 times as many forward sense RNASeq reads aligned to the genome as reverse sense reads. This asymmetrical signal has been found empirically to be a sensitive marker for the ends of transcripts. Green boxes indicate regions where there are more than 2 times as many reverse sense RNASeq reads aligned to the genome as forward sense reads. This asymmetrical signal has been found empirically to be sensitive marker for the ends of transcripts. The height of all boxes indicates the relative score of the feature.",
          "assemblyNames" : [
             "c_briggsae_PRJNA10731"
          ],
-         "description" : "Red boxes indicate regions where there are more than 2 times as many forward sense RNASeq reads aligned to the genome as reverse sense reads. This asymmetrical signal has been found empirically to be a sensitive marker for the ends of transcripts. Green boxes indicate regions where there are more than 2 times as many reverse sense RNASeq reads aligned to the genome as forward sense reads. This asymmetrical signal has been found empirically to be sensitive marker for the ends of transcripts. The height of all boxes indicates the relative score of the feature.",
-         "name" : "RNASeq Asymmetries"
+         "trackId" : "c_briggsae_PRJNA10731_rnaseq_asymmetries"
       },
       {
+         "name" : "Repeat Region (RepeatMasker)",
+         "description" : "Repetitive regions identified by RepeatMasker.",
+         "assemblyNames" : [
+            "c_briggsae_PRJNA10731"
+         ],
          "trackId" : "c_briggsae_PRJNA10731_repeat_region_(repeatmasker)",
+         "adapter" : {
+            "rootUrlTemplate" : {
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/Repeat Region (RepeatMasker)/{refseq}/trackData.jsonz",
+               "locationType" : "UriLocation"
+            },
+            "type" : "NCListAdapter"
+         },
+         "displays" : [
+            {
+               "type" : "LinearBasicDisplay",
+               "renderer" : {
+                  "type" : "SvgFeatureRenderer",
+                  "showDescriptions" : false,
+                  "color1" : "bisque",
+                  "height" : 4,
+                  "showLabels" : false
+               },
+               "displayId" : "repeat_region_(repeatmasker)-c_briggsae_PRJNA10731-LinearBasicDisplay"
+            }
+         ],
          "type" : "FeatureTrack",
          "category" : [
             "Genome Structure",
             "Repeats"
-         ],
-         "adapter" : {
-            "rootUrlTemplate" : {
-               "locationType" : "UriLocation",
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/Repeat Region (RepeatMasker)/{refseq}/trackData.jsonz"
-            },
-            "type" : "NCListAdapter"
-         },
-         "name" : "Repeat Region (RepeatMasker)",
-         "assemblyNames" : [
-            "c_briggsae_PRJNA10731"
-         ],
-         "description" : "Repetitive regions identified by RepeatMasker.",
-         "displays" : [
-            {
-               "type" : "LinearBasicDisplay",
-               "renderer" : {
-                  "type" : "SvgFeatureRenderer",
-                  "color1" : "bisque",
-                  "showLabels" : false,
-                  "height" : 4,
-                  "showDescriptions" : false
-               },
-               "displayId" : "repeat_region_(repeatmasker)-c_briggsae_PRJNA10731-LinearBasicDisplay"
-            }
          ]
       },
       {
-         "displays" : [
-            {
-               "mouseover" : "jexl:get(feature,'clone')",
-               "displayId" : "O_volvulus_proteins-c_briggsae_PRJNA10731-LinearBasicDisplay",
-               "type" : "LinearBasicDisplay",
-               "renderer" : {
-                  "height" : 4,
-                  "type" : "SvgFeatureRenderer",
-                  "showLabels" : false,
-                  "color1" : "orange"
-               }
-            }
-         ],
-         "name" : "O. volvulus proteins",
          "description" : "Matches to WormBase O. volvulus proteins, aligned with BLASTX (nucleotide to protein, via six-frame translation).",
+         "name" : "O. volvulus proteins",
          "assemblyNames" : [
             "c_briggsae_PRJNA10731"
          ],
+         "trackId" : "c_briggsae_PRJNA10731_O_volvulus_proteins",
          "adapter" : {
+            "type" : "NCListAdapter",
             "rootUrlTemplate" : {
                "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/O. volvulus proteins/{refseq}/trackData.jsonz",
                "locationType" : "UriLocation"
-            },
-            "type" : "NCListAdapter"
+            }
          },
+         "displays" : [
+            {
+               "renderer" : {
+                  "height" : 4,
+                  "color1" : "orange",
+                  "showLabels" : false,
+                  "type" : "SvgFeatureRenderer"
+               },
+               "displayId" : "O_volvulus_proteins-c_briggsae_PRJNA10731-LinearBasicDisplay",
+               "mouseover" : "jexl:get(feature,'clone')",
+               "type" : "LinearBasicDisplay"
+            }
+         ],
          "type" : "FeatureTrack",
-         "trackId" : "c_briggsae_PRJNA10731_O_volvulus_proteins",
          "category" : [
             "Sequence Similarity",
             "Proteins"
          ]
       },
       {
-         "displays" : [
-            {
-               "renderer" : {
-                  "height" : 4,
-                  "color1" : "black",
-                  "type" : "SvgFeatureRenderer"
-               },
-               "type" : "LinearBasicDisplay",
-               "displayId" : "microarray_oligo_probes-c_briggsae_PRJNA10731-LinearBasicDisplay"
-            }
-         ],
-         "name" : "Microarray oligo probes",
          "description" : "This track contains Affymetrix GeneChip and Washington University GSC microarray probe sets.",
+         "name" : "Microarray oligo probes",
+         "trackId" : "c_briggsae_PRJNA10731_microarray_oligo_probes",
          "assemblyNames" : [
             "c_briggsae_PRJNA10731"
          ],
          "formatDetails" : {
             "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/c_briggsae_PRJNA10731' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.refName+':'+feature.start+'..'+feature.end+'</a>'}"
          },
+         "displays" : [
+            {
+               "type" : "LinearBasicDisplay",
+               "displayId" : "microarray_oligo_probes-c_briggsae_PRJNA10731-LinearBasicDisplay",
+               "renderer" : {
+                  "type" : "SvgFeatureRenderer",
+                  "color1" : "black",
+                  "height" : 4
+               }
+            }
+         ],
          "adapter" : {
+            "type" : "NCListAdapter",
             "rootUrlTemplate" : {
                "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/Microarray oligo probes/{refseq}/trackData.jsonz",
+               "locationType" : "UriLocation"
+            }
+         },
+         "category" : [
+            "Reagents"
+         ],
+         "type" : "FeatureTrack"
+      },
+      {
+         "adapter" : {
+            "rootUrlTemplate" : {
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/B. malayi proteins/{refseq}/trackData.jsonz",
                "locationType" : "UriLocation"
             },
             "type" : "NCListAdapter"
          },
-         "type" : "FeatureTrack",
-         "trackId" : "c_briggsae_PRJNA10731_microarray_oligo_probes",
-         "category" : [
-            "Reagents"
-         ]
-      },
-      {
-         "description" : "Matches to WormBase B. malayi proteins, aligned with BLASTX (nucleotide to protein, via six-frame translation).",
-         "assemblyNames" : [
-            "c_briggsae_PRJNA10731"
-         ],
-         "name" : "B. malayi proteins",
          "displays" : [
             {
-               "type" : "LinearBasicDisplay",
-               "renderer" : {
-                  "height" : 4,
-                  "type" : "SvgFeatureRenderer",
-                  "showLabels" : false,
-                  "color1" : "orange"
-               },
                "displayId" : "B_malayi_proteins-c_briggsae_PRJNA10731-LinearBasicDisplay",
+               "renderer" : {
+                  "color1" : "orange",
+                  "height" : 4,
+                  "showLabels" : false,
+                  "type" : "SvgFeatureRenderer"
+               },
+               "type" : "LinearBasicDisplay",
                "mouseover" : "jexl:get(feature,'clone')"
             }
          ],
+         "type" : "FeatureTrack",
          "category" : [
             "Sequence Similarity",
             "Proteins"
          ],
-         "type" : "FeatureTrack",
-         "trackId" : "c_briggsae_PRJNA10731_B_malayi_proteins",
-         "adapter" : {
-            "type" : "NCListAdapter",
-            "rootUrlTemplate" : {
-               "locationType" : "UriLocation",
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/B. malayi proteins/{refseq}/trackData.jsonz"
-            }
-         }
-      },
-      {
-         "category" : [
-            "Genome Structure",
-            "Assembly & Curation"
-         ],
-         "type" : "FeatureTrack",
-         "trackId" : "c_briggsae_PRJNA10731_genbank_submissions",
-         "formatDetails" : {
-            "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/c_briggsae_PRJNA10731' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.refName+':'+feature.start+'..'+feature.end+'</a>'}"
-         },
-         "adapter" : {
-            "type" : "NCListAdapter",
-            "rootUrlTemplate" : {
-               "locationType" : "UriLocation",
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/Genbank submissions/{refseq}/trackData.jsonz"
-            }
-         },
-         "description" : "The C. elegans genome was submitted to the GenBank and EMBL databases in in the form of a set of minimally-overlapping segments.  This track shows the position of these accessioned entries.",
+         "description" : "Matches to WormBase B. malayi proteins, aligned with BLASTX (nucleotide to protein, via six-frame translation).",
+         "name" : "B. malayi proteins",
          "assemblyNames" : [
             "c_briggsae_PRJNA10731"
          ],
+         "trackId" : "c_briggsae_PRJNA10731_B_malayi_proteins"
+      },
+      {
+         "description" : "The C. elegans genome was submitted to the GenBank and EMBL databases in in the form of a set of minimally-overlapping segments.  This track shows the position of these accessioned entries.",
          "name" : "Genbank submissions",
+         "assemblyNames" : [
+            "c_briggsae_PRJNA10731"
+         ],
+         "trackId" : "c_briggsae_PRJNA10731_genbank_submissions",
+         "adapter" : {
+            "rootUrlTemplate" : {
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/Genbank submissions/{refseq}/trackData.jsonz",
+               "locationType" : "UriLocation"
+            },
+            "type" : "NCListAdapter"
+         },
+         "formatDetails" : {
+            "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/c_briggsae_PRJNA10731' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.refName+':'+feature.start+'..'+feature.end+'</a>'}"
+         },
          "displays" : [
             {
-               "displayId" : "genbank_submissions-c_briggsae_PRJNA10731-LinearBasicDisplay",
                "mouseover" : "jexl:get(feature,'genbank')",
                "type" : "LinearBasicDisplay",
                "renderer" : {
                   "height" : 4,
                   "color1" : "sienna",
                   "type" : "SvgFeatureRenderer"
-               }
+               },
+               "displayId" : "genbank_submissions-c_briggsae_PRJNA10731-LinearBasicDisplay"
             }
+         ],
+         "type" : "FeatureTrack",
+         "category" : [
+            "Genome Structure",
+            "Assembly & Curation"
          ]
       },
       {
+         "trackId" : "c_briggsae_PRJNA10731_pirna_genes",
+         "assemblyNames" : [
+            "c_briggsae_PRJNA10731"
+         ],
+         "name" : "piRNA Genes",
+         "description" : "piRNA genes identified in https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9683057/. Sequencing data (from biological replicates) are available at GEO under the accession number GSE203297. The normalized abundance score ranges from 0.059 to 2865.",
          "category" : [
             "Externally Sourced Resources",
             "Other"
          ],
          "type" : "FeatureTrack",
-         "trackId" : "c_briggsae_PRJNA10731_pirna_genes",
+         "displays" : [
+            {
+               "renderer" : {
+                  "color1" : "jexl:get(feature,'score')>10?'darkgrey':'lightgrey'",
+                  "type" : "SvgFeatureRenderer"
+               },
+               "displayId" : "c_briggsae_PRJNA10731_pirna_genes-LinearBasicDisplay",
+               "mouseover" : "jexl:'Normalized abundance: '+get(feature,'score')",
+               "type" : "LinearBasicDisplay"
+            }
+         ],
          "adapter" : {
-            "type" : "NCListAdapter",
             "rootUrlTemplate" : {
                "locationType" : "UriLocation",
                "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/c_briggsae_PRJNA10731/{refseq}/trackData.jsonz"
-            }
-         },
-         "description" : "piRNA genes identified in https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9683057/. Sequencing data (from biological replicates) are available at GEO under the accession number GSE203297. The normalized abundance score ranges from 0.059 to 2865.",
-         "assemblyNames" : [
-            "c_briggsae_PRJNA10731"
-         ],
-         "name" : "piRNA Genes",
-         "displays" : [
-            {
-               "mouseover" : "jexl:'Normalized abundance: '+get(feature,'score')",
-               "displayId" : "c_briggsae_PRJNA10731_pirna_genes-LinearBasicDisplay",
-               "renderer" : {
-                  "type" : "SvgFeatureRenderer",
-                  "color1" : "jexl:get(feature,'score')>10?'darkgrey':'lightgrey'"
-               },
-               "type" : "LinearBasicDisplay"
-            }
-         ]
+            },
+            "type" : "NCListAdapter"
+         }
       },
       {
+         "adapter" : {
+            "type" : "NCListAdapter",
+            "rootUrlTemplate" : {
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/H. sapiens proteins/{refseq}/trackData.jsonz",
+               "locationType" : "UriLocation"
+            }
+         },
          "displays" : [
             {
-               "type" : "LinearBasicDisplay",
                "renderer" : {
                   "type" : "SvgFeatureRenderer",
                   "showLabels" : false,
@@ -1697,62 +1734,66 @@
                   "height" : 4
                },
                "displayId" : "H_sapiens_proteins-c_briggsae_PRJNA10731-LinearBasicDisplay",
-               "mouseover" : "jexl:get(feature,'clone')"
+               "mouseover" : "jexl:get(feature,'clone')",
+               "type" : "LinearBasicDisplay"
             }
          ],
-         "description" : "Matches to WormBase H. sapiens proteins, aligned with BLASTX (nucleotide to protein, via six-frame translation).",
-         "assemblyNames" : [
-            "c_briggsae_PRJNA10731"
-         ],
-         "name" : "H. sapiens proteins",
-         "adapter" : {
-            "rootUrlTemplate" : {
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/H. sapiens proteins/{refseq}/trackData.jsonz",
-               "locationType" : "UriLocation"
-            },
-            "type" : "NCListAdapter"
-         },
+         "type" : "FeatureTrack",
          "category" : [
             "Sequence Similarity",
             "Proteins"
          ],
-         "type" : "FeatureTrack",
-         "trackId" : "c_briggsae_PRJNA10731_H_sapiens_proteins"
-      },
-      {
-         "displays" : [
-            {
-               "renderer" : {
-                  "color1" : "green",
-                  "type" : "SvgFeatureRenderer"
-               },
-               "type" : "LinearBasicDisplay",
-               "displayId" : "operons-c_briggsae_PRJNA10731-LinearBasicDisplay"
-            }
-         ],
-         "name" : "Operons",
+         "name" : "H. sapiens proteins",
+         "description" : "Matches to WormBase H. sapiens proteins, aligned with BLASTX (nucleotide to protein, via six-frame translation).",
          "assemblyNames" : [
             "c_briggsae_PRJNA10731"
          ],
-         "description" : "this is a published set of operons from WBPaper00041271.",
+         "trackId" : "c_briggsae_PRJNA10731_H_sapiens_proteins"
+      },
+      {
          "adapter" : {
+            "type" : "NCListAdapter",
             "rootUrlTemplate" : {
                "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/Operons/{refseq}/trackData.jsonz",
                "locationType" : "UriLocation"
-            },
-            "type" : "NCListAdapter"
+            }
          },
+         "displays" : [
+            {
+               "displayId" : "operons-c_briggsae_PRJNA10731-LinearBasicDisplay",
+               "renderer" : {
+                  "type" : "SvgFeatureRenderer",
+                  "color1" : "green"
+               },
+               "type" : "LinearBasicDisplay"
+            }
+         ],
          "formatDetails" : {
             "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/c_briggsae_PRJNA10731' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.refName+':'+feature.start+'..'+feature.end+'</a>'}"
          },
-         "trackId" : "c_briggsae_PRJNA10731_operons",
          "type" : "FeatureTrack",
          "category" : [
             "Genes",
             "Curated Genes"
-         ]
+         ],
+         "name" : "Operons",
+         "description" : "this is a published set of operons from WBPaper00041271.",
+         "assemblyNames" : [
+            "c_briggsae_PRJNA10731"
+         ],
+         "trackId" : "c_briggsae_PRJNA10731_operons"
       },
       {
+         "assemblyNames" : [
+            "c_briggsae_PRJNA10731"
+         ],
+         "trackId" : "c_briggsae_PRJNA10731_rnaseq_introns",
+         "name" : "RNASeq introns",
+         "description" : "These are introns formed by aligned RNASeq reads spanning a region of the genome. Alignments of short read sequences from all available RNASeq projects were used. The number of reads spanning the introns is indicated by the thickness of the display.",
+         "type" : "FeatureTrack",
+         "category" : [
+            "Expression"
+         ],
          "adapter" : {
             "type" : "NCListAdapter",
             "rootUrlTemplate" : {
@@ -1760,52 +1801,29 @@
                "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/RNASeq introns/{refseq}/trackData.jsonz"
             }
          },
-         "type" : "FeatureTrack",
-         "trackId" : "c_briggsae_PRJNA10731_rnaseq_introns",
-         "category" : [
-            "Expression"
-         ],
          "displays" : [
             {
                "displayId" : "rnaseq_introns-c_briggsae_PRJNA10731-LinearBasicDisplay",
-               "mouseover" : "jexl:get(feature,'score')+' reads'",
                "renderer" : {
                   "height" : "jexl:get(feature,'score')>100?50:get(feature,'score')<8?4:floor(get(feature,'score')/2)",
-                  "showDescriptions" : false,
                   "color1" : "green",
                   "showLabels" : false,
-                  "type" : "SvgFeatureRenderer"
+                  "type" : "SvgFeatureRenderer",
+                  "showDescriptions" : false
                },
-               "type" : "LinearBasicDisplay"
+               "type" : "LinearBasicDisplay",
+               "mouseover" : "jexl:get(feature,'score')+' reads'"
             }
-         ],
-         "name" : "RNASeq introns",
-         "description" : "These are introns formed by aligned RNASeq reads spanning a region of the genome. Alignments of short read sequences from all available RNASeq projects were used. The number of reads spanning the introns is indicated by the thickness of the display.",
-         "assemblyNames" : [
-            "c_briggsae_PRJNA10731"
          ]
       },
       {
-         "name" : "RNASeq Splice Junctions (common)",
-         "description" : "These are introns formed by aligned RNASeq reads spanning a region of the genome. Alignments of short read sequences from all available RNASeq projects were used. These junctions are considered 'common' in that there are more than 500 reads confirming their existence. The number of reads spanning the introns is indicated by the darkness of the color (shades of cyan for reverse, shades of violet for forward).  Darker is more reads.",
          "assemblyNames" : [
             "c_briggsae_PRJNA10731"
          ],
-         "displays" : [
-            {
-               "renderer" : {
-                  "showDescriptions" : false,
-                  "showLabels" : false,
-                  "color1" : "jexl:get(feature,'score')>1000?(get(feature,'strand')>0?'#730073':'#007373'):get(feature,'strand')>0?'#'+hex(round(255-(140*(get(feature,'score')/1000))))+'00'+hex(round(255-(140*(get(feature,'score')/1000)))):'#00'+hex(round(255-(140*(get(feature,'score')/1000))))+hex(round(255-(140*(get(feature,'score')/1000))))",
-                  "type" : "SvgFeatureRenderer"
-               },
-               "type" : "LinearBasicDisplay",
-               "displayId" : "rnaseq_splice_junctions_(common)-c_briggsae_PRJNA10731-LinearBasicDisplay",
-               "mouseover" : "jexl:get(feature,'score')+' reads'"
-            }
-         ],
-         "type" : "FeatureTrack",
          "trackId" : "c_briggsae_PRJNA10731_rnaseq_splice_junctions_(common)",
+         "description" : "These are introns formed by aligned RNASeq reads spanning a region of the genome. Alignments of short read sequences from all available RNASeq projects were used. These junctions are considered 'common' in that there are more than 500 reads confirming their existence. The number of reads spanning the introns is indicated by the darkness of the color (shades of cyan for reverse, shades of violet for forward).  Darker is more reads.",
+         "name" : "RNASeq Splice Junctions (common)",
+         "type" : "FeatureTrack",
          "category" : [
             "Expression"
          ],
@@ -1815,70 +1833,57 @@
                "locationType" : "UriLocation",
                "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/RNASeq Splice Junctions (common)/{refseq}/trackData.jsonz"
             }
-         }
-      },
-      {
-         "category" : [
-            "Expression"
-         ],
-         "trackId" : "c_briggsae_PRJNA10731_rnaseq_splice_junctions_(rare)",
-         "type" : "FeatureTrack",
-         "adapter" : {
-            "type" : "NCListAdapter",
-            "rootUrlTemplate" : {
-               "locationType" : "UriLocation",
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/RNASeq Splice Junctions (rare)/{refseq}/trackData.jsonz"
-            }
          },
-         "assemblyNames" : [
-            "c_briggsae_PRJNA10731"
-         ],
-         "description" : "These are introns formed by aligned RNASeq reads spanning a region of the genome. Alignments of short read sequences from all available RNASeq projects were used. These junctions are considered 'rare' in that there are fewer than 500 reads confirming their existence. The number of reads spanning the introns is indicated by the darkness of the color (shades of cyan for reverse, shades of violet for forward).  Darker is more reads.",
-         "name" : "RNASeq Splice Junctions (rare)",
          "displays" : [
             {
-               "mouseover" : "jexl:get(feature,'score')+' reads'",
-               "displayId" : "rnaseq_splice_junctions_(rare)-c_briggsae_PRJNA10731-LinearBasicDisplay",
+               "displayId" : "rnaseq_splice_junctions_(common)-c_briggsae_PRJNA10731-LinearBasicDisplay",
                "renderer" : {
-                  "color1" : "jexl:get(feature,'score')>1000?(get(feature,'strand')>0?'#730073':'#007373'):get(feature,'strand')>0?'#'+hex(round(255-(140*(get(feature,'score')/1000))))+'00'+hex(round(255-(140*(get(feature,'score')/1000)))):'#00'+hex(round(255-(140*(get(feature,'score')/1000))))+hex(round(255-(140*(get(feature,'score')/1000))))",
                   "showLabels" : false,
-                  "maxHeight" : 5000,
-                  "type" : "SvgFeatureRenderer",
-                  "height" : "jexl:4",
-                  "showDescriptions" : false
+                  "color1" : "jexl:get(feature,'score')>1000?(get(feature,'strand')>0?'#730073':'#007373'):get(feature,'strand')>0?'#'+hex(round(255-(140*(get(feature,'score')/1000))))+'00'+hex(round(255-(140*(get(feature,'score')/1000)))):'#00'+hex(round(255-(140*(get(feature,'score')/1000))))+hex(round(255-(140*(get(feature,'score')/1000))))",
+                  "showDescriptions" : false,
+                  "type" : "SvgFeatureRenderer"
                },
-               "type" : "LinearBasicDisplay"
+               "type" : "LinearBasicDisplay",
+               "mouseover" : "jexl:get(feature,'score')+' reads'"
             }
          ]
       },
       {
-         "description" : "This track shows C. briggsae SNPs from the Cutter Lab (University of Toronto). Here they performed high-coverage whole-genome sequencing of 37 wild isolates of the nematode C. briggsae; SNP calling was done by GATK UnifiedGenotyper. After filtering a total of 2,700,664 sites across all strains were identified, of which 439,139 SNPs had high-quality allele calls in every strain. (WBPaper00046558) Thomas CG et al. (2015) Genome Res 'Full-genome evolutionary histories of selfing, splitting, and selection in Caenorhabditis.'",
+         "adapter" : {
+            "rootUrlTemplate" : {
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS288/c_briggsae_PRJNA10731/tracks/RNASeq Splice Junctions (rare)/{refseq}/trackData.jsonz",
+               "locationType" : "UriLocation"
+            },
+            "type" : "NCListAdapter"
+         },
+         "displays" : [
+            {
+               "type" : "LinearBasicDisplay",
+               "mouseover" : "jexl:get(feature,'score')+' reads'",
+               "displayId" : "rnaseq_splice_junctions_(rare)-c_briggsae_PRJNA10731-LinearBasicDisplay",
+               "renderer" : {
+                  "showDescriptions" : false,
+                  "height" : "jexl:4",
+                  "showLabels" : false,
+                  "type" : "SvgFeatureRenderer",
+                  "maxHeight" : 5000,
+                  "color1" : "jexl:get(feature,'score')>1000?(get(feature,'strand')>0?'#730073':'#007373'):get(feature,'strand')>0?'#'+hex(round(255-(140*(get(feature,'score')/1000))))+'00'+hex(round(255-(140*(get(feature,'score')/1000)))):'#00'+hex(round(255-(140*(get(feature,'score')/1000))))+hex(round(255-(140*(get(feature,'score')/1000))))"
+               }
+            }
+         ],
+         "type" : "FeatureTrack",
+         "category" : [
+            "Expression"
+         ],
+         "name" : "RNASeq Splice Junctions (rare)",
+         "description" : "These are introns formed by aligned RNASeq reads spanning a region of the genome. Alignments of short read sequences from all available RNASeq projects were used. These junctions are considered 'rare' in that there are fewer than 500 reads confirming their existence. The number of reads spanning the introns is indicated by the darkness of the color (shades of cyan for reverse, shades of violet for forward).  Darker is more reads.",
          "assemblyNames" : [
             "c_briggsae_PRJNA10731"
          ],
-         "name" : "C. briggsae variation",
-         "displays" : [
-            {
-               "displayId" : "c_briggsae_PRJNA10731_variation-LinearVariantDisplay",
-               "type" : "LinearVariantDisplay",
-               "renderer" : {
-                  "color1" : "green",
-                  "type" : "SvgFeatureRenderer"
-               }
-            },
-            {
-               "type" : "ChordVariantDisplay",
-               "displayId" : "c_briggsae_PRJNA10731_variation-ChordVariantDisplay"
-            }
-         ],
-         "category" : [
-            "Externally Sourced Resources",
-            "Other"
-         ],
-         "type" : "VariantTrack",
-         "trackId" : "c_briggsae_PRJNA10731_variation",
+         "trackId" : "c_briggsae_PRJNA10731_rnaseq_splice_junctions_(rare)"
+      },
+      {
          "adapter" : {
-            "type" : "VcfTabixAdapter",
             "index" : {
                "location" : {
                   "locationType" : "UriLocation",
@@ -1888,39 +1893,34 @@
             "vcfGzLocation" : {
                "uri" : "https://s3.amazonaws.com/wormbase-modencode/jbrowse/data/c_briggsae_PRJNA10731/c.briggsae_snps.vcf.gz",
                "locationType" : "UriLocation"
-            }
-         }
-      }
-   ],
-   "assemblies" : [
-      {
-         "sequence" : {
-            "displays" : [
-               {
-                  "type" : "LinearReferenceSequenceDisplay",
-                  "displayId" : "c_briggsae_PRJNA10731-1646426635733-LinearReferenceSequenceDisplay"
-               }
-            ],
-            "adapter" : {
-               "gziLocation" : {
-                  "locationType" : "UriLocation",
-                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/c_briggsae.PRJNA10731.WS284.genomic.fa.gz.gzi"
-               },
-               "fastaLocation" : {
-                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/c_briggsae.PRJNA10731.WS284.genomic.fa.gz",
-                  "locationType" : "UriLocation"
-               },
-               "faiLocation" : {
-                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/c_briggsae.PRJNA10731.WS284.genomic.fa.gz.fai",
-                  "locationType" : "UriLocation"
-               },
-               "type" : "BgzipFastaAdapter"
             },
-            "trackId" : "c_briggsae_PRJNA10731-1646426635733",
-            "type" : "ReferenceSequenceTrack"
+            "type" : "VcfTabixAdapter"
          },
-         "displayName" : "C. briggsae",
-         "name" : "c_briggsae_PRJNA10731"
+         "displays" : [
+            {
+               "type" : "LinearVariantDisplay",
+               "displayId" : "c_briggsae_PRJNA10731_variation-LinearVariantDisplay",
+               "renderer" : {
+                  "type" : "SvgFeatureRenderer",
+                  "color1" : "green"
+               }
+            },
+            {
+               "type" : "ChordVariantDisplay",
+               "displayId" : "c_briggsae_PRJNA10731_variation-ChordVariantDisplay"
+            }
+         ],
+         "type" : "VariantTrack",
+         "category" : [
+            "Externally Sourced Resources",
+            "Other"
+         ],
+         "description" : "This track shows C. briggsae SNPs from the Cutter Lab (University of Toronto). Here they performed high-coverage whole-genome sequencing of 37 wild isolates of the nematode C. briggsae; SNP calling was done by GATK UnifiedGenotyper. After filtering a total of 2,700,664 sites across all strains were identified, of which 439,139 SNPs had high-quality allele calls in every strain. (WBPaper00046558) Thomas CG et al. (2015) Genome Res 'Full-genome evolutionary histories of selfing, splitting, and selection in Caenorhabditis.'",
+         "name" : "C. briggsae variation",
+         "assemblyNames" : [
+            "c_briggsae_PRJNA10731"
+         ],
+         "trackId" : "c_briggsae_PRJNA10731_variation"
       }
    ]
 }
