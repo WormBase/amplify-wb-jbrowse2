@@ -1,297 +1,123 @@
 {
    "tracks" : [
       {
-         "adapter" : {
-            "rootUrlTemplate" : {
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS290/c_tribulationis_PRJEB12608/tracks/Curated_Genes/{refseq}/trackData.jsonz",
-               "locationType" : "UriLocation"
-            },
-            "type" : "NCListAdapter"
+         "assemblyNames" : [
+            "c_tribulationis_PRJEB12608"
+         ],
+         "trackId" : "c_tribulationis_PRJEB12608_curated_genes",
+         "formatDetails" : {
+            "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/c_tribulationis_PRJEB12608' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.name+'</a>', WormBase: feature.source=='WormBase'?'<a href=\"/get?name='+feature.name+';class=Gene\">Gene Page</a>':''}"
          },
          "name" : "Curated Genes",
-         "type" : "FeatureTrack",
+         "description" : "Protein-coding gene structures result from the integration of a variety of prediction methods and data sources followed by manual review and revison by WormBase curators. tRNAs are predicted by tRNAscan, and other non-coding RNA transcripts are taken from a variety of literature sources. The purple and blue colors indicate transcripts on the forward and reverse strands respectively. Dark purple areas represent 5' and 3' UTRs of protein-coding transcripts, assigned automatically using the extents of overlapping ESTs and full-length cDNAs. The UTR predictions have not been reviewed by WormBase curators, and some are known to contain artifacts. Grey transcripts represent either non-coding transcripts of protein coding genes or transcripts of non-coding genes.",
          "category" : [
             "Genes",
             "Curated Genes"
-         ],
-         "description" : "Protein-coding gene structures result from the integration of a variety of prediction methods and data sources followed by manual review and revison by WormBase curators. tRNAs are predicted by tRNAscan, and other non-coding RNA transcripts are taken from a variety of literature sources. The purple and blue colors indicate transcripts on the forward and reverse strands respectively. Dark purple areas represent 5' and 3' UTRs of protein-coding transcripts, assigned automatically using the extents of overlapping ESTs and full-length cDNAs. The UTR predictions have not been reviewed by WormBase curators, and some are known to contain artifacts. Grey transcripts represent either non-coding transcripts of protein coding genes or transcripts of non-coding genes.",
-         "assemblyNames" : [
-            "c_tribulationis_PRJEB12608"
          ],
          "displays" : [
             {
                "displayId" : "curated_genes-c_tribulationis_PRJEB12608-LinearBasicDisplay",
+               "type" : "LinearBasicDisplay",
                "renderer" : {
-                  "color3" : "#965567",
+                  "type" : "SvgFeatureRenderer",
                   "labels" : {
                      "name" : "jexl:get(feature,'locus') || get(feature,'sequence_name')"
                   },
-                  "color1" : "jexl:get(feature,'type')!='CDS'?'gray':get(feature,'strand')>0?'violet':'turquoise'",
-                  "maxHeight" : 5000,
-                  "type" : "SvgFeatureRenderer"
-               },
-               "type" : "LinearBasicDisplay"
-            }
-         ],
-         "trackId" : "c_tribulationis_PRJEB12608_curated_genes",
-         "formatDetails" : {
-            "feature" : "jexl:{ curie:null,Alliance:feature.curie?'<a href=\"https://alliancegenome.org/gene/'+feature.curie+'\">'+feature.curie+'</a>':null,JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/c_tribulationis_PRJEB12608' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.name+'</a>', WormBase: feature.source=='WormBase'?'<a href=\"/get?name='+feature.name+';class=Gene\">Gene Page</a>':''}"
-         }
-      },
-      {
-         "adapter" : {
-            "type" : "NCListAdapter",
-            "rootUrlTemplate" : {
-               "locationType" : "UriLocation",
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS290/c_tribulationis_PRJEB12608/tracks/Curated Genes (protein coding)/{refseq}/trackData.jsonz"
-            }
-         },
-         "displays" : [
-            {
-               "type" : "LinearBasicDisplay",
-               "displayId" : "curated_genes_(protein_coding)-c_tribulationis_PRJEB12608-LinearBasicDisplay",
-               "renderer" : {
-                  "color1" : "jexl:get(feature,'strand')>0?'violet':'turquoise'",
                   "color3" : "#965567",
-                  "type" : "SvgFeatureRenderer",
+                  "color1" : "jexl:get(feature,'type')!='CDS'?'gray':get(feature,'strand')>0?'violet':'turquoise'",
                   "maxHeight" : 5000
                }
             }
          ],
-         "trackId" : "c_tribulationis_PRJEB12608_curated_genes_protein_coding",
-         "assemblyNames" : [
-            "c_tribulationis_PRJEB12608"
-         ],
-         "formatDetails" : {
-            "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/c_tribulationis_PRJEB12608' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.name+'</a>'}"
-         },
+         "type" : "FeatureTrack",
+         "adapter" : {
+            "rootUrlTemplate" : {
+               "locationType" : "UriLocation",
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS289/c_tribulationis_PRJEB12608/tracks/Curated_Genes/{refseq}/trackData.jsonz"
+            },
+            "type" : "NCListAdapter"
+         }
+      },
+      {
          "name" : "Curated Genes (protein coding)",
+         "description" : "A subset of the full Curated Genes set limited to protein-coding genes only. Only the CDS is represented. Full models (with UTRs) can be seen on the 'Curated Genes' track.",
          "category" : [
             "Genes",
             "Curated Genes"
          ],
-         "type" : "FeatureTrack",
-         "description" : "A subset of the full Curated Genes set limited to protein-coding genes only. Only the CDS is represented. Full models (with UTRs) can be seen on the 'Curated Genes' track."
-      },
-      {
+         "displays" : [
+            {
+               "displayId" : "curated_genes_(protein_coding)-c_tribulationis_PRJEB12608-LinearBasicDisplay",
+               "renderer" : {
+                  "maxHeight" : 5000,
+                  "color1" : "jexl:get(feature,'strand')>0?'violet':'turquoise'",
+                  "type" : "SvgFeatureRenderer",
+                  "color3" : "#965567"
+               },
+               "type" : "LinearBasicDisplay"
+            }
+         ],
          "adapter" : {
             "rootUrlTemplate" : {
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS290/c_tribulationis_PRJEB12608/tracks/Low complextity region (Dust)/{refseq}/trackData.jsonz",
-               "locationType" : "UriLocation"
+               "locationType" : "UriLocation",
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS289/c_tribulationis_PRJEB12608/tracks/Curated Genes (protein coding)/{refseq}/trackData.jsonz"
             },
             "type" : "NCListAdapter"
          },
-         "displays" : [
-            {
-               "type" : "LinearBasicDisplay",
-               "renderer" : {
-                  "color1" : "bisque",
-                  "showLabels" : false,
-                  "showDescriptions" : false,
-                  "type" : "SvgFeatureRenderer",
-                  "height" : 4
-               },
-               "displayId" : "low_complextity_region_(dust)-c_tribulationis_PRJEB12608-LinearBasicDisplay"
-            }
-         ],
+         "type" : "FeatureTrack",
          "assemblyNames" : [
             "c_tribulationis_PRJEB12608"
          ],
-         "trackId" : "c_tribulationis_PRJEB12608_low_complextity_region_(dust)",
-         "description" : "Low-complexity regions identified by Dust.",
-         "type" : "FeatureTrack",
-         "category" : [
-            "Genome Structure",
-            "Repeats"
-         ],
-         "name" : "Low complextity region (Dust)"
-      },
-      {
-         "adapter" : {
-            "search" : "TTC.",
-            "type" : "SequenceSearchAdapter",
-            "sequenceAdapter" : {
-               "faiLocation" : {
-                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/c_tribulationis.PRJEB12608.WS284.genomic.fa.gz.fai",
-                  "locationType" : "UriLocation"
-               },
-               "gziLocation" : {
-                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/c_tribulationis.PRJEB12608.WS284.genomic.fa.gz.gzi",
-                  "locationType" : "UriLocation"
-               },
-               "fastaLocation" : {
-                  "locationType" : "UriLocation",
-                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/c_tribulationis.PRJEB12608.WS284.genomic.fa.gz"
-               },
-               "type" : "BgzipFastaAdapter"
-            }
-         },
-         "displays" : [
-            {
-               "renderer" : {
-                  "showDescriptions" : false,
-                  "height" : 4,
-                  "type" : "SvgFeatureRenderer",
-                  "showLabels" : false,
-                  "color1" : "SlateBlue"
-               },
-               "displayId" : "TTCN_sequence_search_c_tribulationis_PRJEB12608-LinearBasicDisplay",
-               "type" : "LinearBasicDisplay"
-            }
-         ],
-         "trackId" : "c_tribulationis_PRJEB12608_TTCN_sequence_search",
-         "assemblyNames" : [
-            "c_tribulationis_PRJEB12608"
-         ],
-         "type" : "FeatureTrack",
-         "description" : "Cas12e (CasX) PAM sites based on TTCN motif. Computed on the fly at load time.",
-         "category" : [
-            "Externally Sourced Resources",
-            "CRISPR predictions"
-         ],
-         "name" : "Cas12e TTCN PAM sites"
-      },
-      {
-         "adapter" : {
-            "type" : "SequenceSearchAdapter",
-            "search" : "TT.",
-            "sequenceAdapter" : {
-               "faiLocation" : {
-                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/c_tribulationis.PRJEB12608.WS284.genomic.fa.gz.fai",
-                  "locationType" : "UriLocation"
-               },
-               "gziLocation" : {
-                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/c_tribulationis.PRJEB12608.WS284.genomic.fa.gz.gzi",
-                  "locationType" : "UriLocation"
-               },
-               "fastaLocation" : {
-                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/c_tribulationis.PRJEB12608.WS284.genomic.fa.gz",
-                  "locationType" : "UriLocation"
-               },
-               "type" : "BgzipFastaAdapter"
-            }
-         },
-         "trackId" : "c_tribulationis_PRJEB12608_TTN_sequence_search",
-         "displays" : [
-            {
-               "renderer" : {
-                  "color1" : "Indigo",
-                  "showLabels" : false,
-                  "showDescriptions" : false,
-                  "type" : "SvgFeatureRenderer",
-                  "height" : 4
-               },
-               "displayId" : "TTN_sequence_search_c_tribulationis_PRJEB12608-LinearBasicDisplay",
-               "type" : "LinearBasicDisplay"
-            }
-         ],
-         "assemblyNames" : [
-            "c_tribulationis_PRJEB12608"
-         ],
-         "name" : "Cas12a TTN PAM sites",
-         "category" : [
-            "Externally Sourced Resources",
-            "CRISPR predictions"
-         ],
-         "type" : "FeatureTrack",
-         "description" : "Cas12a (Cpf1) PAM sites based on TTN motif. Computed on the fly at load time."
-      },
-      {
-         "category" : [
-            "Externally Sourced Resources",
-            "CRISPR predictions"
-         ],
-         "type" : "FeatureTrack",
-         "description" : "Staphylococcus aureus Cas9 PAM sites based on NNGRRT motif. Computed on the fly at load time.",
-         "name" : "SaCas9 NNGRRT PAM sites",
-         "trackId" : "c_tribulationis_PRJEB12608_NNGRRT_sequence_search",
-         "displays" : [
-            {
-               "renderer" : {
-                  "color1" : "DarkViolet",
-                  "showLabels" : false,
-                  "type" : "SvgFeatureRenderer",
-                  "height" : 4,
-                  "showDescriptions" : false
-               },
-               "displayId" : "NNGRRT_sequence_search_c_tribulationis_PRJEB12608-LinearBasicDisplay",
-               "type" : "LinearBasicDisplay"
-            }
-         ],
-         "assemblyNames" : [
-            "c_tribulationis_PRJEB12608"
-         ],
-         "adapter" : {
-            "search" : "..G[AG][AG]T",
-            "type" : "SequenceSearchAdapter",
-            "sequenceAdapter" : {
-               "gziLocation" : {
-                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/c_tribulationis.PRJEB12608.WS284.genomic.fa.gz.gzi",
-                  "locationType" : "UriLocation"
-               },
-               "fastaLocation" : {
-                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/c_tribulationis.PRJEB12608.WS284.genomic.fa.gz",
-                  "locationType" : "UriLocation"
-               },
-               "faiLocation" : {
-                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/c_tribulationis.PRJEB12608.WS284.genomic.fa.gz.fai",
-                  "locationType" : "UriLocation"
-               },
-               "type" : "BgzipFastaAdapter"
-            }
+         "trackId" : "c_tribulationis_PRJEB12608_curated_genes_protein_coding",
+         "formatDetails" : {
+            "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/c_tribulationis_PRJEB12608' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.name+'</a>'}"
          }
       },
       {
-         "adapter" : {
-            "type" : "SequenceSearchAdapter",
-            "search" : ".GG",
-            "sequenceAdapter" : {
-               "type" : "BgzipFastaAdapter",
-               "faiLocation" : {
-                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/c_tribulationis.PRJEB12608.WS284.genomic.fa.gz.fai",
-                  "locationType" : "UriLocation"
-               },
-               "gziLocation" : {
-                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/c_tribulationis.PRJEB12608.WS284.genomic.fa.gz.gzi",
-                  "locationType" : "UriLocation"
-               },
-               "fastaLocation" : {
-                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/c_tribulationis.PRJEB12608.WS284.genomic.fa.gz",
-                  "locationType" : "UriLocation"
-               }
-            }
-         },
-         "name" : "SpCas9 NGG PAM sites",
-         "type" : "FeatureTrack",
-         "description" : "Streptococcus pyogenes Cas9 PAM sites based on NGG motif. Computed on the fly at load time.",
-         "category" : [
-            "Externally Sourced Resources",
-            "CRISPR predictions"
-         ],
+         "trackId" : "c_tribulationis_PRJEB12608_low_complextity_region_(dust)",
          "assemblyNames" : [
             "c_tribulationis_PRJEB12608"
          ],
+         "description" : "Low-complexity regions identified by Dust.",
+         "name" : "Low complextity region (Dust)",
+         "adapter" : {
+            "rootUrlTemplate" : {
+               "locationType" : "UriLocation",
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS289/c_tribulationis_PRJEB12608/tracks/Low complextity region (Dust)/{refseq}/trackData.jsonz"
+            },
+            "type" : "NCListAdapter"
+         },
+         "type" : "FeatureTrack",
          "displays" : [
             {
-               "displayId" : "NGG_sequence_search_c_tribulationis_PRJEB12608-LinearBasicDisplay",
+               "displayId" : "low_complextity_region_(dust)-c_tribulationis_PRJEB12608-LinearBasicDisplay",
+               "type" : "LinearBasicDisplay",
                "renderer" : {
-                  "showDescriptions" : false,
+                  "color1" : "bisque",
                   "height" : 4,
                   "type" : "SvgFeatureRenderer",
-                  "showLabels" : false,
-                  "color1" : "RebeccaPurple"
-               },
-               "type" : "LinearBasicDisplay"
+                  "showDescriptions" : false,
+                  "showLabels" : false
+               }
             }
          ],
-         "trackId" : "c_tribulationis_PRJEB12608_NGG_sequence_search"
+         "category" : [
+            "Genome Structure",
+            "Repeats"
+         ]
       }
    ],
    "assemblies" : [
       {
+         "name" : "c_tribulationis_PRJEB12608",
          "displayName" : "c_tribulationis_PRJEB12608",
          "sequence" : {
-            "type" : "ReferenceSequenceTrack",
+            "displays" : [
+               {
+                  "type" : "LinearReferenceSequenceDisplay",
+                  "displayId" : "c_tribulationis_PRJEB12608-LinearReferenceSequenceDisplay"
+               }
+            ],
             "adapter" : {
                "type" : "BgzipFastaAdapter",
                "fastaLocation" : {
@@ -303,19 +129,13 @@
                   "locationType" : "UriLocation"
                },
                "faiLocation" : {
-                  "locationType" : "UriLocation",
-                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/c_tribulationis.PRJEB12608.WS284.genomic.fa.gz.fai"
+                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/c_tribulationis.PRJEB12608.WS284.genomic.fa.gz.fai",
+                  "locationType" : "UriLocation"
                }
             },
-            "displays" : [
-               {
-                  "displayId" : "c_tribulationis_PRJEB12608-LinearReferenceSequenceDisplay",
-                  "type" : "LinearReferenceSequenceDisplay"
-               }
-            ],
+            "type" : "ReferenceSequenceTrack",
             "trackId" : "c_tribulationis_PRJEB12608-1646426635733"
-         },
-         "name" : "c_tribulationis_PRJEB12608"
+         }
       }
    ]
 }
