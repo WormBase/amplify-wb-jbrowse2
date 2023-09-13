@@ -1,63 +1,27 @@
 {
    "tracks" : [
       {
-         "description" : "A subset of the full Curated Genes set limited to protein-coding genes only. Only the CDS is represented. Full models (with UTRs) can be seen on the 'Curated Genes' track.",
-         "name" : "Curated Genes (protein coding)",
-         "type" : "FeatureTrack",
-         "adapter" : {
-            "rootUrlTemplate" : {
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS289/o_tipulae_PRJEB15512/tracks/Curated Genes (protein coding)/{refseq}/trackData.jsonz",
-               "locationType" : "UriLocation"
-            },
-            "type" : "NCListAdapter"
-         },
          "displays" : [
             {
-               "renderer" : {
-                  "color3" : "#965567",
-                  "type" : "SvgFeatureRenderer",
-                  "maxHeight" : 5000,
-                  "color1" : "jexl:get(feature,'strand')>0?'violet':'turquoise'"
-               },
                "type" : "LinearBasicDisplay",
-               "displayId" : "curated_genes_(protein_coding)-o_tipulae_PRJEB15512-LinearBasicDisplay"
-            }
-         ],
-         "category" : [
-            "Genes",
-            "Curated Genes"
-         ],
-         "trackId" : "o_tipulae_PRJEB15512_curated_genes_protein_coding",
-         "assemblyNames" : [
-            "o_tipulae_PRJEB15512"
-         ],
-         "formatDetails" : {
-            "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/o_tipulae_PRJEB15512' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.name+'</a>'}"
-         }
-      },
-      {
-         "formatDetails" : {
-            "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/o_tipulae_PRJEB15512' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.name+'</a>', WormBase: feature.source=='WormBase'?'<a href=\"/get?name='+feature.name+';class=Gene\">Gene Page</a>':''}"
-         },
-         "assemblyNames" : [
-            "o_tipulae_PRJEB15512"
-         ],
-         "trackId" : "o_tipulae_PRJEB15512_curated_genes",
-         "displays" : [
-            {
                "renderer" : {
                   "maxHeight" : 5000,
                   "color1" : "jexl:get(feature,'type')!='CDS'?'gray':get(feature,'strand')>0?'violet':'turquoise'",
-                  "type" : "SvgFeatureRenderer",
-                  "color3" : "#965567",
                   "labels" : {
                      "name" : "jexl:get(feature,'locus') || get(feature,'sequence_name')"
-                  }
+                  },
+                  "color3" : "#965567",
+                  "type" : "SvgFeatureRenderer"
                },
-               "type" : "LinearBasicDisplay",
                "displayId" : "curated_genes-o_tipulae_PRJEB15512-LinearBasicDisplay"
             }
          ],
+         "formatDetails" : {
+            "feature" : "jexl:{ curie:null,Alliance:feature.curie?'<a href=\"https://alliancegenome.org/gene/'+feature.curie+'\">'+feature.curie+'</a>':null,JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/o_tipulae_PRJEB15512' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.name+'</a>', WormBase: feature.source=='WormBase'?'<a href=\"/get?name='+feature.name+';class=Gene\">Gene Page</a>':''}"
+         },
+         "trackId" : "o_tipulae_PRJEB15512_curated_genes",
+         "description" : "Protein-coding gene structures result from the integration of a variety of prediction methods and data sources followed by manual review and revison by WormBase curators. tRNAs are predicted by tRNAscan, and other non-coding RNA transcripts are taken from a variety of literature sources. The purple and blue colors indicate transcripts on the forward and reverse strands respectively. Dark purple areas represent 5' and 3' UTRs of protein-coding transcripts, assigned automatically using the extents of overlapping ESTs and full-length cDNAs. The UTR predictions have not been reviewed by WormBase curators, and some are known to contain artifacts. Grey transcripts represent either non-coding transcripts of protein coding genes or transcripts of non-coding genes.",
+         "type" : "FeatureTrack",
          "category" : [
             "Genes",
             "Curated Genes"
@@ -65,52 +29,267 @@
          "adapter" : {
             "rootUrlTemplate" : {
                "locationType" : "UriLocation",
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS289/o_tipulae_PRJEB15512/tracks/Curated_Genes/{refseq}/trackData.jsonz"
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS290/o_tipulae_PRJEB15512/tracks/Curated_Genes/{refseq}/trackData.jsonz"
             },
             "type" : "NCListAdapter"
          },
-         "type" : "FeatureTrack",
-         "description" : "Protein-coding gene structures result from the integration of a variety of prediction methods and data sources followed by manual review and revison by WormBase curators. tRNAs are predicted by tRNAscan, and other non-coding RNA transcripts are taken from a variety of literature sources. The purple and blue colors indicate transcripts on the forward and reverse strands respectively. Dark purple areas represent 5' and 3' UTRs of protein-coding transcripts, assigned automatically using the extents of overlapping ESTs and full-length cDNAs. The UTR predictions have not been reviewed by WormBase curators, and some are known to contain artifacts. Grey transcripts represent either non-coding transcripts of protein coding genes or transcripts of non-coding genes.",
-         "name" : "Curated Genes"
-      },
-      {
-         "trackId" : "o_tipulae_PRJEB15512_low_complextity_region_(dust)",
          "assemblyNames" : [
             "o_tipulae_PRJEB15512"
          ],
-         "name" : "Low complextity region (Dust)",
-         "description" : "Low-complexity regions identified by Dust.",
+         "name" : "Curated Genes"
+      },
+      {
+         "assemblyNames" : [
+            "o_tipulae_PRJEB15512"
+         ],
          "adapter" : {
+            "type" : "NCListAdapter",
             "rootUrlTemplate" : {
                "locationType" : "UriLocation",
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS289/o_tipulae_PRJEB15512/tracks/Low complextity region (Dust)/{refseq}/trackData.jsonz"
-            },
-            "type" : "NCListAdapter"
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS290/o_tipulae_PRJEB15512/tracks/Curated Genes (protein coding)/{refseq}/trackData.jsonz"
+            }
          },
+         "name" : "Curated Genes (protein coding)",
+         "category" : [
+            "Genes",
+            "Curated Genes"
+         ],
+         "description" : "A subset of the full Curated Genes set limited to protein-coding genes only. Only the CDS is represented. Full models (with UTRs) can be seen on the 'Curated Genes' track.",
          "type" : "FeatureTrack",
          "displays" : [
             {
-               "displayId" : "low_complextity_region_(dust)-o_tipulae_PRJEB15512-LinearBasicDisplay",
+               "displayId" : "curated_genes_(protein_coding)-o_tipulae_PRJEB15512-LinearBasicDisplay",
                "renderer" : {
-                  "color1" : "bisque",
-                  "height" : 4,
-                  "showLabels" : false,
-                  "showDescriptions" : false,
+                  "maxHeight" : 5000,
+                  "color3" : "#965567",
+                  "color1" : "jexl:get(feature,'strand')>0?'violet':'turquoise'",
                   "type" : "SvgFeatureRenderer"
                },
                "type" : "LinearBasicDisplay"
             }
          ],
+         "trackId" : "o_tipulae_PRJEB15512_curated_genes_protein_coding",
+         "formatDetails" : {
+            "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/o_tipulae_PRJEB15512' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.name+'</a>'}"
+         }
+      },
+      {
+         "name" : "Low complextity region (Dust)",
+         "adapter" : {
+            "rootUrlTemplate" : {
+               "locationType" : "UriLocation",
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS290/o_tipulae_PRJEB15512/tracks/Low complextity region (Dust)/{refseq}/trackData.jsonz"
+            },
+            "type" : "NCListAdapter"
+         },
+         "assemblyNames" : [
+            "o_tipulae_PRJEB15512"
+         ],
          "category" : [
             "Genome Structure",
             "Repeats"
+         ],
+         "type" : "FeatureTrack",
+         "description" : "Low-complexity regions identified by Dust.",
+         "trackId" : "o_tipulae_PRJEB15512_low_complextity_region_(dust)",
+         "displays" : [
+            {
+               "type" : "LinearBasicDisplay",
+               "displayId" : "low_complextity_region_(dust)-o_tipulae_PRJEB15512-LinearBasicDisplay",
+               "renderer" : {
+                  "height" : 4,
+                  "color1" : "bisque",
+                  "showLabels" : false,
+                  "type" : "SvgFeatureRenderer",
+                  "showDescriptions" : false
+               }
+            }
          ]
+      },
+      {
+         "category" : [
+            "Externally Sourced Resources",
+            "CRISPR predictions"
+         ],
+         "name" : "Cas12e TTCN PAM sites",
+         "assemblyNames" : [
+            "o_tipulae_PRJEB15512"
+         ],
+         "adapter" : {
+            "sequenceAdapter" : {
+               "faiLocation" : {
+                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/o_tipulae.PRJEB15512.WS284.genomic.fa.gz.fai",
+                  "locationType" : "UriLocation"
+               },
+               "type" : "BgzipFastaAdapter",
+               "gziLocation" : {
+                  "locationType" : "UriLocation",
+                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/o_tipulae.PRJEB15512.WS284.genomic.fa.gz.gzi"
+               },
+               "fastaLocation" : {
+                  "locationType" : "UriLocation",
+                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/o_tipulae.PRJEB15512.WS284.genomic.fa.gz"
+               }
+            },
+            "search" : "TTC.",
+            "type" : "SequenceSearchAdapter"
+         },
+         "trackId" : "o_tipulae_PRJEB15512_TTCN_sequence_search",
+         "displays" : [
+            {
+               "type" : "LinearBasicDisplay",
+               "renderer" : {
+                  "showDescriptions" : false,
+                  "showLabels" : false,
+                  "type" : "SvgFeatureRenderer",
+                  "color1" : "SlateBlue",
+                  "height" : 4
+               },
+               "displayId" : "TTCN_sequence_search_o_tipulae_PRJEB15512-LinearBasicDisplay"
+            }
+         ],
+         "type" : "FeatureTrack",
+         "description" : "Cas12e (CasX) PAM sites based on TTCN motif. Computed on the fly at load time."
+      },
+      {
+         "description" : "Cas12a (Cpf1) PAM sites based on TTN motif. Computed on the fly at load time.",
+         "type" : "FeatureTrack",
+         "displays" : [
+            {
+               "type" : "LinearBasicDisplay",
+               "displayId" : "TTN_sequence_search_o_tipulae_PRJEB15512-LinearBasicDisplay",
+               "renderer" : {
+                  "height" : 4,
+                  "color1" : "Indigo",
+                  "showLabels" : false,
+                  "type" : "SvgFeatureRenderer",
+                  "showDescriptions" : false
+               }
+            }
+         ],
+         "trackId" : "o_tipulae_PRJEB15512_TTN_sequence_search",
+         "adapter" : {
+            "search" : "TT.",
+            "sequenceAdapter" : {
+               "faiLocation" : {
+                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/o_tipulae.PRJEB15512.WS284.genomic.fa.gz.fai",
+                  "locationType" : "UriLocation"
+               },
+               "type" : "BgzipFastaAdapter",
+               "gziLocation" : {
+                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/o_tipulae.PRJEB15512.WS284.genomic.fa.gz.gzi",
+                  "locationType" : "UriLocation"
+               },
+               "fastaLocation" : {
+                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/o_tipulae.PRJEB15512.WS284.genomic.fa.gz",
+                  "locationType" : "UriLocation"
+               }
+            },
+            "type" : "SequenceSearchAdapter"
+         },
+         "assemblyNames" : [
+            "o_tipulae_PRJEB15512"
+         ],
+         "name" : "Cas12a TTN PAM sites",
+         "category" : [
+            "Externally Sourced Resources",
+            "CRISPR predictions"
+         ]
+      },
+      {
+         "displays" : [
+            {
+               "type" : "LinearBasicDisplay",
+               "renderer" : {
+                  "color1" : "DarkViolet",
+                  "height" : 4,
+                  "showDescriptions" : false,
+                  "showLabels" : false,
+                  "type" : "SvgFeatureRenderer"
+               },
+               "displayId" : "NNGRRT_sequence_search_o_tipulae_PRJEB15512-LinearBasicDisplay"
+            }
+         ],
+         "trackId" : "o_tipulae_PRJEB15512_NNGRRT_sequence_search",
+         "description" : "Staphylococcus aureus Cas9 PAM sites based on NNGRRT motif. Computed on the fly at load time.",
+         "type" : "FeatureTrack",
+         "category" : [
+            "Externally Sourced Resources",
+            "CRISPR predictions"
+         ],
+         "assemblyNames" : [
+            "o_tipulae_PRJEB15512"
+         ],
+         "adapter" : {
+            "type" : "SequenceSearchAdapter",
+            "sequenceAdapter" : {
+               "gziLocation" : {
+                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/o_tipulae.PRJEB15512.WS284.genomic.fa.gz.gzi",
+                  "locationType" : "UriLocation"
+               },
+               "fastaLocation" : {
+                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/o_tipulae.PRJEB15512.WS284.genomic.fa.gz",
+                  "locationType" : "UriLocation"
+               },
+               "type" : "BgzipFastaAdapter",
+               "faiLocation" : {
+                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/o_tipulae.PRJEB15512.WS284.genomic.fa.gz.fai",
+                  "locationType" : "UriLocation"
+               }
+            },
+            "search" : "..G[AG][AG]T"
+         },
+         "name" : "SaCas9 NNGRRT PAM sites"
+      },
+      {
+         "displays" : [
+            {
+               "type" : "LinearBasicDisplay",
+               "displayId" : "NGG_sequence_search_o_tipulae_PRJEB15512-LinearBasicDisplay",
+               "renderer" : {
+                  "height" : 4,
+                  "color1" : "RebeccaPurple",
+                  "showLabels" : false,
+                  "type" : "SvgFeatureRenderer",
+                  "showDescriptions" : false
+               }
+            }
+         ],
+         "trackId" : "o_tipulae_PRJEB15512_NGG_sequence_search",
+         "description" : "Streptococcus pyogenes Cas9 PAM sites based on NGG motif. Computed on the fly at load time.",
+         "type" : "FeatureTrack",
+         "category" : [
+            "Externally Sourced Resources",
+            "CRISPR predictions"
+         ],
+         "assemblyNames" : [
+            "o_tipulae_PRJEB15512"
+         ],
+         "adapter" : {
+            "search" : ".GG",
+            "sequenceAdapter" : {
+               "faiLocation" : {
+                  "locationType" : "UriLocation",
+                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/o_tipulae.PRJEB15512.WS284.genomic.fa.gz.fai"
+               },
+               "type" : "BgzipFastaAdapter",
+               "fastaLocation" : {
+                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/o_tipulae.PRJEB15512.WS284.genomic.fa.gz",
+                  "locationType" : "UriLocation"
+               },
+               "gziLocation" : {
+                  "locationType" : "UriLocation",
+                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/o_tipulae.PRJEB15512.WS284.genomic.fa.gz.gzi"
+               }
+            },
+            "type" : "SequenceSearchAdapter"
+         },
+         "name" : "SpCas9 NGG PAM sites"
       }
    ],
    "assemblies" : [
       {
          "displayName" : "o_tipulae_PRJEB15512",
-         "name" : "o_tipulae_PRJEB15512",
          "sequence" : {
             "displays" : [
                {
@@ -118,24 +297,25 @@
                   "type" : "LinearReferenceSequenceDisplay"
                }
             ],
+            "trackId" : "o_tipulae_PRJEB15512-1646426635733",
             "adapter" : {
+               "type" : "BgzipFastaAdapter",
+               "faiLocation" : {
+                  "locationType" : "UriLocation",
+                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/o_tipulae.PRJEB15512.WS284.genomic.fa.gz.fai"
+               },
                "fastaLocation" : {
                   "locationType" : "UriLocation",
                   "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/o_tipulae.PRJEB15512.WS284.genomic.fa.gz"
                },
-               "type" : "BgzipFastaAdapter",
                "gziLocation" : {
                   "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/o_tipulae.PRJEB15512.WS284.genomic.fa.gz.gzi",
                   "locationType" : "UriLocation"
-               },
-               "faiLocation" : {
-                  "locationType" : "UriLocation",
-                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/o_tipulae.PRJEB15512.WS284.genomic.fa.gz.fai"
                }
             },
-            "type" : "ReferenceSequenceTrack",
-            "trackId" : "o_tipulae_PRJEB15512-1646426635733"
-         }
+            "type" : "ReferenceSequenceTrack"
+         },
+         "name" : "o_tipulae_PRJEB15512"
       }
    ]
 }
