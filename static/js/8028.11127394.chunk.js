@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_jbrowse_web=self.webpackChunk_jbrowse_web||[]).push([[8028],{18028:(e,s,t)=>{t.r(s),t.d(s,{default:()=>u.Z,getToggleButtonGroupUtilityClass:()=>l.H,toggleButtonGroupClasses:()=>l.Z});var u=t(36146),l=t(64511)}}]);

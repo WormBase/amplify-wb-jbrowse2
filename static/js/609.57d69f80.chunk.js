@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_jbrowse_web=self.webpackChunk_jbrowse_web||[]).push([[609],{60609:(e,s,l)=>{l.r(s),l.d(s,{collapseClasses:()=>b.Z,default:()=>a.Z,getCollapseUtilityClass:()=>b.d});var a=l(23141),b=l(98168)}}]);

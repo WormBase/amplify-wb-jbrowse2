@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_jbrowse_web=self.webpackChunk_jbrowse_web||[]).push([[8381],{36961:(s,e,a)=>{a.r(e),a.d(e,{default:()=>b.Z,getSvgIconUtilityClass:()=>l.h,svgIconClasses:()=>l.Z});var b=a(77081),l=a(34702)}}]);
