@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunk_jbrowse_web=self.webpackChunk_jbrowse_web||[]).push([[2087],{52087:(s,e,a)=>{a.r(e),a.d(e,{default:()=>t.Z,stackClasses:()=>b});var t=a(50618);const b=(0,a(70101).Z)("MuiStack",["root"])}}]);
-//# sourceMappingURL=2087.afdc0316.chunk.js.map

@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunk_jbrowse_web=self.webpackChunk_jbrowse_web||[]).push([[1435],{31435:(e,s,b)=>{b.r(s),b.d(s,{default:()=>u.u});var u=b(28193)}}]);

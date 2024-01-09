@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunk_jbrowse_web=self.webpackChunk_jbrowse_web||[]).push([[7831],{87831:(e,s,a)=>{a.r(s),a.d(s,{chipClasses:()=>l.Z,default:()=>b.Z,getChipUtilityClass:()=>l.z});var b=a(93783),l=a(45433)}}]);
