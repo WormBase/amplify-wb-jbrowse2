@@ -1,226 +1,226 @@
 {
    "assemblies" : [
       {
+         "displayName" : "c_zanzibari_PRJEB12596",
          "name" : "c_zanzibari_PRJEB12596",
          "sequence" : {
-            "displays" : [
-               {
-                  "displayId" : "c_zanzibari_PRJEB12596-LinearReferenceSequenceDisplay",
-                  "type" : "LinearReferenceSequenceDisplay"
-               }
-            ],
             "trackId" : "c_zanzibari_PRJEB12596-1646426635733",
             "type" : "ReferenceSequenceTrack",
+            "displays" : [
+               {
+                  "type" : "LinearReferenceSequenceDisplay",
+                  "displayId" : "c_zanzibari_PRJEB12596-LinearReferenceSequenceDisplay"
+               }
+            ],
             "adapter" : {
-               "type" : "BgzipFastaAdapter",
                "faiLocation" : {
-                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/c_zanzibari.PRJEB12596.WS284.genomic.fa.gz.fai",
+                  "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/modencode-bucket/fasta/current/c_zanzibari.PRJEB12596.WS284.genomic.fa.gz.fai",
                   "locationType" : "UriLocation"
                },
                "gziLocation" : {
-                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/c_zanzibari.PRJEB12596.WS284.genomic.fa.gz.gzi",
+                  "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/modencode-bucket/fasta/current/c_zanzibari.PRJEB12596.WS284.genomic.fa.gz.gzi",
                   "locationType" : "UriLocation"
                },
                "fastaLocation" : {
                   "locationType" : "UriLocation",
-                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/c_zanzibari.PRJEB12596.WS284.genomic.fa.gz"
-               }
+                  "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/modencode-bucket/fasta/current/c_zanzibari.PRJEB12596.WS284.genomic.fa.gz"
+               },
+               "type" : "BgzipFastaAdapter"
             }
-         },
-         "displayName" : "c_zanzibari_PRJEB12596"
+         }
       }
    ],
    "tracks" : [
       {
+         "description" : "Protein-coding gene structures result from the integration of a variety of prediction methods and data sources followed by manual review and revison by WormBase curators. tRNAs are predicted by tRNAscan, and other non-coding RNA transcripts are taken from a variety of literature sources. The purple and blue colors indicate transcripts on the forward and reverse strands respectively. Dark purple areas represent 5' and 3' UTRs of protein-coding transcripts, assigned automatically using the extents of overlapping ESTs and full-length cDNAs. The UTR predictions have not been reviewed by WormBase curators, and some are known to contain artifacts. Grey transcripts represent either non-coding transcripts of protein coding genes or transcripts of non-coding genes.",
          "adapter" : {
+            "type" : "NCListAdapter",
             "rootUrlTemplate" : {
-               "locationType" : "UriLocation",
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS290/c_zanzibari_PRJEB12596/tracks/Curated Genes (protein coding)/{refseq}/trackData.jsonz"
-            },
-            "type" : "NCListAdapter"
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS291/c_zanzibari_PRJEB12596/tracks/Curated_Genes/{refseq}/trackData.jsonz",
+               "locationType" : "UriLocation"
+            }
          },
-         "description" : "A subset of the full Curated Genes set limited to protein-coding genes only. Only the CDS is represented. Full models (with UTRs) can be seen on the 'Curated Genes' track.",
+         "formatDetails" : {
+            "feature" : "jexl:{ curie:null,Alliance:feature.curie?'<a href=\"https://alliancegenome.org/gene/'+feature.curie+'\">'+feature.curie+'</a>':null,JBrowse1: '<a href=\"https://stage.alliancegenome.org/jbrowse/worms/jbrowse-simple/?data=data/c_zanzibari_PRJEB12596' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.name+'</a>', WormBase: feature.source=='WormBase'?'<a href=\"https://wormbase.org/get?name='+feature.name+';class=Gene\">Gene Page</a>':''}"
+         },
+         "name" : "Curated Genes",
+         "trackId" : "c_zanzibari_PRJEB12596_curated_genes",
+         "displays" : [
+            {
+               "displayId" : "curated_genes-c_zanzibari_PRJEB12596-LinearBasicDisplay",
+               "renderer" : {
+                  "type" : "SvgFeatureRenderer",
+                  "maxHeight" : 5000,
+                  "color3" : "#965567",
+                  "color1" : "jexl:get(feature,'type')!='CDS'?'gray':get(feature,'strand')>0?'violet':'turquoise'",
+                  "labels" : {
+                     "name" : "jexl:get(feature,'locus') || get(feature,'sequence_name')"
+                  }
+               },
+               "type" : "LinearBasicDisplay"
+            }
+         ],
+         "type" : "FeatureTrack",
          "category" : [
             "Genes",
             "Curated Genes"
          ],
-         "type" : "FeatureTrack",
+         "assemblyNames" : [
+            "c_zanzibari_PRJEB12596"
+         ]
+      },
+      {
          "name" : "Curated Genes (protein coding)",
-         "formatDetails" : {
-            "feature" : "jexl:{ JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/c_zanzibari_PRJEB12596' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.name+'</a>'}"
+         "trackId" : "c_zanzibari_PRJEB12596_curated_genes_protein_coding",
+         "adapter" : {
+            "rootUrlTemplate" : {
+               "locationType" : "UriLocation",
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS291/c_zanzibari_PRJEB12596/tracks/Curated Genes (protein coding)/{refseq}/trackData.jsonz"
+            },
+            "type" : "NCListAdapter"
          },
+         "formatDetails" : {
+            "feature" : "jexl:{ JBrowse1: '<a href=\"https://stage.alliancegenome.org/jbrowse/worms/jbrowse-simple/?data=data/c_zanzibari_PRJEB12596' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.name+'</a>'}"
+         },
+         "description" : "A subset of the full Curated Genes set limited to protein-coding genes only. Only the CDS is represented. Full models (with UTRs) can be seen on the 'Curated Genes' track.",
+         "assemblyNames" : [
+            "c_zanzibari_PRJEB12596"
+         ],
+         "type" : "FeatureTrack",
+         "category" : [
+            "Genes",
+            "Curated Genes"
+         ],
          "displays" : [
             {
                "renderer" : {
-                  "type" : "SvgFeatureRenderer",
                   "maxHeight" : 5000,
                   "color1" : "jexl:get(feature,'strand')>0?'violet':'turquoise'",
-                  "color3" : "#965567"
+                  "color3" : "#965567",
+                  "type" : "SvgFeatureRenderer"
                },
                "displayId" : "curated_genes_(protein_coding)-c_zanzibari_PRJEB12596-LinearBasicDisplay",
                "type" : "LinearBasicDisplay"
             }
-         ],
-         "trackId" : "c_zanzibari_PRJEB12596_curated_genes_protein_coding",
-         "assemblyNames" : [
-            "c_zanzibari_PRJEB12596"
          ]
       },
       {
+         "name" : "Low complextity region (Dust)",
+         "trackId" : "c_zanzibari_PRJEB12596_low_complextity_region_(dust)",
+         "description" : "Low-complexity regions identified by Dust.",
          "adapter" : {
+            "type" : "NCListAdapter",
             "rootUrlTemplate" : {
                "locationType" : "UriLocation",
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS290/c_zanzibari_PRJEB12596/tracks/Curated_Genes/{refseq}/trackData.jsonz"
-            },
-            "type" : "NCListAdapter"
-         },
-         "trackId" : "c_zanzibari_PRJEB12596_curated_genes",
-         "assemblyNames" : [
-            "c_zanzibari_PRJEB12596"
-         ],
-         "displays" : [
-            {
-               "type" : "LinearBasicDisplay",
-               "renderer" : {
-                  "labels" : {
-                     "name" : "jexl:get(feature,'locus') || get(feature,'sequence_name')"
-                  },
-                  "color1" : "jexl:get(feature,'type')!='CDS'?'gray':get(feature,'strand')>0?'violet':'turquoise'",
-                  "color3" : "#965567",
-                  "type" : "SvgFeatureRenderer",
-                  "maxHeight" : 5000
-               },
-               "displayId" : "curated_genes-c_zanzibari_PRJEB12596-LinearBasicDisplay"
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS291/c_zanzibari_PRJEB12596/tracks/Low complextity region (Dust)/{refseq}/trackData.jsonz"
             }
-         ],
-         "formatDetails" : {
-            "feature" : "jexl:{ curie:null,Alliance:feature.curie?'<a href=\"https://alliancegenome.org/gene/'+feature.curie+'\">'+feature.curie+'</a>':null,JBrowse1: '<a href=\"/tools/genome/jbrowse-simple/?data=data/c_zanzibari_PRJEB12596' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.name+'</a>', WormBase: feature.source=='WormBase'?'<a href=\"/get?name='+feature.name+';class=Gene\">Gene Page</a>':''}"
          },
-         "name" : "Curated Genes",
-         "category" : [
-            "Genes",
-            "Curated Genes"
-         ],
-         "description" : "Protein-coding gene structures result from the integration of a variety of prediction methods and data sources followed by manual review and revison by WormBase curators. tRNAs are predicted by tRNAscan, and other non-coding RNA transcripts are taken from a variety of literature sources. The purple and blue colors indicate transcripts on the forward and reverse strands respectively. Dark purple areas represent 5' and 3' UTRs of protein-coding transcripts, assigned automatically using the extents of overlapping ESTs and full-length cDNAs. The UTR predictions have not been reviewed by WormBase curators, and some are known to contain artifacts. Grey transcripts represent either non-coding transcripts of protein coding genes or transcripts of non-coding genes.",
-         "type" : "FeatureTrack"
-      },
-      {
-         "assemblyNames" : [
-            "c_zanzibari_PRJEB12596"
-         ],
-         "displays" : [
-            {
-               "type" : "LinearBasicDisplay",
-               "renderer" : {
-                  "showLabels" : false,
-                  "color1" : "bisque",
-                  "showDescriptions" : false,
-                  "height" : 4,
-                  "type" : "SvgFeatureRenderer"
-               },
-               "displayId" : "low_complextity_region_(dust)-c_zanzibari_PRJEB12596-LinearBasicDisplay"
-            }
-         ],
-         "trackId" : "c_zanzibari_PRJEB12596_low_complextity_region_(dust)",
-         "name" : "Low complextity region (Dust)",
-         "description" : "Low-complexity regions identified by Dust.",
-         "type" : "FeatureTrack",
          "category" : [
             "Genome Structure",
             "Repeats"
          ],
-         "adapter" : {
-            "type" : "NCListAdapter",
-            "rootUrlTemplate" : {
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS290/c_zanzibari_PRJEB12596/tracks/Low complextity region (Dust)/{refseq}/trackData.jsonz",
-               "locationType" : "UriLocation"
+         "type" : "FeatureTrack",
+         "assemblyNames" : [
+            "c_zanzibari_PRJEB12596"
+         ],
+         "displays" : [
+            {
+               "type" : "LinearBasicDisplay",
+               "renderer" : {
+                  "color1" : "bisque",
+                  "height" : 4,
+                  "showLabels" : false,
+                  "type" : "SvgFeatureRenderer",
+                  "showDescriptions" : false
+               },
+               "displayId" : "low_complextity_region_(dust)-c_zanzibari_PRJEB12596-LinearBasicDisplay"
             }
-         }
+         ]
       },
       {
-         "adapter" : {
-            "sequenceAdapter" : {
-               "type" : "BgzipFastaAdapter",
-               "gziLocation" : {
-                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/c_zanzibari.PRJEB12596.WS284.genomic.fa.gz.gzi",
-                  "locationType" : "UriLocation"
-               },
-               "fastaLocation" : {
-                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/c_zanzibari.PRJEB12596.WS284.genomic.fa.gz",
-                  "locationType" : "UriLocation"
-               },
-               "faiLocation" : {
-                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/c_zanzibari.PRJEB12596.WS284.genomic.fa.gz.fai",
-                  "locationType" : "UriLocation"
-               }
-            },
-            "type" : "SequenceSearchAdapter",
-            "search" : "TTC."
-         },
+         "assemblyNames" : [
+            "c_zanzibari_PRJEB12596"
+         ],
          "category" : [
             "Externally Sourced Resources",
             "CRISPR predictions"
          ],
-         "description" : "Cas12e (CasX) PAM sites based on TTCN motif. Computed on the fly at load time.",
          "type" : "FeatureTrack",
-         "name" : "Cas12e TTCN PAM sites",
-         "trackId" : "c_zanzibari_PRJEB12596_TTCN_sequence_search",
          "displays" : [
             {
                "type" : "LinearBasicDisplay",
                "renderer" : {
                   "showDescriptions" : false,
-                  "type" : "SvgFeatureRenderer",
-                  "height" : 4,
                   "color1" : "SlateBlue",
-                  "showLabels" : false
+                  "height" : 4,
+                  "showLabels" : false,
+                  "type" : "SvgFeatureRenderer"
                },
                "displayId" : "TTCN_sequence_search_c_zanzibari_PRJEB12596-LinearBasicDisplay"
             }
          ],
-         "assemblyNames" : [
-            "c_zanzibari_PRJEB12596"
-         ]
+         "name" : "Cas12e TTCN PAM sites",
+         "trackId" : "c_zanzibari_PRJEB12596_TTCN_sequence_search",
+         "adapter" : {
+            "type" : "SequenceSearchAdapter",
+            "sequenceAdapter" : {
+               "fastaLocation" : {
+                  "locationType" : "UriLocation",
+                  "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/modencode-bucket/fasta/current/c_zanzibari.PRJEB12596.WS284.genomic.fa.gz"
+               },
+               "type" : "BgzipFastaAdapter",
+               "gziLocation" : {
+                  "locationType" : "UriLocation",
+                  "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/modencode-bucket/fasta/current/c_zanzibari.PRJEB12596.WS284.genomic.fa.gz.gzi"
+               },
+               "faiLocation" : {
+                  "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/modencode-bucket/fasta/current/c_zanzibari.PRJEB12596.WS284.genomic.fa.gz.fai",
+                  "locationType" : "UriLocation"
+               }
+            },
+            "search" : "TTC."
+         },
+         "description" : "Cas12e (CasX) PAM sites based on TTCN motif. Computed on the fly at load time."
       },
       {
          "adapter" : {
             "search" : "TT.",
-            "type" : "SequenceSearchAdapter",
             "sequenceAdapter" : {
                "type" : "BgzipFastaAdapter",
                "fastaLocation" : {
-                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/c_zanzibari.PRJEB12596.WS284.genomic.fa.gz",
-                  "locationType" : "UriLocation"
+                  "locationType" : "UriLocation",
+                  "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/modencode-bucket/fasta/current/c_zanzibari.PRJEB12596.WS284.genomic.fa.gz"
                },
                "gziLocation" : {
-                  "locationType" : "UriLocation",
-                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/c_zanzibari.PRJEB12596.WS284.genomic.fa.gz.gzi"
+                  "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/modencode-bucket/fasta/current/c_zanzibari.PRJEB12596.WS284.genomic.fa.gz.gzi",
+                  "locationType" : "UriLocation"
                },
                "faiLocation" : {
-                  "locationType" : "UriLocation",
-                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/c_zanzibari.PRJEB12596.WS284.genomic.fa.gz.fai"
+                  "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/modencode-bucket/fasta/current/c_zanzibari.PRJEB12596.WS284.genomic.fa.gz.fai",
+                  "locationType" : "UriLocation"
                }
-            }
+            },
+            "type" : "SequenceSearchAdapter"
          },
+         "description" : "Cas12a (Cpf1) PAM sites based on TTN motif. Computed on the fly at load time.",
+         "name" : "Cas12a TTN PAM sites",
+         "trackId" : "c_zanzibari_PRJEB12596_TTN_sequence_search",
          "displays" : [
             {
                "type" : "LinearBasicDisplay",
                "renderer" : {
-                  "showLabels" : false,
                   "color1" : "Indigo",
                   "height" : 4,
+                  "showLabels" : false,
                   "type" : "SvgFeatureRenderer",
                   "showDescriptions" : false
                },
                "displayId" : "TTN_sequence_search_c_zanzibari_PRJEB12596-LinearBasicDisplay"
             }
          ],
-         "trackId" : "c_zanzibari_PRJEB12596_TTN_sequence_search",
          "assemblyNames" : [
             "c_zanzibari_PRJEB12596"
          ],
-         "name" : "Cas12a TTN PAM sites",
-         "description" : "Cas12a (Cpf1) PAM sites based on TTN motif. Computed on the fly at load time.",
          "type" : "FeatureTrack",
          "category" : [
             "Externally Sourced Resources",
@@ -228,94 +228,94 @@
          ]
       },
       {
-         "adapter" : {
-            "sequenceAdapter" : {
-               "faiLocation" : {
-                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/c_zanzibari.PRJEB12596.WS284.genomic.fa.gz.fai",
-                  "locationType" : "UriLocation"
-               },
-               "gziLocation" : {
-                  "locationType" : "UriLocation",
-                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/c_zanzibari.PRJEB12596.WS284.genomic.fa.gz.gzi"
-               },
-               "fastaLocation" : {
-                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/c_zanzibari.PRJEB12596.WS284.genomic.fa.gz",
-                  "locationType" : "UriLocation"
-               },
-               "type" : "BgzipFastaAdapter"
-            },
-            "search" : "..G[AG][AG]T",
-            "type" : "SequenceSearchAdapter"
-         },
-         "category" : [
-            "Externally Sourced Resources",
-            "CRISPR predictions"
-         ],
-         "type" : "FeatureTrack",
-         "description" : "Staphylococcus aureus Cas9 PAM sites based on NNGRRT motif. Computed on the fly at load time.",
-         "name" : "SaCas9 NNGRRT PAM sites",
-         "trackId" : "c_zanzibari_PRJEB12596_NNGRRT_sequence_search",
-         "assemblyNames" : [
-            "c_zanzibari_PRJEB12596"
-         ],
          "displays" : [
             {
                "type" : "LinearBasicDisplay",
                "renderer" : {
-                  "showLabels" : false,
-                  "color1" : "DarkViolet",
                   "showDescriptions" : false,
+                  "showLabels" : false,
+                  "type" : "SvgFeatureRenderer",
                   "height" : 4,
-                  "type" : "SvgFeatureRenderer"
+                  "color1" : "DarkViolet"
                },
                "displayId" : "NNGRRT_sequence_search_c_zanzibari_PRJEB12596-LinearBasicDisplay"
             }
-         ]
+         ],
+         "assemblyNames" : [
+            "c_zanzibari_PRJEB12596"
+         ],
+         "type" : "FeatureTrack",
+         "category" : [
+            "Externally Sourced Resources",
+            "CRISPR predictions"
+         ],
+         "adapter" : {
+            "sequenceAdapter" : {
+               "faiLocation" : {
+                  "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/modencode-bucket/fasta/current/c_zanzibari.PRJEB12596.WS284.genomic.fa.gz.fai",
+                  "locationType" : "UriLocation"
+               },
+               "gziLocation" : {
+                  "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/modencode-bucket/fasta/current/c_zanzibari.PRJEB12596.WS284.genomic.fa.gz.gzi",
+                  "locationType" : "UriLocation"
+               },
+               "fastaLocation" : {
+                  "locationType" : "UriLocation",
+                  "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/modencode-bucket/fasta/current/c_zanzibari.PRJEB12596.WS284.genomic.fa.gz"
+               },
+               "type" : "BgzipFastaAdapter"
+            },
+            "type" : "SequenceSearchAdapter",
+            "search" : "..G[AG][AG]T"
+         },
+         "description" : "Staphylococcus aureus Cas9 PAM sites based on NNGRRT motif. Computed on the fly at load time.",
+         "name" : "SaCas9 NNGRRT PAM sites",
+         "trackId" : "c_zanzibari_PRJEB12596_NNGRRT_sequence_search"
       },
       {
+         "displays" : [
+            {
+               "type" : "LinearBasicDisplay",
+               "renderer" : {
+                  "height" : 4,
+                  "color1" : "RebeccaPurple",
+                  "showLabels" : false,
+                  "type" : "SvgFeatureRenderer",
+                  "showDescriptions" : false
+               },
+               "displayId" : "NGG_sequence_search_c_zanzibari_PRJEB12596-LinearBasicDisplay"
+            }
+         ],
          "category" : [
             "Externally Sourced Resources",
             "CRISPR predictions"
          ],
          "type" : "FeatureTrack",
-         "description" : "Streptococcus pyogenes Cas9 PAM sites based on NGG motif. Computed on the fly at load time.",
-         "name" : "SpCas9 NGG PAM sites",
-         "trackId" : "c_zanzibari_PRJEB12596_NGG_sequence_search",
          "assemblyNames" : [
             "c_zanzibari_PRJEB12596"
          ],
-         "displays" : [
-            {
-               "displayId" : "NGG_sequence_search_c_zanzibari_PRJEB12596-LinearBasicDisplay",
-               "renderer" : {
-                  "type" : "SvgFeatureRenderer",
-                  "height" : 4,
-                  "showDescriptions" : false,
-                  "color1" : "RebeccaPurple",
-                  "showLabels" : false
-               },
-               "type" : "LinearBasicDisplay"
-            }
-         ],
+         "description" : "Streptococcus pyogenes Cas9 PAM sites based on NGG motif. Computed on the fly at load time.",
          "adapter" : {
+            "search" : ".GG",
+            "type" : "SequenceSearchAdapter",
             "sequenceAdapter" : {
                "type" : "BgzipFastaAdapter",
-               "gziLocation" : {
-                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/c_zanzibari.PRJEB12596.WS284.genomic.fa.gz.gzi",
+               "fastaLocation" : {
+                  "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/modencode-bucket/fasta/current/c_zanzibari.PRJEB12596.WS284.genomic.fa.gz",
                   "locationType" : "UriLocation"
                },
-               "fastaLocation" : {
-                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/c_zanzibari.PRJEB12596.WS284.genomic.fa.gz",
+               "gziLocation" : {
+                  "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/modencode-bucket/fasta/current/c_zanzibari.PRJEB12596.WS284.genomic.fa.gz.gzi",
                   "locationType" : "UriLocation"
                },
                "faiLocation" : {
-                  "locationType" : "UriLocation",
-                  "uri" : "https://s3.amazonaws.com/wormbase-modencode/fasta/current/c_zanzibari.PRJEB12596.WS284.genomic.fa.gz.fai"
+                  "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/modencode-bucket/fasta/current/c_zanzibari.PRJEB12596.WS284.genomic.fa.gz.fai",
+                  "locationType" : "UriLocation"
                }
-            },
-            "search" : ".GG",
-            "type" : "SequenceSearchAdapter"
-         }
+            }
+         },
+         "name" : "SpCas9 NGG PAM sites",
+         "trackId" : "c_zanzibari_PRJEB12596_NGG_sequence_search"
       }
    ]
 }
