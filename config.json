@@ -1,5 +1,9 @@
 {
    "plugins" : [
+    {
+      "name": "GWAS",
+      "url": "https://unpkg.com/jbrowse-plugin-gwas/dist/jbrowse-plugin-gwas.umd.production.min.js"
+    },
       {
          "umdLoc" : {
             "uri" : "hex_plugin.js"
@@ -61553,6 +61557,31 @@
                "displayId" : "japonica_to_remanei-LinearSyntenyDisplay"
             }
          ]
-      }
+      },
+{
+  "type": "FeatureTrack",
+  "trackId": "gwas_track",
+  "name": "GWAS",
+  "assemblyNames": ["c_elegans_PRJNA13758"],
+  "adapter": {
+    "type": "BedTabixAdapter",
+    "scoreColumn": "neg_log_pvalue",
+    "bedGzLocation": {
+      "uri": "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/test/processed_length_TRAIT_AGGREGATE_mapping_loco_bed 2.bed.gz"
+    },
+    "index": {
+      "location": {
+        "uri": "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/test/processed_length_TRAIT_AGGREGATE_mapping_loco_bed 2.bed.gz.tbi"
+      },
+      "indexType": "TBI"
+    }
+  },
+  "displays": [
+    {
+      "displayId": "gwas_display",
+      "type": "LinearManhattanDisplay"
+    }
+  ]
+}
    ]
 }
