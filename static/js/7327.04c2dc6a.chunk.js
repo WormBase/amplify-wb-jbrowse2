@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunk_jbrowse_web=self.webpackChunk_jbrowse_web||[]).push([[7327],{67327:(e,s,r)=>{r.r(s),r.d(s,{default:()=>a.ZP,getGridUtilityClass:()=>b.H,gridClasses:()=>b.Z});var a=r(45294),b=r(84360)}}]);

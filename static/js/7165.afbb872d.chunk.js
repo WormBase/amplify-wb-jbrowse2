@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunk_jbrowse_web=self.webpackChunk_jbrowse_web||[]).push([[7165],{77165:(e,s,t)=>{t.r(s),t.d(s,{alertClasses:()=>a.Z,default:()=>l.Z,getAlertUtilityClass:()=>a.t});var l=t(77327),a=t(80284)}}]);

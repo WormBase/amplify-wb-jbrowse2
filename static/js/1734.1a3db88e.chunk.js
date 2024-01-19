@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunk_jbrowse_web=self.webpackChunk_jbrowse_web||[]).push([[1734],{61734:(e,s,t)=>{t.r(s),t.d(s,{default:()=>a.Z,dialogContentTextClasses:()=>l.Z,getDialogContentTextUtilityClass:()=>l.i});var a=t(75258),l=t(33528)}}]);

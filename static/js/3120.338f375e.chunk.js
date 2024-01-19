@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunk_jbrowse_web=self.webpackChunk_jbrowse_web||[]).push([[3120],{23120:(e,s,t)=>{t.r(s),t.d(s,{default:()=>l.Z,getListItemIconUtilityClass:()=>a.f,listItemIconClasses:()=>a.Z});var l=t(12166),a=t(34377)}}]);
