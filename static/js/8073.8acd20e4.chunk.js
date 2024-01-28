@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunk_jbrowse_web=globalThis.webpackChunk_jbrowse_web||[]).push([[8073],{8073:(e,a,b)=>{b.r(a),b.d(a,{default:()=>s.BaseCard});var s=b(41846)}}]);
