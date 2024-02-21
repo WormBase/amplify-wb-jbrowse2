@@ -1268,6 +1268,105 @@
       }
    ],
    "tracks" : [
+    {
+      "category": [
+        "Expression"
+      ],
+      "type": "FeatureTrack",
+      "trackId": "c_elegans_PRJNA13758_rnaseq_introns",
+      "name": "RNASeq introns",
+      "assemblyNames": [
+        "c_elegans_PRJNA13758"
+      ],
+      "description": "These are introns formed by aligned RNASeq reads spanning a region of the genome. Alignments of short read sequences from all available RNASeq projects were used. The number of reads spanning the introns is indicated by the thickness of the display.",
+      "adapter": {
+        "type": "NCListAdapter",
+        "rootUrlTemplate": {
+          "locationType": "UriLocation",
+          "uri": "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS291/c_elegans_PRJNA13758/tracks/RNASeq introns/{refseq}/trackData.jsonz"
+        }
+      },
+      "displays": [
+        {
+          "type": "LinearBasicDisplay",
+          "displayId": "rnaseq_introns-c_elegans_PRJNA13758-LinearBasicDisplay",
+          "mouseover": "jexl:get(feature,'score')+' reads'",
+          "renderer": {
+            "type": "SvgFeatureRenderer",
+            "color1": "green",
+            "height": "jexl:get(feature,'score')>100?50:get(feature,'score')<8?4:floor(get(feature,'score')/2)",
+            "showLabels": false,
+            "showDescriptions": false
+          }
+        }
+      ]
+    },
+    {
+      "category": [
+        "Expression"
+      ],
+      "type": "FeatureTrack",
+      "trackId": "c_elegans_PRJNA13758_rnaseq_splice_junctions_(common)",
+      "name": "RNASeq Splice Junctions (common)",
+      "assemblyNames": [
+        "c_elegans_PRJNA13758"
+      ],
+      "description": "These are introns formed by aligned RNASeq reads spanning a region of the genome. Alignments of short read sequences from all available RNASeq projects were used. These junctions are considered 'common' in that there are more than 500 reads confirming their existence. The number of reads spanning the introns is indicated by the darkness of the color (shades of cyan for reverse, shades of violet for forward).  Darker is more reads.",
+      "adapter": {
+        "type": "NCListAdapter",
+        "rootUrlTemplate": {
+          "locationType": "UriLocation",
+          "uri": "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS291/c_elegans_PRJNA13758/tracks/RNASeq Splice Junctions (common)/{refseq}/trackData.jsonz"
+        }
+      },
+      "displays": [
+        {
+          "type": "LinearBasicDisplay",
+          "displayId": "rnaseq_splice_junctions_(common)-c_elegans_PRJNA13758-LinearBasicDisplay",
+          "mouseover": "jexl:get(feature,'score')+' reads'",
+          "renderer": {
+            "type": "SvgFeatureRenderer",
+            "showDescriptions" : false,
+            "color1": "jexl:get(feature,'score')>20000?(get(feature,'strand')>0?'#730073':'#007373'):get(feature,'strand')>0?'#'+hex(round(255-(140*(get(feature,'score')/20000))))+'00'+hex(round(255-(140*(get(feature,'score')/20000)))):'#00'+hex(round(255-(140*(get(feature,'score')/20000))))+hex(round(255-(140*(get(feature,'score')/20000))))",
+            "showLabels": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "FeatureTrack",
+      "trackId": "c_elegans_PRJNA13758_rnaseq_splice_junctions_(rare)",
+      "name": "RNASeq Splice Junctions (rare)",
+      "assemblyNames": [
+        "c_elegans_PRJNA13758"
+      ],
+      "description": "These are introns formed by aligned RNASeq reads spanning a region of the genome. Alignments of short read sequences from all available RNASeq projects were used. These junctions are considered 'rare' in that there are fewer than 500 reads confirming their existence. The number of reads spanning the introns is indicated by the darkness of the color (shades of cyan for reverse, shades of violet for forward).  Darker is more reads.",
+      "category": [
+        "Expression"
+      ],
+      "adapter": {
+        "type": "NCListAdapter",
+        "rootUrlTemplate": {
+          "locationType": "UriLocation",
+          "uri": "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS291/c_elegans_PRJNA13758/tracks/RNASeq Splice Junctions (rare)/{refseq}/trackData.jsonz"
+        }
+      },
+      "displays": [
+        {
+          "type": "LinearBasicDisplay",
+          "displayId": "rnaseq_splice_junctions_(rare)-c_elegans_PRJNA13758-LinearBasicDisplay",
+          "mouseover": "jexl:get(feature,'score')+' reads'",
+          "renderer": {
+            "type": "SvgFeatureRenderer",
+            "maxHeight" : 5000,
+            "color1": "jexl:get(feature,'score')>20000?(get(feature,'strand')>0?'#730073':'#007373'):get(feature,'strand')>0?'#'+hex(round(255-(140*(get(feature,'score')/20000))))+'00'+hex(round(255-(140*(get(feature,'score')/20000)))):'#00'+hex(round(255-(140*(get(feature,'score')/20000))))+hex(round(255-(140*(get(feature,'score')/20000))))",
+            "height": "jexl:4",
+            "showDescriptions" : false,
+            "showLabels": false
+          }
+        }
+      ]
+    },
       {
          "name" : "Curated Genes (protein coding)",
          "assemblyNames" : [
@@ -56089,6 +56188,70 @@
          ],
          "description" : "This track shows the extent of predicted protein motifs. Note these spans correspond to amino acid coordinates interpolated onto the physical map.  Included are signal peptide (signalp), coiled coil (ncoils) and transmembrane (tmhmm) domains, regions of low complexity (seg), and Pfam annotated motif homologies."
       },
+          {
+      "type": "FeatureTrack",
+      "trackId": "p_pacificus_PRJNA12644_community_edited_genes",
+      "name": "Community edited genes",
+      "assemblyNames": [
+        "p_pacificus_PRJNA12644"
+      ],
+      "description": "A set of genes edited by the Pristionchus community. For more information see http://pristionchus.org/",
+      "category": [
+        "Externally Sourced Resources",
+        "Community Annotations"
+      ],
+      "adapter": {
+        "type": "Gff3TabixAdapter",
+        "gffGzLocation": {
+          "locationType": "UriLocation",
+          "uri": "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/p_pacificus_PRJNA12644/pristionchus.sorted.gff3.gz"
+        },
+        "index": {
+          "location": {
+            "locationType": "UriLocation",
+            "uri": "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/p_pacificus_PRJNA12644/pristionchus.sorted.gff3.gz.tbi"
+          }
+        }
+      },
+      "textSearching": {
+        "textSearchAdapter": {
+          "type": "TrixTextSearchAdapter",
+          "textSearchAdapterId": "community_edited_genes-1708462386536-index",
+          "ixFilePath": {
+            "locationType": "UriLocation",
+            "uri": "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/p_pacificus_PRJNA12644/community_edited_genes-1708462386536-index.ix"
+          },
+          "ixxFilePath": {
+            "locationType": "UriLocation",
+            "uri": "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/p_pacificus_PRJNA12644/community_edited_genes-1708462386536-index.ixx"
+          },
+          "metaFilePath": {
+            "locationType": "UriLocation",
+            "uri": "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/p_pacificus_PRJNA12644/community_edited_genes-1708462386536-index_meta.json"
+          },
+          "tracks": [
+            "p_pacificus_PRJNA12644_community_edited_genes"
+          ],
+          "assemblyNames": [
+            "p_pacificus_PRJNA12644"
+          ]
+        }
+      },
+      "displays": [
+        {
+          "type": "LinearBasicDisplay",
+          "displayId": "p_pacificus_PRJNA12644_community_edited_genes-LinearBasicDisplay",
+          "renderer": {
+            "type": "SvgFeatureRenderer",
+            "color1": "jexl:get(feature,'strand')>0?'#f19bf1':'#66e6d9'"
+          }
+        },
+        {
+          "type": "LinearArcDisplay",
+          "displayId": "p_pacificus_PRJNA12644_community_edited_genes-LinearArcDisplay"
+        }
+     ]
+    },
       {
          "name" : "YACs, Fosmids, & Cosmids",
          "formatDetails" : {
