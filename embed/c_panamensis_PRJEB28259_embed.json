@@ -1,14 +1,69 @@
 {
    "tracks" : [
       {
+         "description" : "Protein-coding gene structures result from the integration of a variety of prediction methods and data sources followed by manual review and revison by WormBase curators. tRNAs are predicted by tRNAscan, and other non-coding RNA transcripts are taken from a variety of literature sources. The purple and blue colors indicate transcripts on the forward and reverse strands respectively. Dark purple areas represent 5' and 3' UTRs of protein-coding transcripts, assigned automatically using the extents of overlapping ESTs and full-length cDNAs. The UTR predictions have not been reviewed by WormBase curators, and some are known to contain artifacts. Grey transcripts represent either non-coding transcripts of protein coding genes or transcripts of non-coding genes.",
+         "formatDetails" : {
+            "feature" : "jexl:{ curie:null,Alliance:('c_panamensis_PRJEB28259'!='c_elegans_PRJNA13758')?null:feature.curie?'<a href=\"https://alliancegenome.org/gene/'+feature.curie+'\">'+feature.curie+'</a>':null,JBrowse1: '<a href=\"https://stage.alliancegenome.org/jbrowse/worms/jbrowse-simple/?data=data/c_panamensis_PRJEB28259' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.name+'</a>', WormBase: feature.source=='WormBase'?'<a href=\"https://wormbase.org/get?name='+feature.name+';class=Gene\">Gene Page</a>':''}"
+         },
+         "trackId" : "c_panamensis_PRJEB28259_curated_genes",
+         "type" : "FeatureTrack",
+         "displays" : [
+            {
+               "renderer" : {
+                  "color3" : "#965567",
+                  "color1" : "jexl:get(feature,'type')!='CDS'?'gray':get(feature,'strand')>0?'violet':'turquoise'",
+                  "labels" : {
+                     "name" : "jexl:get(feature,'locus') || get(feature,'sequence_name')"
+                  },
+                  "maxHeight" : 5000,
+                  "type" : "SvgFeatureRenderer"
+               },
+               "displayId" : "curated_genes-c_panamensis_PRJEB28259-LinearBasicDisplay",
+               "type" : "LinearBasicDisplay"
+            }
+         ],
+         "assemblyNames" : [
+            "c_panamensis_PRJEB28259"
+         ],
+         "name" : "Curated Genes",
+         "category" : [
+            "Genes",
+            "Curated Genes"
+         ],
+         "adapter" : {
+            "rootUrlTemplate" : {
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS293/c_panamensis_PRJEB28259/tracks/Curated_Genes/{refseq}/trackData.jsonz",
+               "locationType" : "UriLocation"
+            },
+            "type" : "NCListAdapter"
+         }
+      },
+      {
+         "type" : "FeatureTrack",
+         "description" : "A subset of the full Curated Genes set limited to protein-coding genes only. Only the CDS is represented. Full models (with UTRs) can be seen on the 'Curated Genes' track.",
+         "formatDetails" : {
+            "feature" : "jexl:{ JBrowse1: '<a href=\"https://stage.alliancegenome.org/jbrowse/worms/jbrowse-simple/?data=data/c_panamensis_PRJEB28259' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.name+'</a>'}"
+         },
+         "trackId" : "c_panamensis_PRJEB28259_curated_genes_protein_coding",
+         "category" : [
+            "Genes",
+            "Curated Genes"
+         ],
+         "adapter" : {
+            "rootUrlTemplate" : {
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS293/c_panamensis_PRJEB28259/tracks/Curated Genes (protein coding)/{refseq}/trackData.jsonz",
+               "locationType" : "UriLocation"
+            },
+            "type" : "NCListAdapter"
+         },
          "displays" : [
             {
                "displayId" : "curated_genes_(protein_coding)-c_panamensis_PRJEB28259-LinearBasicDisplay",
                "renderer" : {
+                  "type" : "SvgFeatureRenderer",
                   "maxHeight" : 5000,
-                  "color3" : "#965567",
                   "color1" : "jexl:get(feature,'strand')>0?'violet':'turquoise'",
-                  "type" : "SvgFeatureRenderer"
+                  "color3" : "#965567"
                },
                "type" : "LinearBasicDisplay"
             }
@@ -16,74 +71,26 @@
          "assemblyNames" : [
             "c_panamensis_PRJEB28259"
          ],
-         "category" : [
-            "Genes",
-            "Curated Genes"
-         ],
-         "type" : "FeatureTrack",
-         "adapter" : {
-            "rootUrlTemplate" : {
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS291/c_panamensis_PRJEB28259/tracks/Curated Genes (protein coding)/{refseq}/trackData.jsonz",
-               "locationType" : "UriLocation"
-            },
-            "type" : "NCListAdapter"
-         },
-         "formatDetails" : {
-            "feature" : "jexl:{ JBrowse1: '<a href=\"https://stage.alliancegenome.org/jbrowse/worms/jbrowse-simple/?data=data/c_panamensis_PRJEB28259' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.name+'</a>'}"
-         },
-         "description" : "A subset of the full Curated Genes set limited to protein-coding genes only. Only the CDS is represented. Full models (with UTRs) can be seen on the 'Curated Genes' track.",
-         "trackId" : "c_panamensis_PRJEB28259_curated_genes_protein_coding",
          "name" : "Curated Genes (protein coding)"
       },
       {
-         "category" : [
-            "Genes",
-            "Curated Genes"
-         ],
+         "trackId" : "c_panamensis_PRJEB28259_low_complextity_region_(dust)",
+         "description" : "Low-complexity regions identified by Dust.",
          "type" : "FeatureTrack",
-         "assemblyNames" : [
-            "c_panamensis_PRJEB28259"
-         ],
          "displays" : [
             {
-               "type" : "LinearBasicDisplay",
+               "displayId" : "low_complextity_region_(dust)-c_panamensis_PRJEB28259-LinearBasicDisplay",
                "renderer" : {
-                  "maxHeight" : 5000,
-                  "color3" : "#965567",
-                  "labels" : {
-                     "name" : "jexl:get(feature,'locus') || get(feature,'sequence_name')"
-                  },
-                  "color1" : "jexl:get(feature,'type')!='CDS'?'gray':get(feature,'strand')>0?'violet':'turquoise'",
-                  "type" : "SvgFeatureRenderer"
+                  "showLabels" : false,
+                  "type" : "SvgFeatureRenderer",
+                  "height" : 4,
+                  "showDescriptions" : false,
+                  "color1" : "bisque"
                },
-               "displayId" : "curated_genes-c_panamensis_PRJEB28259-LinearBasicDisplay"
+               "type" : "LinearBasicDisplay"
             }
          ],
-         "trackId" : "c_panamensis_PRJEB28259_curated_genes",
-         "name" : "Curated Genes",
-         "description" : "Protein-coding gene structures result from the integration of a variety of prediction methods and data sources followed by manual review and revison by WormBase curators. tRNAs are predicted by tRNAscan, and other non-coding RNA transcripts are taken from a variety of literature sources. The purple and blue colors indicate transcripts on the forward and reverse strands respectively. Dark purple areas represent 5' and 3' UTRs of protein-coding transcripts, assigned automatically using the extents of overlapping ESTs and full-length cDNAs. The UTR predictions have not been reviewed by WormBase curators, and some are known to contain artifacts. Grey transcripts represent either non-coding transcripts of protein coding genes or transcripts of non-coding genes.",
-         "formatDetails" : {
-            "feature" : "jexl:{ curie:null,Alliance:feature.curie?'<a href=\"https://alliancegenome.org/gene/'+feature.curie+'\">'+feature.curie+'</a>':null,JBrowse1: '<a href=\"https://stage.alliancegenome.org/jbrowse/worms/jbrowse-simple/?data=data/c_panamensis_PRJEB28259' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.name+'</a>', WormBase: feature.source=='WormBase'?'<a href=\"https://wormbase.org/get?name='+feature.name+';class=Gene\">Gene Page</a>':''}"
-         },
-         "adapter" : {
-            "rootUrlTemplate" : {
-               "locationType" : "UriLocation",
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS291/c_panamensis_PRJEB28259/tracks/Curated_Genes/{refseq}/trackData.jsonz"
-            },
-            "type" : "NCListAdapter"
-         }
-      },
-      {
-         "trackId" : "c_panamensis_PRJEB28259_low_complextity_region_(dust)",
          "name" : "Low complextity region (Dust)",
-         "adapter" : {
-            "type" : "NCListAdapter",
-            "rootUrlTemplate" : {
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS291/c_panamensis_PRJEB28259/tracks/Low complextity region (Dust)/{refseq}/trackData.jsonz",
-               "locationType" : "UriLocation"
-            }
-         },
-         "description" : "Low-complexity regions identified by Dust.",
          "assemblyNames" : [
             "c_panamensis_PRJEB28259"
          ],
@@ -91,220 +98,212 @@
             "Genome Structure",
             "Repeats"
          ],
-         "type" : "FeatureTrack",
-         "displays" : [
-            {
-               "displayId" : "low_complextity_region_(dust)-c_panamensis_PRJEB28259-LinearBasicDisplay",
-               "renderer" : {
-                  "height" : 4,
-                  "color1" : "bisque",
-                  "showLabels" : false,
-                  "type" : "SvgFeatureRenderer",
-                  "showDescriptions" : false
-               },
-               "type" : "LinearBasicDisplay"
+         "adapter" : {
+            "type" : "NCListAdapter",
+            "rootUrlTemplate" : {
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS293/c_panamensis_PRJEB28259/tracks/Low complextity region (Dust)/{refseq}/trackData.jsonz",
+               "locationType" : "UriLocation"
             }
-         ]
+         }
       },
       {
+         "displays" : [
+            {
+               "type" : "LinearBasicDisplay",
+               "renderer" : {
+                  "color1" : "SlateBlue",
+                  "showDescriptions" : false,
+                  "height" : 4,
+                  "type" : "SvgFeatureRenderer",
+                  "showLabels" : false
+               },
+               "displayId" : "TTCN_sequence_search_c_panamensis_PRJEB28259-LinearBasicDisplay"
+            }
+         ],
+         "name" : "Cas12e TTCN PAM sites",
          "assemblyNames" : [
             "c_panamensis_PRJEB28259"
          ],
-         "type" : "FeatureTrack",
          "category" : [
             "Externally Sourced Resources",
             "CRISPR predictions"
          ],
-         "displays" : [
-            {
-               "displayId" : "TTCN_sequence_search_c_panamensis_PRJEB28259-LinearBasicDisplay",
-               "renderer" : {
-                  "showDescriptions" : false,
-                  "type" : "SvgFeatureRenderer",
-                  "showLabels" : false,
-                  "height" : 4,
-                  "color1" : "SlateBlue"
-               },
-               "type" : "LinearBasicDisplay"
-            }
-         ],
-         "trackId" : "c_panamensis_PRJEB28259_TTCN_sequence_search",
-         "name" : "Cas12e TTCN PAM sites",
          "adapter" : {
+            "search" : "TTC.",
             "type" : "SequenceSearchAdapter",
             "sequenceAdapter" : {
-               "type" : "BgzipFastaAdapter",
-               "fastaLocation" : {
-                  "locationType" : "UriLocation",
-                  "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/modencode-bucket/fasta/current/c_panamensis.PRJEB28259.WS284.genomic.fa.gz"
-               },
                "faiLocation" : {
                   "locationType" : "UriLocation",
                   "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/modencode-bucket/fasta/current/c_panamensis.PRJEB28259.WS284.genomic.fa.gz.fai"
                },
-               "gziLocation" : {
+               "fastaLocation" : {
                   "locationType" : "UriLocation",
-                  "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/modencode-bucket/fasta/current/c_panamensis.PRJEB28259.WS284.genomic.fa.gz.gzi"
-               }
-            },
-            "search" : "TTC."
+                  "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/modencode-bucket/fasta/current/c_panamensis.PRJEB28259.WS284.genomic.fa.gz"
+               },
+               "gziLocation" : {
+                  "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/modencode-bucket/fasta/current/c_panamensis.PRJEB28259.WS284.genomic.fa.gz.gzi",
+                  "locationType" : "UriLocation"
+               },
+               "type" : "BgzipFastaAdapter"
+            }
          },
-         "description" : "Cas12e (CasX) PAM sites based on TTCN motif. Computed on the fly at load time."
+         "trackId" : "c_panamensis_PRJEB28259_TTCN_sequence_search",
+         "description" : "Cas12e (CasX) PAM sites based on TTCN motif. Computed on the fly at load time.",
+         "type" : "FeatureTrack"
       },
       {
-         "adapter" : {
-            "search" : "TT.",
-            "sequenceAdapter" : {
-               "gziLocation" : {
-                  "locationType" : "UriLocation",
-                  "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/modencode-bucket/fasta/current/c_panamensis.PRJEB28259.WS284.genomic.fa.gz.gzi"
-               },
-               "faiLocation" : {
-                  "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/modencode-bucket/fasta/current/c_panamensis.PRJEB28259.WS284.genomic.fa.gz.fai",
-                  "locationType" : "UriLocation"
-               },
-               "type" : "BgzipFastaAdapter",
-               "fastaLocation" : {
-                  "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/modencode-bucket/fasta/current/c_panamensis.PRJEB28259.WS284.genomic.fa.gz",
-                  "locationType" : "UriLocation"
-               }
-            },
-            "type" : "SequenceSearchAdapter"
-         },
-         "description" : "Cas12a (Cpf1) PAM sites based on TTN motif. Computed on the fly at load time.",
-         "name" : "Cas12a TTN PAM sites",
-         "trackId" : "c_panamensis_PRJEB28259_TTN_sequence_search",
          "displays" : [
             {
                "displayId" : "TTN_sequence_search_c_panamensis_PRJEB28259-LinearBasicDisplay",
                "renderer" : {
+                  "color1" : "Indigo",
                   "showDescriptions" : false,
                   "height" : 4,
-                  "color1" : "Indigo",
                   "type" : "SvgFeatureRenderer",
                   "showLabels" : false
                },
                "type" : "LinearBasicDisplay"
             }
          ],
+         "trackId" : "c_panamensis_PRJEB28259_TTN_sequence_search",
+         "name" : "Cas12a TTN PAM sites",
          "assemblyNames" : [
             "c_panamensis_PRJEB28259"
          ],
-         "type" : "FeatureTrack",
+         "description" : "Cas12a (Cpf1) PAM sites based on TTN motif. Computed on the fly at load time.",
          "category" : [
             "Externally Sourced Resources",
             "CRISPR predictions"
+         ],
+         "adapter" : {
+            "sequenceAdapter" : {
+               "faiLocation" : {
+                  "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/modencode-bucket/fasta/current/c_panamensis.PRJEB28259.WS284.genomic.fa.gz.fai",
+                  "locationType" : "UriLocation"
+               },
+               "fastaLocation" : {
+                  "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/modencode-bucket/fasta/current/c_panamensis.PRJEB28259.WS284.genomic.fa.gz",
+                  "locationType" : "UriLocation"
+               },
+               "type" : "BgzipFastaAdapter",
+               "gziLocation" : {
+                  "locationType" : "UriLocation",
+                  "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/modencode-bucket/fasta/current/c_panamensis.PRJEB28259.WS284.genomic.fa.gz.gzi"
+               }
+            },
+            "search" : "TT.",
+            "type" : "SequenceSearchAdapter"
+         },
+         "type" : "FeatureTrack"
+      },
+      {
+         "type" : "FeatureTrack",
+         "description" : "Staphylococcus aureus Cas9 PAM sites based on NNGRRT motif. Computed on the fly at load time.",
+         "trackId" : "c_panamensis_PRJEB28259_NNGRRT_sequence_search",
+         "category" : [
+            "Externally Sourced Resources",
+            "CRISPR predictions"
+         ],
+         "adapter" : {
+            "sequenceAdapter" : {
+               "gziLocation" : {
+                  "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/modencode-bucket/fasta/current/c_panamensis.PRJEB28259.WS284.genomic.fa.gz.gzi",
+                  "locationType" : "UriLocation"
+               },
+               "type" : "BgzipFastaAdapter",
+               "faiLocation" : {
+                  "locationType" : "UriLocation",
+                  "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/modencode-bucket/fasta/current/c_panamensis.PRJEB28259.WS284.genomic.fa.gz.fai"
+               },
+               "fastaLocation" : {
+                  "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/modencode-bucket/fasta/current/c_panamensis.PRJEB28259.WS284.genomic.fa.gz",
+                  "locationType" : "UriLocation"
+               }
+            },
+            "search" : "..G[AG][AG]T",
+            "type" : "SequenceSearchAdapter"
+         },
+         "displays" : [
+            {
+               "type" : "LinearBasicDisplay",
+               "renderer" : {
+                  "type" : "SvgFeatureRenderer",
+                  "showLabels" : false,
+                  "color1" : "DarkViolet",
+                  "showDescriptions" : false,
+                  "height" : 4
+               },
+               "displayId" : "NNGRRT_sequence_search_c_panamensis_PRJEB28259-LinearBasicDisplay"
+            }
+         ],
+         "name" : "SaCas9 NNGRRT PAM sites",
+         "assemblyNames" : [
+            "c_panamensis_PRJEB28259"
          ]
       },
       {
-         "name" : "SaCas9 NNGRRT PAM sites",
-         "trackId" : "c_panamensis_PRJEB28259_NNGRRT_sequence_search",
+         "description" : "Streptococcus pyogenes Cas9 PAM sites based on NGG motif. Computed on the fly at load time.",
+         "trackId" : "c_panamensis_PRJEB28259_NGG_sequence_search",
+         "type" : "FeatureTrack",
+         "displays" : [
+            {
+               "renderer" : {
+                  "showLabels" : false,
+                  "type" : "SvgFeatureRenderer",
+                  "height" : 4,
+                  "showDescriptions" : false,
+                  "color1" : "RebeccaPurple"
+               },
+               "displayId" : "NGG_sequence_search_c_panamensis_PRJEB28259-LinearBasicDisplay",
+               "type" : "LinearBasicDisplay"
+            }
+         ],
+         "name" : "SpCas9 NGG PAM sites",
+         "assemblyNames" : [
+            "c_panamensis_PRJEB28259"
+         ],
+         "category" : [
+            "Externally Sourced Resources",
+            "CRISPR predictions"
+         ],
          "adapter" : {
-            "search" : "..G[AG][AG]T",
+            "type" : "SequenceSearchAdapter",
+            "search" : ".GG",
             "sequenceAdapter" : {
+               "gziLocation" : {
+                  "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/modencode-bucket/fasta/current/c_panamensis.PRJEB28259.WS284.genomic.fa.gz.gzi",
+                  "locationType" : "UriLocation"
+               },
                "type" : "BgzipFastaAdapter",
                "fastaLocation" : {
                   "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/modencode-bucket/fasta/current/c_panamensis.PRJEB28259.WS284.genomic.fa.gz",
                   "locationType" : "UriLocation"
                },
-               "gziLocation" : {
-                  "locationType" : "UriLocation",
-                  "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/modencode-bucket/fasta/current/c_panamensis.PRJEB28259.WS284.genomic.fa.gz.gzi"
-               },
                "faiLocation" : {
                   "locationType" : "UriLocation",
                   "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/modencode-bucket/fasta/current/c_panamensis.PRJEB28259.WS284.genomic.fa.gz.fai"
                }
-            },
-            "type" : "SequenceSearchAdapter"
-         },
-         "description" : "Staphylococcus aureus Cas9 PAM sites based on NNGRRT motif. Computed on the fly at load time.",
-         "assemblyNames" : [
-            "c_panamensis_PRJEB28259"
-         ],
-         "category" : [
-            "Externally Sourced Resources",
-            "CRISPR predictions"
-         ],
-         "type" : "FeatureTrack",
-         "displays" : [
-            {
-               "type" : "LinearBasicDisplay",
-               "displayId" : "NNGRRT_sequence_search_c_panamensis_PRJEB28259-LinearBasicDisplay",
-               "renderer" : {
-                  "type" : "SvgFeatureRenderer",
-                  "showLabels" : false,
-                  "height" : 4,
-                  "color1" : "DarkViolet",
-                  "showDescriptions" : false
-               }
             }
-         ]
-      },
-      {
-         "category" : [
-            "Externally Sourced Resources",
-            "CRISPR predictions"
-         ],
-         "type" : "FeatureTrack",
-         "assemblyNames" : [
-            "c_panamensis_PRJEB28259"
-         ],
-         "displays" : [
-            {
-               "type" : "LinearBasicDisplay",
-               "renderer" : {
-                  "showDescriptions" : false,
-                  "color1" : "RebeccaPurple",
-                  "height" : 4,
-                  "showLabels" : false,
-                  "type" : "SvgFeatureRenderer"
-               },
-               "displayId" : "NGG_sequence_search_c_panamensis_PRJEB28259-LinearBasicDisplay"
-            }
-         ],
-         "trackId" : "c_panamensis_PRJEB28259_NGG_sequence_search",
-         "name" : "SpCas9 NGG PAM sites",
-         "description" : "Streptococcus pyogenes Cas9 PAM sites based on NGG motif. Computed on the fly at load time.",
-         "adapter" : {
-            "sequenceAdapter" : {
-               "fastaLocation" : {
-                  "locationType" : "UriLocation",
-                  "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/modencode-bucket/fasta/current/c_panamensis.PRJEB28259.WS284.genomic.fa.gz"
-               },
-               "type" : "BgzipFastaAdapter",
-               "faiLocation" : {
-                  "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/modencode-bucket/fasta/current/c_panamensis.PRJEB28259.WS284.genomic.fa.gz.fai",
-                  "locationType" : "UriLocation"
-               },
-               "gziLocation" : {
-                  "locationType" : "UriLocation",
-                  "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/modencode-bucket/fasta/current/c_panamensis.PRJEB28259.WS284.genomic.fa.gz.gzi"
-               }
-            },
-            "type" : "SequenceSearchAdapter",
-            "search" : ".GG"
          }
       }
    ],
    "assemblies" : [
       {
-         "displayName" : "c_panamensis_PRJEB28259",
-         "name" : "c_panamensis_PRJEB28259",
          "sequence" : {
+            "type" : "ReferenceSequenceTrack",
             "adapter" : {
+               "gziLocation" : {
+                  "locationType" : "UriLocation",
+                  "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/modencode-bucket/fasta/current/c_panamensis.PRJEB28259.WS284.genomic.fa.gz.gzi"
+               },
                "type" : "BgzipFastaAdapter",
                "fastaLocation" : {
                   "locationType" : "UriLocation",
                   "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/modencode-bucket/fasta/current/c_panamensis.PRJEB28259.WS284.genomic.fa.gz"
                },
-               "gziLocation" : {
-                  "locationType" : "UriLocation",
-                  "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/modencode-bucket/fasta/current/c_panamensis.PRJEB28259.WS284.genomic.fa.gz.gzi"
-               },
                "faiLocation" : {
-                  "locationType" : "UriLocation",
-                  "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/modencode-bucket/fasta/current/c_panamensis.PRJEB28259.WS284.genomic.fa.gz.fai"
+                  "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/modencode-bucket/fasta/current/c_panamensis.PRJEB28259.WS284.genomic.fa.gz.fai",
+                  "locationType" : "UriLocation"
                }
             },
             "displays" : [
@@ -313,9 +312,10 @@
                   "displayId" : "c_panamensis_PRJEB28259-LinearReferenceSequenceDisplay"
                }
             ],
-            "type" : "ReferenceSequenceTrack",
             "trackId" : "c_panamensis_PRJEB28259-1646426635733"
-         }
+         },
+         "name" : "c_panamensis_PRJEB28259",
+         "displayName" : "c_panamensis_PRJEB28259"
       }
    ]
 }
