@@ -1,47 +1,44 @@
 {
    "assemblies" : [
       {
-         "displayName" : "c_uteleia_PRJEB12600",
          "sequence" : {
-            "trackId" : "c_uteleia_PRJEB12600-1646426635733",
+            "adapter" : {
+               "gziLocation" : {
+                  "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/modencode-bucket/fasta/current/c_uteleia.PRJEB12600.WS284.genomic.fa.gz.gzi",
+                  "locationType" : "UriLocation"
+               },
+               "faiLocation" : {
+                  "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/modencode-bucket/fasta/current/c_uteleia.PRJEB12600.WS284.genomic.fa.gz.fai",
+                  "locationType" : "UriLocation"
+               },
+               "type" : "BgzipFastaAdapter",
+               "fastaLocation" : {
+                  "locationType" : "UriLocation",
+                  "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/modencode-bucket/fasta/current/c_uteleia.PRJEB12600.WS284.genomic.fa.gz"
+               }
+            },
             "displays" : [
                {
                   "type" : "LinearReferenceSequenceDisplay",
                   "displayId" : "c_uteleia_PRJEB12600-LinearReferenceSequenceDisplay"
                }
             ],
-            "adapter" : {
-               "faiLocation" : {
-                  "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/modencode-bucket/fasta/current/c_uteleia.PRJEB12600.WS284.genomic.fa.gz.fai",
-                  "locationType" : "UriLocation"
-               },
-               "fastaLocation" : {
-                  "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/modencode-bucket/fasta/current/c_uteleia.PRJEB12600.WS284.genomic.fa.gz",
-                  "locationType" : "UriLocation"
-               },
-               "type" : "BgzipFastaAdapter",
-               "gziLocation" : {
-                  "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/modencode-bucket/fasta/current/c_uteleia.PRJEB12600.WS284.genomic.fa.gz.gzi",
-                  "locationType" : "UriLocation"
-               }
-            },
+            "trackId" : "c_uteleia_PRJEB12600-1646426635733",
             "type" : "ReferenceSequenceTrack"
          },
+         "displayName" : "c_uteleia_PRJEB12600",
          "name" : "c_uteleia_PRJEB12600"
       }
    ],
    "tracks" : [
       {
-         "trackId" : "c_uteleia_PRJEB12600_curated_genes_protein_coding",
-         "formatDetails" : {
-            "feature" : "jexl:{ JBrowse1: '<a href=\"https://stage.alliancegenome.org/jbrowse/worms/jbrowse-simple/?data=data/c_uteleia_PRJEB12600' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.name+'</a>'}"
+         "adapter" : {
+            "type" : "NCListAdapter",
+            "rootUrlTemplate" : {
+               "locationType" : "UriLocation",
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS294/c_uteleia_PRJEB12600/tracks/Curated Genes (protein coding)/{refseq}/trackData.jsonz"
+            }
          },
-         "description" : "A subset of the full Curated Genes set limited to protein-coding genes only. Only the CDS is represented. Full models (with UTRs) can be seen on the 'Curated Genes' track.",
-         "type" : "FeatureTrack",
-         "assemblyNames" : [
-            "c_uteleia_PRJEB12600"
-         ],
-         "name" : "Curated Genes (protein coding)",
          "displays" : [
             {
                "renderer" : {
@@ -50,38 +47,67 @@
                   "type" : "SvgFeatureRenderer",
                   "maxHeight" : 5000
                },
-               "displayId" : "curated_genes_(protein_coding)-c_uteleia_PRJEB12600-LinearBasicDisplay",
-               "type" : "LinearBasicDisplay"
+               "type" : "LinearBasicDisplay",
+               "displayId" : "curated_genes_(protein_coding)-c_uteleia_PRJEB12600-LinearBasicDisplay"
+            }
+         ],
+         "description" : "A subset of the full Curated Genes set limited to protein-coding genes only. Only the CDS is represented. Full models (with UTRs) can be seen on the 'Curated Genes' track.",
+         "category" : [
+            "Genes",
+            "Curated Genes"
+         ],
+         "type" : "FeatureTrack",
+         "name" : "Curated Genes (protein coding)",
+         "formatDetails" : {
+            "feature" : "jexl:{ JBrowse1: '<a href=\"https://stage.alliancegenome.org/jbrowse/worms/jbrowse-simple/?data=data/c_uteleia_PRJEB12600' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.name+'</a>'}"
+         },
+         "trackId" : "c_uteleia_PRJEB12600_curated_genes_protein_coding",
+         "assemblyNames" : [
+            "c_uteleia_PRJEB12600"
+         ]
+      },
+      {
+         "description" : "Low-complexity regions identified by Dust.",
+         "displays" : [
+            {
+               "type" : "LinearBasicDisplay",
+               "displayId" : "low_complextity_region_(dust)-c_uteleia_PRJEB12600-LinearBasicDisplay",
+               "renderer" : {
+                  "type" : "SvgFeatureRenderer",
+                  "showDescriptions" : false,
+                  "showLabels" : false,
+                  "color1" : "bisque",
+                  "height" : 4
+               }
             }
          ],
          "adapter" : {
             "rootUrlTemplate" : {
-               "locationType" : "UriLocation",
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS293/c_uteleia_PRJEB12600/tracks/Curated Genes (protein coding)/{refseq}/trackData.jsonz"
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS294/c_uteleia_PRJEB12600/tracks/Low complextity region (Dust)/{refseq}/trackData.jsonz",
+               "locationType" : "UriLocation"
             },
             "type" : "NCListAdapter"
          },
          "category" : [
-            "Genes",
-            "Curated Genes"
-         ]
-      },
-      {
-         "adapter" : {
-            "type" : "NCListAdapter",
-            "rootUrlTemplate" : {
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS293/c_uteleia_PRJEB12600/tracks/Curated_Genes/{refseq}/trackData.jsonz",
-               "locationType" : "UriLocation"
-            }
-         },
-         "category" : [
-            "Genes",
-            "Curated Genes"
+            "Genome Structure",
+            "Repeats"
          ],
+         "type" : "FeatureTrack",
+         "name" : "Low complextity region (Dust)",
          "assemblyNames" : [
             "c_uteleia_PRJEB12600"
          ],
+         "trackId" : "c_uteleia_PRJEB12600_low_complextity_region_(dust)"
+      },
+      {
+         "formatDetails" : {
+            "feature" : "jexl:{ curie:null,Alliance:('c_uteleia_PRJEB12600'!='c_elegans_PRJNA13758')?null:feature.curie?'<a href=\"https://alliancegenome.org/gene/'+feature.curie+'\">'+feature.curie+'</a>':null,JBrowse1: '<a href=\"https://stage.alliancegenome.org/jbrowse/worms/jbrowse-simple/?data=data/c_uteleia_PRJEB12600' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.name+'</a>', WormBase: feature.source=='WormBase'?'<a href=\"https://wormbase.org/get?name='+feature.name+';class=Gene\">Gene Page</a>':''}"
+         },
          "name" : "Curated Genes",
+         "assemblyNames" : [
+            "c_uteleia_PRJEB12600"
+         ],
+         "trackId" : "c_uteleia_PRJEB12600_curated_genes",
          "displays" : [
             {
                "renderer" : {
@@ -93,125 +119,95 @@
                   "color1" : "jexl:get(feature,'type')!='CDS'?'gray':get(feature,'strand')>0?'violet':'turquoise'",
                   "color3" : "#965567"
                },
-               "displayId" : "curated_genes-c_uteleia_PRJEB12600-LinearBasicDisplay",
-               "type" : "LinearBasicDisplay"
-            }
-         ],
-         "type" : "FeatureTrack",
-         "formatDetails" : {
-            "feature" : "jexl:{ curie:null,Alliance:('c_uteleia_PRJEB12600'!='c_elegans_PRJNA13758')?null:feature.curie?'<a href=\"https://alliancegenome.org/gene/'+feature.curie+'\">'+feature.curie+'</a>':null,JBrowse1: '<a href=\"https://stage.alliancegenome.org/jbrowse/worms/jbrowse-simple/?data=data/c_uteleia_PRJEB12600' + '&loc=' +feature.refName+':'+feature.start+'..'+feature.end+ '\">'+feature.name+'</a>', WormBase: feature.source=='WormBase'?'<a href=\"https://wormbase.org/get?name='+feature.name+';class=Gene\">Gene Page</a>':''}"
-         },
-         "trackId" : "c_uteleia_PRJEB12600_curated_genes",
-         "description" : "Protein-coding gene structures result from the integration of a variety of prediction methods and data sources followed by manual review and revison by WormBase curators. tRNAs are predicted by tRNAscan, and other non-coding RNA transcripts are taken from a variety of literature sources. The purple and blue colors indicate transcripts on the forward and reverse strands respectively. Dark purple areas represent 5' and 3' UTRs of protein-coding transcripts, assigned automatically using the extents of overlapping ESTs and full-length cDNAs. The UTR predictions have not been reviewed by WormBase curators, and some are known to contain artifacts. Grey transcripts represent either non-coding transcripts of protein coding genes or transcripts of non-coding genes."
-      },
-      {
-         "description" : "Low-complexity regions identified by Dust.",
-         "trackId" : "c_uteleia_PRJEB12600_low_complextity_region_(dust)",
-         "type" : "FeatureTrack",
-         "assemblyNames" : [
-            "c_uteleia_PRJEB12600"
-         ],
-         "name" : "Low complextity region (Dust)",
-         "displays" : [
-            {
                "type" : "LinearBasicDisplay",
-               "displayId" : "low_complextity_region_(dust)-c_uteleia_PRJEB12600-LinearBasicDisplay",
-               "renderer" : {
-                  "height" : 4,
-                  "showDescriptions" : false,
-                  "color1" : "bisque",
-                  "showLabels" : false,
-                  "type" : "SvgFeatureRenderer"
-               }
+               "displayId" : "curated_genes-c_uteleia_PRJEB12600-LinearBasicDisplay"
             }
          ],
          "adapter" : {
             "rootUrlTemplate" : {
-               "locationType" : "UriLocation",
-               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS293/c_uteleia_PRJEB12600/tracks/Low complextity region (Dust)/{refseq}/trackData.jsonz"
+               "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/WS294/c_uteleia_PRJEB12600/tracks/Curated_Genes/{refseq}/trackData.jsonz",
+               "locationType" : "UriLocation"
             },
             "type" : "NCListAdapter"
          },
+         "description" : "Protein-coding gene structures result from the integration of a variety of prediction methods and data sources followed by manual review and revison by WormBase curators. tRNAs are predicted by tRNAscan, and other non-coding RNA transcripts are taken from a variety of literature sources. The purple and blue colors indicate transcripts on the forward and reverse strands respectively. Dark purple areas represent 5' and 3' UTRs of protein-coding transcripts, assigned automatically using the extents of overlapping ESTs and full-length cDNAs. The UTR predictions have not been reviewed by WormBase curators, and some are known to contain artifacts. Grey transcripts represent either non-coding transcripts of protein coding genes or transcripts of non-coding genes.",
+         "type" : "FeatureTrack",
          "category" : [
-            "Genome Structure",
-            "Repeats"
+            "Genes",
+            "Curated Genes"
          ]
       },
       {
-         "type" : "FeatureTrack",
+         "assemblyNames" : [
+            "c_uteleia_PRJEB12600"
+         ],
          "trackId" : "c_uteleia_PRJEB12600_TTCN_sequence_search",
+         "type" : "FeatureTrack",
+         "category" : [
+            "Externally Sourced Resources",
+            "CRISPR predictions"
+         ],
          "description" : "Cas12e (CasX) PAM sites based on TTCN motif. Computed on the fly at load time.",
+         "displays" : [
+            {
+               "displayId" : "TTCN_sequence_search_c_uteleia_PRJEB12600-LinearBasicDisplay",
+               "type" : "LinearBasicDisplay",
+               "renderer" : {
+                  "type" : "SvgFeatureRenderer",
+                  "showDescriptions" : false,
+                  "color1" : "SlateBlue",
+                  "showLabels" : false,
+                  "height" : 4
+               }
+            }
+         ],
+         "name" : "Cas12e TTCN PAM sites",
          "adapter" : {
             "type" : "SequenceSearchAdapter",
             "search" : "TTC.",
             "sequenceAdapter" : {
-               "faiLocation" : {
-                  "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/modencode-bucket/fasta/current/c_uteleia.PRJEB12600.WS284.genomic.fa.gz.fai",
-                  "locationType" : "UriLocation"
-               },
-               "fastaLocation" : {
-                  "locationType" : "UriLocation",
-                  "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/modencode-bucket/fasta/current/c_uteleia.PRJEB12600.WS284.genomic.fa.gz"
-               },
-               "type" : "BgzipFastaAdapter",
-               "gziLocation" : {
-                  "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/modencode-bucket/fasta/current/c_uteleia.PRJEB12600.WS284.genomic.fa.gz.gzi",
-                  "locationType" : "UriLocation"
-               }
-            }
-         },
-         "category" : [
-            "Externally Sourced Resources",
-            "CRISPR predictions"
-         ],
-         "name" : "Cas12e TTCN PAM sites",
-         "assemblyNames" : [
-            "c_uteleia_PRJEB12600"
-         ],
-         "displays" : [
-            {
-               "type" : "LinearBasicDisplay",
-               "displayId" : "TTCN_sequence_search_c_uteleia_PRJEB12600-LinearBasicDisplay",
-               "renderer" : {
-                  "showLabels" : false,
-                  "type" : "SvgFeatureRenderer",
-                  "height" : 4,
-                  "showDescriptions" : false,
-                  "color1" : "SlateBlue"
-               }
-            }
-         ]
-      },
-      {
-         "trackId" : "c_uteleia_PRJEB12600_TTN_sequence_search",
-         "description" : "Cas12a (Cpf1) PAM sites based on TTN motif. Computed on the fly at load time.",
-         "type" : "FeatureTrack",
-         "assemblyNames" : [
-            "c_uteleia_PRJEB12600"
-         ],
-         "name" : "Cas12a TTN PAM sites",
-         "displays" : [
-            {
-               "type" : "LinearBasicDisplay",
-               "displayId" : "TTN_sequence_search_c_uteleia_PRJEB12600-LinearBasicDisplay",
-               "renderer" : {
-                  "height" : 4,
-                  "showDescriptions" : false,
-                  "color1" : "Indigo",
-                  "showLabels" : false,
-                  "type" : "SvgFeatureRenderer"
-               }
-            }
-         ],
-         "adapter" : {
-            "search" : "TT.",
-            "type" : "SequenceSearchAdapter",
-            "sequenceAdapter" : {
-               "type" : "BgzipFastaAdapter",
                "gziLocation" : {
                   "locationType" : "UriLocation",
                   "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/modencode-bucket/fasta/current/c_uteleia.PRJEB12600.WS284.genomic.fa.gz.gzi"
                },
+               "faiLocation" : {
+                  "locationType" : "UriLocation",
+                  "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/modencode-bucket/fasta/current/c_uteleia.PRJEB12600.WS284.genomic.fa.gz.fai"
+               },
+               "fastaLocation" : {
+                  "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/modencode-bucket/fasta/current/c_uteleia.PRJEB12600.WS284.genomic.fa.gz",
+                  "locationType" : "UriLocation"
+               },
+               "type" : "BgzipFastaAdapter"
+            }
+         }
+      },
+      {
+         "category" : [
+            "Externally Sourced Resources",
+            "CRISPR predictions"
+         ],
+         "type" : "FeatureTrack",
+         "displays" : [
+            {
+               "renderer" : {
+                  "type" : "SvgFeatureRenderer",
+                  "showDescriptions" : false,
+                  "color1" : "Indigo",
+                  "showLabels" : false,
+                  "height" : 4
+               },
+               "type" : "LinearBasicDisplay",
+               "displayId" : "TTN_sequence_search_c_uteleia_PRJEB12600-LinearBasicDisplay"
+            }
+         ],
+         "adapter" : {
+            "sequenceAdapter" : {
+               "gziLocation" : {
+                  "locationType" : "UriLocation",
+                  "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/modencode-bucket/fasta/current/c_uteleia.PRJEB12600.WS284.genomic.fa.gz.gzi"
+               },
+               "type" : "BgzipFastaAdapter",
                "fastaLocation" : {
                   "locationType" : "UriLocation",
                   "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/modencode-bucket/fasta/current/c_uteleia.PRJEB12600.WS284.genomic.fa.gz"
@@ -220,34 +216,35 @@
                   "locationType" : "UriLocation",
                   "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/modencode-bucket/fasta/current/c_uteleia.PRJEB12600.WS284.genomic.fa.gz.fai"
                }
-            }
+            },
+            "search" : "TT.",
+            "type" : "SequenceSearchAdapter"
          },
-         "category" : [
-            "Externally Sourced Resources",
-            "CRISPR predictions"
-         ]
+         "description" : "Cas12a (Cpf1) PAM sites based on TTN motif. Computed on the fly at load time.",
+         "assemblyNames" : [
+            "c_uteleia_PRJEB12600"
+         ],
+         "trackId" : "c_uteleia_PRJEB12600_TTN_sequence_search",
+         "name" : "Cas12a TTN PAM sites"
       },
       {
-         "category" : [
-            "Externally Sourced Resources",
-            "CRISPR predictions"
-         ],
+         "description" : "Staphylococcus aureus Cas9 PAM sites based on NNGRRT motif. Computed on the fly at load time.",
          "adapter" : {
-            "search" : "..G[AG][AG]T",
             "type" : "SequenceSearchAdapter",
+            "search" : "..G[AG][AG]T",
             "sequenceAdapter" : {
                "fastaLocation" : {
                   "locationType" : "UriLocation",
                   "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/modencode-bucket/fasta/current/c_uteleia.PRJEB12600.WS284.genomic.fa.gz"
                },
-               "faiLocation" : {
-                  "locationType" : "UriLocation",
-                  "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/modencode-bucket/fasta/current/c_uteleia.PRJEB12600.WS284.genomic.fa.gz.fai"
-               },
                "type" : "BgzipFastaAdapter",
-               "gziLocation" : {
-                  "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/modencode-bucket/fasta/current/c_uteleia.PRJEB12600.WS284.genomic.fa.gz.gzi",
+               "faiLocation" : {
+                  "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/modencode-bucket/fasta/current/c_uteleia.PRJEB12600.WS284.genomic.fa.gz.fai",
                   "locationType" : "UriLocation"
+               },
+               "gziLocation" : {
+                  "locationType" : "UriLocation",
+                  "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/modencode-bucket/fasta/current/c_uteleia.PRJEB12600.WS284.genomic.fa.gz.gzi"
                }
             }
          },
@@ -257,64 +254,67 @@
                "displayId" : "NNGRRT_sequence_search_c_uteleia_PRJEB12600-LinearBasicDisplay",
                "renderer" : {
                   "color1" : "DarkViolet",
+                  "showLabels" : false,
                   "height" : 4,
-                  "showDescriptions" : false,
                   "type" : "SvgFeatureRenderer",
-                  "showLabels" : false
+                  "showDescriptions" : false
                }
             }
          ],
-         "assemblyNames" : [
-            "c_uteleia_PRJEB12600"
-         ],
-         "name" : "SaCas9 NNGRRT PAM sites",
-         "type" : "FeatureTrack",
-         "trackId" : "c_uteleia_PRJEB12600_NNGRRT_sequence_search",
-         "description" : "Staphylococcus aureus Cas9 PAM sites based on NNGRRT motif. Computed on the fly at load time."
-      },
-      {
-         "adapter" : {
-            "search" : ".GG",
-            "type" : "SequenceSearchAdapter",
-            "sequenceAdapter" : {
-               "fastaLocation" : {
-                  "locationType" : "UriLocation",
-                  "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/modencode-bucket/fasta/current/c_uteleia.PRJEB12600.WS284.genomic.fa.gz"
-               },
-               "faiLocation" : {
-                  "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/modencode-bucket/fasta/current/c_uteleia.PRJEB12600.WS284.genomic.fa.gz.fai",
-                  "locationType" : "UriLocation"
-               },
-               "type" : "BgzipFastaAdapter",
-               "gziLocation" : {
-                  "locationType" : "UriLocation",
-                  "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/modencode-bucket/fasta/current/c_uteleia.PRJEB12600.WS284.genomic.fa.gz.gzi"
-               }
-            }
-         },
          "category" : [
             "Externally Sourced Resources",
             "CRISPR predictions"
          ],
+         "type" : "FeatureTrack",
+         "name" : "SaCas9 NNGRRT PAM sites",
+         "trackId" : "c_uteleia_PRJEB12600_NNGRRT_sequence_search",
          "assemblyNames" : [
             "c_uteleia_PRJEB12600"
-         ],
-         "name" : "SpCas9 NGG PAM sites",
+         ]
+      },
+      {
          "displays" : [
             {
                "type" : "LinearBasicDisplay",
                "displayId" : "NGG_sequence_search_c_uteleia_PRJEB12600-LinearBasicDisplay",
                "renderer" : {
-                  "height" : 4,
                   "showDescriptions" : false,
-                  "color1" : "RebeccaPurple",
+                  "type" : "SvgFeatureRenderer",
+                  "height" : 4,
                   "showLabels" : false,
-                  "type" : "SvgFeatureRenderer"
+                  "color1" : "RebeccaPurple"
                }
             }
          ],
-         "type" : "FeatureTrack",
+         "adapter" : {
+            "type" : "SequenceSearchAdapter",
+            "sequenceAdapter" : {
+               "gziLocation" : {
+                  "locationType" : "UriLocation",
+                  "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/modencode-bucket/fasta/current/c_uteleia.PRJEB12600.WS284.genomic.fa.gz.gzi"
+               },
+               "fastaLocation" : {
+                  "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/modencode-bucket/fasta/current/c_uteleia.PRJEB12600.WS284.genomic.fa.gz",
+                  "locationType" : "UriLocation"
+               },
+               "type" : "BgzipFastaAdapter",
+               "faiLocation" : {
+                  "uri" : "https://s3.amazonaws.com/agrjbrowse/MOD-jbrowses/WormBase/static_tracks/modencode-bucket/fasta/current/c_uteleia.PRJEB12600.WS284.genomic.fa.gz.fai",
+                  "locationType" : "UriLocation"
+               }
+            },
+            "search" : ".GG"
+         },
          "description" : "Streptococcus pyogenes Cas9 PAM sites based on NGG motif. Computed on the fly at load time.",
+         "type" : "FeatureTrack",
+         "category" : [
+            "Externally Sourced Resources",
+            "CRISPR predictions"
+         ],
+         "name" : "SpCas9 NGG PAM sites",
+         "assemblyNames" : [
+            "c_uteleia_PRJEB12600"
+         ],
          "trackId" : "c_uteleia_PRJEB12600_NGG_sequence_search"
       }
    ]
